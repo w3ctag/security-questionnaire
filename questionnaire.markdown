@@ -1,3 +1,11 @@
+# Pre-review Questionnaire
+
+Eventually, it would be nice if a document like this was part of a specification
+publishing process. See <http://lists.w3.org/Archives/Public/public-w3process/2014Nov/0026.html>
+for some discussion around that notion.
+
+Pull requests ever so welcome: <https://github.com/mikewest/spec-questionnaire>
+
 1.  Does this specification deal in any way with [personally-identifiable
     information][pii]?
 
