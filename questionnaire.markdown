@@ -11,14 +11,14 @@
 
 5.  Does this specification allow an origin access to aspects of a user's local
     computing environment (e.g. screen sizes, installed fonts, installed
-    plugins).
+    plugins)?
 
 6.  Does this specification allow an origin some measure of control over a user
     agent's native UI (showing, hiding, or modifying certain details, especially
     if those details are relevant to security)?
 
 7.  Does this specification expose origin-controlled data to an origin over
-    HTTP (e.g. cookies, `ETag` and `Last Modified` headers)? Via a DOM API (e.g.
+    HTTP (e.g. cookies, `ETag` and `Last Modified` headers)? Via a API (e.g.
     `localStorage`)?
 
 8.  Does this specification expose temporary identifiers to the web (e.g. TLS
