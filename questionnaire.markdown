@@ -35,7 +35,13 @@
 11. Does this specification expose any other data to an origin that it doesn't
     currently have access to (e.g. Content Security Policy's violation reports)?
 
-12. Does this specification have a "Security Considerations" and "Privacy
+12. Does this specification create a string-to-script mechanism (e.g. `eval()`
+    or `setTimeout([string], ...)`)?
+
+13. Does this specification enable a new script loading/execution mechanism
+    (e.g. HTML Imports)? What about style?
+
+14. Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
 
 [pii]: http://en.wikipedia.org/wiki/Personally_identifiable_information
