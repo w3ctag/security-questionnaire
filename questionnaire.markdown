@@ -1,4 +1,4 @@
-# Pre-review Questionnaire
+# Self-Review Questionnaire: Privacy & Security
 
 Eventually, it would be nice if a document like this was part of a specification
 publishing process. See <http://lists.w3.org/Archives/Public/public-w3process/2014Nov/0026.html>
