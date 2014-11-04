@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang=en><head>
+  <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+  <title>Self-Review Questionnaire: Security and Privacy</title>
+  <link href=../default.css rel=stylesheet type=text/css>
+  <style>
+  body {
+    background: url("https://www.w3.org/StyleSheets/TR/logo-unofficial.png") top left no-repeat white;
+    background-attachment: fixed;
+    color: black;
+    font-family: sans-serif;
+    margin: 0 auto;
+    max-width: 50em;
+    padding: 2em 1em 2em 70px;
+  }
+  :link { color: #00C; background: transparent }
+  :visited { color: #609; background: transparent }
+  a[href]:active { color: #C00; background: transparent }
+  a[href]:hover { background: #ffa }
+
+  a[href] img { border-style: none }
+
+  h1, h2, h3, h4, h5, h6 { text-align: left }
+  h1, h2, h3 { color: #005A9C; }
+  h1 { font: 170% sans-serif }
+  h2 { font: 140% sans-serif }
+  h3 { font: 120% sans-serif }
+  h4 { font: bold 100% sans-serif }
+  h5 { font: italic 100% sans-serif }
+  h6 { font: small-caps 100% sans-serif }
+
+  .hide { display: none }
+
+  div.head { margin-bottom: 1em }
+  div.head h1 { margin-top: 2em; clear: both }
+  div.head table { margin-left: 2em; margin-top: 2em }
+
+  p.copyright { font-size: small }
+  p.copyright small { font-size: small }
+
+  pre { margin-left: 2em }
+  dt { font-weight: bold }
+
+  ul.toc, ol.toc {
+    list-style: none;
+  }
+  </style>
+</head>
+<body class=h-entry>
+<div class=head>
+  <p data-fill-with=logo></p>
+  <h1 class="p-name no-ref" id=title>Self-Review Questionnaire: Security and Privacy</h1>
+  <h2 class="no-num no-toc no-ref heading settled" id=subtitle><span class=content>A Collection of Interesting Ideas,
+    <span class=dt-updated><span class=value-title title=20141104>4 November 2014</span></span></span></h2>
+  <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=https://example.com/#TODO>https://example.com/#TODO</a><dt class=editor>Editor:<dd class=editor><div class="p-author h-card vcard"><a class="p-name fn u-email email" href=mailto:mkwst@google.com>Mike West</a> (<span class="p-org org">Google Inc.</span>)</div></dl></div>
+  <div data-fill-with=warning></div>
+  <p class=copyright data-fill-with=copyright>
+©2014 Google
+</p>
+  <hr title="Separator for header">
+</div>
+
+<h2 class="no-num no-toc no-ref heading settled" id=abstract><span class=content>Abstract</span></h2>
+<div class=p-summary data-fill-with=abstract><p>This document lists a set of questions that working groups interested in the
+
+security and privacy impacts of their specifications might ask themselves.
+It is not meant as a "security checklist", nor does filling out this
+questionnaire obviate the group’s responsibility to obtain "wide review" of
+a specification’s security and privacy properties before publication.
+Instead, this document is meant as a guide through an initial self-review,
+which can provide a later reviewer with valuable context, and help a group
+to focus on important questions in areas where they might lack expertise.</p>
+</div>
+
+<h2 class="no-num no-toc no-ref heading settled" id=status><span class=content>Status of this document</span></h2>
+<div data-fill-with=status><p>
+	This is a <strong>really</strong> unofficial draft.
+	It’s not meant to capture any consensus,
+	beyond my own personal feelings about what sounds interesting.
+	It is provided for discussion only and may change at any moment,
+	and should not be taken as "official" or even "unofficial, but planned".
+	Its publication here does not imply endorsement of its contents by W3C. 
+	Don’t cite this document other than as a collection of interesting ideas.</div>
+<div data-fill-with=at-risk></div>
+
+<h2 class="no-num no-toc no-ref heading settled" id=contents><span class=content>Table of Contents</span></h2>
+<div data-fill-with=table-of-contents><ul class=toc><li><a href=#intro><span class=secno>1</span> <span class=content>Introduction</span></a><li><a href=#questions><span class=secno>2</span> <span class=content>Questions to Consider</span></a><ul class=toc><li><a href=#pii><span class=secno>2.1</span> <span class=content>
+    Does this specification deal with personally-identifiable information?
+  </span></a><li><a href=#credentials><span class=secno>2.2</span> <span class=content>
+    Does this specification deal with high-value data?
+  </span></a><li><a href=#location><span class=secno>2.3</span> <span class=content>Does this specification allow an origin access to a user’s location?</span></a><li><a href=#sensors><span class=secno>2.4</span> <span class=content>Does this specification allow an origin access to sensors on a user’s device?</span></a><li><a href=#local-device><span class=secno>2.5</span> <span class=content>Does this specification allow an origin access to aspects of a user’s local computing environment?</span></a><li><a href=#remote-device><span class=secno>2.6</span> <span class=content>Does this specification allow an origin access to other devices?</span></a><li><a href=#native-ui><span class=secno>2.7</span> <span class=content>Does this specification allow an origin some measure of control over a user agent’s native UI?</span></a><li><a href=#origin-controlled-data><span class=secno>2.8</span> <span class=content>Does this specification expose origin-controlled data to an origin?</span></a><li><a href=#temporary-id><span class=secno>2.9</span> <span class=content>Does this specification expose temporary identifiers to the web?</span></a><li><a href=#persistent-id><span class=secno>2.10</span> <span class=content>Does this specification expose persistent details to the web?</span></a><li><a href=#first-third-party><span class=secno>2.11</span> <span class=content>Does this specification distinguish between behavior in first-party and third-party contexts?</span></a><li><a href=#other-data><span class=secno>2.12</span> <span class=content>Does this specification expose any other data to an origin that it doesn’t currently have access to?</span></a><li><a href=#string-to-script><span class=secno>2.13</span> <span class=content>Does this specification create a string-to-script mechanism?</span></a><li><a href=#script-loading><span class=secno>2.14</span> <span class=content>Does this specification enable a new script loading/execution mechanism?
+
+<p>(e.g. HTML Imports)? What about style?</p>
+
+  </span></a><li><a href=#considerations><span class=secno>2.15</span> <span class=content>Does this specification have a "Security Considerations" and "Privacy
+    Considerations" section?</span></a></ul><li><a href=#references><span class=secno></span> <span class=content>References</span></a><ul class=toc><li><a href=#informative><span class=secno></span> <span class=content>Informative References</span></a></ul><li><a href=#index><span class=secno></span> <span class=content>Index</span></a></ul></div>
+
+
+
+
+
+
+<section>
+  <h2 class="heading settled" data-level=1 id=intro><span class=secno>1. </span><span class=content>Introduction</span><a class=self-link href=#intro></a></h2>
+
+<p>Adding features to the web is a tricky thing; on the one hand, we want to
+  provide developers with access to all the things they need in order to build
+  amazing experiences. On the other, we need to ensure that we don’t
+  accidentally hand over too much power to malicious folks who could abuse it.
+  Ideally, careful review of every specification we publish will allow us to
+  strike the right balance.</p>
+
+<p>Working groups can (and should) begin this review process early, of course.
+  It’s <em>easy</em> to mitigate risks to users on the web <em>before</em> a
+  feature is finalized and shipped in user agents. Changing APIs or
+  introducing restrictions becomes nigh impossible once the web begins to
+  depend on a particular implementation.</p>
+
+<p>This document encourages early review by posing a number of questions that
+  a working group might consider themselves, before asking for more formal
+  review. The intent is to highligh areas which have historically had
+  interesting implications on a user’s security or privacy, and thereby to
+  focus the working group’s attention on areas that might previously have been
+  overlooked.</p>
+
+<p class=note>Note: Answering these questions obviously doesn’t constitute "wide review" in
+  and of itself, but could provide a helpful basis of understanding upon which
+  future reviewers can build.</p>
+</section>
+
+
+<section>
+  <h2 class="heading settled" data-level=2 id=questions><span class=secno>2. </span><span class=content>Questions to Consider</span><a class=self-link href=#questions></a></h2>
+
+  <h3 class="heading settled" data-level=2.1 id=pii><span class=secno>2.1. </span><span class=content>
+    Does this specification deal with personally-identifiable information?
+  </span><a class=self-link href=#pii></a></h3>
+
+<p><dfn data-dfn-type=dfn data-local-title=personally-identifiable data-noexport="" id=personally-identifiable-information>Personally-identifiable
+  information<a class=self-link href=#personally-identifiable-information></a></dfn> (PII) includes a large swath of data which could be used on
+  its own, or in combination with other information, to identify a single
+  person. The exact definition of what’s considered PII varies from jurisdiction
+  to jurisdiction, but could certainly include things like a home address, an
+  email address, birthdates, usernames, fingerprints etc. Wikipedia has a fairly
+  good description at <a data-biblio-type=informative data-link-type=biblio href=#biblio-pii title=PII>[PII]</a>.</p>
+
+<p>If the specification under consideration exposes PII to the web, it’s
+  important to consider ways to mitigate the obvious impacts. For instance:</p>
+
+<ul><li data-md=""><p>A feature which uses biometric data (fingerprints or retina scans) could
+  refuse to expose the raw data to the web, instead using the raw data only
+  to unlock some origin-specific and ephemeral secret and transmitting that
+  secret instead.</p>
+
+<li data-md=""><p>User mediation could be required, in order to ensure that no data is
+  exposed without a user’s explicit choice (and hopefully understanding).</p>
+</ul>
+  <h3 class="heading settled" data-level=2.2 id=credentials><span class=secno>2.2. </span><span class=content>
+    Does this specification deal with high-value data?
+  </span><a class=self-link href=#credentials></a></h3>
+
+<p>Data which isn’t <a data-link-type=dfn href=#personally-identifiable-information title=personally-identifiable>personally-identifiable</a> can still be quite valuable.
+  Sign-in credentials (like username/password pairs, or OAuth refresh tokens)
+  can be extrememly powerful in the wrong hands, as can financial instruments
+  like credit card data.</p>
+
+<p>Mitigations similar to those in <a data-section="" href=#pii>§2.1 
+    Does this specification deal with personally-identifiable information?
+  </a> could be effective.</p>
+
+  <h3 class="heading settled" data-level=2.3 id=location><span class=secno>2.3. </span><span class=content>Does this specification allow an origin access to a user’s location?</span><a class=self-link href=#location></a></h3>
+
+  <h3 class="heading settled" data-level=2.4 id=sensors><span class=secno>2.4. </span><span class=content>Does this specification allow an origin access to sensors on a user’s device?</span><a class=self-link href=#sensors></a></h3>
+
+  <h3 class="heading settled" data-level=2.5 id=local-device><span class=secno>2.5. </span><span class=content>Does this specification allow an origin access to aspects of a user’s local computing environment?</span><a class=self-link href=#local-device></a></h3>
+
+<p>(e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?</p>
+
+  <h3 class="heading settled" data-level=2.6 id=remote-device><span class=secno>2.6. </span><span class=content>Does this specification allow an origin access to other devices?</span><a class=self-link href=#remote-device></a></h3>
+
+<p>(e.g. via bluetooth, USB, etc.)?</p>
+
+  <h3 class="heading settled" data-level=2.7 id=native-ui><span class=secno>2.7. </span><span class=content>Does this specification allow an origin some measure of control over a user agent’s native UI?</span><a class=self-link href=#native-ui></a></h3>
+
+<p>(showing, hiding, or modifying certain details, especially if those details are relevant to security)?</p>
+
+  <h3 class="heading settled" data-level=2.8 id=origin-controlled-data><span class=secno>2.8. </span><span class=content>Does this specification expose origin-controlled data to an origin?</span><a class=self-link href=#origin-controlled-data></a></h3>
+
+<p>over HTTP? (e.g. cookies, `ETag` and `Last Modified` headers)</p>
+
+<p>via an API? (e.g.`localStorage`)</p>
+
+  <h3 class="heading settled" data-level=2.9 id=temporary-id><span class=secno>2.9. </span><span class=content>Does this specification expose temporary identifiers to the web?</span><a class=self-link href=#temporary-id></a></h3>
+
+<p>(e.g. TLS features like Channel ID, session identifiers/tickets, etc)?</p>
+
+  <h3 class="heading settled" data-level=2.10 id=persistent-id><span class=secno>2.10. </span><span class=content>Does this specification expose persistent details to the web?</span><a class=self-link href=#persistent-id></a></h3>
+
+<p>(device-level,like GPU details, or otherwise)</p>
+
+<p>Have steps been taken to reduce the entropy these details introduce?</p>
+
+  <h3 class="heading settled" data-level=2.11 id=first-third-party><span class=secno>2.11. </span><span class=content>Does this specification distinguish between behavior in first-party and third-party contexts?</span><a class=self-link href=#first-third-party></a></h3>
+
+<p>(where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)</p>
+
+  <h3 class="heading settled" data-level=2.12 id=other-data><span class=secno>2.12. </span><span class=content>Does this specification expose any other data to an origin that it doesn’t currently have access to?</span><a class=self-link href=#other-data></a></h3>
+
+<p>(e.g. Content Security Policy’s violation reports)</p>
+
+  <h3 class="heading settled" data-level=2.13 id=string-to-script><span class=secno>2.13. </span><span class=content>Does this specification create a string-to-script mechanism?</span><a class=self-link href=#string-to-script></a></h3>
+
+<p>(e.g. `eval()` or `setTimeout([string], ...)`)</p>
+
+  <h3 class="heading settled" data-level=2.14 id=script-loading><span class=secno>2.14. </span><span class=content>Does this specification enable a new script loading/execution mechanism?
+
+<p>(e.g. HTML Imports)? What about style?</p>
+
+  </span><a class=self-link href=#script-loading></a></h3><h3 class="heading settled" data-level=2.15 id=considerations><span class=secno>2.15. </span><span class=content>Does this specification have a "Security Considerations" and "Privacy
+    Considerations" section?</span><a class=self-link href=#considerations></a></h3>
+</section>
+
+
+
+
+
+
+<h2 class="no-num heading settled" id=references><span class=content>References</span><a class=self-link href=#references></a></h2><h3 class="no-num heading settled" id=informative><span class=content>Informative References</span><a class=self-link href=#informative></a></h3><dl><dt id=biblio-pii title=PII><a class=self-link href=#biblio-pii></a>[PII]<dd>???. <a href=https://en.wikipedia.org/wiki/Personally_identifiable_information>Personally identifiable information</a>. URL: <a href=https://en.wikipedia.org/wiki/Personally_identifiable_information>https://en.wikipedia.org/wiki/Personally_identifiable_information</a></dl><h2 class="no-num heading settled" id=index><span class=content>Index</span><a class=self-link href=#index></a></h2><ul class=indexlist><li>personally-identifiable, <a href=#personally-identifiable-information title="section 2.1">2.1</a><li>Personally-identifiable
+  information, <a href=#personally-identifiable-information title="section 2.1">2.1</a></ul>

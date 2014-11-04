@@ -1,0 +1,151 @@
+<h1>Self-Review Questionnaire: Security and Privacy</h1>
+<pre class="metadata">
+Status: DREAM
+ED: https://example.com/#TODO
+Shortname: security-privacy-questionnaire
+Level: 1
+Editor: Mike West, Google Inc., mkwst@google.com
+Group: personal
+Indent: 2
+Abstract: 
+  This document lists a set of questions that working groups interested in the
+  security and privacy impacts of their specifications might ask themselves.
+  It is not meant as a "security checklist", nor does filling out this
+  questionnaire obviate the group's responsibility to obtain "wide review" of
+  a specification's security and privacy properties before publication.
+  Instead, this document is meant as a guide through an initial self-review,
+  which can provide a later reviewer with valuable context, and help a group
+  to focus on important questions in areas where they might lack expertise.
+</pre>
+<div boilerplate=copyright>
+&copy;2014 Google
+</div>
+
+<!-- Big Text: Intro -->
+<section>
+  <h2 id="intro">Introduction</h2>
+
+  Adding features to the web is a tricky thing; on the one hand, we want to
+  provide developers with access to all the things they need in order to build
+  amazing experiences. On the other, we need to ensure that we don't
+  accidentally hand over too much power to malicious folks who could abuse it.
+  Ideally, careful review of every specification we publish will allow us to
+  strike the right balance.
+
+  Working groups can (and should) begin this review process early, of course.
+  It's <em>easy</em> to mitigate risks to users on the web <em>before</em> a
+  feature is finalized and shipped in user agents. Changing APIs or
+  introducing restrictions becomes nigh impossible once the web begins to
+  depend on a particular implementation. 
+
+  This document encourages early review by posing a number of questions that
+  a working group might consider themselves, before asking for more formal
+  review. The intent is to highligh areas which have historically had
+  interesting implications on a user's security or privacy, and thereby to
+  focus the working group's attention on areas that might previously have been
+  overlooked.
+
+  Note: Answering these questions obviously doesn't constitute "wide review" in
+  and of itself, but could provide a helpful basis of understanding upon which
+  future reviewers can build.
+</section>
+
+<!-- Big Text: Questions -->
+<section>
+  <h2 id="questions">Questions to Consider</h2>
+
+  <h3 id="pii">
+    Does this specification deal with personally-identifiable information?
+  </h3>
+
+  <dfn local-title="personally-identifiable">Personally-identifiable
+  information</dfn> (PII) includes a large swath of data which could be used on
+  its own, or in combination with other information, to identify a single
+  person. The exact definition of what's considered PII varies from jurisdiction
+  to jurisdiction, but could certainly include things like a home address, an
+  email address, birthdates, usernames, fingerprints etc. Wikipedia has a fairly
+  good description at [[PII]].
+
+  If the specification under consideration exposes PII to the web, it's
+  important to consider ways to mitigate the obvious impacts. For instance:
+ 
+  *   A feature which uses biometric data (fingerprints or retina scans) could
+      refuse to expose the raw data to the web, instead using the raw data only
+      to unlock some origin-specific and ephemeral secret and transmitting that
+      secret instead.
+
+  *   User mediation could be required, in order to ensure that no data is
+      exposed without a user's explicit choice (and hopefully understanding).
+
+  <h3 id="credentials">
+    Does this specification deal with high-value data?
+  </h3>
+
+  Data which isn't <a>personally-identifiable</a> can still be quite valuable.
+  Sign-in credentials (like username/password pairs, or OAuth refresh tokens)
+  can be extrememly powerful in the wrong hands, as can financial instruments
+  like credit card data.
+
+  Mitigations similar to those in [[#pii]] could be effective.
+
+  <h3 id="location">Does this specification allow an origin access to a user's location?</h3>
+
+  <h3 id="sensors">Does this specification allow an origin access to sensors on a user's device?</h3>
+
+  <h3 id="local-device">Does this specification allow an origin access to aspects of a user's local computing environment?</h3>
+
+  (e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?
+
+  <h3 id="remote-device">Does this specification allow an origin access to other devices?</h3>
+
+  (e.g. via bluetooth, USB, etc.)?
+
+  <h3 id="native-ui">Does this specification allow an origin some measure of control over a user agent's native UI?</h3>
+
+  (showing, hiding, or modifying certain details, especially if those details are relevant to security)?
+
+  <h3 id="origin-controlled-data">Does this specification expose origin-controlled data to an origin?</h3>
+
+  over HTTP? (e.g. cookies, `ETag` and `Last Modified` headers)
+
+  via an API? (e.g.`localStorage`)
+
+  <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
+
+  (e.g. TLS features like Channel ID, session identifiers/tickets, etc)?
+
+  <h3 id="persistent-id">Does this specification expose persistent details to the web?</h3>
+
+  (device-level,like GPU details, or otherwise)
+
+  Have steps been taken to reduce the entropy these details introduce?
+
+  <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
+
+  (where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)
+
+  <h3 id="other-data">Does this specification expose any other data to an origin that it doesn't currently have access to?</h3>
+
+  (e.g. Content Security Policy's violation reports)
+
+  <h3 id="string-to-script">Does this specification create a string-to-script mechanism?</h3>
+
+  (e.g. `eval()` or `setTimeout([string], ...)`)
+
+  <h3 id="script-loading">Does this specification enable a new script loading/execution mechanism?
+
+  (e.g. HTML Imports)? What about style?
+
+  <h3 id="considerations">Does this specification have a "Security Considerations" and "Privacy
+    Considerations" section?</h3>
+</section>
+
+<pre class="biblio">
+{
+  "PII": {
+      "href": "https://en.wikipedia.org/wiki/Personally_identifiable_information",
+      "title": "Personally identifiable information",
+      "publisher": "Wikipedia"
+  }
+}
+</pre>
