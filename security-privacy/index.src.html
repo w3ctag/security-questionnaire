@@ -50,6 +50,77 @@ Abstract:
   future reviewers can build.
 </section>
 
+<!-- Big Text: Threats -->
+<section>
+  <h2 id="threats">Threat Models</h2>
+
+  "Security" and "Privacy" are big concepts. In order to pare them down to
+  something which could feasibly guide working groups' decisions, let's consider
+  the types of threats to both which the web makes possible:
+
+  <h3 id="passive-network">Passive Network Attackers</h3>
+
+  A <dfn>passive network attacker</dfn> has read-access to the bits going over
+  the wire between users and the servers they're communicating with. She can't
+  <em>modify</em> the bytes, but she can collect and analyze them.
+
+  Due to the decentralized nature of the internet, and the general level of
+  interest in user activity, it's reasonable to assume that practically every
+  unencrypted bit that's bouncing around the network of proxies, routers, and
+  servers you're using right now is being read by someone. It's equally likely
+  that some of these attackers are doing their best to understand the encrypted
+  bits as well (though that requires significantly more effort).
+
+  *   The IETF's "Pervasive Monitoring Is an Attack" document [[RFC7258]] is
+      useful reading, outlining some of the impacts on privacy that this
+      assumption entails.
+
+  *   Governments aren't the only concern; your local coffee shop is likely to
+      be gathering information on its customers, your ISP at home is likely to
+      be doing the same.
+
+  <h3 id="active-network">Active Network Attackers</h3>
+
+  An <dfn>active network attacker</dfn> has both read- and write-access to the
+  bits going over the wire between users and the servers they're communicating
+  with. She can collect and analyze data, but also modify it in-flight,
+  injecting and manipulating JavaScript and HTML at will. This is more common
+  than you might expect, for both benign and malicious purposes:
+
+  *   ISPs and caching proxies regularly cache and compress images before
+      delivering them to users in an effort to reduce data usage. This can be
+      especially useful for users on low-bandwidth, high-latency devices like
+      phones.
+      
+  *   ISPs also regularly inject JavaScript [[COMCAST]] and other identifiers
+      [[VERIZON]]for less benign purposes.
+
+  *   If your ISP is willing to modify your traffic for profit, it's difficult
+      to believe that state-level attackers would remain passive.
+
+  <h3 id="sop-violations">Same-Origin Policy Violations</h3>
+
+  The <dfn>same-origin policy</dfn> is the cornerstone of security on the web;
+  one origin should not have direct access to another origin's data (the policy
+  is more formally defined in Section 3 of [[RFC6454]]). A corollary to this
+  policy is that an origin should not have direct access to data that isn't
+  associated with <em>any</em> origin: the contents of a user's hard drive,
+  for instance. Various kinds of attacks bypass this protection in one way or
+  another. For example:
+
+  *   <dfn local-title="XSS">Cross-site scripting attacks</dfn> involve an
+      attacker tricking an origin into executing attacker-controlled code in
+      the context of a target origin.
+
+  *   <dfn local-title="CSRF">Cross-site request forgery attacks</dfn> trick
+      user agents into exerting a user's ambient authority on sites where
+      they've logged in by submitting requests on their behalf.
+
+  *   Data leakage occurs when bits of information are inadvertantly made
+      available cross-origin, either explicitly via CORS headers [[CORS]],
+      or implicitly, via side-channel attacks like [[TIMING]].
+</section>
+
 <!-- Big Text: Questions -->
 <section>
   <h2 id="questions">Questions to Consider</h2>
@@ -84,9 +155,49 @@ Abstract:
   Data which isn't <a>personally-identifiable</a> can still be quite valuable.
   Sign-in credentials (like username/password pairs, or OAuth refresh tokens)
   can be extrememly powerful in the wrong hands, as can financial instruments
-  like credit card data.
+  like credit card data. Making this data available to JavaScript, for instance,
+  could expose it to <a>XSS</a> attacks and <a>active network attackers</a> who
+  could inject code to read and exfiltrate the data.
 
-  Mitigations similar to those in [[#pii]] could be effective.
+  <h3 id="persistent-state">Does this specification introduce new persistent state for an origin?</h3>
+
+  For example:
+
+  *    Service Worker [[SERVICE-WORKERS]] intercept all requests made by an
+       origin, allowing sites to function perfectly even when offline. A
+       maliciously-injected service worker, however, would be devastating (as
+       documented in that spec's
+       <a href="http://www.w3.org/TR/service-workers/#security-considerations">security
+       considerations section</a>). They mitigate the risks an <a>active network
+       attacker</a> or <a>XSS</a> vulnerability present by requiring an
+       encrypted and authenticated connection in order to register a service
+       worker.
+
+  <h3 id="other-data">Does this specification expose any other data to an origin that it doesn't currently have access to?</h3>
+
+  As noted above in [#sop-violations], the <a>same-origin policy</a> is an
+  important security barrier that new features need to carefully consider.
+  If a specification exposes details about another origin's state, or allows
+  POST or GET requests to be made to another origin, the consequences can be
+  severe.
+
+  *   Content Security Policy [[CSP]] unintentionally exposed redirect targets
+      cross-origin by allowing one origin to infer details about another origin
+      through violation reports. [[HOMAKOV]] The working group eventually
+      mitigated the risk by reducing a policy's granularity after a redirect.
+
+  *   Beacon [[BEACON]] allows an origin to send POST requests to an endpoint
+      on another origin. They decided that this feature didn't add any new
+      attack surface above and beyond what normal form submission entails, so
+      no extra mitigation was necessary.
+
+  <h3 id="string-to-script">Does this specification enable new script execution mechanisms?</h3>
+  
+  * New string-to-script mechanism? (e.g. `eval()` or `setTimeout([string], ...)`)
+
+  * New script loading mechansim? (e.g. HTML Imports)
+
+  * What about style?
 
   <h3 id="location">Does this specification allow an origin access to a user's location?</h3>
 
@@ -124,28 +235,58 @@ Abstract:
 
   (where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)
 
-  <h3 id="other-data">Does this specification expose any other data to an origin that it doesn't currently have access to?</h3>
+  <h3 id="considerations">
+    Does this specification have a "Security Considerations" and "Privacy
+    Considerations" section?
+  </h3>
 
-  (e.g. Content Security Policy's violation reports)
-
-  <h3 id="string-to-script">Does this specification create a string-to-script mechanism?</h3>
-
-  (e.g. `eval()` or `setTimeout([string], ...)`)
-
-  <h3 id="script-loading">Does this specification enable a new script loading/execution mechanism?
-
-  (e.g. HTML Imports)? What about style?
-
-  <h3 id="considerations">Does this specification have a "Security Considerations" and "Privacy
-    Considerations" section?</h3>
+  Not every feature has security or privacy impacts. Many, many features do.
+  Documenting the various concerns that have cropped up in one form or another
+  is a good way to help implementers and authors understand the risks that a
+  feature presents, and ensure that adequate mitigations are in place.
 </section>
 
 <pre class="biblio">
 {
+  "COMCAST": {
+      "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
+      "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
+      "publisher": "Ars Technica",
+      "authors": [ "David Kravets" ]
+  },
+  "HOMAKOV": {
+      "href": "http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html",
+      "title": "Using Content-Security-Policy for Evil",
+      "authors": [ "Egor Homakov" ]
+  },
+  "VERIZON": {
+      "href": "http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/",
+      "title": "Verizon looks to target its mobile subscribers with ads",
+      "publisher": "Advertising Age",
+      "authors": [ "Mark Bergen", "Alex Kantrowitz" ]
+  },
   "PII": {
       "href": "https://en.wikipedia.org/wiki/Personally_identifiable_information",
       "title": "Personally identifiable information",
       "publisher": "Wikipedia"
+  },
+  "TIMING": {
+      "href": "http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf",
+      "title": "Pixel Perfect Timing Attacks with HTML5",
+      "authors": [ "Paul Stone" ],
+      "publisher": "Context Information Security"
+  },
+  "RFC6454": {
+      "href": "https://tools.ietf.org/html/rfc6454",
+      "title": "The Web Origin Concept",
+      "authors": [ "Adam Barth" ],
+      "publisher": "IETF"
+  },
+  "RFC7258": {
+      "href": "http://tools.ietf.org/html/rfc7258",
+      "title": "Pervasive Monitoring Is an Attack",
+      "authors": [ "Stephen Farrell", "Hannes Tschofenig" ],
+      "publisher": "IETF"
   }
 }
 </pre>
