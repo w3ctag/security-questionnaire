@@ -2,7 +2,8 @@
 
 Eventually, it would be nice if a document like this was part of a specification
 publishing process. See <http://lists.w3.org/Archives/Public/public-w3process/2014Nov/0026.html>
-for some discussion around that notion.
+for some discussion around that notion. Starting to flesh this out into a more
+detailed document at <https://mikewest.github.io/spec-questionnaire/security-privacy/>.
 
 Pull requests ever so welcome: <https://github.com/mikewest/spec-questionnaire>
 
