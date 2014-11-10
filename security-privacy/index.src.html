@@ -163,19 +163,48 @@ Abstract:
   could expose it to <a>XSS</a> attacks and <a>active network attackers</a> who
   could inject code to read and exfiltrate the data.
 
-  <h3 id="persistent-state">Does this specification introduce new persistent state for an origin?</h3>
+  <h3 id="persistent-origin-specific-state">
+    Does this specification introduce new state for an origin that persists
+    across browsing sessions?
+  </h3>
 
   For example:
 
-  *    Service Worker [[SERVICE-WORKERS]] intercept all requests made by an
-       origin, allowing sites to function perfectly even when offline. A
-       maliciously-injected service worker, however, would be devastating (as
-       documented in that spec's
-       <a href="http://www.w3.org/TR/service-workers/#security-considerations">security
-       considerations section</a>). They mitigate the risks an <a>active network
-       attacker</a> or <a>XSS</a> vulnerability present by requiring an
-       encrypted and authenticated connection in order to register a service
-       worker.
+  *   Service Worker [[SERVICE-WORKERS]] intercept all requests made by an
+      origin, allowing sites to function perfectly even when offline. A
+      maliciously-injected service worker, however, would be devastating (as
+      documented in that spec's
+      <a href="http://www.w3.org/TR/service-workers/#security-considerations">security
+      considerations section</a>). They mitigate the risks an <a>active network
+      attacker</a> or <a>XSS</a> vulnerability present by requiring an
+      encrypted and authenticated connection in order to register a service
+      worker.
+
+  *   Platform-specific DRM implementations might expose origin-specific
+      information in order to help identify users and determine whether they
+      ought to be granted access to a specific piece of media. These kinds of
+      identifiers should be carefully evaluated to determine how abuse can be
+      mitigated; identifiers which a user cannot easily change are very
+      valuable from a tracking perspective, and protecting the identifiers from
+      an active network attacker is an important concern.
+
+  <h3 id="persistent-identifiers">
+    Does this specification expose cross-origin persistent state to the web?
+  </h3>
+
+  For example:
+
+  *   The <code>GL_RENDERER</code> string exposed by some WebGL implementations
+      improves performance in some kinds of applications, but does so at the
+      cost of adding persistent state to a user's fingerprint. These kinds of
+      device-level details should be carefully weighed to ensure that the costs
+      are outweighed by the benefits.
+
+  *   The {{NavigatorPlugins}} list exposed via the DOM practically never
+      changes for most users. Some user agents have taken steps to reduce the
+      entropy introduced by
+      <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
+      direct enumeration of the plugin list</a>.
 
   <h3 id="other-data">Does this specification expose any other data to an origin that it doesn't currently have access to?</h3>
 
@@ -262,12 +291,6 @@ Abstract:
   <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
 
   (e.g. TLS features like Channel ID, session identifiers/tickets, etc)?
-
-  <h3 id="persistent-id">Does this specification expose persistent details to the web?</h3>
-
-  (device-level,like GPU details, or otherwise)
-
-  Have steps been taken to reduce the entropy these details introduce?
 
   <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
 
