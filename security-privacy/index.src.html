@@ -226,9 +226,28 @@ Abstract:
 
   (e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?
 
-  <h3 id="remote-device">Does this specification allow an origin access to other devices?</h3>
+  <h3 id="remote-device">
+    Does this specification allow an origin access to other devices?
+  </h3>
 
-  (e.g. via bluetooth, USB, etc.)?
+  Specifically, it's interesting whether or not this specification allows access
+  to devices on a user's local network that would be otherwise inaccessible to
+  a web origin. In particular, connection via Bluetooth and USB should be
+  carefully evaluated to avoid exposing devices to the web that aren't created
+  with the web in mind; doing so has security implications, as these devices
+  may not be hardened against malicious input as well as they should be.
+
+  *   The Network Service Discovery API [[DISCOVERY]] recommends CORS preflights
+      before granting access to a device, and requires user agents to involve
+      the user with a permission request of some kind. The spec's
+      <a href="https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html#security-and-privacy-considerations">Security
+      and privacy considerations"</a> section has more details.
+
+  *   Likewise, the Web Bluetooth [[BLUETOOTH]] has an extensive discussion of
+      <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy-considerations">"Security
+      and privacy considerations"</a>, which is worth reading as an example for
+      similar work.
+
 
   <h3 id="native-ui">Does this specification allow an origin some measure of control over a user agent's native UI?</h3>
 
@@ -267,11 +286,23 @@ Abstract:
 
 <pre class="biblio">
 {
+  "BLUETOOTH": {
+      "href": "https://webbluetoothcg.github.io/web-bluetooth/",
+      "title": "Web Bluetooth",
+      "publisher": "W3C",
+      "authors": [ "Jeffrey Yasskin", "Vincent Scheib" ]
+  },
   "COMCAST": {
       "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
       "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
       "publisher": "Ars Technica",
       "authors": [ "David Kravets" ]
+  },
+  "DISCOVERY": {
+      "href": "http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html",
+      "title": "Network Service Discovery",
+      "authors": [ "Rich Tibbett" ],
+      "publisher": "W3C"
   },
   "GEOFENCING": {
       "href": "https://github.com/slightlyoff/Geofencing/blob/master/explainer.md",
