@@ -1,8 +1,17 @@
-<!DOCTYPE html><html lang=en><head>
-  <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
-  <title>Strawman Self-Review Questionnaire: Security and Privacy</title>
-  <link href=../default.css rel=stylesheet type=text/css>
-  <style>
+<!doctype html>
+<html lang="en">
+  <head>
+  
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    
+  
+    <title>Strawman Self-Review Questionnaire: Security and Privacy</title>
+    
+  
+    <link href="../default.css" rel="stylesheet" type="text/css">
+    
+  
+    <style>
   body {
     background: url("https://www.w3.org/StyleSheets/TR/logo-unofficial.png") top left no-repeat white;
     background-attachment: fixed;
@@ -44,23 +53,49 @@
     list-style: none;
   }
   </style>
-</head>
-<body class=h-entry>
-<div class=head>
-  <p data-fill-with=logo></p>
-  <h1 class="p-name no-ref" id=title>Strawman Self-Review Questionnaire: Security and Privacy</h1>
-  <h2 class="no-num no-toc no-ref heading settled" id=subtitle><span class=content>A Collection of Interesting Ideas,
-    <span class=dt-updated><span class=value-title title=20141110>10 November 2014</span></span></span></h2>
-  <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=https://example.com/#TODO>https://example.com/#TODO</a><dt class=editor>Editor:<dd class=editor><div class="p-author h-card vcard"><a class="p-name fn u-email email" href=mailto:mkwst@google.com>Mike West</a> (<span class="p-org org">Google Inc.</span>)</div></dl></div>
-  <div data-fill-with=warning></div>
-  <p class=copyright data-fill-with=copyright>
+    
+
+  </head>
+  
+
+  <body class="h-entry">
+
+    <div class="head">
+  
+      <p data-fill-with="logo"></p>
+  
+      <h1 class="p-name no-ref" id="title">Strawman Self-Review Questionnaire: Security and Privacy</h1>
+  
+      <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas,
+    <time class="dt-updated" datetime="2014-11-10">10 November 2014</time></span></h2>
+  
+      <div data-fill-with="spec-metadata">
+        <dl>
+          <dt>This version:</dt>
+          <dd><a class="u-url" href="https://example.com/#TODO">https://example.com/#TODO</a></dd>
+          <dt>Issue Tracking:</dt>
+          <dd><a href="#issues-index">Inline In Spec</a></dd>
+          <dt class="editor">Editor:</dt>
+          <dd class="editor">
+            <div class="p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)</div>
+          </dd>
+        </dl>
+      </div>
+  
+      <div data-fill-with="warning"></div>
+  
+      <p class="copyright" data-fill-with="copyright">
 ©2014 Google
 </p>
-  <hr title="Separator for header">
+  
+      <hr title="Separator for header">
 </div>
 
-<h2 class="no-num no-toc no-ref heading settled" id=abstract><span class=content>Abstract</span></h2>
-<div class=p-summary data-fill-with=abstract><p>This document lists a set of questions that working groups interested in the
+
+    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+
+    <div class="p-summary" data-fill-with="abstract">
+      <p>This document lists a set of questions that working groups interested in the
 
 security and privacy impacts of their specifications might ask themselves.
 It is not meant as a "security checklist", nor does filling out this
@@ -71,320 +106,514 @@ which can provide a later reviewer with valuable context, and help a group
 to focus on important questions in areas where they might lack expertise.</p>
 </div>
 
-<h2 class="no-num no-toc no-ref heading settled" id=status><span class=content>Status of this document</span></h2>
-<div data-fill-with=status><p>
+
+    <h2 class="no-num no-toc no-ref heading settled" id="status"><span class="content">Status of this document</span></h2>
+
+    <div data-fill-with="status">
+      <p>
 	This is a <strong>really</strong> unofficial draft.
 	It’s not meant to capture any consensus,
 	beyond my own personal feelings about what sounds interesting.
 	It is provided for discussion only and may change at any moment,
 	and should not be taken as "official" or even "unofficial, but planned".
 	Its publication here does not imply endorsement of its contents by W3C. 
-	Don’t cite this document other than as a collection of interesting ideas.</div>
-<div data-fill-with=at-risk></div>
+	Don’t cite this document other than as a collection of interesting ideas.</p></div>
 
-<h2 class="no-num no-toc no-ref heading settled" id=contents><span class=content>Table of Contents</span></h2>
-<div data-fill-with=table-of-contents role=navigation><ul class=toc role=directory><li><a href=#intro><span class=secno>1</span> <span class=content>Introduction</span></a><li><a href=#threats><span class=secno>2</span> <span class=content>Threat Models</span></a><ul class=toc><li><a href=#passive-network><span class=secno>2.1</span> <span class=content>Passive Network Attackers</span></a><li><a href=#active-network><span class=secno>2.2</span> <span class=content>Active Network Attackers</span></a><li><a href=#sop-violations><span class=secno>2.3</span> <span class=content>Same-Origin Policy Violations</span></a></ul><li><a href=#questions><span class=secno>3</span> <span class=content>Questions to Consider</span></a><ul class=toc><li><a href=#pii><span class=secno>3.1</span> <span class=content>
+    <div data-fill-with="at-risk"></div>
+
+
+    <h2 class="no-num no-toc no-ref heading settled" id="contents"><span class="content">Table of Contents</span></h2>
+
+    <div data-fill-with="table-of-contents" role="navigation">
+      <ul class="toc" role="directory">
+        <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a></li>
+        <li><a href="#threats"><span class="secno">2</span> <span class="content">Threat Models</span></a>
+          <ul class="toc">
+            <li><a href="#passive-network"><span class="secno">2.1</span> <span class="content">Passive Network Attackers</span></a></li>
+            <li><a href="#active-network"><span class="secno">2.2</span> <span class="content">Active Network Attackers</span></a></li>
+            <li><a href="#sop-violations"><span class="secno">2.3</span> <span class="content">Same-Origin Policy Violations</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#questions"><span class="secno">3</span> <span class="content">Questions to Consider</span></a>
+          <ul class="toc">
+            <li><a href="#pii"><span class="secno">3.1</span> <span class="content">
     Does this specification deal with personally-identifiable information?
-  </span></a><li><a href=#credentials><span class=secno>3.2</span> <span class=content>
+  </span></a></li>
+            <li><a href="#credentials"><span class="secno">3.2</span> <span class="content">
     Does this specification deal with high-value data?
-  </span></a><li><a href=#persistent-origin-specific-state><span class=secno>3.3</span> <span class=content>
+  </span></a></li>
+            <li><a href="#persistent-origin-specific-state"><span class="secno">3.3</span> <span class="content">
     Does this specification introduce new state for an origin that persists
     across browsing sessions?
-  </span></a><li><a href=#persistent-identifiers><span class=secno>3.4</span> <span class=content>
+  </span></a></li>
+            <li><a href="#persistent-identifiers"><span class="secno">3.4</span> <span class="content">
     Does this specification expose cross-origin persistent state to the web?
-  </span></a><li><a href=#other-data><span class=secno>3.5</span> <span class=content>Does this specification expose any other data to an origin that it doesn’t currently have access to?</span></a><li><a href=#string-to-script><span class=secno>3.6</span> <span class=content>Does this specification enable new script execution mechanisms?</span></a><li><a href=#location><span class=secno>3.7</span> <span class=content>Does this specification allow an origin access to a user’s location?</span></a><li><a href=#sensors><span class=secno>3.8</span> <span class=content>Does this specification allow an origin access to sensors on a user’s device?</span></a><li><a href=#local-device><span class=secno>3.9</span> <span class=content>Does this specification allow an origin access to aspects of a user’s local computing environment?</span></a><li><a href=#remote-device><span class=secno>3.10</span> <span class=content>
+  </span></a></li>
+            <li><a href="#other-data"><span class="secno">3.5</span> <span class="content">Does this specification expose any other data to an origin that it doesn’t currently have access to?</span></a></li>
+            <li><a href="#string-to-script"><span class="secno">3.6</span> <span class="content">Does this specification enable new script execution mechanisms?</span></a></li>
+            <li><a href="#location"><span class="secno">3.7</span> <span class="content">Does this specification allow an origin access to a user’s location?</span></a></li>
+            <li><a href="#sensors"><span class="secno">3.8</span> <span class="content">Does this specification allow an origin access to sensors on a user’s device?</span></a></li>
+            <li><a href="#local-device"><span class="secno">3.9</span> <span class="content">Does this specification allow an origin access to aspects of a user’s local computing environment?</span></a></li>
+            <li><a href="#remote-device"><span class="secno">3.10</span> <span class="content">
     Does this specification allow an origin access to other devices?
-  </span></a><li><a href=#native-ui><span class=secno>3.11</span> <span class=content>Does this specification allow an origin some measure of control over a user agent’s native UI?</span></a><li><a href=#origin-controlled-data><span class=secno>3.12</span> <span class=content>Does this specification expose origin-controlled data to an origin?</span></a><li><a href=#temporary-id><span class=secno>3.13</span> <span class=content>Does this specification expose temporary identifiers to the web?</span></a><li><a href=#first-third-party><span class=secno>3.14</span> <span class=content>Does this specification distinguish between behavior in first-party and third-party contexts?</span></a><li><a href=#considerations><span class=secno>3.15</span> <span class=content>
+  </span></a></li>
+            <li><a href="#native-ui"><span class="secno">3.11</span> <span class="content">Does this specification allow an origin some measure of control over a user agent’s native UI?</span></a></li>
+            <li><a href="#origin-controlled-data"><span class="secno">3.12</span> <span class="content">Does this specification expose origin-controlled data to an origin?</span></a></li>
+            <li><a href="#temporary-id"><span class="secno">3.13</span> <span class="content">Does this specification expose temporary identifiers to the web?</span></a></li>
+            <li><a href="#first-third-party"><span class="secno">3.14</span> <span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span></a></li>
+            <li><a href="#considerations"><span class="secno">3.15</span> <span class="content">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
-  </span></a></ul><li><a href=#references><span class=secno></span> <span class=content>References</span></a><ul class=toc><li><a href=#informative><span class=secno></span> <span class=content>Informative References</span></a></ul><li><a href=#index><span class=secno></span> <span class=content>Index</span></a><li><a href=#issues-index><span class=secno></span> <span class=content>Issues Index</span></a></ul></div>
+  </span></a></li>
+          </ul>
+        </li>
+        <li><a href="#references"><span class="secno"></span> <span class="content">References</span></a>
+          <ul class="toc">
+            <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#index"><span class="secno"></span> <span class="content">Index</span></a></li>
+        <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a></li>
+      </ul></div>
 
-<main>
+
+    <main>
 
 
 
 
 
-<section>
-  <h2 class="heading settled" data-level=1 id=intro><span class=secno>1. </span><span class=content>Introduction</span><a class=self-link href=#intro></a></h2>
 
-<p class=issue id=issue-75248228><a class=self-link href=#issue-75248228></a>This document is an incomplete strawman, meant to show a direction for
+      <section>
+  
+        <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+
+
+        <p class="issue" id="issue-75248228"><a class="self-link" href="#issue-75248228"></a>This document is an incomplete strawman, meant to show a direction for
   further discussion. But it’s totally not done yet.</p>
 
-<p>Adding features to the web is a tricky thing; on the one hand, we want to
+
+        <p>Adding features to the web is a tricky thing; on the one hand, we want to
   provide developers with access to all the things they need in order to build
   amazing experiences. On the other, we need to ensure that we don’t
   accidentally hand over too much power to malicious folks who could abuse it.
   Ideally, careful review of every specification we publish will allow us to
   strike the right balance.</p>
 
-<p>Working groups can (and should) begin this review process early, of course.
+
+        <p>Working groups can (and should) begin this review process early, of course.
   It’s <em>easy</em> to mitigate risks to users on the web <em>before</em> a
   feature is finalized and shipped in user agents. Changing APIs or
   introducing restrictions becomes nigh impossible once the web begins to
   depend on a particular implementation.</p>
 
-<p>This document encourages early review by posing a number of questions that
+
+        <p>This document encourages early review by posing a number of questions that
   a working group might consider themselves, before asking for more formal
   review. The intent is to highligh areas which have historically had
   interesting implications on a user’s security or privacy, and thereby to
   focus the working group’s attention on areas that might previously have been
   overlooked.</p>
 
-<p class=note role=note>Note: Answering these questions obviously doesn’t constitute "wide review" in
+
+        <p class="note" role="note">Note: Answering these questions obviously doesn’t constitute "wide review" in
   and of itself, but could provide a helpful basis of understanding upon which
   future reviewers can build.</p>
 </section>
 
 
-<section>
-  <h2 class="heading settled" data-level=2 id=threats><span class=secno>2. </span><span class=content>Threat Models</span><a class=self-link href=#threats></a></h2>
 
-<p>"Security" and "Privacy" are big concepts. In order to pare them down to
+      <section>
+  
+        <h2 class="heading settled" data-level="2" id="threats"><span class="secno">2. </span><span class="content">Threat Models</span><a class="self-link" href="#threats"></a></h2>
+
+
+        <p>"Security" and "Privacy" are big concepts. In order to pare them down to
   something which could feasibly guide working groups' decisions, let’s consider
   the types of threats to both which the web makes possible:</p>
 
-  <h3 class="heading settled" data-level=2.1 id=passive-network><span class=secno>2.1. </span><span class=content>Passive Network Attackers</span><a class=self-link href=#passive-network></a></h3>
+  
+        <h3 class="heading settled" data-level="2.1" id="passive-network"><span class="secno">2.1. </span><span class="content">Passive Network Attackers</span><a class="self-link" href="#passive-network"></a></h3>
 
-<p>A <dfn data-dfn-type=dfn data-noexport="" id=passive-network-attacker>passive network attacker<a class=self-link href=#passive-network-attacker></a></dfn> has read-access to the bits going over
+
+        <p>A <dfn data-dfn-type="dfn" data-noexport="" id="passive-network-attacker">passive network attacker<a class="self-link" href="#passive-network-attacker"></a></dfn> has read-access to the bits going over
   the wire between users and the servers they’re communicating with. She can’t
   <em>modify</em> the bytes, but she can collect and analyze them.</p>
 
-<p>Due to the decentralized nature of the internet, and the general level of
+
+        <p>Due to the decentralized nature of the internet, and the general level of
   interest in user activity, it’s reasonable to assume that practically every
   unencrypted bit that’s bouncing around the network of proxies, routers, and
   servers you’re using right now is being read by someone. It’s equally likely
   that some of these attackers are doing their best to understand the encrypted
   bits as well (though that requires significantly more effort).</p>
 
-<ul><li data-md=""><p>The IETF’s "Pervasive Monitoring Is an Attack" document <a data-biblio-type=informative data-link-type=biblio href=#biblio-rfc7258 title=RFC7258>[RFC7258]</a> is
+
+        <ul>
+          <li data-md="">
+            <p>The IETF’s "Pervasive Monitoring Is an Attack" document <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-rfc7258" title="RFC7258">[RFC7258]</a> is
   useful reading, outlining some of the impacts on privacy that this
   assumption entails.</p>
+            
 
-<li data-md=""><p>Governments aren’t the only concern; your local coffee shop is likely to
+
+          </li>
+          <li data-md="">
+            <p>Governments aren’t the only concern; your local coffee shop is likely to
   be gathering information on its customers, your ISP at home is likely to
   be doing the same.</p>
-</ul>
-  <h3 class="heading settled" data-level=2.2 id=active-network><span class=secno>2.2. </span><span class=content>Active Network Attackers</span><a class=self-link href=#active-network></a></h3>
+            
 
-<p>An <dfn data-dfn-type=dfn data-noexport="" id=active-network-attacker>active network attacker<a class=self-link href=#active-network-attacker></a></dfn> has both read- and write-access to the
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="2.2" id="active-network"><span class="secno">2.2. </span><span class="content">Active Network Attackers</span><a class="self-link" href="#active-network"></a></h3>
+
+
+        <p>An <dfn data-dfn-type="dfn" data-noexport="" id="active-network-attacker">active network attacker<a class="self-link" href="#active-network-attacker"></a></dfn> has both read- and write-access to the
   bits going over the wire between users and the servers they’re communicating
   with. She can collect and analyze data, but also modify it in-flight,
   injecting and manipulating JavaScript and HTML at will. This is more common
   than you might expect, for both benign and malicious purposes:</p>
 
-<ul><li data-md=""><p>ISPs and caching proxies regularly cache and compress images before
+
+        <ul>
+          <li data-md="">
+            <p>ISPs and caching proxies regularly cache and compress images before
   delivering them to users in an effort to reduce data usage. This can be
   especially useful for users on low-bandwidth, high-latency devices like
   phones.</p>
+            
 
-<li data-md=""><p>ISPs also regularly inject JavaScript <a data-biblio-type=informative data-link-type=biblio href=#biblio-comcast title=COMCAST>[COMCAST]</a> and other identifiers
-  <a data-biblio-type=informative data-link-type=biblio href=#biblio-verizon title=VERIZON>[VERIZON]</a>for less benign purposes.</p>
 
-<li data-md=""><p>If your ISP is willing to modify your traffic for profit, it’s difficult
+          </li>
+          <li data-md="">
+            <p>ISPs also regularly inject JavaScript <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-comcast" title="COMCAST">[COMCAST]</a> and other identifiers
+  <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-verizon" title="VERIZON">[VERIZON]</a>for less benign purposes.</p>
+            
+
+
+          </li>
+          <li data-md="">
+            <p>If your ISP is willing to modify your traffic for profit, it’s difficult
   to believe that state-level attackers would remain passive.</p>
-</ul>
-  <h3 class="heading settled" data-level=2.3 id=sop-violations><span class=secno>2.3. </span><span class=content>Same-Origin Policy Violations</span><a class=self-link href=#sop-violations></a></h3>
+            
 
-<p>The <dfn data-dfn-type=dfn data-noexport="" id=same-origin-policy>same-origin policy<a class=self-link href=#same-origin-policy></a></dfn> is the cornerstone of security on the web;
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="2.3" id="sop-violations"><span class="secno">2.3. </span><span class="content">Same-Origin Policy Violations</span><a class="self-link" href="#sop-violations"></a></h3>
+
+
+        <p>The <dfn data-dfn-type="dfn" data-noexport="" id="same_origin-policy">same-origin policy<a class="self-link" href="#same_origin-policy"></a></dfn> is the cornerstone of security on the web;
   one origin should not have direct access to another origin’s data (the policy
-  is more formally defined in Section 3 of <a data-biblio-type=informative data-link-type=biblio href=#biblio-rfc6454 title=RFC6454>[RFC6454]</a>). A corollary to this
+  is more formally defined in Section 3 of <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-rfc6454" title="RFC6454">[RFC6454]</a>). A corollary to this
   policy is that an origin should not have direct access to data that isn’t
   associated with <em>any</em> origin: the contents of a user’s hard drive,
   for instance. Various kinds of attacks bypass this protection in one way or
   another. For example:</p>
 
-<ul><li data-md=""><p><dfn data-dfn-type=dfn data-local-title=XSS data-noexport="" id=cross-site-scripting-attacks>Cross-site scripting attacks<a class=self-link href=#cross-site-scripting-attacks></a></dfn> involve an
+
+        <ul>
+          <li data-md="">
+            <p><dfn data-dfn-type="dfn" data-local-title="XSS" data-noexport="" id="cross_site-scripting-attacks">Cross-site scripting attacks<a class="self-link" href="#cross_site-scripting-attacks"></a></dfn> involve an
   attacker tricking an origin into executing attacker-controlled code in
   the context of a target origin.</p>
+            
 
-<li data-md=""><p><dfn data-dfn-type=dfn data-local-title=CSRF data-noexport="" id=cross-site-request-forgery-attacks>Cross-site request forgery attacks<a class=self-link href=#cross-site-request-forgery-attacks></a></dfn> trick
+
+          </li>
+          <li data-md="">
+            <p><dfn data-dfn-type="dfn" data-local-title="CSRF" data-noexport="" id="cross_site-request-forgery-attacks">Cross-site request forgery attacks<a class="self-link" href="#cross_site-request-forgery-attacks"></a></dfn> trick
   user agents into exerting a user’s ambient authority on sites where
   they’ve logged in by submitting requests on their behalf.</p>
+            
 
-<li data-md=""><p>Data leakage occurs when bits of information are inadvertantly made
-  available cross-origin, either explicitly via CORS headers <a data-biblio-type=informative data-link-type=biblio href=#biblio-cors title=CORS>[CORS]</a>,
-  or implicitly, via side-channel attacks like <a data-biblio-type=informative data-link-type=biblio href=#biblio-timing title=TIMING>[TIMING]</a>.</p>
-</ul>
+
+          </li>
+          <li data-md="">
+            <p>Data leakage occurs when bits of information are inadvertantly made
+  available cross-origin, either explicitly via CORS headers <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-cors" title="CORS">[CORS]</a>,
+  or implicitly, via side-channel attacks like <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-timing" title="TIMING">[TIMING]</a>.</p>
+            
+
+          </li></ul>
 </section>
 
 
-<section>
-  <h2 class="heading settled" data-level=3 id=questions><span class=secno>3. </span><span class=content>Questions to Consider</span><a class=self-link href=#questions></a></h2>
 
-  <h3 class="heading settled" data-level=3.1 id=pii><span class=secno>3.1. </span><span class=content>
+      <section>
+  
+        <h2 class="heading settled" data-level="3" id="questions"><span class="secno">3. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
+
+  
+        <h3 class="heading settled" data-level="3.1" id="pii"><span class="secno">3.1. </span><span class="content">
     Does this specification deal with personally-identifiable information?
-  </span><a class=self-link href=#pii></a></h3>
+  </span><a class="self-link" href="#pii"></a></h3>
 
-<p><dfn data-dfn-type=dfn data-local-title=personally-identifiable data-noexport="" id=personally-identifiable-information>Personally-identifiable
-  information<a class=self-link href=#personally-identifiable-information></a></dfn> (PII) includes a large swath of data which could be used on
+
+        <p><dfn data-dfn-type="dfn" data-local-title="personally-identifiable" data-noexport="" id="personally_identifiable-information">Personally-identifiable
+  information<a class="self-link" href="#personally_identifiable-information"></a></dfn> (PII) includes a large swath of data which could be used on
   its own, or in combination with other information, to identify a single
   person. The exact definition of what’s considered PII varies from jurisdiction
   to jurisdiction, but could certainly include things like a home address, an
   email address, birthdates, usernames, fingerprints etc. Wikipedia has a fairly
-  good description at <a data-biblio-type=informative data-link-type=biblio href=#biblio-pii title=PII>[PII]</a>.</p>
+  good description at <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-pii" title="PII">[PII]</a>.</p>
 
-<p>If the specification under consideration exposes PII to the web, it’s
+
+        <p>If the specification under consideration exposes PII to the web, it’s
   important to consider ways to mitigate the obvious impacts. For instance:</p>
 
-<ul><li data-md=""><p>A feature which uses biometric data (fingerprints or retina scans) could
+
+        <ul>
+          <li data-md="">
+            <p>A feature which uses biometric data (fingerprints or retina scans) could
   refuse to expose the raw data to the web, instead using the raw data only
   to unlock some origin-specific and ephemeral secret and transmitting that
   secret instead.</p>
+            
 
-<li data-md=""><p>User mediation could be required, in order to ensure that no data is
+
+          </li>
+          <li data-md="">
+            <p>User mediation could be required, in order to ensure that no data is
   exposed without a user’s explicit choice (and hopefully understanding).</p>
-</ul>
-  <h3 class="heading settled" data-level=3.2 id=credentials><span class=secno>3.2. </span><span class=content>
-    Does this specification deal with high-value data?
-  </span><a class=self-link href=#credentials></a></h3>
+            
 
-<p>Data which isn’t <a data-link-type=dfn href=#personally-identifiable-information title=personally-identifiable>personally-identifiable</a> can still be quite valuable.
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.2" id="credentials"><span class="secno">3.2. </span><span class="content">
+    Does this specification deal with high-value data?
+  </span><a class="self-link" href="#credentials"></a></h3>
+
+
+        <p>Data which isn’t <a data-link-type="dfn" href="#personally_identifiable-information">personally-identifiable</a> can still be quite valuable.
   Sign-in credentials (like username/password pairs, or OAuth refresh tokens)
   can be extrememly powerful in the wrong hands, as can financial instruments
   like credit card data. Making this data available to JavaScript, for instance,
-  could expose it to <a data-link-type=dfn href=#cross-site-scripting-attacks title=XSS>XSS</a> attacks and <a data-link-type=dfn href=#active-network-attacker title="active network attackers">active network attackers</a> who
+  could expose it to <a data-link-type="dfn" href="#cross_site-scripting-attacks">XSS</a> attacks and <a data-link-type="dfn" href="#active-network-attacker">active network attackers</a> who
   could inject code to read and exfiltrate the data.</p>
 
-  <h3 class="heading settled" data-level=3.3 id=persistent-origin-specific-state><span class=secno>3.3. </span><span class=content>
+  
+        <h3 class="heading settled" data-level="3.3" id="persistent-origin-specific-state"><span class="secno">3.3. </span><span class="content">
     Does this specification introduce new state for an origin that persists
     across browsing sessions?
-  </span><a class=self-link href=#persistent-origin-specific-state></a></h3>
+  </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
 
-<p>For example:</p>
 
-<ul><li data-md=""><p>Service Worker <a data-biblio-type=informative data-link-type=biblio href=#biblio-service-workers title=SERVICE-WORKERS>[SERVICE-WORKERS]</a> intercept all requests made by an
+        <p>For example:</p>
+
+
+        <ul>
+          <li data-md="">
+            <p>Service Worker <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-service-workers" title="SERVICE-WORKERS">[SERVICE-WORKERS]</a> intercept all requests made by an
   origin, allowing sites to function perfectly even when offline. A
   maliciously-injected service worker, however, would be devastating (as
   documented in that spec’s
-  <a href=http://www.w3.org/TR/service-workers/#security-considerations>security
-  considerations section</a>). They mitigate the risks an <a data-link-type=dfn href=#active-network-attacker title="active network attacker">active network
-  attacker</a> or <a data-link-type=dfn href=#cross-site-scripting-attacks title=XSS>XSS</a> vulnerability present by requiring an
+  <a href="http://www.w3.org/TR/service-workers/#security-considerations">security
+  considerations section</a>). They mitigate the risks an <a data-link-type="dfn" href="#active-network-attacker" title="active network attacker">active network
+  attacker</a> or <a data-link-type="dfn" href="#cross_site-scripting-attacks">XSS</a> vulnerability present by requiring an
   encrypted and authenticated connection in order to register a service
   worker.</p>
+            
 
-<li data-md=""><p>Platform-specific DRM implementations might expose origin-specific
+
+          </li>
+          <li data-md="">
+            <p>Platform-specific DRM implementations might expose origin-specific
   information in order to help identify users and determine whether they
   ought to be granted access to a specific piece of media. These kinds of
   identifiers should be carefully evaluated to determine how abuse can be
   mitigated; identifiers which a user cannot easily change are very
   valuable from a tracking perspective, and protecting the identifiers from
   an active network attacker is an important concern.</p>
-</ul>
-  <h3 class="heading settled" data-level=3.4 id=persistent-identifiers><span class=secno>3.4. </span><span class=content>
+            
+
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.4" id="persistent-identifiers"><span class="secno">3.4. </span><span class="content">
     Does this specification expose cross-origin persistent state to the web?
-  </span><a class=self-link href=#persistent-identifiers></a></h3>
+  </span><a class="self-link" href="#persistent-identifiers"></a></h3>
 
-<p>For example:</p>
 
-<ul><li data-md=""><p>The <code>GL_RENDERER</code> string exposed by some WebGL implementations
+        <p>For example:</p>
+
+
+        <ul>
+          <li data-md="">
+            <p>The <code>GL_RENDERER</code> string exposed by some WebGL implementations
   improves performance in some kinds of applications, but does so at the
   cost of adding persistent state to a user’s fingerprint. These kinds of
   device-level details should be carefully weighed to ensure that the costs
   are outweighed by the benefits.</p>
+            
 
-<li data-md=""><p>The <code class=idl><a data-link-type=idl href=https://html.spec.whatwg.org/#navigatorplugins title=NavigatorPlugins>NavigatorPlugins</a></code> list exposed via the DOM practically never
+
+          </li>
+          <li data-md="">
+            <p>The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/#navigatorplugins">NavigatorPlugins</a></code> list exposed via the DOM practically never
   changes for most users. Some user agents have taken steps to reduce the
   entropy introduced by
   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
   direct enumeration of the plugin list</a>.</p>
-</ul>
-  <h3 class="heading settled" data-level=3.5 id=other-data><span class=secno>3.5. </span><span class=content>Does this specification expose any other data to an origin that it doesn’t currently have access to?</span><a class=self-link href=#other-data></a></h3>
+            
 
-<p>As noted above in [#sop-violations], the <a data-link-type=dfn href=#same-origin-policy title="same-origin policy">same-origin policy</a> is an
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.5" id="other-data"><span class="secno">3.5. </span><span class="content">Does this specification expose any other data to an origin that it doesn’t currently have access to?</span><a class="self-link" href="#other-data"></a></h3>
+
+
+        <p>As noted above in [#sop-violations], the <a data-link-type="dfn" href="#same_origin-policy">same-origin policy</a> is an
   important security barrier that new features need to carefully consider.
   If a specification exposes details about another origin’s state, or allows
   POST or GET requests to be made to another origin, the consequences can be
   severe.</p>
 
-<ul><li data-md=""><p>Content Security Policy <a data-biblio-type=informative data-link-type=biblio href=#biblio-csp title=CSP>[CSP]</a> unintentionally exposed redirect targets
-  cross-origin by allowing one origin to infer details about another origin
-  through violation reports. <a data-biblio-type=informative data-link-type=biblio href=#biblio-homakov title=HOMAKOV>[HOMAKOV]</a> The working group eventually
-  mitigated the risk by reducing a policy’s granularity after a redirect.</p>
 
-<li data-md=""><p>Beacon <a data-biblio-type=informative data-link-type=biblio href=#biblio-beacon title=BEACON>[BEACON]</a> allows an origin to send POST requests to an endpoint
+        <ul>
+          <li data-md="">
+            <p>Content Security Policy <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-csp" title="CSP">[CSP]</a> unintentionally exposed redirect targets
+  cross-origin by allowing one origin to infer details about another origin
+  through violation reports. <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-homakov" title="HOMAKOV">[HOMAKOV]</a> The working group eventually
+  mitigated the risk by reducing a policy’s granularity after a redirect.</p>
+            
+
+
+          </li>
+          <li data-md="">
+            <p>Beacon <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-beacon" title="BEACON">[BEACON]</a> allows an origin to send POST requests to an endpoint
   on another origin. They decided that this feature didn’t add any new
   attack surface above and beyond what normal form submission entails, so
   no extra mitigation was necessary.</p>
-</ul>
-  <h3 class="heading settled" data-level=3.6 id=string-to-script><span class=secno>3.6. </span><span class=content>Does this specification enable new script execution mechanisms?</span><a class=self-link href=#string-to-script></a></h3>
+            
 
-<ul><li data-md=""><p>New string-to-script mechanism? (e.g. `eval()` or `setTimeout([string], ...)`)</p>
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.6" id="string-to-script"><span class="secno">3.6. </span><span class="content">Does this specification enable new script execution mechanisms?</span><a class="self-link" href="#string-to-script"></a></h3>
 
-<li data-md=""><p>New script loading mechansim? (e.g. HTML Imports)</p>
 
-<li data-md=""><p>What about style?</p>
-</ul>
-  <h3 class="heading settled" data-level=3.7 id=location><span class=secno>3.7. </span><span class=content>Does this specification allow an origin access to a user’s location?</span><a class=self-link href=#location></a></h3>
+        <ul>
+          <li data-md="">
+            <p>New string-to-script mechanism? (e.g. `eval()` or `setTimeout([string], ...)`)</p>
+            
 
-<p>A user’s location is highly-desirable information for a variety of use cases.
+
+          </li>
+          <li data-md="">
+            <p>New script loading mechansim? (e.g. HTML Imports)</p>
+            
+
+
+          </li>
+          <li data-md="">
+            <p>What about style?</p>
+            
+
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.7" id="location"><span class="secno">3.7. </span><span class="content">Does this specification allow an origin access to a user’s location?</span><a class="self-link" href="#location"></a></h3>
+
+
+        <p>A user’s location is highly-desirable information for a variety of use cases.
   It is also, understandably, information which many users are reluctant to
   share, as it can be both highly identifying, and potentially creepy. New
   features which make use of geolocation information, or which expose it to the
   web in new ways should carefully consider the ways in which the risks of
   unfettered access to a user’s location could be mitigated. For instance:</p>
 
-<ul><li data-md=""><p>Geolocation information can serve many use cases at a much less granular
+
+        <ul>
+          <li data-md="">
+            <p>Geolocation information can serve many use cases at a much less granular
   precision than the user agent can offer. For instance, a resturaunt
   recommendation can be generated by asking for a user’s city-level location
   rather than a position accurate to the centimeter.</p>
+            
 
-<li data-md=""><p>A recent Geofencing proposal <a data-biblio-type=informative data-link-type=biblio href=#biblio-geofencing title=GEOFENCING>[GEOFENCING]</a> ties itself to service workers
+
+          </li>
+          <li data-md="">
+            <p>A recent Geofencing proposal <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-geofencing" title="GEOFENCING">[GEOFENCING]</a> ties itself to service workers
   and therefore to encrypted and authenticated origins.</p>
-</ul>
-  <h3 class="heading settled" data-level=3.8 id=sensors><span class=secno>3.8. </span><span class=content>Does this specification allow an origin access to sensors on a user’s device?</span><a class=self-link href=#sensors></a></h3>
+            
 
-  <h3 class="heading settled" data-level=3.9 id=local-device><span class=secno>3.9. </span><span class=content>Does this specification allow an origin access to aspects of a user’s local computing environment?</span><a class=self-link href=#local-device></a></h3>
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.8" id="sensors"><span class="secno">3.8. </span><span class="content">Does this specification allow an origin access to sensors on a user’s device?</span><a class="self-link" href="#sensors"></a></h3>
 
-<p>(e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?</p>
+  
+        <h3 class="heading settled" data-level="3.9" id="local-device"><span class="secno">3.9. </span><span class="content">Does this specification allow an origin access to aspects of a user’s local computing environment?</span><a class="self-link" href="#local-device"></a></h3>
 
-  <h3 class="heading settled" data-level=3.10 id=remote-device><span class=secno>3.10. </span><span class=content>
+
+        <p>(e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?</p>
+
+  
+        <h3 class="heading settled" data-level="3.10" id="remote-device"><span class="secno">3.10. </span><span class="content">
     Does this specification allow an origin access to other devices?
-  </span><a class=self-link href=#remote-device></a></h3>
+  </span><a class="self-link" href="#remote-device"></a></h3>
 
-<p>Specifically, it’s interesting whether or not this specification allows access
+
+        <p>Specifically, it’s interesting whether or not this specification allows access
   to devices on a user’s local network that would be otherwise inaccessible to
   a web origin. In particular, connection via Bluetooth and USB should be
   carefully evaluated to avoid exposing devices to the web that aren’t created
   with the web in mind; doing so has security implications, as these devices
   may not be hardened against malicious input as well as they should be.</p>
 
-<ul><li data-md=""><p>The Network Service Discovery API <a data-biblio-type=informative data-link-type=biblio href=#biblio-discovery title=DISCOVERY>[DISCOVERY]</a> recommends CORS preflights
+
+        <ul>
+          <li data-md="">
+            <p>The Network Service Discovery API <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-discovery" title="DISCOVERY">[DISCOVERY]</a> recommends CORS preflights
   before granting access to a device, and requires user agents to involve
   the user with a permission request of some kind. The spec’s
-  <a href=https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html#security-and-privacy-considerations>Security
+  <a href="https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html#security-and-privacy-considerations">Security
   and privacy considerations"</a> section has more details.</p>
+            
 
-<li data-md=""><p>Likewise, the Web Bluetooth <a data-biblio-type=informative data-link-type=biblio href=#biblio-bluetooth title=BLUETOOTH>[BLUETOOTH]</a> has an extensive discussion of
-  <a href=https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy-considerations>"Security
+
+          </li>
+          <li data-md="">
+            <p>Likewise, the Web Bluetooth <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-bluetooth" title="BLUETOOTH">[BLUETOOTH]</a> has an extensive discussion of
+  <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy-considerations">"Security
   and privacy considerations"</a>, which is worth reading as an example for
   similar work.</p>
+            
 
-</ul>
-  <h3 class="heading settled" data-level=3.11 id=native-ui><span class=secno>3.11. </span><span class=content>Does this specification allow an origin some measure of control over a user agent’s native UI?</span><a class=self-link href=#native-ui></a></h3>
 
-<p>(showing, hiding, or modifying certain details, especially if those details are relevant to security)?</p>
+          </li></ul>
+  
+        <h3 class="heading settled" data-level="3.11" id="native-ui"><span class="secno">3.11. </span><span class="content">Does this specification allow an origin some measure of control over a user agent’s native UI?</span><a class="self-link" href="#native-ui"></a></h3>
 
-  <h3 class="heading settled" data-level=3.12 id=origin-controlled-data><span class=secno>3.12. </span><span class=content>Does this specification expose origin-controlled data to an origin?</span><a class=self-link href=#origin-controlled-data></a></h3>
 
-<p>over HTTP? (e.g. cookies, `ETag` and `Last Modified` headers)</p>
+        <p>(showing, hiding, or modifying certain details, especially if those details are relevant to security)?</p>
 
-<p>via an API? (e.g.`localStorage`)</p>
+  
+        <h3 class="heading settled" data-level="3.12" id="origin-controlled-data"><span class="secno">3.12. </span><span class="content">Does this specification expose origin-controlled data to an origin?</span><a class="self-link" href="#origin-controlled-data"></a></h3>
 
-  <h3 class="heading settled" data-level=3.13 id=temporary-id><span class=secno>3.13. </span><span class=content>Does this specification expose temporary identifiers to the web?</span><a class=self-link href=#temporary-id></a></h3>
 
-<p>(e.g. TLS features like Channel ID, session identifiers/tickets, etc)?</p>
+        <p>over HTTP? (e.g. cookies, `ETag` and `Last Modified` headers)</p>
 
-  <h3 class="heading settled" data-level=3.14 id=first-third-party><span class=secno>3.14. </span><span class=content>Does this specification distinguish between behavior in first-party and third-party contexts?</span><a class=self-link href=#first-third-party></a></h3>
 
-<p>(where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)</p>
+        <p>via an API? (e.g.`localStorage`)</p>
 
-  <h3 class="heading settled" data-level=3.15 id=considerations><span class=secno>3.15. </span><span class=content>
+  
+        <h3 class="heading settled" data-level="3.13" id="temporary-id"><span class="secno">3.13. </span><span class="content">Does this specification expose temporary identifiers to the web?</span><a class="self-link" href="#temporary-id"></a></h3>
+
+
+        <p>(e.g. TLS features like Channel ID, session identifiers/tickets, etc)?</p>
+
+  
+        <h3 class="heading settled" data-level="3.14" id="first-third-party"><span class="secno">3.14. </span><span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span><a class="self-link" href="#first-third-party"></a></h3>
+
+
+        <p>(where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)</p>
+
+  
+        <h3 class="heading settled" data-level="3.15" id="considerations"><span class="secno">3.15. </span><span class="content">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
-  </span><a class=self-link href=#considerations></a></h3>
+  </span><a class="self-link" href="#considerations"></a></h3>
 
-<p>Not every feature has security or privacy impacts. Many, many features do.
+
+        <p>Not every feature has security or privacy impacts. Many, many features do.
   Documenting the various concerns that have cropped up in one form or another
   is a good way to help implementers and authors understand the risks that a
   feature presents, and ensure that adequate mitigations are in place.</p>
@@ -396,6 +625,52 @@ to focus on important questions in areas where they might lack expertise.</p>
 
 
 
-<h2 class="no-num heading settled" id=references><span class=content>References</span><a class=self-link href=#references></a></h2><h3 class="no-num heading settled" id=informative><span class=content>Informative References</span><a class=self-link href=#informative></a></h3><dl><dt id=biblio-bluetooth title=BLUETOOTH><a class=self-link href=#biblio-bluetooth></a>[BLUETOOTH]<dd>Jeffrey Yasskin; Vincent Scheib. <a href=https://webbluetoothcg.github.io/web-bluetooth/>Web Bluetooth</a>. URL: <a href=https://webbluetoothcg.github.io/web-bluetooth/>https://webbluetoothcg.github.io/web-bluetooth/</a><dt id=biblio-comcast title=COMCAST><a class=self-link href=#biblio-comcast></a>[COMCAST]<dd>David Kravets. <a href=http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/>Comcast Wi-Fi serving self-promotional ads via JavaScript injection</a>. URL: <a href=http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/>http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/</a><dt id=biblio-csp title=CSP><a class=self-link href=#biblio-csp></a>[CSP]<dd>Brandon Sterne; Adam Barth. <a href=http://www.w3.org/TR/CSP/>Content Security Policy 1.0</a>. 15 November 2012. CR. URL: <a href=http://www.w3.org/TR/CSP/>http://www.w3.org/TR/CSP/</a><dt id=biblio-discovery title=DISCOVERY><a class=self-link href=#biblio-discovery></a>[DISCOVERY]<dd>Rich Tibbett. <a href=http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html>Network Service Discovery</a>. URL: <a href=http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html>http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html</a><dt id=biblio-geofencing title=GEOFENCING><a class=self-link href=#biblio-geofencing></a>[GEOFENCING]<dd>Alex Russell. <a href=https://github.com/slightlyoff/Geofencing/blob/master/explainer.md>Geofencing Explained</a>. URL: <a href=https://github.com/slightlyoff/Geofencing/blob/master/explainer.md>https://github.com/slightlyoff/Geofencing/blob/master/explainer.md</a><dt id=biblio-homakov title=HOMAKOV><a class=self-link href=#biblio-homakov></a>[HOMAKOV]<dd>Egor Homakov. <a href=http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html>Using Content-Security-Policy for Evil</a>. URL: <a href=http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html>http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html</a><dt id=biblio-pii title=PII><a class=self-link href=#biblio-pii></a>[PII]<dd>???. <a href=https://en.wikipedia.org/wiki/Personally_identifiable_information>Personally identifiable information</a>. URL: <a href=https://en.wikipedia.org/wiki/Personally_identifiable_information>https://en.wikipedia.org/wiki/Personally_identifiable_information</a><dt id=biblio-rfc6454 title=RFC6454><a class=self-link href=#biblio-rfc6454></a>[RFC6454]<dd>Adam Barth. <a href=https://tools.ietf.org/html/rfc6454>The Web Origin Concept</a>. URL: <a href=https://tools.ietf.org/html/rfc6454>https://tools.ietf.org/html/rfc6454</a><dt id=biblio-rfc7258 title=RFC7258><a class=self-link href=#biblio-rfc7258></a>[RFC7258]<dd>Stephen Farrell; Hannes Tschofenig. <a href=http://tools.ietf.org/html/rfc7258>Pervasive Monitoring Is an Attack</a>. URL: <a href=http://tools.ietf.org/html/rfc7258>http://tools.ietf.org/html/rfc7258</a><dt id=biblio-timing title=TIMING><a class=self-link href=#biblio-timing></a>[TIMING]<dd>Paul Stone. <a href=http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf>Pixel Perfect Timing Attacks with HTML5</a>. URL: <a href=http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf>http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf</a><dt id=biblio-verizon title=VERIZON><a class=self-link href=#biblio-verizon></a>[VERIZON]<dd>Mark Bergen; Alex Kantrowitz. <a href=http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/>Verizon looks to target its mobile subscribers with ads</a>. URL: <a href=http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/>http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/</a><dt id=biblio-beacon title=beacon><a class=self-link href=#biblio-beacon></a>[beacon]<dd>Arvind Jain; Jatinder Mann. <a href=http://www.w3.org/TR/beacon/>Beacon</a>. 24 June 2014. LCWD. URL: <a href=http://www.w3.org/TR/beacon/>http://www.w3.org/TR/beacon/</a><dt id=biblio-cors title=cors><a class=self-link href=#biblio-cors></a>[cors]<dd>Anne van Kesteren. <a href=http://www.w3.org/TR/cors/>Cross-Origin Resource Sharing</a>. 16 January 2014. REC. URL: <a href=http://www.w3.org/TR/cors/>http://www.w3.org/TR/cors/</a><dt id=biblio-service-workers title=service-workers><a class=self-link href=#biblio-service-workers></a>[service-workers]<dd>Alex Russell; Jungkee Song. <a href=http://www.w3.org/TR/service-workers/>Service Workers</a>. 8 May 2014. WD. URL: <a href=http://www.w3.org/TR/service-workers/>http://www.w3.org/TR/service-workers/</a></dl><h2 class="no-num heading settled" id=index><span class=content>Index</span><a class=self-link href=#index></a></h2><ul class=indexlist><li>active network attacker, <a href=#active-network-attacker title="section 2.2">2.2</a><li>Cross-site request forgery attacks, <a href=#cross-site-request-forgery-attacks title="section 2.3">2.3</a><li>Cross-site scripting attacks, <a href=#cross-site-scripting-attacks title="section 2.3">2.3</a><li>CSRF, <a href=#cross-site-request-forgery-attacks title="section 2.3">2.3</a><li>passive network attacker, <a href=#passive-network-attacker title="section 2.1">2.1</a><li>personally-identifiable, <a href=#personally-identifiable-information title="section 3.1">3.1</a><li>Personally-identifiable
-  information, <a href=#personally-identifiable-information title="section 3.1">3.1</a><li>same-origin policy, <a href=#same-origin-policy title="section 2.3">2.3</a><li>XSS, <a href=#cross-site-scripting-attacks title="section 2.3">2.3</a></ul><h2 class="no-num heading settled" id=issues-index><span class=content>Issues Index</span><a class=self-link href=#issues-index></a></h2><div style=counter-reset:issue><div class=issue>This document is an incomplete strawman, meant to show a direction for
-  further discussion. But it’s totally not done yet.<a href=#issue-75248228> ↵ </a></div></div>
+
+    <h2 class="no-num heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+    <h3 class="no-num heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+    <dl>
+      <dt id="biblio-bluetooth" title="BLUETOOTH"><a class="self-link" href="#biblio-bluetooth"></a>[BLUETOOTH]</dt>
+      <dd>Jeffrey Yasskin; Vincent Scheib. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a></dd>
+      <dt id="biblio-comcast" title="COMCAST"><a class="self-link" href="#biblio-comcast"></a>[COMCAST]</dt>
+      <dd>David Kravets. <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">Comcast Wi-Fi serving self-promotional ads via JavaScript injection</a>. URL: <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/</a></dd>
+      <dt id="biblio-csp" title="CSP"><a class="self-link" href="#biblio-csp"></a>[CSP]</dt>
+      <dd>Brandon Sterne; Adam Barth. <a href="http://www.w3.org/TR/CSP/">Content Security Policy 1.0</a>. 15 November 2012. CR. URL: <a href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a></dd>
+      <dt id="biblio-discovery" title="DISCOVERY"><a class="self-link" href="#biblio-discovery"></a>[DISCOVERY]</dt>
+      <dd>Rich Tibbett. <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">Network Service Discovery</a>. URL: <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html</a></dd>
+      <dt id="biblio-geofencing" title="GEOFENCING"><a class="self-link" href="#biblio-geofencing"></a>[GEOFENCING]</dt>
+      <dd>Alex Russell. <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">Geofencing Explained</a>. URL: <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">https://github.com/slightlyoff/Geofencing/blob/master/explainer.md</a></dd>
+      <dt id="biblio-homakov" title="HOMAKOV"><a class="self-link" href="#biblio-homakov"></a>[HOMAKOV]</dt>
+      <dd>Egor Homakov. <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">Using Content-Security-Policy for Evil</a>. URL: <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html</a></dd>
+      <dt id="biblio-pii" title="PII"><a class="self-link" href="#biblio-pii"></a>[PII]</dt>
+      <dd>???. <a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">Personally identifiable information</a>. URL: <a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">https://en.wikipedia.org/wiki/Personally_identifiable_information</a></dd>
+      <dt id="biblio-rfc6454" title="RFC6454"><a class="self-link" href="#biblio-rfc6454"></a>[RFC6454]</dt>
+      <dd>Adam Barth. <a href="https://tools.ietf.org/html/rfc6454">The Web Origin Concept</a>. URL: <a href="https://tools.ietf.org/html/rfc6454">https://tools.ietf.org/html/rfc6454</a></dd>
+      <dt id="biblio-rfc7258" title="RFC7258"><a class="self-link" href="#biblio-rfc7258"></a>[RFC7258]</dt>
+      <dd>Stephen Farrell; Hannes Tschofenig. <a href="http://tools.ietf.org/html/rfc7258">Pervasive Monitoring Is an Attack</a>. URL: <a href="http://tools.ietf.org/html/rfc7258">http://tools.ietf.org/html/rfc7258</a></dd>
+      <dt id="biblio-timing" title="TIMING"><a class="self-link" href="#biblio-timing"></a>[TIMING]</dt>
+      <dd>Paul Stone. <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">Pixel Perfect Timing Attacks with HTML5</a>. URL: <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf</a></dd>
+      <dt id="biblio-verizon" title="VERIZON"><a class="self-link" href="#biblio-verizon"></a>[VERIZON]</dt>
+      <dd>Mark Bergen; Alex Kantrowitz. <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">Verizon looks to target its mobile subscribers with ads</a>. URL: <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/</a></dd>
+      <dt id="biblio-beacon" title="beacon"><a class="self-link" href="#biblio-beacon"></a>[beacon]</dt>
+      <dd>Arvind Jain; Jatinder Mann. <a href="http://www.w3.org/TR/beacon/">Beacon</a>. 24 June 2014. LCWD. URL: <a href="http://www.w3.org/TR/beacon/">http://www.w3.org/TR/beacon/</a></dd>
+      <dt id="biblio-cors" title="cors"><a class="self-link" href="#biblio-cors"></a>[cors]</dt>
+      <dd>Anne van Kesteren. <a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>. 16 January 2014. REC. URL: <a href="http://www.w3.org/TR/cors/">http://www.w3.org/TR/cors/</a></dd>
+      <dt id="biblio-service-workers" title="service-workers"><a class="self-link" href="#biblio-service-workers"></a>[service-workers]</dt>
+      <dd>Alex Russell; Jungkee Song. <a href="http://www.w3.org/TR/service-workers/">Service Workers</a>. 8 May 2014. WD. URL: <a href="http://www.w3.org/TR/service-workers/">http://www.w3.org/TR/service-workers/</a></dd></dl>
+    <h2 class="no-num heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+    <ul class="indexlist">
+      <li>active network attacker, <a href="#active-network-attacker" title="section 2.2">2.2</a></li>
+      <li>Cross-site request forgery attacks, <a href="#cross_site-request-forgery-attacks" title="section 2.3">2.3</a></li>
+      <li>Cross-site scripting attacks, <a href="#cross_site-scripting-attacks" title="section 2.3">2.3</a></li>
+      <li>CSRF, <a href="#cross_site-request-forgery-attacks" title="section 2.3">2.3</a></li>
+      <li>passive network attacker, <a href="#passive-network-attacker" title="section 2.1">2.1</a></li>
+      <li>personally-identifiable, <a href="#personally_identifiable-information" title="section 3.1">3.1</a></li>
+      <li>Personally-identifiable
+  information, <a href="#personally_identifiable-information" title="section 3.1">3.1</a></li>
+      <li>same-origin policy, <a href="#same_origin-policy" title="section 2.3">2.3</a></li>
+      <li>XSS, <a href="#cross_site-scripting-attacks" title="section 2.3">2.3</a></li></ul>
+    <h2 class="no-num heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+    <div style="counter-reset:issue">
+      <div class="issue">This document is an incomplete strawman, meant to show a direction for
+  further discussion. But it’s totally not done yet.<a href="#issue-75248228"> ↵ </a></div></div></body>
+</html>
