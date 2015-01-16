@@ -67,7 +67,7 @@
       <h1 class="p-name no-ref" id="title">Strawman Self-Review Questionnaire: Security and Privacy</h1>
   
       <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas,
-    <time class="dt-updated" datetime="2014-11-10">10 November 2014</time></span></h2>
+    <time class="dt-updated" datetime="2015-01-16">16 January 2015</time></span></h2>
   
       <div data-fill-with="spec-metadata">
         <dl>
@@ -390,8 +390,23 @@ to focus on important questions in areas where they might lack expertise.</p>
   can be extrememly powerful in the wrong hands, as can financial instruments
   like credit card data. Making this data available to JavaScript, for instance,
   could expose it to <a data-link-type="dfn" href="#cross_site-scripting-attacks">XSS</a> attacks and <a data-link-type="dfn" href="#active-network-attacker">active network attackers</a> who
-  could inject code to read and exfiltrate the data.</p>
+  could inject code to read and exfiltrate the data. For instance:</p>
 
+
+        <ul>
+          <li data-md="">
+            <p>Credential Management <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-credential-management" title="CREDENTIAL-MANAGEMENT">[CREDENTIAL-MANAGEMENT]</a> allows sites to request
+  a user’s credentials from a user agent’s password manager in order to
+  sign the user in quickly and easily. This opens the door for abuse, as
+  a single XSS could expose user data trivially to JavaScript. They mitigate
+  the risk by only offering the username and password as an opaque
+  <code>FormData</code> object which cannot be directly read by JavaScript,
+  and strongly suggest that authors use Content Security Policy <a data-biblio-type="informative" data-link-type="biblio" href="#biblio-csp" title="CSP">[CSP]</a> with
+  resonable <code>connect-src</code> and <code>form-action</code> values to
+  further mitigate the risk of exfiltration.</p>
+            
+
+          </li></ul>
   
         <h3 class="heading settled" data-level="3.3" id="persistent-origin-specific-state"><span class="secno">3.3. </span><span class="content">
     Does this specification introduce new state for an origin that persists
@@ -633,6 +648,8 @@ to focus on important questions in areas where they might lack expertise.</p>
       <dd>Jeffrey Yasskin; Vincent Scheib. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a></dd>
       <dt id="biblio-comcast" title="COMCAST"><a class="self-link" href="#biblio-comcast"></a>[COMCAST]</dt>
       <dd>David Kravets. <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">Comcast Wi-Fi serving self-promotional ads via JavaScript injection</a>. URL: <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/</a></dd>
+      <dt id="biblio-credential-management" title="CREDENTIAL-MANAGEMENT"><a class="self-link" href="#biblio-credential-management"></a>[CREDENTIAL-MANAGEMENT]</dt>
+      <dd>Mike West. <a href="https://w3c.github.io/webappsec/specs/credentialmanagement/">Credential Management</a>. URL: <a href="https://w3c.github.io/webappsec/specs/credentialmanagement/">https://w3c.github.io/webappsec/specs/credentialmanagement/</a></dd>
       <dt id="biblio-csp" title="CSP"><a class="self-link" href="#biblio-csp"></a>[CSP]</dt>
       <dd>Brandon Sterne; Adam Barth. <a href="http://www.w3.org/TR/CSP/">Content Security Policy 1.0</a>. 15 November 2012. CR. URL: <a href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a></dd>
       <dt id="biblio-discovery" title="DISCOVERY"><a class="self-link" href="#biblio-discovery"></a>[DISCOVERY]</dt>

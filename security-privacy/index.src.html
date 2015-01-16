@@ -161,7 +161,17 @@ Abstract:
   can be extrememly powerful in the wrong hands, as can financial instruments
   like credit card data. Making this data available to JavaScript, for instance,
   could expose it to <a>XSS</a> attacks and <a>active network attackers</a> who
-  could inject code to read and exfiltrate the data.
+  could inject code to read and exfiltrate the data. For instance:
+
+  *   Credential Management [[CREDENTIAL-MANAGEMENT]] allows sites to request
+      a user's credentials from a user agent's password manager in order to
+      sign the user in quickly and easily. This opens the door for abuse, as
+      a single XSS could expose user data trivially to JavaScript. They mitigate
+      the risk by only offering the username and password as an opaque
+      <code>FormData</code> object which cannot be directly read by JavaScript,
+      and strongly suggest that authors use Content Security Policy [[CSP]] with
+      resonable <code>connect-src</code> and <code>form-action</code> values to
+      further mitigate the risk of exfiltration.
 
   <h3 id="persistent-origin-specific-state">
     Does this specification introduce new state for an origin that persists
@@ -320,6 +330,12 @@ Abstract:
       "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
       "publisher": "Ars Technica",
       "authors": [ "David Kravets" ]
+  },
+  "CREDENTIAL-MANAGEMENT": {
+      "href": "https://w3c.github.io/webappsec/specs/credentialmanagement/",
+      "title": "Credential Management",
+      "publisher": "W3C",
+      "authors": [ "Mike West" ]
   },
   "DISCOVERY": {
       "href": "http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html",
