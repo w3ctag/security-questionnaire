@@ -111,11 +111,11 @@ Abstract:
   for instance. Various kinds of attacks bypass this protection in one way or
   another. For example:
 
-  *   <dfn local-title="XSS">Cross-site scripting attacks</dfn> involve an
+  *   <dfn local-lt="XSS">Cross-site scripting attacks</dfn> involve an
       attacker tricking an origin into executing attacker-controlled code in
       the context of a target origin.
 
-  *   <dfn local-title="CSRF">Cross-site request forgery attacks</dfn> trick
+  *   <dfn local-lt="CSRF">Cross-site request forgery attacks</dfn> trick
       user agents into exerting a user's ambient authority on sites where
       they've logged in by submitting requests on their behalf.
 
@@ -133,7 +133,7 @@ Abstract:
     Does this specification deal with personally-identifiable information?
   </h3>
 
-  <dfn local-title="personally-identifiable">Personally-identifiable
+  <dfn local-lt="personally-identifiable">Personally-identifiable
   information</dfn> (PII) includes a large swath of data which could be used on
   its own, or in combination with other information, to identify a single
   person. The exact definition of what's considered PII varies from jurisdiction
@@ -199,7 +199,7 @@ Abstract:
       an active network attacker is an important concern.
 
   <h3 id="persistent-identifiers">
-    Does this specification expose cross-origin persistent state to the web?
+    Does this specification expose persistent, cross-origin state to the web?
   </h3>
 
   For example:
@@ -226,7 +226,7 @@ Abstract:
 
   *   Content Security Policy [[CSP]] unintentionally exposed redirect targets
       cross-origin by allowing one origin to infer details about another origin
-      through violation reports. [[HOMAKOV]] The working group eventually
+      through violation reports (see [[HOMAKOV]]). The working group eventually
       mitigated the risk by reducing a policy's granularity after a redirect.
 
   *   Beacon [[BEACON]] allows an origin to send POST requests to an endpoint
@@ -234,11 +234,17 @@ Abstract:
       attack surface above and beyond what normal form submission entails, so
       no extra mitigation was necessary.
 
-  <h3 id="string-to-script">Does this specification enable new script execution mechanisms?</h3>
-  
-  * New string-to-script mechanism? (e.g. `eval()` or `setTimeout([string], ...)`)
+  <h3 id="string-to-script">
+    Does this specification enable new script execution/loading mechanisms?
+  </h3>
 
-  * New script loading mechansim? (e.g. HTML Imports)
+  * HTML Imports [[HTML-IMPORTS]] create a new script-loading mechanism, using
+    <{link}> rather than <{script}>, which might be easy to overlook when
+    evaluating an application's attack surface. The working group notes this
+    risk, and ensured that they required reasonable interactions with Content
+    Security Policy's <code>script-src</code> directive.
+
+  * New string-to-script mechanism? (e.g. `eval()` or `setTimeout([string], ...)`)
 
   * What about style?
 
@@ -316,6 +322,13 @@ Abstract:
   is a good way to help implementers and authors understand the risks that a
   feature presents, and ensure that adequate mitigations are in place.
 </section>
+
+<pre class="anchors">
+urlPrefix: http://www.w3.org/TR/html5/
+  type: interface
+    urlPrefix: webappapis.html
+      text: NavigatorPlugins
+</pre>
 
 <pre class="biblio">
 {
