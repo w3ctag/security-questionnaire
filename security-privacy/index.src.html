@@ -320,10 +320,59 @@ Abstract:
     Considerations" section?
   </h3>
 
-  Not every feature has security or privacy impacts. Many, many features do.
+  Unless proven otherwise, every feature has potential security and/or privacy impacts.
+  
   Documenting the various concerns that have cropped up in one form or another
   is a good way to help implementers and authors understand the risks that a
   feature presents, and ensure that adequate mitigations are in place.
+  
+  If it seems like a feature does not have security or privacy impacts, 
+  then say so inline in the spec section for that feature:
+  
+  <blockquote>
+  There are no known security or privacy impacts of this feature.
+  </blockquote>
+  
+  Saying so explicitly in the specification serves several purposes:
+  <ol>
+    <li>Shows that a spec author/editor has possibly considered 
+    (hopefully not just copy/pasted) whether there are such impacts.</li>
+    <li>Provides some sense of confidence that there are no such impacts.</li>
+    <li>Challenges security and privacy minded individuals to 
+    think of and find even the potential for such impacts.</li>
+    <li>Demonstrates the spec author/editor's receptivity to 
+    feedback about such impacts.</li>
+  </ol>
+  
+  The easiest way to mitigate potential negative security or privacy 
+  impacts of a feature, and even discussing the possibility, 
+  is to drop the feature.
+  
+  Every feature in a spec should be considered guilty 
+  (of harming security and/or privacy) until proven otherwise.
+  Every specification should seek to be as small as possible, 
+  even if only for the reasons of reducing and minimizing 
+  security/privacy attack surface(s).
+  
+  By doing so we can reduce the overall security (and privacy) attack surface 
+  of not only a particular feature, but of a module (related set of features), 
+  a specification, and the overall web platform. 
+  Ideally this is one of many motivations to reduce each of those to the minimum viable:
+  <ol>
+    <li>
+    Minimum viable feature: 
+    cut/drop values, options, or optional aspects.
+    </li>
+    <li>
+    Minimum viable web format/protocol/API: 
+    cut/drop a module, or even just one feature.
+    </li>
+    <li>
+    Minimum viable web platform: 
+    Cut/drop/obsolete entire specification(s).
+    </li>
+  </ol>
+  
 </section>
 
 <pre class="anchors">
