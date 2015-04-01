@@ -68,7 +68,7 @@
    <h1 class="p-name no-ref" id="title">Strawman Self-Review Questionnaire: Security and Privacy</h1>
   
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas,
-    <time class="dt-updated" datetime="2015-02-10">10 February 2015</time></span></h2>
+    <time class="dt-updated" datetime="2015-04-01">1 April 2015</time></span></h2>
   
    <div data-fill-with="spec-metadata">
     <dl>
@@ -77,8 +77,7 @@
      <dt>Issue Tracking:
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
-     <dd class="editor">
-      <div class="p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)</div>
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
     </dl>
    </div>
   
@@ -95,15 +94,17 @@
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
 
   <div class="p-summary" data-fill-with="abstract">
-   <p>This document lists a set of questions that working groups interested in the
+   <p>This document lists a set of questions you can ask about the security
 
-security and privacy impacts of their specifications might ask themselves.
-It is not meant as a "security checklist", nor does filling out this
-questionnaire obviate the group’s responsibility to obtain "wide review" of
-a specification’s security and privacy properties before publication.
-Instead, this document is meant as a guide through an initial self-review,
-which can provide a later reviewer with valuable context, and help a group
-to focus on important questions in areas where they might lack expertise.</p>
+and privacy impact of a specification.
+It is not meant as a "security checklist", nor does an editor or group
+filling out this questionnaire obviate the editor or group’s
+responsibility to obtain "wide review" of a specification’s security
+and privacy properties before publication.
+Instead, this document is meant as a review guide for anyone to use—to
+provide later reviewers with valuable context, and to help readers and
+editors and groups focus on important questions in areas where they
+might lack expertise.</p>
 </div>
 
 
@@ -167,11 +168,16 @@ to focus on important questions in areas where they might lack expertise.</p>
     Considerations" section?
   </span></a>
      </ul>
+    <li><a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
+     <ul class="toc">
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
+     </ul>
     <li><a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ul class="toc">
+      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ul>
-    <li><a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
     <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ul></div>
 
@@ -208,11 +214,12 @@ to focus on important questions in areas where they might lack expertise.</p>
 
 
     <p>This document encourages early review by posing a number of questions that
-  a working group might consider themselves, before asking for more formal
-  review. The intent is to highligh areas which have historically had
+  you as a individual reader of a specification can ask—and that working
+  groups and spec editors might consider themselves, before asking for more
+  formal review. The intent is to highlight areas which have historically had
   interesting implications on a user’s security or privacy, and thereby to
-  focus the working group’s attention on areas that might previously have been
-  overlooked.</p>
+  focus the editor’s attention and working group’s attention and reviewers'
+  attention on areas that might previously have been overlooked.</p>
 
 
     <p class="note" role="note">Note: Answering these questions obviously doesn’t constitute "wide review" in
@@ -284,7 +291,7 @@ to focus on important questions in areas where they might lack expertise.</p>
 
      <li data-md="">
       <p>ISPs also regularly inject JavaScript <a data-link-type="biblio" href="#biblio-comcast">[COMCAST]</a> and other identifiers
-  <a data-link-type="biblio" href="#biblio-verizon">[VERIZON]</a>for less benign purposes.</p>
+  <a data-link-type="biblio" href="#biblio-verizon">[VERIZON]</a> for less benign purposes.</p>
       
 
 
@@ -609,10 +616,84 @@ Security Policy’s <code>script-src</code> directive.</p>
   </span><a class="self-link" href="#considerations"></a></h3>
 
 
-    <p>Not every feature has security or privacy impacts. Many, many features do.
-  Documenting the various concerns that have cropped up in one form or another
+    <p>Unless proven otherwise, every feature has potential security and/or privacy impacts.</p>
+
+
+    <p>Documenting the various concerns that have cropped up in one form or another
   is a good way to help implementers and authors understand the risks that a
   feature presents, and ensure that adequate mitigations are in place.</p>
+
+
+    <p>If it seems like a feature does not have security or privacy impacts,
+  then say so inline in the spec section for that feature:</p>
+
+  
+    <blockquote>
+  There are no known security or privacy impacts of this feature.
+  </blockquote>
+
+
+    <p>Saying so explicitly in the specification serves several purposes:</p>
+  
+    <ol>
+    
+     <li>Shows that a spec author/editor has possibly considered 
+    (hopefully not just copy/pasted) whether there are such impacts.
+     
+    
+     <li>Provides some sense of confidence that there are no such impacts.
+     
+    
+     <li>Challenges security and privacy minded individuals to 
+    think of and find even the potential for such impacts.
+     
+    
+     <li>Demonstrates the spec author/editor’s receptivity to 
+    feedback about such impacts.
+     
+  
+    </ol>
+
+
+    <p>The easiest way to mitigate potential negative security or privacy
+  impacts of a feature, and even discussing the possibility, 
+  is to drop the feature.</p>
+
+
+    <p>Every feature in a spec should be considered guilty
+  (of harming security and/or privacy) until proven otherwise.
+  Every specification should seek to be as small as possible, 
+  even if only for the reasons of reducing and minimizing 
+  security/privacy attack surface(s).</p>
+
+
+    <p>By doing so we can reduce the overall security (and privacy) attack surface
+  of not only a particular feature, but of a module (related set of features), 
+  a specification, and the overall web platform. 
+  Ideally this is one of many motivations to reduce each of those to the minimum viable:</p>
+  
+    <ol>
+    
+     <li>
+    Minimum viable feature: 
+    cut/drop values, options, or optional aspects.
+    
+     
+    
+     <li>
+    Minimum viable web format/protocol/API: 
+    cut/drop a module, or even just one feature.
+    
+     
+    
+     <li>
+    Minimum viable web platform: 
+    Cut/drop/obsolete entire specification(s).
+    
+     
+  
+    </ol>
+
 </section>
 
 
@@ -624,7 +705,31 @@ Security Policy’s <code>script-src</code> directive.</p>
 
 
 
+  <h2 class="no-num heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="no-num heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <ul class="indexlist">
+   <li>active network attacker, <a href="#active-network-attacker">2.2</a>
+   <li>Cross-site request forgery attacks, <a href="#cross_site-request-forgery-attacks">2.3</a>
+   <li>Cross-site scripting attacks, <a href="#cross_site-scripting-attacks">2.3</a>
+   <li>CSRF, <a href="#cross_site-request-forgery-attacks">2.3</a>
+   <li>passive network attacker, <a href="#passive-network-attacker">2.1</a>
+   <li>personally-identifiable, <a href="#personally_identifiable-information">3.1</a>
+   <li>Personally-identifiable
+  information, <a href="#personally_identifiable-information">3.1</a>
+   <li>same-origin policy, <a href="#same_origin-policy">2.3</a>
+   <li>XSS, <a href="#cross_site-scripting-attacks">2.3</a></ul>
+  <h3 class="no-num heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <ul class="indexlist">
+   <li><a data-link-type="biblio" href="#biblio-html5">[html5]</a> defines the following terms:
+    <ul>
+     <li><a href="https://html.spec.whatwg.org/#the-link-element">link</a>
+     <li><a href="https://html.spec.whatwg.org/#script">script</a>
+    </ul></ul>
   <h2 class="no-num heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+  <h3 class="no-num heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
+  <dl>
+   <dt id="biblio-html5"><a class="self-link" href="#biblio-html5"></a>[HTML5]
+   <dd>Robin Berjon; et al. <a href="http://www.w3.org/TR/html5/">HTML5</a>. 28 October 2014. REC. URL: <a href="http://www.w3.org/TR/html5/">http://www.w3.org/TR/html5/</a></dl>
   <h3 class="no-num heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-bluetooth"><a class="self-link" href="#biblio-bluetooth"></a>[BLUETOOTH]
@@ -642,7 +747,7 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dt id="biblio-homakov"><a class="self-link" href="#biblio-homakov"></a>[HOMAKOV]
    <dd>Egor Homakov. <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">Using Content-Security-Policy for Evil</a>. URL: <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html</a>
    <dt id="biblio-pii"><a class="self-link" href="#biblio-pii"></a>[PII]
-   <dd>???. <a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">Personally identifiable information</a>. URL: <a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">https://en.wikipedia.org/wiki/Personally_identifiable_information</a>
+   <dd><a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">Personally identifiable information</a>. URL: <a href="https://en.wikipedia.org/wiki/Personally_identifiable_information">https://en.wikipedia.org/wiki/Personally_identifiable_information</a>
    <dt id="biblio-rfc6454"><a class="self-link" href="#biblio-rfc6454"></a>[RFC6454]
    <dd>Adam Barth. <a href="https://tools.ietf.org/html/rfc6454">The Web Origin Concept</a>. URL: <a href="https://tools.ietf.org/html/rfc6454">https://tools.ietf.org/html/rfc6454</a>
    <dt id="biblio-rfc7258"><a class="self-link" href="#biblio-rfc7258"></a>[RFC7258]
@@ -651,26 +756,14 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dd>Paul Stone. <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">Pixel Perfect Timing Attacks with HTML5</a>. URL: <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf</a>
    <dt id="biblio-verizon"><a class="self-link" href="#biblio-verizon"></a>[VERIZON]
    <dd>Mark Bergen; Alex Kantrowitz. <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">Verizon looks to target its mobile subscribers with ads</a>. URL: <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/</a>
-   <dt id="biblio-beacon"><a class="self-link" href="#biblio-beacon"></a>[beacon]
+   <dt id="biblio-beacon"><a class="self-link" href="#biblio-beacon"></a>[BEACON]
    <dd>Arvind Jain; Jatinder Mann. <a href="http://www.w3.org/TR/beacon/">Beacon</a>. 24 June 2014. LCWD. URL: <a href="http://www.w3.org/TR/beacon/">http://www.w3.org/TR/beacon/</a>
-   <dt id="biblio-cors"><a class="self-link" href="#biblio-cors"></a>[cors]
+   <dt id="biblio-cors"><a class="self-link" href="#biblio-cors"></a>[CORS]
    <dd>Anne van Kesteren. <a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>. 16 January 2014. REC. URL: <a href="http://www.w3.org/TR/cors/">http://www.w3.org/TR/cors/</a>
-   <dt id="biblio-html-imports"><a class="self-link" href="#biblio-html-imports"></a>[html-imports]
+   <dt id="biblio-html-imports"><a class="self-link" href="#biblio-html-imports"></a>[HTML-IMPORTS]
    <dd>Dimitri Glazkov; Hajime Morita. <a href="http://www.w3.org/TR/html-imports/">HTML Imports</a>. 11 March 2014. WD. URL: <a href="http://www.w3.org/TR/html-imports/">http://www.w3.org/TR/html-imports/</a>
-   <dt id="biblio-service-workers"><a class="self-link" href="#biblio-service-workers"></a>[service-workers]
+   <dt id="biblio-service-workers"><a class="self-link" href="#biblio-service-workers"></a>[SERVICE-WORKERS]
    <dd>Alex Russell; Jungkee Song. <a href="http://www.w3.org/TR/service-workers/">Service Workers</a>. 8 May 2014. WD. URL: <a href="http://www.w3.org/TR/service-workers/">http://www.w3.org/TR/service-workers/</a></dl>
-  <h2 class="no-num heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
-  <ul class="indexlist">
-   <li>active network attacker, <a href="#active-network-attacker">2.2</a>
-   <li>Cross-site request forgery attacks, <a href="#cross_site-request-forgery-attacks">2.3</a>
-   <li>Cross-site scripting attacks, <a href="#cross_site-scripting-attacks">2.3</a>
-   <li>CSRF, <a href="#cross_site-request-forgery-attacks">2.3</a>
-   <li>passive network attacker, <a href="#passive-network-attacker">2.1</a>
-   <li>personally-identifiable, <a href="#personally_identifiable-information">3.1</a>
-   <li>Personally-identifiable
-  information, <a href="#personally_identifiable-information">3.1</a>
-   <li>same-origin policy, <a href="#same_origin-policy">2.3</a>
-   <li>XSS, <a href="#cross_site-scripting-attacks">2.3</a></ul>
   <h2 class="no-num heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
    <div class="issue">This document is an incomplete strawman, meant to show a direction for
