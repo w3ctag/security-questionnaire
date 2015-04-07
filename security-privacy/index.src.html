@@ -1,4 +1,4 @@
-<h1>Strawman Self-Review Questionnaire: Security and Privacy</h1>
+<h1>Self-Review Questionnaire: Security and Privacy</h1>
 <pre class="metadata">
 Status: DREAM
 ED: https://example.com/#TODO
@@ -7,28 +7,24 @@ Level: 1
 Editor: Mike West, Google Inc., mkwst@google.com
 Group: personal
 Indent: 2
-Abstract: 
-  This document lists a set of questions you can ask about the security
-  and privacy impact of a specification.
-  It is not meant as a "security checklist", nor does an editor or group
-  filling out this questionnaire obviate the editor or group's
-  responsibility to obtain "wide review" of a specification's security
-  and privacy properties before publication.
-  Instead, this document is meant as a review guide for anyone to use—to
-  provide later reviewers with valuable context, and to help readers and
-  editors and groups focus on important questions in areas where they
-  might lack expertise.
+Abstract:
+  This document lists a set of questions one could ask about the security and
+  privacy impact of a new feature or specification. It is meant as a tool that
+  groups or individuals can use as a guide during a self-review, pointing
+  towards important questions in areas where expertise might be lacking.
+
+  It is not meant as a "security checklist", nor does an editor or group's use
+  of this questionnaire obviate the editor or group's responsibility to obtain
+  "wide review" of a specification's security and privacy properties before
+  publication.
 </pre>
 <div boilerplate=copyright>
-&copy;2014 Google
+&copy;2015 Google
 </div>
 
 <!-- Big Text: Intro -->
 <section>
   <h2 id="intro">Introduction</h2>
-
-  ISSUE: This document is an incomplete strawman, meant to show a direction for
-  further discussion. But it's totally not done yet.
 
   Adding features to the web is a tricky thing; on the one hand, we want to
   provide developers with access to all the things they need in order to build
@@ -41,7 +37,7 @@ Abstract:
   It's <em>easy</em> to mitigate risks to users on the web <em>before</em> a
   feature is finalized and shipped in user agents. Changing APIs or
   introducing restrictions becomes nigh impossible once the web begins to
-  depend on a particular implementation. 
+  depend on a particular implementation.
 
   This document encourages early review by posing a number of questions that
   you as a individual reader of a specification can ask—and that working
@@ -270,9 +266,13 @@ Abstract:
 
   <h3 id="sensors">Does this specification allow an origin access to sensors on a user's device?</h3>
 
+  ISSUE: TODO.
+
   <h3 id="local-device">Does this specification allow an origin access to aspects of a user's local computing environment?</h3>
 
   (e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?
+
+  ISSUE: TODO.
 
   <h3 id="remote-device">
     Does this specification allow an origin access to other devices?
@@ -301,51 +301,67 @@ Abstract:
 
   (showing, hiding, or modifying certain details, especially if those details are relevant to security)?
 
+  ISSUE: TODO.
+
   <h3 id="origin-controlled-data">Does this specification expose origin-controlled data to an origin?</h3>
 
   over HTTP? (e.g. cookies, `ETag` and `Last Modified` headers)
 
   via an API? (e.g.`localStorage`)
 
+  ISSUE: TODO.
+
   <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
 
   (e.g. TLS features like Channel ID, session identifiers/tickets, etc)?
 
+  ISSUE: TODO.
+
   <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
 
   (where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)
+
+  ISSUE: TODO.
 
   <h3 id="considerations">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
   </h3>
 
-  Unless proven otherwise, every feature has potential security and/or privacy impacts.
-  
+  Unless proven otherwise, every feature has security and/or privacy impacts.
+
   Documenting the various concerns that have cropped up in one form or another
   is a good way to help implementers and authors understand the risks that a
   feature presents, and ensure that adequate mitigations are in place.
-  
-  If it seems like a feature does not have security or privacy impacts, 
+
+  If it seems like a feature does not have security or privacy impacts,
   then say so inline in the spec section for that feature:
-  
+
   <blockquote>
-  There are no known security or privacy impacts of this feature.
+    There are no known security or privacy impacts of this feature.
   </blockquote>
-  
+
   Saying so explicitly in the specification serves several purposes:
   <ol>
-    <li>Shows that a spec author/editor has possibly considered 
-    (hopefully not just copy/pasted) whether there are such impacts.</li>
-    <li>Provides some sense of confidence that there are no such impacts.</li>
-    <li>Challenges security and privacy minded individuals to 
-    think of and find even the potential for such impacts.</li>
-    <li>Demonstrates the spec author/editor's receptivity to 
-    feedback about such impacts.</li>
+    <li>
+      Shows that a spec author/editor has explicitly considered security and
+      privacy when designing a feature.
+    </li>
+    <li>
+      Provides some sense of confidence that there are no such impacts.
+    </li>
+    <li>
+      Challenges security and privacy minded individuals to think of and find
+      even the potential for such impacts.
+    </li>
+    <li>
+      Demonstrates the spec author/editor's receptivity to feedback about such
+      impacts.
+    </li>
   </ol>
-  
-  The easiest way to mitigate potential negative security or privacy 
-  impacts of a feature, and even discussing the possibility, 
+
+  The easiest way to mitigate potential negative security or privacy
+  impacts of a feature, and even discussing the possibility,
   is to drop the feature.
   
   Every feature in a spec should be considered guilty 
@@ -357,7 +373,9 @@ Abstract:
   By doing so we can reduce the overall security (and privacy) attack surface 
   of not only a particular feature, but of a module (related set of features), 
   a specification, and the overall web platform. 
+
   Ideally this is one of many motivations to reduce each of those to the minimum viable:
+
   <ol>
     <li>
     Minimum viable feature: 
@@ -372,7 +390,9 @@ Abstract:
     Cut/drop/obsolete entire specification(s).
     </li>
   </ol>
-  
+
+  ISSUE: Move Tantek's thoughts to a separate section. They don't really fit
+  well here (but they should be in the document somewhere).
 </section>
 
 <pre class="anchors">

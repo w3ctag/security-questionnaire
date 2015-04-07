@@ -5,7 +5,7 @@
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   
   
-  <title>Strawman Self-Review Questionnaire: Security and Privacy</title>
+  <title>Self-Review Questionnaire: Security and Privacy</title>
   
   
   <link href="../default.css" rel="stylesheet" type="text/css">
@@ -65,10 +65,10 @@
   
    <p data-fill-with="logo"></p>
   
-   <h1 class="p-name no-ref" id="title">Strawman Self-Review Questionnaire: Security and Privacy</h1>
+   <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
   
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas,
-    <time class="dt-updated" datetime="2015-04-01">1 April 2015</time></span></h2>
+    <time class="dt-updated" datetime="2015-04-07">7 April 2015</time></span></h2>
   
    <div data-fill-with="spec-metadata">
     <dl>
@@ -84,7 +84,7 @@
    <div data-fill-with="warning"></div>
   
    <p class="copyright" data-fill-with="copyright">
-©2014 Google
+©2015 Google
 </p>
   
    <hr title="Separator for header">
@@ -94,17 +94,20 @@
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
 
   <div class="p-summary" data-fill-with="abstract">
-   <p>This document lists a set of questions you can ask about the security
+   <p>This document lists a set of questions one could ask about the security and
 
-and privacy impact of a specification.
-It is not meant as a "security checklist", nor does an editor or group
-filling out this questionnaire obviate the editor or group’s
-responsibility to obtain "wide review" of a specification’s security
-and privacy properties before publication.
-Instead, this document is meant as a review guide for anyone to use—to
-provide later reviewers with valuable context, and to help readers and
-editors and groups focus on important questions in areas where they
-might lack expertise.</p>
+privacy impact of a new feature or specification. It is meant as a tool that
+groups or individuals can use as a guide during a self-review, pointing
+towards important questions in areas where expertise might be lacking.</p>
+
+
+
+
+   <p>It is not meant as a "security checklist", nor does an editor or group’s use
+
+of this questionnaire obviate the editor or group’s responsibility to obtain
+"wide review" of a specification’s security and privacy properties before
+publication.</p>
 </div>
 
 
@@ -192,10 +195,6 @@ might lack expertise.</p>
    <section>
   
     <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-
-
-    <p class="issue" id="issue-75248228"><a class="self-link" href="#issue-75248228"></a>This document is an incomplete strawman, meant to show a direction for
-  further discussion. But it’s totally not done yet.</p>
 
 
     <p>Adding features to the web is a tricky thing; on the one hand, we want to
@@ -544,11 +543,17 @@ Security Policy’s <code>script-src</code> directive.</p>
   
     <h3 class="heading settled" data-level="3.8" id="sensors"><span class="secno">3.8. </span><span class="content">Does this specification allow an origin access to sensors on a user’s device?</span><a class="self-link" href="#sensors"></a></h3>
 
+
+    <p class="issue" id="issue-95f2d23a"><a class="self-link" href="#issue-95f2d23a"></a>TODO.</p>
+
   
     <h3 class="heading settled" data-level="3.9" id="local-device"><span class="secno">3.9. </span><span class="content">Does this specification allow an origin access to aspects of a user’s local computing environment?</span><a class="self-link" href="#local-device"></a></h3>
 
 
     <p>(e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?</p>
+
+
+    <p class="issue" id="issue-95f2d23a0"><a class="self-link" href="#issue-95f2d23a0"></a>TODO.</p>
 
   
     <h3 class="heading settled" data-level="3.10" id="remote-device"><span class="secno">3.10. </span><span class="content">
@@ -588,6 +593,9 @@ Security Policy’s <code>script-src</code> directive.</p>
 
     <p>(showing, hiding, or modifying certain details, especially if those details are relevant to security)?</p>
 
+
+    <p class="issue" id="issue-95f2d23a1"><a class="self-link" href="#issue-95f2d23a1"></a>TODO.</p>
+
   
     <h3 class="heading settled" data-level="3.12" id="origin-controlled-data"><span class="secno">3.12. </span><span class="content">Does this specification expose origin-controlled data to an origin?</span><a class="self-link" href="#origin-controlled-data"></a></h3>
 
@@ -597,17 +605,26 @@ Security Policy’s <code>script-src</code> directive.</p>
 
     <p>via an API? (e.g.`localStorage`)</p>
 
+
+    <p class="issue" id="issue-95f2d23a2"><a class="self-link" href="#issue-95f2d23a2"></a>TODO.</p>
+
   
     <h3 class="heading settled" data-level="3.13" id="temporary-id"><span class="secno">3.13. </span><span class="content">Does this specification expose temporary identifiers to the web?</span><a class="self-link" href="#temporary-id"></a></h3>
 
 
     <p>(e.g. TLS features like Channel ID, session identifiers/tickets, etc)?</p>
 
+
+    <p class="issue" id="issue-95f2d23a3"><a class="self-link" href="#issue-95f2d23a3"></a>TODO.</p>
+
   
     <h3 class="heading settled" data-level="3.14" id="first-third-party"><span class="secno">3.14. </span><span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span><a class="self-link" href="#first-third-party"></a></h3>
 
 
     <p>(where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)</p>
+
+
+    <p class="issue" id="issue-95f2d23a4"><a class="self-link" href="#issue-95f2d23a4"></a>TODO.</p>
 
   
     <h3 class="heading settled" data-level="3.15" id="considerations"><span class="secno">3.15. </span><span class="content">
@@ -616,7 +633,7 @@ Security Policy’s <code>script-src</code> directive.</p>
   </span><a class="self-link" href="#considerations"></a></h3>
 
 
-    <p>Unless proven otherwise, every feature has potential security and/or privacy impacts.</p>
+    <p>Unless proven otherwise, every feature has security and/or privacy impacts.</p>
 
 
     <p>Documenting the various concerns that have cropped up in one form or another
@@ -629,7 +646,7 @@ Security Policy’s <code>script-src</code> directive.</p>
 
   
     <blockquote>
-  There are no known security or privacy impacts of this feature.
+    There are no known security or privacy impacts of this feature.
   </blockquote>
 
 
@@ -637,26 +654,34 @@ Security Policy’s <code>script-src</code> directive.</p>
   
     <ol>
     
-     <li>Shows that a spec author/editor has possibly considered 
-    (hopefully not just copy/pasted) whether there are such impacts.
+     <li>
+      Shows that a spec author/editor has explicitly considered security and
+      privacy when designing a feature.
+    
      
     
-     <li>Provides some sense of confidence that there are no such impacts.
+     <li>
+      Provides some sense of confidence that there are no such impacts.
+    
      
     
-     <li>Challenges security and privacy minded individuals to 
-    think of and find even the potential for such impacts.
+     <li>
+      Challenges security and privacy minded individuals to think of and find
+      even the potential for such impacts.
+    
      
     
-     <li>Demonstrates the spec author/editor’s receptivity to 
-    feedback about such impacts.
+     <li>
+      Demonstrates the spec author/editor’s receptivity to feedback about such
+      impacts.
+    
      
   
     </ol>
 
 
     <p>The easiest way to mitigate potential negative security or privacy
-  impacts of a feature, and even discussing the possibility, 
+  impacts of a feature, and even discussing the possibility,
   is to drop the feature.</p>
 
 
@@ -669,8 +694,11 @@ Security Policy’s <code>script-src</code> directive.</p>
 
     <p>By doing so we can reduce the overall security (and privacy) attack surface
   of not only a particular feature, but of a module (related set of features), 
-  a specification, and the overall web platform. 
-  Ideally this is one of many motivations to reduce each of those to the minimum viable:</p>
+  a specification, and the overall web platform.</p>
+
+
+    <p>Ideally this is one of many motivations to reduce each of those to the minimum viable:</p>
+
   
     <ol>
     
@@ -694,6 +722,9 @@ Security Policy’s <code>script-src</code> directive.</p>
   
     </ol>
 
+
+    <p class="issue" id="issue-6a03d02e"><a class="self-link" href="#issue-6a03d02e"></a>Move Tantek’s thoughts to a separate section. They don’t really fit
+  well here (but they should be in the document somewhere).</p>
 </section>
 
 
@@ -766,6 +797,12 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dd>Alex Russell; Jungkee Song. <a href="http://www.w3.org/TR/service-workers/">Service Workers</a>. 8 May 2014. WD. URL: <a href="http://www.w3.org/TR/service-workers/">http://www.w3.org/TR/service-workers/</a></dl>
   <h2 class="no-num heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue">This document is an incomplete strawman, meant to show a direction for
-  further discussion. But it’s totally not done yet.<a href="#issue-75248228"> ↵ </a></div></div></body>
+   <div class="issue">TODO.<a href="#issue-95f2d23a"> ↵ </a></div>
+   <div class="issue">TODO.<a href="#issue-95f2d23a0"> ↵ </a></div>
+   <div class="issue">TODO.<a href="#issue-95f2d23a1"> ↵ </a></div>
+   <div class="issue">TODO.<a href="#issue-95f2d23a2"> ↵ </a></div>
+   <div class="issue">TODO.<a href="#issue-95f2d23a3"> ↵ </a></div>
+   <div class="issue">TODO.<a href="#issue-95f2d23a4"> ↵ </a></div>
+   <div class="issue">Move Tantek’s thoughts to a separate section. They don’t really fit
+  well here (but they should be in the document somewhere).<a href="#issue-6a03d02e"> ↵ </a></div></div></body>
 </html>
