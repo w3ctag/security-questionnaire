@@ -175,7 +175,10 @@ publication.</p>
     How should this specification work in the context of a user agent’s
     "incognito" mode?
   </span></a>
-      <li><a href="#considerations"><span class="secno">3.15</span> <span class="content">
+      <li><a href="#storage"><span class="secno">3.15</span> <span class="content">
+    Does this specification persist data to a user’s local device?
+  </span></a>
+      <li><a href="#considerations"><span class="secno">3.16</span> <span class="content">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
   </span></a>
@@ -660,8 +663,42 @@ Security Policy’s <code>script-src</code> directive.</p>
     "incognito" mode?
   </span><a class="self-link" href="#incognito"></a></h3>
 
+
+    <ul>
+     <li data-md="">
+      <p>Ideally, the feature would work in such a way that the website would not
+  be able to determine that the user was in "incognito".</p>
+      
+
+
+     <li data-md="">
+      <p>Less ideally, the feature wouldn’t work, but the website still wouldn’t
+  be able to distinguish "incognito" from simply being denied permission to
+  use the feature (for instance).</p>
+      
+
+
+     <li data-md="">
+      <p>Unideally, the feature wouldn’t exist at all in "incognito", which means
+  that the user wouldn’t be exposing data, but the website can probably tell
+  that the user is in that state.</p>
+      
+</ul>
   
-    <h3 class="heading settled" data-level="3.15" id="considerations"><span class="secno">3.15. </span><span class="content">
+    <h3 class="heading settled" data-level="3.15" id="storage"><span class="secno">3.15. </span><span class="content">
+    Does this specification persist data to a user’s local device?
+  </span><a class="self-link" href="#storage"></a></h3>
+
+
+    <ul>
+     <li data-md="">
+      <p>How should user agent’s "Clear browsing data" functionality work with
+  this data? Are there caches that the user agent needs to be particularly
+  careful with?</p>
+      
+</ul>
+  
+    <h3 class="heading settled" data-level="3.16" id="considerations"><span class="secno">3.16. </span><span class="content">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
   </span><a class="self-link" href="#considerations"></a></h3>
