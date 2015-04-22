@@ -68,7 +68,7 @@
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
   
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas,
-    <time class="dt-updated" datetime="2015-04-07">7 April 2015</time></span></h2>
+    <time class="dt-updated" datetime="2015-04-22">22 April 2015</time></span></h2>
   
    <div data-fill-with="spec-metadata">
     <dl>
@@ -152,7 +152,10 @@ publication.</p>
       <li><a href="#persistent-identifiers"><span class="secno">3.4</span> <span class="content">
     Does this specification expose persistent, cross-origin state to the web?
   </span></a>
-      <li><a href="#other-data"><span class="secno">3.5</span> <span class="content">Does this specification expose any other data to an origin that it doesn’t currently have access to?</span></a>
+      <li><a href="#other-data"><span class="secno">3.5</span> <span class="content">
+    Does this specification expose any other data to an origin that it doesn’t
+    currently have access to?
+  </span></a>
       <li><a href="#string-to-script"><span class="secno">3.6</span> <span class="content">
     Does this specification enable new script execution/loading mechanisms?
   </span></a>
@@ -162,13 +165,33 @@ publication.</p>
       <li><a href="#remote-device"><span class="secno">3.10</span> <span class="content">
     Does this specification allow an origin access to other devices?
   </span></a>
-      <li><a href="#native-ui"><span class="secno">3.11</span> <span class="content">Does this specification allow an origin some measure of control over a user agent’s native UI?</span></a>
-      <li><a href="#origin-controlled-data"><span class="secno">3.12</span> <span class="content">Does this specification expose origin-controlled data to an origin?</span></a>
-      <li><a href="#temporary-id"><span class="secno">3.13</span> <span class="content">Does this specification expose temporary identifiers to the web?</span></a>
-      <li><a href="#first-third-party"><span class="secno">3.14</span> <span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span></a>
+      <li><a href="#native-ui"><span class="secno">3.11</span> <span class="content">
+    Does this specification allow an origin some measure of control over a user
+    agent’s native UI?
+  </span></a>
+      <li><a href="#temporary-id"><span class="secno">3.12</span> <span class="content">Does this specification expose temporary identifiers to the web?</span></a>
+      <li><a href="#first-third-party"><span class="secno">3.13</span> <span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span></a>
+      <li><a href="#incognito"><span class="secno">3.14</span> <span class="content">
+    How should this specification work in the context of a user agent’s
+    "incognito" mode?
+  </span></a>
       <li><a href="#considerations"><span class="secno">3.15</span> <span class="content">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
+  </span></a>
+     </ul>
+    <li><a href="#mitigations"><span class="secno">4</span> <span class="content">
+    Mitigation Strategies
+  </span></a>
+     <ul class="toc">
+      <li><a href="#secure-contexts"><span class="secno">4.1</span> <span class="content">
+    Secure Contexts
+  </span></a>
+      <li><a href="#user-mediation"><span class="secno">4.2</span> <span class="content">
+    Explicit user mediation
+  </span></a>
+      <li><a href="#drop-feature"><span class="secno">4.3</span> <span class="content">
+    Drop the feature
   </span></a>
      </ul>
     <li><a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -434,6 +457,16 @@ publication.</p>
   valuable from a tracking perspective, and protecting the identifiers from
   an active network attacker is an important concern.</p>
       
+
+
+     <li data-md="">
+      <p>Cookies, <code>ETag</code>, <code>Last Modified</code>, <code>Local
+  Storage</code>, <code>Indexed DB</code>, etc. all allow an origin to
+  store information about a user, and retrieve it later, directly or
+  indirectly. User agents mitigate the risk that these kinds of storage
+  mechanisms will form a persistent identifier by offering users the
+  ability to wipe out the data contained in these types of storage.</p>
+      
 </ul>
   
     <h3 class="heading settled" data-level="3.4" id="persistent-identifiers"><span class="secno">3.4. </span><span class="content">
@@ -463,10 +496,13 @@ publication.</p>
       
 </ul>
   
-    <h3 class="heading settled" data-level="3.5" id="other-data"><span class="secno">3.5. </span><span class="content">Does this specification expose any other data to an origin that it doesn’t currently have access to?</span><a class="self-link" href="#other-data"></a></h3>
+    <h3 class="heading settled" data-level="3.5" id="other-data"><span class="secno">3.5. </span><span class="content">
+    Does this specification expose any other data to an origin that it doesn’t
+    currently have access to?
+  </span><a class="self-link" href="#other-data"></a></h3>
 
 
-    <p>As noted above in [#sop-violations], the <a data-link-type="dfn" href="#same_origin-policy">same-origin policy</a> is an
+    <p>As noted above in <a href="#sop-violations">§2.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same_origin-policy">same-origin policy</a> is an
   important security barrier that new features need to carefully consider.
   If a specification exposes details about another origin’s state, or allows
   POST or GET requests to be made to another origin, the consequences can be
@@ -588,7 +624,10 @@ Security Policy’s <code>script-src</code> directive.</p>
 
 </ul>
   
-    <h3 class="heading settled" data-level="3.11" id="native-ui"><span class="secno">3.11. </span><span class="content">Does this specification allow an origin some measure of control over a user agent’s native UI?</span><a class="self-link" href="#native-ui"></a></h3>
+    <h3 class="heading settled" data-level="3.11" id="native-ui"><span class="secno">3.11. </span><span class="content">
+    Does this specification allow an origin some measure of control over a user
+    agent’s native UI?
+  </span><a class="self-link" href="#native-ui"></a></h3>
 
 
     <p>(showing, hiding, or modifying certain details, especially if those details are relevant to security)?</p>
@@ -597,34 +636,29 @@ Security Policy’s <code>script-src</code> directive.</p>
     <p class="issue" id="issue-95f2d23a1"><a class="self-link" href="#issue-95f2d23a1"></a>TODO.</p>
 
   
-    <h3 class="heading settled" data-level="3.12" id="origin-controlled-data"><span class="secno">3.12. </span><span class="content">Does this specification expose origin-controlled data to an origin?</span><a class="self-link" href="#origin-controlled-data"></a></h3>
-
-
-    <p>over HTTP? (e.g. cookies, `ETag` and `Last Modified` headers)</p>
-
-
-    <p>via an API? (e.g.`localStorage`)</p>
-
-
-    <p class="issue" id="issue-95f2d23a2"><a class="self-link" href="#issue-95f2d23a2"></a>TODO.</p>
-
-  
-    <h3 class="heading settled" data-level="3.13" id="temporary-id"><span class="secno">3.13. </span><span class="content">Does this specification expose temporary identifiers to the web?</span><a class="self-link" href="#temporary-id"></a></h3>
+    <h3 class="heading settled" data-level="3.12" id="temporary-id"><span class="secno">3.12. </span><span class="content">Does this specification expose temporary identifiers to the web?</span><a class="self-link" href="#temporary-id"></a></h3>
 
 
     <p>(e.g. TLS features like Channel ID, session identifiers/tickets, etc)?</p>
 
 
-    <p class="issue" id="issue-95f2d23a3"><a class="self-link" href="#issue-95f2d23a3"></a>TODO.</p>
+    <p class="issue" id="issue-95f2d23a2"><a class="self-link" href="#issue-95f2d23a2"></a>TODO.</p>
 
   
-    <h3 class="heading settled" data-level="3.14" id="first-third-party"><span class="secno">3.14. </span><span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span><a class="self-link" href="#first-third-party"></a></h3>
+    <h3 class="heading settled" data-level="3.13" id="first-third-party"><span class="secno">3.13. </span><span class="content">Does this specification distinguish between behavior in first-party and third-party contexts?</span><a class="self-link" href="#first-third-party"></a></h3>
 
 
-    <p>(where "first-party" is simply defined as the top-level origin the user theoretically sees in the address bar)</p>
-
-
-    <p class="issue" id="issue-95f2d23a4"><a class="self-link" href="#issue-95f2d23a4"></a>TODO.</p>
+    <ul>
+     <li data-md="">
+      <p>Section 2.1 of <a data-link-type="biblio" href="#biblio-first-party-only">[FIRST-PARTY-ONLY]</a> defines "first-party" in line with
+  existing browser behavior (Chrome and Firefox).</p>
+      
+</ul>
+  
+    <h3 class="heading settled" data-level="3.14" id="incognito"><span class="secno">3.14. </span><span class="content">
+    How should this specification work in the context of a user agent’s
+    "incognito" mode?
+  </span><a class="self-link" href="#incognito"></a></h3>
 
   
     <h3 class="heading settled" data-level="3.15" id="considerations"><span class="secno">3.15. </span><span class="content">
@@ -633,12 +667,11 @@ Security Policy’s <code>script-src</code> directive.</p>
   </span><a class="self-link" href="#considerations"></a></h3>
 
 
-    <p>Unless proven otherwise, every feature has security and/or privacy impacts.</p>
-
-
-    <p>Documenting the various concerns that have cropped up in one form or another
-  is a good way to help implementers and authors understand the risks that a
-  feature presents, and ensure that adequate mitigations are in place.</p>
+    <p>Interesting features added to the web platform generally have security and/or
+  privacy impacts. Documenting the various concerns and potential abuses in
+  "Security Considerations" and "Privacy Considerations" sections of a document
+  is a good way to help implementers and web developers understand the risks
+  that a feature presents, and to ensure that adequate mitigations are in place.</p>
 
 
     <p>If it seems like a feature does not have security or privacy impacts,
@@ -679,52 +712,110 @@ Security Policy’s <code>script-src</code> directive.</p>
   
     </ol>
 
-
-    <p>The easiest way to mitigate potential negative security or privacy
-  impacts of a feature, and even discussing the possibility,
-  is to drop the feature.</p>
+</section>
 
 
-    <p>Every feature in a spec should be considered guilty
-  (of harming security and/or privacy) until proven otherwise.
-  Every specification should seek to be as small as possible, 
-  even if only for the reasons of reducing and minimizing 
-  security/privacy attack surface(s).</p>
-
-
-    <p>By doing so we can reduce the overall security (and privacy) attack surface
-  of not only a particular feature, but of a module (related set of features), 
-  a specification, and the overall web platform.</p>
-
-
-    <p>Ideally this is one of many motivations to reduce each of those to the minimum viable:</p>
+   <section>
+  
+    <h2 class="heading settled" data-level="4" id="mitigations"><span class="secno">4. </span><span class="content">
+    Mitigation Strategies
+  </span><a class="self-link" href="#mitigations"></a></h2>
 
   
-    <ol>
-    
-     <li>
-    Minimum viable feature: 
-    cut/drop values, options, or optional aspects.
-    
+    <h3 class="heading settled" data-level="4.1" id="secure-contexts"><span class="secno">4.1. </span><span class="content">
+    Secure Contexts
+  </span><a class="self-link" href="#secure-contexts"></a></h3>
+
+
+    <p>In the presence of an <a data-link-type="dfn" href="#active-network-attacker">active network attacker</a>, offering a feature to
+  an insecure origin is the same as offering that feature to every origin (as
+  the attacker can inject frames and code at will). Requiring an encrypted and
+  authenticated connection in order to use a feature can mitigate this kind of
+  risk.</p>
+
+  
+    <h3 class="heading settled" data-level="4.2" id="user-mediation"><span class="secno">4.2. </span><span class="content">
+    Explicit user mediation
+  </span><a class="self-link" href="#user-mediation"></a></h3>
+
+
+    <p>If a feature has privacy or security impacts that are endemic to the feature
+  itself, then one valid strategy for exposing it to the web is to require user
+  mediation before granting an origin access. For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a>
+  reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
+  user agents generally gate access to the feature on a permission prompt which
+  the user may choose to accept.</p>
+
+
+    <p>Designing such prompts is difficult. Choosers are good. Walls of text are bad.</p>
+
+
+    <p class="issue" id="issue-4800b8c7"><a class="self-link" href="#issue-4800b8c7"></a>Bring in some of felt@'s ideas here.</p>
+
+  
+    <h3 class="heading settled" data-level="4.3" id="drop-feature"><span class="secno">4.3. </span><span class="content">
+    Drop the feature
+  </span><a class="self-link" href="#drop-feature"></a></h3>
+
+
+    <p>One way to mitigate the risks that a feature presents is to remove it from
+  a specification.</p>
+
+  
+    <div class="example" id="example-0b4b5e09"><a class="self-link" href="#example-0b4b5e09"></a>
+    The easiest way to mitigate potential negative security or privacy
+    impacts of a feature, and even discussing the possibility,
+    is to drop the feature.
+
+
+     <p>Every feature in a spec should be considered guilty
+    (of harming security and/or privacy) until proven otherwise.
+    Every specification should seek to be as small as possible,
+    even if only for the reasons of reducing and minimizing
+    security/privacy attack surface(s).</p>
      
-    
-     <li>
-    Minimum viable web format/protocol/API: 
-    cut/drop a module, or even just one feature.
-    
+
+
+     <p>By doing so we can reduce the overall security (and privacy) attack surface
+    of not only a particular feature, but of a module (related set of features),
+    a specification, and the overall web platform.</p>
      
+
+
+     <p>Ideally this is one of many motivations to reduce each of those to the minimum viable:</p>
+     
+
     
-     <li>
-    Minimum viable web platform: 
-    Cut/drop/obsolete entire specification(s).
+     <ol>
+      
+      <li>
+      Minimum viable feature:
+      cut/drop values, options, or optional aspects.
+      
+      
+      
+      <li>
+      Minimum viable web format/protocol/API:
+      cut/drop a module, or even just one feature.
+      
+      
+      
+      <li>
+      Minimum viable web platform:
+      Cut/drop/obsolete entire specification(s).
+      
+      
     
+     </ol>
+     
+
+
+     <p class="issue" id="issue-94f4168a"><a class="self-link" href="#issue-94f4168a"></a>Move Tantek’s thoughts somewhere. They don’t really fit well here,
+    though the sentiment of a minimum viable web platform might fit into some
+    other TAG finding.</p>
      
   
-    </ol>
-
-
-    <p class="issue" id="issue-6a03d02e"><a class="self-link" href="#issue-6a03d02e"></a>Move Tantek’s thoughts to a separate section. They don’t really fit
-  well here (but they should be in the document somewhere).</p>
+    </div>
 </section>
 
 
@@ -773,6 +864,8 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dd>Brandon Sterne; Adam Barth. <a href="http://www.w3.org/TR/CSP/">Content Security Policy 1.0</a>. 15 November 2012. CR. URL: <a href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a>
    <dt id="biblio-discovery"><a class="self-link" href="#biblio-discovery"></a>[DISCOVERY]
    <dd>Rich Tibbett. <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">Network Service Discovery</a>. URL: <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html</a>
+   <dt id="biblio-first-party-only"><a class="self-link" href="#biblio-first-party-only"></a>[FIRST-PARTY-ONLY]
+   <dd>Mike West. <a href="https://tools.ietf.org/html/draft-west-first-party-cookies">'First-Party-Only' Cookies</a>. URL: <a href="https://tools.ietf.org/html/draft-west-first-party-cookies">https://tools.ietf.org/html/draft-west-first-party-cookies</a>
    <dt id="biblio-geofencing"><a class="self-link" href="#biblio-geofencing"></a>[GEOFENCING]
    <dd>Alex Russell. <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">Geofencing Explained</a>. URL: <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">https://github.com/slightlyoff/Geofencing/blob/master/explainer.md</a>
    <dt id="biblio-homakov"><a class="self-link" href="#biblio-homakov"></a>[HOMAKOV]
@@ -791,6 +884,8 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dd>Arvind Jain; Jatinder Mann. <a href="http://www.w3.org/TR/beacon/">Beacon</a>. 24 June 2014. LCWD. URL: <a href="http://www.w3.org/TR/beacon/">http://www.w3.org/TR/beacon/</a>
    <dt id="biblio-cors"><a class="self-link" href="#biblio-cors"></a>[CORS]
    <dd>Anne van Kesteren. <a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>. 16 January 2014. REC. URL: <a href="http://www.w3.org/TR/cors/">http://www.w3.org/TR/cors/</a>
+   <dt id="biblio-geolocation-api"><a class="self-link" href="#biblio-geolocation-api"></a>[geolocation-API]
+   <dd>Andrei Popescu. <a href="http://www.w3.org/TR/geolocation-API/">Geolocation API Specification</a>. 24 October 2013. REC. URL: <a href="http://www.w3.org/TR/geolocation-API/">http://www.w3.org/TR/geolocation-API/</a>
    <dt id="biblio-html-imports"><a class="self-link" href="#biblio-html-imports"></a>[HTML-IMPORTS]
    <dd>Dimitri Glazkov; Hajime Morita. <a href="http://www.w3.org/TR/html-imports/">HTML Imports</a>. 11 March 2014. WD. URL: <a href="http://www.w3.org/TR/html-imports/">http://www.w3.org/TR/html-imports/</a>
    <dt id="biblio-service-workers"><a class="self-link" href="#biblio-service-workers"></a>[SERVICE-WORKERS]
@@ -801,8 +896,8 @@ Security Policy’s <code>script-src</code> directive.</p>
    <div class="issue">TODO.<a href="#issue-95f2d23a0"> ↵ </a></div>
    <div class="issue">TODO.<a href="#issue-95f2d23a1"> ↵ </a></div>
    <div class="issue">TODO.<a href="#issue-95f2d23a2"> ↵ </a></div>
-   <div class="issue">TODO.<a href="#issue-95f2d23a3"> ↵ </a></div>
-   <div class="issue">TODO.<a href="#issue-95f2d23a4"> ↵ </a></div>
-   <div class="issue">Move Tantek’s thoughts to a separate section. They don’t really fit
-  well here (but they should be in the document somewhere).<a href="#issue-6a03d02e"> ↵ </a></div></div></body>
+   <div class="issue">Bring in some of felt@'s ideas here.<a href="#issue-4800b8c7"> ↵ </a></div>
+   <div class="issue">Move Tantek’s thoughts somewhere. They don’t really fit well here,
+    though the sentiment of a minimum viable web platform might fit into some
+    other TAG finding.<a href="#issue-94f4168a"> ↵ </a></div></div></body>
 </html>
