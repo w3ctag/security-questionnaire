@@ -1,2 +1,2 @@
 all:
-	bikeshed -f spec security-privacy/index.src.html
+	bikeshed -f spec index.src.html
