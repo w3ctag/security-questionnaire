@@ -68,6 +68,7 @@ pre, code, .idl-code {
   font-size: .9em;
   font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
+pre .idl-code, pre code { font-size: 1em; }
 dt dfn code { font-size: inherit; }
 
 dfn { font-weight: bolder; }
@@ -562,16 +563,20 @@ span.issue, span.note {
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
   
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas,
-    <time class="dt-updated" datetime="2015-04-24">24 April 2015</time></span></h2>
+    <time class="dt-updated" datetime="2015-05-11">11 May 2015</time></span></h2>
   
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://example.com/#TODO">https://example.com/#TODO</a>
+     <dd><a class="u-url" href="https://w3ctag.github.io/security-questionnaire/">https://w3ctag.github.io/security-questionnaire/</a>
+     <dt>Version History:
+     <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html">https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html</a>
      <dt>Issue Tracking:
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
+     <dt>Bug Reports:
+     <dd><span><a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a></span>
     </dl>
    </div>
   
@@ -580,7 +585,7 @@ span.issue, span.note {
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 24 April 2015,
+In addition, as of 11 May 2015,
 the editors have made this specification available under the
 <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -718,7 +723,8 @@ Conformance</span></a>
     <p>Adding features to the web is a tricky thing; on the one hand, we want to
   provide developers with access to all the things they need in order to build
   amazing experiences. On the other, we need to ensure that we don’t
-  accidentally hand over too much power to malicious folks who could abuse it.
+  accidentally hand over too much power to malicious folks who could abuse it,
+  or unintentionally expose people’s private data without adequate controls.
   Ideally, careful review of every specification we publish will allow us to
   strike the right balance.</p>
 
@@ -813,8 +819,9 @@ Conformance</span></a>
 
 
      <li data-md="">
-      <p>If your ISP is willing to modify your traffic for profit, it’s difficult
-  to believe that state-level attackers would remain passive.</p>
+      <p>If your ISP is willing to modify substantial amounts of traffic flowing
+  through it for profit, it’s difficult to believe that state-level 
+  attackers will remain passive.</p>
       
 </ul>
   
@@ -855,7 +862,7 @@ Conformance</span></a>
     <h3 class="heading settled" data-level="2.4" id="third-party-tracking"><span class="secno">2.4. </span><span class="content">Third-Party Tracking</span><a class="self-link" href="#third-party-tracking"></a></h3>
 
 
-    <p class="issue" id="issue-af65255c"><a class="self-link" href="#issue-af65255c"></a>Flesh this out. <a href="https://github.com/mikewest/spec-questionnaire/issues/6">&lt;https://github.com/mikewest/spec-questionnaire/issues/6></a></p>
+    <p class="issue" id="issue-af65255c"><a class="self-link" href="#issue-af65255c"></a>Flesh this out. <a href="https://github.com/w3ctag/security-questionnaire/issues/7">&lt;https://github.com/w3ctag/security-questionnaire/issues/7></a></p>
 
 </section>
 
@@ -1267,7 +1274,7 @@ Security Policy’s <code>script-src</code> directive.</p>
       
 
      <li data-md="">
-      <p><code>referrer 'unsafe-always'</code></p>
+      <p><code>referrer <a class="property" data-link-type="propdesc">unsafe-always</a></code></p>
       
 </ul>
 </section>
@@ -1496,7 +1503,7 @@ Conformance</span><a class="self-link" href="#conformance"></a></h2>
   </dl>
   <h2 class="no-num heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue">Flesh this out. <a href="https://github.com/mikewest/spec-questionnaire/issues/6">&lt;https://github.com/mikewest/spec-questionnaire/issues/6></a><a href="#issue-af65255c"> ↵ </a></div>
+   <div class="issue">Flesh this out. <a href="https://github.com/w3ctag/security-questionnaire/issues/7">&lt;https://github.com/w3ctag/security-questionnaire/issues/7></a><a href="#issue-af65255c"> ↵ </a></div>
    <div class="issue">TODO.<a href="#issue-95f2d23a"> ↵ </a></div>
    <div class="issue">TODO.<a href="#issue-95f2d23a0"> ↵ </a></div>
    <div class="issue">TODO.<a href="#issue-95f2d23a1"> ↵ </a></div>
