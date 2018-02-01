@@ -332,21 +332,21 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   *   Section 2.1 of [[FIRST-PARTY-ONLY]] defines "first-party" in line with
       existing browser behavior (Chrome and Firefox).
 
-  <h3 id="incognito">
+  <h3 id="private-browsing">
     How should this specification work in the context of a user agent's
-    "incognito" mode?
+    private browsing mode?
   </h3>
 
   *   Ideally, the feature would work in such a way that the website would not
-      be able to determine that the user was in "incognito".
+      be able to determine that the user was in private browsing mode.
 
   *   Less ideally, the feature wouldn't work, but the website still wouldn't
-      be able to distinguish "incognito" from simply being denied permission to
-      use the feature (for instance).
+      be able to distinguish a private browsing context from simply being denied
+      permission to use the feature (for instance).
 
-  *   Unideally, the feature wouldn't exist at all in "incognito", which means
-      that the user wouldn't be exposing data, but the website can probably tell
-      that the user is in that state.
+  *   Unideally, the feature wouldn't exist at all in private browsing mode, which
+      means that the user wouldn't be exposing data, but the website can probably
+      tell that the user is in that state.
 
   <h3 id="storage">
     Does this specification persist data to a user's local device?
