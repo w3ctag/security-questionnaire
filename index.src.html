@@ -285,9 +285,16 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   <h3 id="local-device">Does this specification allow an origin access to aspects of a user's local computing environment?</h3>
 
-  (e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?
+  Variables exist in each user's computing environment. These include - but are not
+  limited to screen sizes, installed fonts, installed plugins, bluetooth, existence
+  of assistive technology software or hardware, or network interface identifiers.
+  These expose a surface to fingerprint users, and it should be put into consideration
+  whether or not exposing a combination of these variables allow origins a vector to
+  track users.
 
-  ISSUE: TODO.
+  *   Exposure of unique identifiers such as network interface or Bluetooth hardware
+      addresses allow origins to pinpoint specific users, even across clean browsing
+      sessions and different user agents.
 
   <h3 id="remote-device">
     Does this specification allow an origin access to other devices?
