@@ -293,12 +293,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Does this specification allow an origin access to other devices?
   </h3>
 
-  Specifically, it's interesting whether or not this specification allows access
-  to devices on a user's local network that would be otherwise inaccessible to
-  a web origin. In particular, connection via Bluetooth and USB should be
-  carefully evaluated to avoid exposing devices to the web that aren't created
-  with the web in mind; doing so has security implications, as these devices
-  may not be hardened against malicious input as well as they should be.
+  Accessing other devices, both via network connections and via  
+      direct connection to the user's machine (e.g. via Bluetooth,
+      NFC, or USB), could expose vulnerabilities - some of
+      these devices were not created with web connectivity in mind and may be inadequately
+      hardened against malicious input.
 
   *   The Network Service Discovery API [[DISCOVERY]] recommends CORS preflights
       before granting access to a device, and requires user agents to involve
@@ -311,7 +310,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       and privacy considerations"</a>, which is worth reading as an example for
       similar work.
 
-
+      Direct connections might be also
+      be used to bypass security checks that other APIs would provide.  For example:
+      
+      * Attackers used the WebUSB API to access others sites' crendentials on a hardware security,
+      bypassing same-origin checks in an early U2F API.  [[YUBIKEY-ATTACK]]
+      
   <h3 id="native-ui">
     Does this specification allow an origin some measure of control over a user
     agent's native UI?
@@ -560,6 +564,11 @@ spec:html5; type:element; text:script
       "title": "'First-Party-Only' Cookies",
       "authors": [ "Mike West" ],
       "publisher": "IETF"
-  }
+  },
+  "YUBIKEY-ATTACK": {
+      "href": "https://www.wired.com/story/chrome-yubikey-phishing-webusb/",
+      "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
+      "authors": [ "Andy Greenberg" ],
+      "publisher": "Wired"
 }
 </pre>
