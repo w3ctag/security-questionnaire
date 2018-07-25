@@ -170,10 +170,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   *   Credential Management [[CREDENTIAL-MANAGEMENT]] allows sites to request
       a user's credentials from a user agent's password manager in order to
       sign the user in quickly and easily. This opens the door for abuse, as
-      a single XSS could expose user data trivially to JavaScript. They mitigate
-      the risk by only offering the username and password as an opaque
-      <code>FormData</code> object which cannot be directly read by JavaScript,
-      and strongly suggest that authors use Content Security Policy [[CSP]] with
+      a single XSS vulnerability could expose user data trivially to
+      JavaScript. The Credential Managerment API mitigates
+      the risk by offering the username and password as only an opaque
+      <code>FormData</code> object which cannot be directly read by JavaScript
+      and strongly suggests that authors use Content Security Policy [[CSP]] with
       resonable <code>connect-src</code> and <code>form-action</code> values to
       further mitigate the risk of exfiltration.
 
