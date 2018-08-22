@@ -81,7 +81,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   It is understandable that developers may not always be have the necessary data to see the broader picture and possible
     implications, for example in relation to other existing web functionalities.
-    The answers to the questionnaire are meant as help and input for people who may nonetheless make security and privacy remarks, or the assessment. 
+    The answers to the questionnaire are meant as help and input for people who may nonetheless make security and privacy remarks, or the assessment.
 
 </section>
 
@@ -89,9 +89,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 <section>
   <h2 id="threats">Threat Models</h2>
 
-  "Security" and "Privacy" are big concepts. In order to pare them down to
-  something which could feasibly guide working groups' decisions, let's consider
-  the types of threats to both which the web makes possible:
+  To consider security and privacy it is convenient to think in terms of threat models - in a way illuminating the possible risks.
 
   <h3 id="passive-network">Passive Network Attackers</h3>
 
@@ -155,10 +153,17 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   *   Data leakage occurs when bits of information are inadvertantly made
       available cross-origin, either explicitly via CORS headers [[CORS]],
       or implicitly, via side-channel attacks like [[TIMING]].
+  *
 
   <h3 id="third-party-tracking">Third-Party Tracking</h3>
 
-  ISSUE(w3ctag/security-questionnaire#7): Flesh this out.
+  Third-party tracking may occur when content from one origin is embedded or otherwise injected in another origin
+  in a way that information may be accessed, revealed, queried or reasoned by third-party. This third-party may
+  be a script injected on a first-party site
+
+  *   The simplest example is injecting a link to a site that behaves differently under specific condition,
+      for example based on the fact that user is or is not logged to the site. This may reveal that the user has
+      an account on a site.
 
 </section>
 
