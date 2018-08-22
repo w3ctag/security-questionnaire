@@ -437,12 +437,14 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   Some examples:
 
   *  Non-standardised method <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">requestFileSystem</a> enabling the <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">detection</a> private browsing mode
-  *  [PAYMENT-REQUEST-API] allowed the <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">detection</a> of “incognito” mode 
+  *  [PAYMENT-REQUEST-API] allowed the <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">detection</a> of “incognito” mode
 
 
   <h3 id="storage">
     Does this specification persist data to a user's local device?
   </h3>
+  User agents are able to store persistent data to user’s devices.
+  The simplest examples are browsing history, cookies, or localStorage.
 
   *   How should user agent's "Clear browsing data" functionality work with
       this data? Are there caches that the user agent needs to be particularly
@@ -453,13 +455,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Considerations" section?
   </h3>
 
-  Interesting features added to the web platform generally have security and/or
-  privacy impacts. Documenting the various concerns and potential abuses in
-  "Security Considerations" and "Privacy Considerations" sections of a document
-  is a good way to help implementers and web developers understand the risks
-  that a feature presents, and to ensure that adequate mitigations are in place.
-
-  If it seems like a feature does not have security or privacy impacts,
+  Documenting the various concerns and potential abuses in "Security Considerations" and "Privacy Considerations"
+  sections of a document is a good way to help implementers and web developers understand the risks that a feature
+   presents, and to ensure that adequate mitigations are in place.
+  I
+  f it seems like a feature does not have security or privacy impacts,
   then say so inline in the spec section for that feature:
 
   <blockquote>
@@ -473,7 +473,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       privacy when designing a feature.
     </li>
     <li>
-      Provides some sense of confidence that there are no such impacts.
+      Provides some sense of confidence that there might be no such impacts.
     </li>
     <li>
       Challenges security and privacy minded individuals to think of and find
@@ -483,7 +483,15 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       Demonstrates the spec author/editor's receptivity to feedback about such
       impacts.
     </li>
+    <li>
+      Demonstrates a desire that the specification should not be introducing security and privacy issues
+    </li>
   </ol>
+
+  When saying this, however, the crucial aspect is to actually considering security and privacy.
+  All new specifications must have security and privacy considerations sections to be considered
+  for wide reviews. Interesting features added to the web platform generally often already had security
+  and/or privacy impacts.
 
   <h3 id="relaxed-sop">
     Does this specification allow downgrading default security characteristics?
@@ -493,6 +501,13 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   *   [[CORS]]
   *   [[WEBMESSAGING]]
   *   <code>referrer 'unsafe-always'</code>
+
+  <h3 id="behavioral-monitoring">
+    Does this specification allow the persistent monitoring of user behavior?
+  </h3>
+    Users on the web can be monitored in variaty of means, for example using access to sensors potentially
+    providing mobility patterns (e.g. accelerator, light sensor, web bluetooth), or directly on the web such as
+    the monitoring of mouse movement, which are biometric data conveying rich information.
 
 </section>
 
