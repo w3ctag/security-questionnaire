@@ -192,27 +192,27 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   <h2 id="questions">Questions to Consider</h2>
 
   <h3 id="pii">
-    Does this specification deal with personally-identifiable information?
+    How does the specification deal with personal information allowing to single out the user?
   </h3>
 
-  <dfn local-lt="personally-identifiable">Personally-identifiable
-  information</dfn> (PII) includes a large swath of data which could be used on
-  its own, or in combination with other information, to identify a single
-  person. The exact definition of what's considered PII varies from jurisdiction
-  to jurisdiction, but could certainly include things like a home address, an
-  email address, birthdates, usernames, fingerprints etc. Wikipedia has a fairly
-  good description at [[PII]].
+    Personal data are information relating to individuals. Singling out the user is possible when some unique
+    information or traits are collected. For example, personal data allow singling out individuals on its own,
+    or in combination with other information, to identify a specific person. The exact definition of what is
+    considered PII varies around the world and is rapidly evolving, but may include, among the others,
+    things like a home address, an email address, birthdates, usernames, fingerprints, biometric data,
+    health information, but also identifiers such as cookies, identifiers, IP address, health status, preferences,
+    affinities, beliefs, and much more, depending on the context.
 
-  If the specification under consideration exposes PII to the web, it's
-  important to consider ways to mitigate the obvious impacts. For instance:
+    If the specification under consideration exposes personal data to the web,
+    it’s important to consider ways to mitigate the impacts. For instance:
 
-  *   A feature which uses biometric data (fingerprints or retina scans) could
-      refuse to expose the raw data to the web, instead using the raw data only
-      to unlock some origin-specific and ephemeral secret and transmitting that
-      secret instead.
+    *   A feature which uses biometric data (fingerprints or retina scans) should refuse to expose the raw data to the web, instead using the raw data only to unlock some origin-specific and ephemeral secret and transmitting that secret instead.
+    *   Including a factor of user mediation should be considered, in order to ensure that no data is exposed without a user’s explicit choice (and hopefully understanding). One way to achieve this may be the use of Permission API [PERMISSIONS], or additional dialogs like in Payment Request API [PAYMENT-REQUEST-API]
+    *   The users should be made aware if and when their private data may be exposed to the web
 
-  *   User mediation could be required, in order to ensure that no data is
-      exposed without a user's explicit choice (and hopefully understanding).
+  If the specification deals with or introduces identifiers (persistent or not), the process should be documented,
+   along with the nature of the identifier and its lifetime, whether it is limited to a particular origin or not.
+
 
   <h3 id="credentials">
     Does this specification deal with high-value data?
