@@ -8,15 +8,21 @@ Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Indent: 2
 Abstract:
-  This document lists a set of questions one could ask about the security and
-  privacy impact of a new feature or specification. It is meant as a tool that
-  groups or individuals can use as a guide during a self-review, pointing
-  towards important questions in areas where expertise might be lacking.
+This document provides a points to help in considering the privacy impact of a new feature or
+  specification. The questions are meant to be useful when considering the security and privacy
+  aspects of a new feature or specification. The respective points should be addressed by
+  representatives (e.g. editors) behind the new proposal or a feature.
+  Given the variety and nature of specifications, it is likely that the listed questions will not be
+  comprehensive in a way enabling to reason about the full privacy impact.
+  It is nonetheless the aim to present the questions as a useful point, helping to consider security
+  and privacy at the start of work on a new feature.
 
-  It is not meant as a "security checklist", nor does an editor or group's use
-  of this questionnaire obviate the editor or group's responsibility to obtain
-  "wide review" of a specification's security and privacy properties before
-  publication.
+  It is not meant as a "security checklist", nor does an editor or group’s use of this questionnaire
+  obviate the editor or group’s responsibility to obtain "wide review" of a specification security
+  and privacy properties before publication. Furthermore, the filled questionnaire should not be
+  understood as security and privacy considerations, although part of the answers may be relevant in
+  drafting the considerations.
+
 Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html
 !Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
 </pre>
@@ -98,7 +104,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       [[VERIZON]] for less benign purposes.
 
   *   If your ISP is willing to modify substantial amounts of traffic flowing
-      through it for profit, it's difficult to believe that state-level 
+      through it for profit, it's difficult to believe that state-level
       attackers will remain passive.
 
   <h3 id="sop-violations">Same-Origin Policy Violations</h3>
@@ -294,7 +300,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Does this specification allow an origin access to other devices?
   </h3>
 
-  Accessing other devices, both via network connections and via  
+  Accessing other devices, both via network connections and via
       direct connection to the user's machine (e.g. via Bluetooth,
       NFC, or USB), could expose vulnerabilities - some of
       these devices were not created with web connectivity in mind and may be inadequately
@@ -313,10 +319,10 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
       Direct connections might be also
       be used to bypass security checks that other APIs would provide.  For example:
-      
+
       * Attackers used the WebUSB API to access others sites' crendentials on a hardware security,
       bypassing same-origin checks in an early U2F API.  [[YUBIKEY-ATTACK]]
-      
+
   <h3 id="native-ui">
     Does this specification allow an origin some measure of control over a user
     agent's native UI?
