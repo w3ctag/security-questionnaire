@@ -215,7 +215,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
 
   <h3 id="credentials">
-    Does this specification deal with high-value data?
+    How does this specification deal with high-value data?
   </h3>
 
   Data which isn't <a>personally-identifiable</a> can still be quite valuable.
@@ -237,8 +237,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       further mitigate the risk of exfiltration.
 
   <h3 id="persistent-origin-specific-state">
-    Does this specification introduce new state for an origin that persists
-    across browsing sessions?
+    Might this specification introduce new state for an origin that persists across browsing sessions?
   </h3>
 
   For example:
@@ -268,6 +267,19 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       mechanisms will form a persistent identifier by offering users the
       ability to wipe out the data contained in these types of storage.
 
+  *   Fingerprinting is a technique establishing a unique identifier based on the capabilities of specific
+  feature alone (e.g. Canvas), or combining a number of features. Specifications and user agents should treat
+  the risk of fingerprinting by carefully considering the surface of available information, and the relative
+  differences between software and hardware stacks. Sometimes reducing fingerprintability may be revolve to
+  specific operational considerations, for example providing information in same order (i.e. list of fonts),
+  but sometimes this is not so simple.
+
+  *   Some readout information that is subject to change may still act as a short-term identifier,
+  and possibly introduce a risk of misuse (examples: <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>,
+  <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">Battery Status Not Included</a>).
+  Good example may be the readout of ambient light level [AMBIENT-LIGHT], or battery [BATTERY-STATUS-API]
+
+
   <h3 id="persistent-identifiers">
     Does this specification expose persistent, cross-origin state to the web?
   </h3>
@@ -285,6 +297,10 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       entropy introduced by
       <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
       direct enumeration of the plugin list</a>.
+
+  *   The unexpected cases such as the one of [BATTERY-STATUS-API] when the battery level allowed to
+      reason about the capacity as provided by the operating system
+
 
   <h3 id="other-data">
     Does this specification expose any other data to an origin that it doesn't
@@ -340,13 +356,15 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   <h3 id="sensors">Does this specification allow an origin access to sensors on a user's device?</h3>
 
-  ISSUE: TODO.
+    Powerful features allowing to query information about the user system or environment may open new interesting
+    use cases, as well as expanding risks and changing threat models.
+    Examples of new feature of the kind may include sensors, communication channels such as Bluetooth or USB.
 
   <h3 id="local-device">Does this specification allow an origin access to aspects of a user's local computing environment?</h3>
 
-  (e.g. screen sizes, installed fonts, installed plugins, bluetooth or network interface identifiers)?
+    Features enabling to modify or query screen sizes or installed fonts may be useful but in some contexts might be introducing possible risks. Additionally, functionality facilitating access reason about the user computing environment such as by means of bluetooth or USB should be accounted for, whether the employed identifiers are long term or not.
+  *   [AMBIENT-LIGHT] and [GENERIC-SENSORS] have an extensive discussion around the security and privacy risks
 
-  ISSUE: TODO.
 
   <h3 id="remote-device">
     Does this specification allow an origin access to other devices?
@@ -356,7 +374,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       direct connection to the user's machine (e.g. via Bluetooth,
       NFC, or USB), could expose vulnerabilities - some of
       these devices were not created with web connectivity in mind and may be inadequately
-      hardened against malicious input.
+      hardened against malicious input, or with the use on the web.
 
   *   The Network Service Discovery API [[DISCOVERY]] recommends CORS preflights
       before granting access to a device, and requires user agents to involve
@@ -380,15 +398,16 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     agent's native UI?
   </h3>
 
-  (showing, hiding, or modifying certain details, especially if those details are relevant to security)?
-
-  ISSUE: TODO.
+  This concerns interaction with the UI, such as modification of browser display, or even such things as
+  displaying a common pop-up with origin-controlled input, such as Notifications.
 
   <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
 
-  (e.g. TLS features like Channel ID, session identifiers/tickets, etc)?
+  Some identifiers may be difficult to pin-point  but they revolve around information that is stable in short-term manner (seconds, minutes, days) and may be available to web origins, whether in cross-origin manner or even cross-browser manner.
 
-  ISSUE: TODO.
+  *  [BATTERY-STATUS-API] is possibly the most unexpected example when battery may act as a short-term identifier (see also <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>, <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">Battery Status Not Included</a>)
+  *   Ambient Light readout may be perceived in a <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">similar manner</a>
+  *   Information such as ConnectionType, ConnectionType and rtt exposed by [NETWORK-INFORMATION-API]
 
   <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
 
@@ -396,9 +415,13 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       existing browser behavior (Chrome and Firefox).
 
   <h3 id="private-browsing">
-    How should this specification work in the context of a user agent's
-    private browsing mode?
+    How does this specification work in the context of a user agent’s Private Browsing Modes mode?
   </h3>
+
+  Some web features behave differently in private browsing modes (with respect to normal browsing modes).
+  This is not always desirable. Features should work in such a way that the website would not be able to
+  determine that the user was in a privacy browsing mode. This includes graceful degradation when a feature stops
+  functioning in a way still not revealing the browsing mode. Some examples
 
   *   Ideally, the feature would work in such a way that the website would not
       be able to determine that the user was in private browsing mode.
@@ -410,6 +433,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   *   Unideally, the feature wouldn't exist at all in private browsing mode, which
       means that the user wouldn't be exposing data, but the website can probably
       tell that the user is in that state.
+
+  Some examples:
+
+  *  Non-standardised method <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">requestFileSystem</a> enabling the <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">detection</a> private browsing mode
+  *  [PAYMENT-REQUEST-API] allowed the <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">detection</a> of “incognito” mode 
+
 
   <h3 id="storage">
     Does this specification persist data to a user's local device?
