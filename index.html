@@ -1476,25 +1476,40 @@ Parts of this work may be from another specification document.  If so, those par
   <main>
    <section>
     <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-    <p>Adding features to the web is a tricky thing; on the one hand, we want to
-  provide developers with access to all the things they need in order to build
-  amazing experiences. On the other, we need to ensure that we don’t
-  accidentally hand over too much power to malicious folks who could abuse it,
-  or unintentionally expose people’s private data without adequate controls.
-  Ideally, careful review of every specification we publish will allow us to
-  strike the right balance.</p>
-    <p>Working groups can (and should) begin this review process early, of course.
-  It’s <em>easy</em> to mitigate risks to users on the web <em>before</em> a
-  feature is finalized and shipped in user agents. Changing APIs or
-  introducing restrictions becomes nigh impossible once the web begins to
-  depend on a particular implementation.</p>
-    <p>This document encourages early review by posing a number of questions that
-  you as a individual reader of a specification can ask—and that working
-  groups and spec editors might consider themselves, before asking for more
-  formal review. The intent is to highlight areas which have historically had
-  interesting implications on a user’s security or privacy, and thereby to
-  focus the editor’s attention and working group’s attention and reviewers'
-  attention on areas that might previously have been overlooked.</p>
+<p>New web features are what makes the web live and stronger. When working on them - planning, drafting, implementing - there is always a risk of unforeseen security and privacy implications. This may happen due to the details of the new feature, some of its
+  part(s), or the unforeseen interactions with other features.</p>
+
+
+<p>The challenges in standardization of web mechanisms are unique, as they relate to all the user agents. In that, the descriptions, protocols and algorithms need to be considered strictly, since the mechanisms are typically foreseen for a broad adoption
+  by vendors with large user base. This unique position is a <em>challenge</em>, because inefficiencies and inadequacies introduced early in the process may propagate - eventually reaching to a number of User Agents, and affecting the security and privacy of users
+  at large. However, this position is also an <em>asset</em>, since carefully considering the risks and challenges early in the process helps ensuring a high quality in terms of security and privacy.</p>
+
+<p>If a feature is found to introduce undesirable risks, weakness or threats, the risk does not only relate to the users and the browsers, but also to the web itself. This is because vendors may subsequently choose prioritising the protection of users
+  by introducing changes breaking compatibility. In the end, the whole web ecosystem may be negatively affected.</p>
+
+
+<p>This is why each Working Group needs to consider <em>security and privacy</em> <b>by default</b>. This consideration is <b>mandatory</b>. Furthermore, assessing the impact of a mechanism on privacy should be done from the ground up, during each iteration of the specification.
+  The questionnaire here presented is meant as guidelines helping to consider security and privacy as early as possible, on the level of Working Group (and earlier even, at the level of Community Groups).</p>
+
+<p>Providing adequate and informative answers to the questions, such as providing context, or explaining the reasoning behind certain choices, will also help in a wide security and privacy review performed later on, within the W3C review proces, and beyond.</p>
+
+<p>This document encourages early review by posing a number of questions that you as an individual reader/writer/contributor of a specification can ask — and that working groups and spec editors need to consider, prior asking for a more formal review. The intent is to
+  highlight areas which have historically had interesting implications on a user’s security or privacy, and thereby to focus the editor, working group attention, and reviewers' attention on areas that might previously have been overlooked.</p>
+
+The audience of this document is general:
+<ul>
+  <li data-md="">
+    <p>The editors and contributors who are responsible for the development of the feature,
+    </p>
+  </li>
+  <li data-md="">
+    <p> The W3C TAG, who receive the questionnaire along with the request, and in line with the W3C Process,</p>
+      <li data-md="">
+        <p>External audience (developers, designers, etc.) wanting to understand the possible security and privacy implications.</p>
+      </li>
+</ul>
+
+
     <p class="note" role="note"><span>Note:</span> Answering these questions obviously doesn’t constitute "wide review" in
   and of itself, but could provide a helpful basis of understanding upon which
   future reviewers can build.</p>
