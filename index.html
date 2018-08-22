@@ -1394,16 +1394,22 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document lists a set of questions one could ask about the security and
+   <p>This document provides a points to help in considering the privacy impact of a new feature or
+     specification. The questions are meant to be useful when considering the security and privacy
+     aspects of a new feature or specification. The respective points should be addressed by
+     representatives (e.g. editors) behind the new proposal or a feature.
+     Given the variety and nature of specifications, it is likely that the listed questions will not be
+     comprehensive in a way enabling to reason about the full privacy impact.
+     It is nonetheless the aim to present the questions as a useful point, helping to consider security
+     and privacy at the start of work on a new feature.
 
-privacy impact of a new feature or specification. It is meant as a tool that
-groups or individuals can use as a guide during a self-review, pointing
-towards important questions in areas where expertise might be lacking.</p>
-   <p>It is not meant as a "security checklist", nor does an editor or group’s use
-
-of this questionnaire obviate the editor or group’s responsibility to obtain
-"wide review" of a specification’s security and privacy properties before
-publication.</p>
+</p>
+   <p>It is not meant as a "security checklist", nor does an editor or group’s use of this questionnaire
+     obviate the editor or group’s responsibility to obtain "wide review" of a specification security
+     and privacy properties before publication. Furthermore, the filled questionnaire should not be
+     understood as security and privacy considerations, although part of the answers may be relevant in
+     drafting the considerations.
+</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1533,7 +1539,7 @@ publication.</p>
       <p>ISPs also regularly inject JavaScript <a data-link-type="biblio" href="#biblio-comcast">[COMCAST]</a> and other identifiers <a data-link-type="biblio" href="#biblio-verizon">[VERIZON]</a> for less benign purposes.</p>
      <li data-md="">
       <p>If your ISP is willing to modify substantial amounts of traffic flowing
-  through it for profit, it’s difficult to believe that state-level 
+  through it for profit, it’s difficult to believe that state-level
   attackers will remain passive.</p>
     </ul>
     <h3 class="heading settled" data-level="2.3" id="sop-violations"><span class="secno">2.3. </span><span class="content">Same-Origin Policy Violations</span><a class="self-link" href="#sop-violations"></a></h3>
@@ -1764,12 +1770,12 @@ Security Policy’s <code>script-src</code> directive.</p>
     <p>Saying so explicitly in the specification serves several purposes:</p>
     <ol>
      <li> Shows that a spec author/editor has explicitly considered security and
-      privacy when designing a feature. 
-     <li> Provides some sense of confidence that there are no such impacts. 
+      privacy when designing a feature.
+     <li> Provides some sense of confidence that there are no such impacts.
      <li> Challenges security and privacy minded individuals to think of and find
-      even the potential for such impacts. 
+      even the potential for such impacts.
      <li> Demonstrates the spec author/editor’s receptivity to feedback about such
-      impacts. 
+      impacts.
     </ol>
     <h3 class="heading settled" data-level="3.17" id="relaxed-sop"><span class="secno">3.17. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
     <ul>
@@ -1805,7 +1811,7 @@ Security Policy’s <code>script-src</code> directive.</p>
     <div class="example" id="example-0f970aba">
      <a class="self-link" href="#example-0f970aba"></a> The easiest way to mitigate potential negative security or privacy
     impacts of a feature, and even discussing the possibility,
-    is to drop the feature. 
+    is to drop the feature.
      <p>Every feature in a spec should be considered guilty
     (of harming security and/or privacy) until proven otherwise.
     Every specification should seek to be as small as possible,
@@ -1817,11 +1823,11 @@ Security Policy’s <code>script-src</code> directive.</p>
      <p>Ideally this is one of many motivations to reduce each of those to the minimum viable:</p>
      <ol>
       <li> Minimum viable feature:
-      cut/drop values, options, or optional aspects. 
+      cut/drop values, options, or optional aspects.
       <li> Minimum viable web format/protocol/API:
-      cut/drop a module, or even just one feature. 
+      cut/drop a module, or even just one feature.
       <li> Minimum viable web platform:
-      Cut/drop/obsolete entire specification(s). 
+      Cut/drop/obsolete entire specification(s).
      </ol>
      <p class="issue" id="issue-94f4168a"><a class="self-link" href="#issue-94f4168a"></a> Move Tantek’s thoughts somewhere. They don’t really fit well here,
     though the sentiment of a minimum viable web platform might fit into some
@@ -2060,19 +2066,19 @@ Security Policy’s <code>script-src</code> directive.</p>
   <aside class="dfn-panel" data-for="active-network-attacker">
    <b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-active-network-attacker">3.2. 
+    <li><a href="#ref-for-active-network-attacker">3.2.
     Does this specification deal with high-value data? </a>
-    <li><a href="#ref-for-active-network-attacker①">3.3. 
+    <li><a href="#ref-for-active-network-attacker①">3.3.
     Does this specification introduce new state for an origin that persists
     across browsing sessions? </a>
-    <li><a href="#ref-for-active-network-attacker②">4.1. 
+    <li><a href="#ref-for-active-network-attacker②">4.1.
     Secure Contexts </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="same-origin-policy">
    <b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-same-origin-policy">3.5. 
+    <li><a href="#ref-for-same-origin-policy">3.5.
     Does this specification expose any other data to an origin that it doesn’t
     currently have access to? </a>
    </ul>
@@ -2080,9 +2086,9 @@ Security Policy’s <code>script-src</code> directive.</p>
   <aside class="dfn-panel" data-for="cross-site-scripting-attacks">
    <b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-cross-site-scripting-attacks">3.2. 
+    <li><a href="#ref-for-cross-site-scripting-attacks">3.2.
     Does this specification deal with high-value data? </a>
-    <li><a href="#ref-for-cross-site-scripting-attacks①">3.3. 
+    <li><a href="#ref-for-cross-site-scripting-attacks①">3.3.
     Does this specification introduce new state for an origin that persists
     across browsing sessions? </a>
    </ul>
@@ -2090,7 +2096,7 @@ Security Policy’s <code>script-src</code> directive.</p>
   <aside class="dfn-panel" data-for="personally-identifiable-information">
    <b><a href="#personally-identifiable-information">#personally-identifiable-information</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-personally-identifiable-information">3.2. 
+    <li><a href="#ref-for-personally-identifiable-information">3.2.
     Does this specification deal with high-value data? </a>
    </ul>
   </aside>
