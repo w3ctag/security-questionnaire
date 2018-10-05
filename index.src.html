@@ -135,7 +135,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   <h2 id="threats">Threat Models</h2>
 
   To consider security and privacy it is convenient to think in terms of threat
-  models - in a way illuminating the possible risks.
+  models, a way to illuminate the possible risks.
 
   There are some concrete privacy concerns that should be considered when
   developing a feature for the web platform:
@@ -162,10 +162,10 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       the data that others have about them and to participate in its handling
       and use.
 
-  In the mitigations sectio, this document outlines a number of techniques that
-  can be applied to mitigate these risks.
+  In the mitigations section, this document outlines a number of techniques
+  that can be applied to mitigate these risks.
 
-  More broadly, enumerated below are some classes of threats that should be
+  Enumerated below are some broad classes of threats that should be
   considered when developing a web feature.
 
   <h3 id="passive-network">Passive Network Attackers</h3>
@@ -240,14 +240,15 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   from other third parties — from images to javascript — to enhance the content
   and/or a user's experience of the site.  However, when a page pulls in
   content from third parities, it inherently leaks some information to third
-  parties — referer information, cookies, and other information that may be
-  used to track and profile a user.  Moreover, third parties can gain execution
-  power through third party Javascript being included by a webpage.  While
-  pages can take steps to mitigate the risks of third party content and
-  browsers may differentiate how they treat first and third party content from
-  a given page, the risk of new functionality being executed by third parties
-  rather than the first party site should be considered in the feature
-  development process.
+  parties — referer information and other information that may be used to track
+  and profile a user.  This includes the fact that cookies go back to the
+  domain that initially stored them allowing for cross origin tracking.
+  Moreover, third parties can gain execution power through third party
+  Javascript being included by a webpage.  While pages can take steps to
+  mitigate the risks of third party content and browsers may differentiate
+  how they treat first and third party content from a given page, the risk of
+  new functionality being executed by third parties rather than the first party
+  site should be considered in the feature development process.
 
   *   The simplest example is injecting a link to a site that behaves
       differently under specific condition, for example based on the fact that
