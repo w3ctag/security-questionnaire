@@ -223,26 +223,40 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   <h2 id="questions">Questions to Consider</h2>
 
   <h3 id="pii">
-    How does the specification deal with personal information allowing to single out the user?
+    How does the specification deal with personal information allowing to
+    single out the user?
   </h3>
 
-    Personal data are information relating to individuals. Singling out the user is possible when some unique
-    information or traits are collected. For example, personal data allow singling out individuals on its own,
-    or in combination with other information, to identify a specific person. The exact definition of what is
-    considered PII varies around the world and is rapidly evolving, but may include, among the others,
-    things like a home address, an email address, birthdates, usernames, fingerprints, biometric data,
-    health information, but also identifiers such as cookies, identifiers, IP address, health status, preferences,
-    affinities, beliefs, and much more, depending on the context.
+    Personal data are information relating to individuals. Singling out the
+    user is possible when some unique information or traits are collected. For
+    example, personal data allow singling out individuals on its own, or in
+    combination with other information, to identify a specific person. The
+    exact definition of what is considered PII varies around the world and is
+    rapidly evolving, but may include, among the others, things like a home
+    address, an email address, birthdates, usernames, fingerprints, biometric
+    data, health information, but also identifiers such as cookies,
+    identifiers, IP address, health status, preferences, affinities, beliefs,
+    and much more, depending on the context.
 
     If the specification under consideration exposes personal data to the web,
     it’s important to consider ways to mitigate the impacts. For instance:
 
-    *   A feature which uses biometric data (fingerprints or retina scans) should refuse to expose the raw data to the web, instead using the raw data only to unlock some origin-specific and ephemeral secret and transmitting that secret instead.
-    *   Including a factor of user mediation should be considered, in order to ensure that no data is exposed without a user’s explicit choice (and hopefully understanding). One way to achieve this may be the use of Permission API [PERMISSIONS], or additional dialogs like in Payment Request API [PAYMENT-REQUEST-API]
-    *   The users should be made aware if and when their private data may be exposed to the web
+    *   A feature which uses biometric data (fingerprints or retina scans)
+        should refuse to expose the raw data to the web, instead using the raw
+        data only to unlock some origin-specific and ephemeral secret and
+        transmitting that secret instead.
+    *   Including a factor of user mediation should be considered, in order to
+        ensure that no data is exposed without a user’s explicit choice (and
+        hopefully understanding). One way to achieve this may be the use of
+        Permission API [PERMISSIONS], or additional dialogs like in Payment
+        Request API [PAYMENT-REQUEST-API]
+    *   The users should be made aware if and when their private data may be
+        exposed to the web
 
-  If the specification deals with or introduces identifiers (persistent or not), the process should be documented,
-   along with the nature of the identifier and its lifetime, whether it is limited to a particular origin or not.
+  If the specification deals with or introduces identifiers (persistent or
+  not), the process should be documented, along with the nature of the
+  identifier and its lifetime, whether it is limited to a particular origin or
+  not.
 
 
   <h3 id="credentials">
@@ -263,12 +277,13 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       JavaScript. The Credential Managerment API mitigates
       the risk by offering the username and password as only an opaque
       <code>FormData</code> object which cannot be directly read by JavaScript
-      and strongly suggests that authors use Content Security Policy [[CSP]] with
-      resonable <code>connect-src</code> and <code>form-action</code> values to
-      further mitigate the risk of exfiltration.
+      and strongly suggests that authors use Content Security Policy [[CSP]]
+      with resonable <code>connect-src</code> and <code>form-action</code>
+      values to further mitigate the risk of exfiltration.
 
   <h3 id="persistent-origin-specific-state">
-    Might this specification introduce new state for an origin that persists across browsing sessions?
+    Might this specification introduce new state for an origin that persists
+    across browsing sessions?
   </h3>
 
   For example:
@@ -277,11 +292,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       origin, allowing sites to function perfectly even when offline. A
       maliciously-injected service worker, however, would be devastating (as
       documented in that spec's
-      <a href="http://www.w3.org/TR/service-workers/#security-considerations">security
-      considerations section</a>). They mitigate the risks an <a>active network
-      attacker</a> or <a>XSS</a> vulnerability present by requiring an
-      encrypted and authenticated connection in order to register a service
-      worker.
+      <a href="http://www.w3.org/TR/service-workers/#security-considerations">
+      security considerations section</a>). They mitigate the risks an
+      <a>active network attacker</a> or <a>XSS</a> vulnerability present by
+      requiring an encrypted and authenticated connection in order to register
+      a service worker.
 
   *   Platform-specific DRM implementations might expose origin-specific
       information in order to help identify users and determine whether they
@@ -298,17 +313,21 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       mechanisms will form a persistent identifier by offering users the
       ability to wipe out the data contained in these types of storage.
 
-  *   Fingerprinting is a technique establishing a unique identifier based on the capabilities of specific
-  feature alone (e.g. Canvas), or combining a number of features. Specifications and user agents should treat
-  the risk of fingerprinting by carefully considering the surface of available information, and the relative
-  differences between software and hardware stacks. Sometimes reducing fingerprintability may be revolve to
-  specific operational considerations, for example providing information in same order (i.e. list of fonts),
-  but sometimes this is not so simple.
+  *   Fingerprinting is a technique establishing a unique identifier based on
+      the capabilities of specific feature alone (e.g. Canvas), or combining a
+      number of features. Specifications and user agents should treat the risk
+      of fingerprinting by carefully considering the surface of available
+      information, and the relative differences between software and hardware
+      stacks. Sometimes reducing fingerprintability may be revolve to specific
+      operational considerations, for example providing information in same
+      order (i.e. list of fonts), but sometimes this is not so simple.
 
-  *   Some readout information that is subject to change may still act as a short-term identifier,
-  and possibly introduce a risk of misuse (examples: <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>,
-  <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">Battery Status Not Included</a>).
-  Good example may be the readout of ambient light level [AMBIENT-LIGHT], or battery [BATTERY-STATUS-API]
+  *   Some readout information that is subject to change may still act as a
+      short-term identifier, and possibly introduce a risk of misuse (examples:
+      <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>,
+      <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">
+      Battery Status Not Included</a>). Good example may be the readout of
+      ambient light level [AMBIENT-LIGHT], or battery [BATTERY-STATUS-API]
 
 
   <h3 id="persistent-identifiers">
@@ -329,8 +348,9 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
       direct enumeration of the plugin list</a>.
 
-  *   The unexpected cases such as the one of [BATTERY-STATUS-API] when the battery level allowed to
-      reason about the capacity as provided by the operating system
+  *   The unexpected cases such as the one of [BATTERY-STATUS-API] when the
+      battery level allowed to reason about the capacity as provided by the
+      operating system
 
 
   <h3 id="other-data">
@@ -368,7 +388,8 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   * What about style?
 
-  <h3 id="location">Does this specification allow an origin access to a user's location?</h3>
+  <h3 id="location">Does this specification allow an origin access to a user's
+  location?</h3>
 
   A user's location is highly-desirable information for a variety of use cases.
   It is also, understandably, information which many users are reluctant to
@@ -377,31 +398,40 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   web in new ways should carefully consider the ways in which the risks of
   unfettered access to a user's location could be mitigated. For instance:
 
-  *   Geolocation information can serve many use cases at a much less granular
-      precision than the user agent can offer. For instance, a resturaunt
-      recommendation can be generated by asking for a user's city-level location
-      rather than a position accurate to the centimeter.
+  *  Geolocation information can serve many use cases at a much less granular
+     precision than the user agent can offer. For instance, a resturaunt
+     recommendation can be generated by asking for a user's city-level location
+     rather than a position accurate to the centimeter.
 
-  *   A recent Geofencing proposal [[GEOFENCING]] ties itself to service workers
-      and therefore to encrypted and authenticated origins.
+  *  A recent Geofencing proposal [[GEOFENCING]] ties itself to service workers
+     and therefore to encrypted and authenticated origins.
 
-  <h3 id="sensors">Does this specification allow an origin access to sensors on a user's device?</h3>
+  <h3 id="sensors">Does this specification allow an origin access to sensors on
+  a user's device?</h3>
 
-    Powerful features allowing to query information about the user system or environment may open new interesting
-    use cases, as well as expanding risks and changing threat models.
-    Examples of new feature of the kind may include sensors, communication channels such as Bluetooth or USB.
+  Powerful features allowing to query information about the user system or
+  environment may open new interesting use cases, as well as expanding risks
+  and changing threat models.
+  Examples of new feature of the kind may include sensors, communication
+  channels such as Bluetooth or USB.
 
-  <h3 id="local-device">Does this specification allow an origin access to aspects of a user's local computing environment?</h3>
+  <h3 id="local-device">Does this specification allow an origin access to
+  aspects of a user's local computing environment?</h3>
 
-    Features enabling to modify or query screen sizes or installed fonts may be useful but in some contexts might be introducing possible risks. Additionally, functionality facilitating access reason about the user computing environment such as by means of bluetooth or USB should be accounted for, whether the employed identifiers are long term or not.
-  *   [AMBIENT-LIGHT] and [GENERIC-SENSORS] have an extensive discussion around the security and privacy risks
+  Features enabling to modify or query screen sizes or installed fonts may be
+  useful but in some contexts might be introducing possible risks.
+  Additionally, functionality facilitating access reason about the user
+  computing environment such as by means of bluetooth or USB should be
+  accounted for, whether the employed identifiers are long term or not.
+  * [AMBIENT-LIGHT] and [GENERIC-SENSORS] have an extensive discussion around
+    the security and privacy risks
 
 
   <h3 id="remote-device">
     Does this specification allow an origin access to other devices?
   </h3>
 
-  Accessing other devices, both via network connections and via
+    Accessing other devices, both via network connections and via
       direct connection to the user's machine (e.g. via Bluetooth,
       NFC, or USB), could expose vulnerabilities - some of
       these devices were not created with web connectivity in mind and may be inadequately
@@ -419,26 +449,33 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       similar work.
 
       Direct connections might be also
-      be used to bypass security checks that other APIs would provide.  For example:
+      be used to bypass security checks that other APIs would provide.
+      For example:
 
-      * Attackers used the WebUSB API to access others sites' crendentials on a hardware security,
-      bypassing same-origin checks in an early U2F API.  [[YUBIKEY-ATTACK]]
+      * Attackers used the WebUSB API to access others sites' crendentials on a
+      hardware security, bypassing same-origin checks in an early U2F API.
+      [[YUBIKEY-ATTACK]]
 
   <h3 id="native-ui">
     Does this specification allow an origin some measure of control over a user
     agent's native UI?
   </h3>
 
-  This concerns interaction with the UI, such as modification of browser display, or even such things as
-  displaying a common pop-up with origin-controlled input, such as Notifications.
+  This concerns interaction with the UI, such as modification of browser
+  display, or even such things as displaying a common pop-up with
+  origin-controlled input, such as Notifications.
 
   <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
 
-  Some identifiers may be difficult to pin-point  but they revolve around information that is stable in short-term manner (seconds, minutes, days) and may be available to web origins, whether in cross-origin manner or even cross-browser manner.
+  Some identifiers may be difficult to pin-point  but they revolve around
+  information that is stable in short-term manner (seconds, minutes, days) and
+  may be available to web origins, whether in cross-origin manner or even
+  cross-browser manner.
 
-  *  [BATTERY-STATUS-API] is possibly the most unexpected example when battery may act as a short-term identifier (see also <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>, <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">Battery Status Not Included</a>)
-  *   Ambient Light readout may be perceived in a <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">similar manner</a>
-  *   Information such as ConnectionType, ConnectionType and rtt exposed by [NETWORK-INFORMATION-API]
+  *  [BATTERY-STATUS-API] is possibly the most unexpected example when battery
+     may act as a short-term identifier (see also <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>, <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">Battery Status Not Included</a>)
+  *  Ambient Light readout may be perceived in a <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">similar manner</a>
+  *  Information such as ConnectionType, ConnectionType and rtt exposed by [NETWORK-INFORMATION-API]
 
   <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
 
@@ -486,11 +523,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Considerations" section?
   </h3>
 
-  Documenting the various concerns and potential abuses in "Security Considerations" and "Privacy Considerations"
-  sections of a document is a good way to help implementers and web developers understand the risks that a feature
-   presents, and to ensure that adequate mitigations are in place.
-  I
-  f it seems like a feature does not have security or privacy impacts,
+  Documenting the various concerns and potential abuses in "Security
+  Considerations" and "Privacy Considerations" sections of a document is a good
+  way to help implementers and web developers understand the risks that a
+  feature presents, and to ensure that adequate mitigations are in place.
+  If it seems like a feature does not have security or privacy impacts,
   then say so inline in the spec section for that feature:
 
   <blockquote>
@@ -515,13 +552,15 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       impacts.
     </li>
     <li>
-      Demonstrates a desire that the specification should not be introducing security and privacy issues
+      Demonstrates a desire that the specification should not be introducing
+      security and privacy issues
     </li>
   </ol>
 
-  When saying this, however, the crucial aspect is to actually considering security and privacy.
-  All new specifications must have security and privacy considerations sections to be considered
-  for wide reviews. Interesting features added to the web platform generally often already had security
+  When saying this, however, the crucial aspect is to actually considering
+  security and privacy. All new specifications must have security and privacy
+  considerations sections to be considered for wide reviews. Interesting
+  features added to the web platform generally often already had security
   and/or privacy impacts.
 
   <h3 id="relaxed-sop">
@@ -536,9 +575,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   <h3 id="behavioral-monitoring">
     Does this specification allow the persistent monitoring of user behavior?
   </h3>
-    Users on the web can be monitored in variaty of means, for example using access to sensors potentially
-    providing mobility patterns (e.g. accelerator, light sensor, web bluetooth), or directly on the web such as
-    the monitoring of mouse movement, which are biometric data conveying rich information.
+  Users on the web can be monitored in variaty of means, for example using
+  access to sensors potentially providing mobility patterns (e.g.
+  accelerator, light sensor, web bluetooth), or directly on the web such as
+  the monitoring of mouse movement, which are biometric data conveying rich
+  information.
 
 </section>
 
