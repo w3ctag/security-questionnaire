@@ -494,10 +494,21 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   Example temporary identifers include TLS Channel ID, Session Tickets, and
   IPv6 addresses.
 
-  <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
+  <h3 id="first-third-party">Does this specification distinguish between
+    behavior in first-party and third-party contexts?
+  </h3>
 
-  *   Section 2.1 of [[FIRST-PARTY-ONLY]] defines "first-party" in line with
-      existing browser behavior (Chrome and Firefox).
+  The behavior of a feature should be considered not just in the context of its
+  being used by a first party origin that a user is visiting but also the
+  implications of its being used by an arbitrary third party that the first
+  party includes. When developing your specification, consider the implications
+  of its use by third party resources on a page and, consider if support for
+  use by third party resources should be optional to conform to the
+  specification.  If supporting use by third party resources is mandatory for
+  conformance, please explain why and what privacy mitigations are in place.
+  This is particularly important as user agents may take steps to reduce the
+  availability or functionality of certain features to third parties if the
+  third parties are found to be abusing the functionality.
 
   <h3 id="private-browsing">
     How does this specification work in the context of a user agent’s Private Browsing Modes mode?
