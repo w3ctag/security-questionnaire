@@ -332,22 +332,46 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       mechanisms will form a persistent identifier by offering users the
       ability to wipe out the data contained in these types of storage.
 
-  *   Fingerprinting is a technique establishing a unique identifier based on
-      the capabilities of specific feature alone (e.g. Canvas), or combining a
-      number of features. Specifications and user agents should treat the risk
-      of fingerprinting by carefully considering the surface of available
-      information, and the relative differences between software and hardware
-      stacks. Sometimes reducing fingerprintability may be revolve to specific
-      operational considerations, for example providing information in same
-      order (i.e. list of fonts), but sometimes this is not so simple.
+  <h3 id="underlying-platform-data">
+    Does this specification expose information to an origin that originates
+    from the underlying platform and is consistent across origins, including
+    user configurations or sensors?
+  </h3>
 
-  *   Some readout information that is subject to change may still act as a
-      short-term identifier, and possibly introduce a risk of misuse (examples:
-      <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>,
-      <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">
-      Battery Status Not Included</a>). Good example may be the readout of
-      ambient light level [AMBIENT-LIGHT], or battery [BATTERY-STATUS-API]
+  When a specification exposes specific information about a host to an origin,
+  if that information changes rarely and is not variable across origins, then
+  it can be used to uniquely identify a user across two origins — either
+  directly because any given piece of information is unique or because the
+  combination of disparate pieces of information are unique and can be used to
+  form a fingerprint [[ DOTY-FINGERPRINTING ]]. Specifications and user agents
+  should treat the risk of fingerprinting by carefully considering the surface
+  of available information, and the relative differences between software and
+  hardware stacks. Sometimes reducing fingerprintability may as simple as
+  ensuring consistency, i.e. ordering the list of fonts, but sometimes may be
+  more complex.
 
+  Such information should not be revealed to an origin without a user’s
+  knowledge and consent barring mitigations in the specification to prevent the
+  information from being uniquely identifying or able to unexpectedly
+  exfiltrate data.
+
+  For example:
+
+  *   The <code>GL_RENDERER</code> string exposed by some WebGL implementations
+      improves performance in some kinds of applications, but does so at the
+      cost of adding persistent state to a user's fingerprint. These kinds of
+      device-level details should be carefully weighed to ensure that the costs
+      are outweighed by the benefits.
+
+  *   The {{NavigatorPlugins}} list exposed via the DOM practically never
+      changes for most users. Some user agents have taken steps to reduce the
+      entropy introduced by
+      <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
+      direct enumeration of the plugin list</a>.
+
+  *   Even if information from a host is likely to change over time, it may
+      still act as a short-term identifier, and possibly introduce a risk of
+      misuse (see [[OLEJNIK-ALS]], [[OLEJNIK-BATTERY]]).
 
   <h3 id="persistent-identifiers">
     Does this specification expose persistent, cross-origin state to the web?
@@ -703,12 +727,6 @@ spec:html5; type:element; text:script
 </pre>
 
 <pre class="biblio">
-  "AMBIENT-LIGHT-API": {
-    "href": "https://www.w3.org/TR/ambient-light/",
-    "title" "Ambient Light API",
-    "publisher": "W3C",
-    "authors": ["Anssi Kostiainen"]
-  },
 {
   "BLUETOOTH": {
       "href": "https://webbluetoothcg.github.io/web-bluetooth/",
@@ -802,5 +820,30 @@ spec:html5; type:element; text:script
       "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
       "authors": [ "Andy Greenberg" ],
       "publisher": "Wired"
+  },
+  "AMBIENT-LIGHT-API": {
+    "href": "https://www.w3.org/TR/ambient-light/",
+    "title" "Ambient Light API",
+    "publisher": "W3C",
+    "authors": [ "Anssi Kostiainen" ]
+  },
+  "OLEJNIK-ALS" : {
+    "href": "https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/",
+    "title": "Privacy analysis of Ambient Light Sensors",
+    "publisher": "Lukasz Olejnik",
+    "authors": [ "Lukasz Olejnik" ]
+  },
+  "OLEJNIK-BATTERY" : {
+    "href": "https://eprint.iacr.org/2015/616",
+    "title": "The leaking battery: A privacy analysis of the HTML5 Battery Status API",
+    "publisher": "Cryptology ePrint Archive, Report 2015/616",
+    "authors": [ "Lukasz Olejnik", "Gunes Acar", "Claude Castelluccia", "Claudia Diaz"]
+  },
+  "DOTY-FINGERPRINTING" : {
+    "href": "https://www.w3.org/TR/fingerprinting-guidance/",
+    "title": "Fingerprinting Guidance for Web Specification Authors (Draft)",
+    "publisher": "W3C",
+    "authors": [ "Nick Doty"]
+  }
 }
 </pre>
