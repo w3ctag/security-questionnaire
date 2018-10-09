@@ -369,9 +369,25 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
       direct enumeration of the plugin list</a>.
 
-  *   Even if information from a host is likely to change over time, it may
-      still act as a short-term identifier, and possibly introduce a risk of
-      misuse (see [[OLEJNIK-ALS]], [[OLEJNIK-BATTERY]]).
+  <h3 id="sensor-data">
+    Does this specification allow an origin access to sensors on a user’s
+    device?
+  </h3>
+
+  Information from sensors may serve as a fingerprinting vector across origins.
+  In addition, sensor also reveals something about my device or environment and
+  that fact might be what is sensitive.  In addition, as technology advances,
+  mitigations in place at the time a specification is written may have to be
+  reconsidered as the threat landscape changes.
+
+  These are not theoretical attacks, for example:
+  *   As gryoscopes advanced, their sampling rate had to be lowered to
+      prevent them from being used as a microphone as one such example
+      [[ GYROSPEECHRECOGNITION ]].
+  *   ALS sensors could allowed for an attacker to exfiltrate whether or not a
+      user had visited given links [[ OLEJNIK-ALS ]].
+  *   Even relatively short lived data, like the battery status, may be able to
+      serve as an identifier if misued/abused [[ OLEJNIK-BATTERY ]].
 
   <h3 id="other-data">
     Does this specification expose any other data to an origin that it doesn't
@@ -804,23 +820,29 @@ spec:html5; type:element; text:script
     "publisher": "W3C",
     "authors": [ "Anssi Kostiainen" ]
   },
-  "OLEJNIK-ALS" : {
+  "OLEJNIK-ALS": {
     "href": "https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/",
     "title": "Privacy analysis of Ambient Light Sensors",
     "publisher": "Lukasz Olejnik",
     "authors": [ "Lukasz Olejnik" ]
   },
-  "OLEJNIK-BATTERY" : {
+  "OLEJNIK-BATTERY": {
     "href": "https://eprint.iacr.org/2015/616",
     "title": "The leaking battery: A privacy analysis of the HTML5 Battery Status API",
     "publisher": "Cryptology ePrint Archive, Report 2015/616",
     "authors": [ "Lukasz Olejnik", "Gunes Acar", "Claude Castelluccia", "Claudia Diaz"]
   },
-  "DOTY-FINGERPRINTING" : {
+  "DOTY-FINGERPRINTING": {
     "href": "https://www.w3.org/TR/fingerprinting-guidance/",
     "title": "Fingerprinting Guidance for Web Specification Authors (Draft)",
     "publisher": "W3C",
     "authors": [ "Nick Doty"]
+  },
+  "GYROSPEECHRECOGNITION": {
+    "href": "https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf",
+    "title": "Gyrophone: Recognizing Speech from Gyroscope Signals",
+    "publisher": "Proceedings of the 23rd USENIX Security Symposium",
+    "authors": [ "Yan Michalevsky", "Dan Boneh", "Gabi Nakibly"]
   }
 }
 </pre>
