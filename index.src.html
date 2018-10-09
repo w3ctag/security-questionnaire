@@ -297,6 +297,14 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     across browsing sessions?
   </h3>
 
+  Allowing an origin to persist data on a user’s device across browsing
+  sessions introduces the risk that this state may be used to track a user
+  without their knowledge or control, either in a first party or third party
+  contexts.  New state persistence mechanisms should not be introduced without
+  mitigations to prevent it from being used to track users across domains or
+  without control over clearing this state.  And, are there specific caches
+  that a user agent should specially consider?
+
   For example:
 
   *   Service Worker [[SERVICE-WORKERS]] intercept all requests made by an
