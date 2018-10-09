@@ -425,7 +425,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   * What about style?
 
-  <h3 id="remote-device">
+          <h3 id="remote-device">
     Does this specification allow an origin access to other devices?
   </h3>
 
@@ -469,9 +469,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     agent's native UI?
   </h3>
 
-  This concerns interaction with the UI, such as modification of browser
-  display, or even such things as displaying a common pop-up with
-  origin-controlled input, such as Notifications.
+  Features that allow for control over a user agent’s UI (e.g. full screen
+  mode) or changes to the underlying system (e.g. installing an ‘app’ on a
+  smartphone home screen) may surprise users or obscure security / privacy
+  controls.  To the extent that your feature does allow for the changing of a
+  user agent’s UI, can it effect security / privacy controls?  What analysis
+  confirmed this conclusion?
 
   <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
 
