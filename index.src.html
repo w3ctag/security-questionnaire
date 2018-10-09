@@ -240,53 +240,40 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   bare minimum necessary to achieve the desired use cases?  If not, why not and
   why expose the additional information?
 
-  <h3 id="pii">
-    How does the specification deal with personal information allowing to
-    single out the user?
+  <h3 id="personal-data">
+    Does this specification deal with personal information or
+    personally-identifiable information or information derived thereof?
   </h3>
 
-    Personal data are information relating to individuals. Singling out the
-    user is possible when some unique information or traits are collected. For
-    example, personal data allow singling out individuals on its own, or in
-    combination with other information, to identify a specific person. The
-    exact definition of what is considered PII varies around the world and is
-    rapidly evolving, but may include, among the others, things like a home
-    address, an email address, birthdates, usernames, fingerprints, biometric
-    data, health information, but also identifiers such as cookies,
-    identifiers, IP address, health status, preferences, affinities, beliefs,
-    and much more, depending on the context.
+  Personally information is data about a user (home address) or information
+  that could be used to identify a user (alias or email address).  This is
+  distinct from personally identifiable information (PII), as the exact
+  definition of what’s considered PII varies from jurisdiction to jurisdiction.
 
-    If the specification under consideration exposes personal data to the web,
-    it’s important to consider ways to mitigate the impacts. For instance:
+  If the specification under consideration exposes personal information or PII
+  or their derivatives that could still identify an individual to the web, it’s
+  important to consider ways to mitigate the obvious impacts. For instance:
 
-    *   A feature which uses biometric data (fingerprints or retina scans)
-        should refuse to expose the raw data to the web, instead using the raw
-        data only to unlock some origin-specific and ephemeral secret and
-        transmitting that secret instead.
-    *   Including a factor of user mediation should be considered, in order to
-        ensure that no data is exposed without a user’s explicit choice (and
-        hopefully understanding). One way to achieve this may be the use of
-        Permission API [PERMISSIONS], or additional dialogs like in Payment
-        Request API [PAYMENT-REQUEST-API]
-    *   The users should be made aware if and when their private data may be
-        exposed to the web
+  *   A feature which uses biometric data (fingerprints or retina scans)
+      should refuse to expose the raw data to the web, instead using the raw
+      data only to unlock some origin-specific and ephemeral secret and
+      transmitting that secret instead.
+  *   Including a factor of user mediation should be considered, in order to
+      ensure that no data is exposed without a user’s explicit choice (and
+      hopefully understanding). One way to achieve this may be the use of
+      Permission API [PERMISSIONS], or additional dialogs like in Payment
+      Request API [PAYMENT-REQUEST-API]
 
-  If the specification deals with or introduces identifiers (persistent or
-  not), the process should be documented, along with the nature of the
-  identifier and its lifetime, whether it is limited to a particular origin or
-  not.
-
-
-  <h3 id="credentials">
-    How does this specification deal with high-value data?
+  <h3 id="sensitive-data">
+    Does this specification deal with sensitive information?
   </h3>
 
-  Data which isn't <a>personally-identifiable</a> can still be quite valuable.
-  Sign-in credentials (like username/password pairs, or OAuth refresh tokens)
-  can be extrememly powerful in the wrong hands, as can financial instruments
-  like credit card data. Making this data available to JavaScript, for instance,
-  could expose it to <a>XSS</a> attacks and <a>active network attackers</a> who
-  could inject code to read and exfiltrate the data. For instance:
+  Just because data is not personally information or PII, that does not mean
+  that it is not sensitive information; moreover, whether any given information
+  is sensitive may vary from user to user.  Data to consider if sensitive
+  includes: financial data, credentials, health information, location, or
+  credentials. When this data is exposed to the web, steps should be taken to
+  mitigate the risk of exposing it; for example:
 
   *   Credential Management [[CREDENTIAL-MANAGEMENT]] allows sites to request
       a user's credentials from a user agent's password manager in order to
@@ -298,6 +285,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       and strongly suggests that authors use Content Security Policy [[CSP]]
       with resonable <code>connect-src</code> and <code>form-action</code>
       values to further mitigate the risk of exfiltration.
+  *   Geolocation information can serve many use cases at a much less granular
+      precision than the user agent can offer. For instance, a resturaunt
+      recommendation can be generated by asking for a user’s city-level
+      location rather than a position accurate to the centimeter.
+  *   A Geofencing proposal [GEOFENCING] ties itself to service workers and
+      therefore to encrypted and authenticated origins.
 
   <h3 id="persistent-origin-specific-state">
     Might this specification introduce new state for an origin that persists
