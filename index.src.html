@@ -539,6 +539,9 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   Considerations" and "Privacy Considerations" sections of a document is a good
   way to help implementers and web developers understand the risks that a
   feature presents, and to ensure that adequate mitigations are in place.
+  Simply adding a section to your specification with yes/no responses to the
+  questions in this document is insufficient.
+
   If it seems like a feature does not have security or privacy impacts,
   then say so inline in the spec section for that feature:
 
@@ -569,11 +572,58 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     </li>
   </ol>
 
-  When saying this, however, the crucial aspect is to actually considering
-  security and privacy. All new specifications must have security and privacy
-  considerations sections to be considered for wide reviews. Interesting
-  features added to the web platform generally often already had security
-  and/or privacy impacts.
+  [[ RFC3552 ]] provides general advice as to writing Security Consideration
+  sections.  Generally, there should be a clear description of the kinds of
+  privacy risks the new specification introduces to for users of the web
+  platform.  Below is a set of considerations, informed by that RFC, for
+  writing a privacy considerations section.
+
+  Authors must describe:
+  <ol>
+    <li>
+      What privacy attacks have been considered?
+    </li>
+    <li>
+      What privacy attacks have been deemed out of scope (and why)?
+    </li>
+    <li>
+      What privacy mitigations have been implemented?
+    </li>
+    <li>
+      What privacy mitigations have considered and not implemented (and why)?
+    </li>
+  </ol>
+
+  In addition, attacks considered must include:
+  <ol>
+    <li>
+      Fingerprinting risk;
+    </li>
+    <li>
+      Unexpected exfiltration of data through abuse of sensors;
+    </li>
+    <li>
+      Unexpected usage of the specification / feature by third parties;
+    </li>
+    <li>
+      If the specification includes identifiers, the authors must document what
+      rotation period was selected for the identifiers and why.
+    </li>
+    <li>
+      If the specification introduces new state to the user agent, the authors
+      must document what guidance regarding clearing said storage was given and
+      why.
+    </li>
+    <li>
+      There should be a clear description of the residual risk to the user
+      after the privacy mitigations has been implemented.
+    </li>
+  </ol>
+
+  The crucial aspect is to actually considering security and privacy. All new
+  specifications must have security and privacy considerations sections to be
+  considered for wide reviews. Interesting features added to the web platform
+  generally often already had security and/or privacy impacts.
 
   <h3 id="relaxed-sop">
     Does this specification allow downgrading default security characteristics?
@@ -820,11 +870,17 @@ spec:html5; type:element; text:script
     "publisher": "Proceedings of the 23rd USENIX Security Symposium",
     "authors": [ "Yan Michalevsky", "Dan Boneh", "Gabi Nakibly"]
   },
-  "WU-PRIVATE-BROWSING":{
+  "WU-PRIVATE-BROWSING": {
     "href": "https://dl.acm.org/citation.cfm?id=3186088",
     "title": "Your Secrets Are Safe: How Browsers' Explanations Impact Misconceptions About Private Browsing Mode",
     "publisher": "WWW '18 Proceedings of the 2018 World Wide Web Conference",
     "authors": [ "Yuxi Wu", "Panya Gupta", "Miranda Wei", "Yasemin Acar", "Sascha Fahl", "Blase Ur"]
+  },
+  "RFC3552": {
+    "href": "http://tools.ietf.org/html/rfc3552",
+    "title": "Guidelines for Writing RFC Text on Security Considerations",
+    "authors": [ "E. Rescorla", "B. Korver" ],
+    "publisher": "IETF"
   }
 }
 </pre>
