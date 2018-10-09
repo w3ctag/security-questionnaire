@@ -373,29 +373,6 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       still act as a short-term identifier, and possibly introduce a risk of
       misuse (see [[OLEJNIK-ALS]], [[OLEJNIK-BATTERY]]).
 
-  <h3 id="persistent-identifiers">
-    Does this specification expose persistent, cross-origin state to the web?
-  </h3>
-
-  For example:
-
-  *   The <code>GL_RENDERER</code> string exposed by some WebGL implementations
-      improves performance in some kinds of applications, but does so at the
-      cost of adding persistent state to a user's fingerprint. These kinds of
-      device-level details should be carefully weighed to ensure that the costs
-      are outweighed by the benefits.
-
-  *   The {{NavigatorPlugins}} list exposed via the DOM practically never
-      changes for most users. Some user agents have taken steps to reduce the
-      entropy introduced by
-      <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
-      direct enumeration of the plugin list</a>.
-
-  *   The unexpected cases such as the one of [BATTERY-STATUS-API] when the
-      battery level allowed to reason about the capacity as provided by the
-      operating system
-
-
   <h3 id="other-data">
     Does this specification expose any other data to an origin that it doesn't
     currently have access to?
