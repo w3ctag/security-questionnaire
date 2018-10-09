@@ -511,30 +511,24 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   third parties are found to be abusing the functionality.
 
   <h3 id="private-browsing">
-    How does this specification work in the context of a user agent’s Private Browsing Modes mode?
+    How does this specification work in the context of a user agent’s Private \
+    Browsing or "incognito" mode?
   </h3>
 
-  Some web features behave differently in private browsing modes (with respect to normal browsing modes).
-  This is not always desirable. Features should work in such a way that the website would not be able to
-  determine that the user was in a privacy browsing mode. This includes graceful degradation when a feature stops
-  functioning in a way still not revealing the browsing mode. Some examples
+  Each major user agent implements a private browsing / incognito mode feature
+  with significant variation across user agents in threat models,
+  functionality, and descriptions to users regarding the protections afforded
+  [[ WU-PRIVATE-BROWSING ]].
 
-  *   Ideally, the feature would work in such a way that the website would not
-      be able to determine that the user was in private browsing mode.
+  One typical commonality across user agent’s private browsing / incognito mode
+  features is that they have a set of state than the user agents’ in their
+  ‘normal’ mode.
 
-  *   Less ideally, the feature wouldn't work, but the website still wouldn't
-      be able to distinguish a private browsing context from simply being denied
-      permission to use the feature (for instance).
-
-  *   Unideally, the feature wouldn't exist at all in private browsing mode, which
-      means that the user wouldn't be exposing data, but the website can probably
-      tell that the user is in that state.
-
-  Some examples:
-
-  *  Non-standardised method <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">requestFileSystem</a> enabling the <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">detection</a> private browsing mode
-  *  [PAYMENT-REQUEST-API] allowed the <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">detection</a> of “incognito” mode
-
+  Does the specification provide information that would allow for the
+  correlation of a single user's activity across normal and private browsing /
+  incognito modes?  Does the specification result in information being written
+  to a user’s host that would persist following a private browsing / incognito
+  mode session ending?
 
   <h3 id="considerations">
     Does this specification have a "Security Considerations" and "Privacy
@@ -825,6 +819,12 @@ spec:html5; type:element; text:script
     "title": "Gyrophone: Recognizing Speech from Gyroscope Signals",
     "publisher": "Proceedings of the 23rd USENIX Security Symposium",
     "authors": [ "Yan Michalevsky", "Dan Boneh", "Gabi Nakibly"]
+  },
+  "WU-PRIVATE-BROWSING":{
+    "href": "https://dl.acm.org/citation.cfm?id=3186088",
+    "title": "Your Secrets Are Safe: How Browsers' Explanations Impact Misconceptions About Private Browsing Mode",
+    "publisher": "WWW '18 Proceedings of the 2018 World Wide Web Conference",
+    "authors": [ "Yuxi Wu", "Panya Gupta", "Miranda Wei", "Yasemin Acar", "Sascha Fahl", "Blase Ur"]
   }
 }
 </pre>
