@@ -476,17 +476,23 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   user agent’s UI, can it effect security / privacy controls?  What analysis
   confirmed this conclusion?
 
-  <h3 id="temporary-id">Does this specification expose temporary identifiers to the web?</h3>
+  <h3 id="temporary-id">
+    Does this specification expose temporary identifiers to the web?
+  </h3>
 
   Some identifiers may be difficult to pin-point  but they revolve around
   information that is stable in short-term manner (seconds, minutes, days) and
   may be available to web origins, whether in cross-origin manner or even
   cross-browser manner.
 
-  *  [BATTERY-STATUS-API] is possibly the most unexpected example when battery
-     may act as a short-term identifier (see also <a href="https://eprint.iacr.org/2015/616">Leaking Battery</a>, <a href="https://blog.lukaszolejnik.com/battery-status-not-included-assessing-privacy-in-w3c-web-standards/">Battery Status Not Included</a>)
-  *  Ambient Light readout may be perceived in a <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">similar manner</a>
-  *  Information such as ConnectionType, ConnectionType and rtt exposed by [NETWORK-INFORMATION-API]
+  If a standard exposes a temporary identifier to the web, the identifier
+  should be short lived and should rotate on some regular duration to mitigate
+  the risk of this identifier being used to track a user over time.  When a
+  user clears state in their user agent, these temporary identifiers should be
+  cleared to prevent re-correlation of state using a temporary identifier.
+
+  Example temporary identifers include TLS Channel ID, Session Tickets, and
+  IPv6 addresses.
 
   <h3 id="first-third-party">Does this specification distinguish between behavior in first-party and third-party contexts?</h3>
 
