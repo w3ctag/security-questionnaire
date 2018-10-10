@@ -9,20 +9,27 @@ Former Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Indent: 2
 Abstract:
-  This document provides a points to help in considering the privacy impact of a new feature or
-  specification. The questions are meant to be useful when considering the security and privacy
-  aspects of a new feature or specification. The respective points should be addressed by
-  representatives (e.g. editors) behind the new proposal or a feature.
-  Given the variety and nature of specifications, it is likely that the listed questions will not be
-  comprehensive in a way enabling to reason about the full privacy impact.
-  It is nonetheless the aim to present the questions as a useful point, helping to consider security
-  and privacy at the start of work on a new feature.
+  This document provides a points to help in considering the privacy impact of
+  a new feature or specification as well as common mitigation strategies for
+  common privacy impacts. The questions are meant to be useful when considering
+  the security and privacy aspects of a new feature or specification and the
+  mitigation strategies are meant to assist in the design of the feature or
+  specification. Authors of a new proposal or feature should implement the
+  mitigations as appropriate; doing so will assist in addressing the respective
+  points in the questionnaire. Given the variety and nature of specifications,
+  it is likely that the listed questions will not be comprehensive in a way
+  enabling to reason about the full privacy impact, and some mitigations may
+  not be appropriate or other mitigations may be necessary. It is nonetheless
+  the aim to present the questions and mitigations as a starting point, helping
+  to consider security and privacy at the start of work on a new feature, and
+  throughout the lifecycle of a feature.
 
-  It is not meant as a "security checklist", nor does an editor or group’s use of this questionnaire
-  obviate the editor or group’s responsibility to obtain "wide review" of a specification security
-  and privacy properties before publication. Furthermore, the filled questionnaire should not be
-  understood as security and privacy considerations, although part of the answers may be relevant in
-  drafting the considerations.
+  It is not meant as a "security checklist", nor does an editor or group’s use
+  of this questionnaire obviate the editor or group’s responsibility to obtain
+  "wide review" of a specification security and privacy properties before
+  publication. Furthermore, the filled questionnaire should not be understood
+  as security and privacy considerations, although part of the answers may be
+  relevant in drafting the considerations.
 
 Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html
 !Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
@@ -32,57 +39,94 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 <section>
   <h2 id="intro">Introduction</h2>
 
-  New web features are what makes the web live and stronger. When working on them - planning, drafting,
-  implementing - there is always a risk of unforeseen security and privacy implications.
-  This may happen due to the details of the new feature, some of its
-  part(s), or the unforeseen interactions with other features.
+  New features make the web a stronger and livelier platform.  Throughout the
+  feature development process — planning, drafting, and implementing — there
+  are both foreseeable and unexpected security and privacy risks.  These risks
+  may arise from the nature of the feature, some of its part(s), or unforeseen
+  interactions with other features and may be mitigated through careful design
+  and consideration of security and privacy design patterns.
 
-  The challenges in standardization of web mechanisms are unique, as they relate to all the user agents.
-  In that, the descriptions, protocols and algorithms need to be considered strictly, since the mechanisms are
-  typically foreseen for a broad adoption by vendors with large user base.
-  This unique position is a <em>challenge</em>, because inefficiencies and inadequacies introduced early in the
-  process may propagate - eventually reaching to a number of User Agents, and affecting the security and privacy of
-  users on a significant scale. However, this position is also an <em>asset</em>, since carefully considering the risks and
-  challenges early in the process helps ensuring a high quality in terms of security and privacy.
+  Standardizing web features presents unique challenges as, inherently, the web
+  standardization process requires multiple independent implementations of a
+  feature.  As a result, descriptions, protocols and algorithms need to be
+  considered strictly so they are broadly adoption by vendors with large user
+  bases.
 
-  If a feature is found to introduce undesirable risks, weakness or threats, the risk does not only relate to
-  the users and the browsers, but also to the web itself. This is because vendors may subsequently choose
-  prioritising the protection of users by introducing changes breaking compatibility. In the end, the whole web
-  ecosystem may be negatively affected.
+  A user agent is the user’s agent, and it is important that feature authors
+  consider that if their feature contains privacy risks, then, user agents may
+  implement the feature in a compatibility breaking way to protect user
+  privacy.  This is especially true if and when features are not clearly
+  defined and privacy exposures are identified and left unmitigated — or left
+  to user agents to mitigate — vendors may implement their own compatibility
+  breaking mitigations that risk wide adoption of the feature.
 
+  This is why each Working Group needs to consider <em>security and
+  privacy</em> <b>by default</b>. This consideration is <b>mandatory</b>.
+  Furthermore, assessing the impact of a mechanism on privacy should be done
+  from the ground up, during each iteration of the specification. The
+  questionnaire and guidance presented here is meant to assist authors consider
+  security and privacy in their feature as earlier as possible — beginning with
+  ideation in Community Groups through to formalization in Working Groups.
+  The guidance should help authors develop standards with privacy by default
+  allowing for the questionnaire to be addressed simply and straightforwardly.
 
-  This is why each Working Group needs to consider <em>security and privacy</em> <b>by default</b>.
-  This consideration is <b>mandatory</b>. Furthermore, assessing the impact of a mechanism on privacy should be
-  done from the ground up, during each iteration of the specification. The questionnaire here presented is meant
-  as guidelines helping to consider security and privacy as early as possible, on the level of Working Group
-  (and earlier even, at the level of Community Groups).
+  Providing adequate and informative answers to the questions, such as
+  providing context, or explaining the reasoning behind certain choices, will
+  also help in a wide security and privacy review performed later on, within
+  the W3C review proces, and beyond.
 
-  Providing adequate and informative answers to the questions, such as providing context, or explaining the reasoning behind certain choices,
-  will also help in a wide security and privacy review performed later on, within the W3C review proces, and beyond.
+  This document encourages early review by posing a number of questions that
+  you as an individual reader/writer/contributor of a specification can ask —
+  and that working groups and spec editors need to consider, prior asking for a
+  more formal review. The intent is to highlight areas which have historically
+  had interesting implications on a user’s security or privacy, and thereby to
+  focus the editor, working group attention, and reviewers' attention on areas
+  that might previously have been overlooked.
 
-  This document encourages early review by posing a number of questions that you as an individual reader/writer/contributor of a specification can ask — and that working groups and spec editors need to consider, prior asking for a more formal review. The intent is to
-  highlight areas which have historically had interesting implications on a user’s security or privacy, and thereby to focus the editor, working group attention, and reviewers' attention on areas that might previously have been overlooked.</p>
+  This document does not attempt to define what privacy is (in a Web context).
+  Instead privacy is the sum of what is contained in this document. While this
+  may not be exactly what most readers would typically assume but privacy is a
+  complicated concept with a rich history that spans many disciplines and there
+  remains confusion over the meaning.</p>
 
   The audience of this document is general:
 
-  *   The editors and contributors who are responsible for the development of the feature,
-
-  *   The W3C TAG, who receive the questionnaire along with the request, and in line with the W3C Process,
-  *   External audience (developers, designers, etc.) wanting to understand the possible security and privacy implications.
+  *   The editors and contributors who are responsible for the development of
+      the feature,
+  *   The W3C TAG, who receive the questionnaire along with the request, and in
+      line with the W3C Process,
+  *   External audience (developers, designers, etc.) wanting to understand the
+      possible security and privacy implications.
 
 <h2 id="threats">How To Use The Questionnaire</h2>
 
-  Starting to think about possible implications to security and privacy early in the project is the best approach.
-  This approach helps providing the initial baseline  features are later
-  checked against. Update the document (the security and privacy questionnaire) upon any significant changes to the specification.
-  When requesting a Technical Architecture Group review, include the filled questionnaire,
-  along with the description of changes or observations made during the design.
-  This allows external reviewers understand the rationale, as well as thechallenges and evolution of the feature,
-  with respect to security and privacy.
+  Thinking about security and privacy risks and mitigations early in a project
+  is the best approach as it helps ensure the privacy of your feature at an
+  architectural level and ensures the result, descriptions, protocols and
+  algorithms incorporate privacy by default as opposed to through possible
+  implementation mitigations.
 
-  It is understandable that developers may not always be have the necessary data to see the broader picture and possible
-    implications, for example in relation to other existing web functionalities.
-    The answers to the questionnaire are meant as help and input for people who may nonetheless make security and privacy remarks, or the assessment.
+  The Privacy Interest Group (PING) recommends that a feature group review the
+  guidance and questionnaire when first considering their feature and meet with
+  PING at that time to discuss any questions they have about how the
+  guidance/questionnaire intersects with their feature at a conceptual level.
+  After the feature group has developed their feature with the
+  guidance/questionnaire informing their development process, the group should
+  bring an early draft of their feature specification with Privacy consideration
+  section to PING for review.  From there the feature group should iterate on
+  their design.
+
+  When requesting a Technical Architecture Group review, include the filled
+  questionnaire, along with the description of changes or observations made
+  during the design process. This allows external reviewers understand the 
+  rationale, as well as the challenges and evolution of the feature, with 
+  respect to security and privacy.
+
+  It is understandable that developers may not always have the necessary data
+  to see the broader picture and possible implications, for example in relation
+  to other existing web functionalities. The answers to the questionnaire are
+  meant as help and input for people who may nonetheless make security and
+  privacy remarks, or the assessment.
 
 </section>
 
@@ -90,7 +134,39 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 <section>
   <h2 id="threats">Threat Models</h2>
 
-  To consider security and privacy it is convenient to think in terms of threat models - in a way illuminating the possible risks.
+  To consider security and privacy it is convenient to think in terms of threat
+  models, a way to illuminate the possible risks.
+
+  There are some concrete privacy concerns that should be considered when
+  developing a feature for the web platform:
+  *   Surveillance: Surveillance is the observation or monitoring of an
+      individual's communications or activities.
+  *   Stored Data Compromise: End systems that do not take adequate measures to
+      secure stored data from unauthorized or inappropriate access.
+  *   Intrusion: Intrusion consists of invasive acts that disturb or interrupt
+      one's life or activities.
+  *   Misattribution: Misattribution occurs when data or communications related
+      to one individual are attributed to another.
+  *   Correlation: Correlation is the combination of various pieces of
+      information related to an individual or that obtain that characteristic
+      when combined.
+  *   Identification: Identification is the linking of information to a
+      particular individual to infer an individual's identity or to allow the
+      inference of an individual's identity.
+  *   Secondary Use: Secondary use is the use of collected information about an
+      individual without the individual's consent for a purpose different from
+      that for which the information was collected.
+  *   Disclosure: Disclosure is the revelation of information about an
+      individual that affects the way others judge the individual.
+  *   Exclusion: Exclusion is the failure to allow individuals to know about
+      the data that others have about them and to participate in its handling
+      and use.
+
+  In the mitigations section, this document outlines a number of techniques
+  that can be applied to mitigate these risks.
+
+  Enumerated below are some broad classes of threats that should be
+  considered when developing a web feature.
 
   <h3 id="passive-network">Passive Network Attackers</h3>
 
@@ -103,7 +179,8 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   unencrypted bit that's bouncing around the network of proxies, routers, and
   servers you're using right now is being read by someone. It's equally likely
   that some of these attackers are doing their best to understand the encrypted
-  bits as well (though that requires significantly more effort).
+  bits as well, including storing encrypted communications for later
+  cryptanalysis (though that requires significantly more effort).
 
   *   The IETF's "Pervasive Monitoring Is an Attack" document [[RFC7258]] is
       useful reading, outlining some of the impacts on privacy that this
@@ -118,8 +195,9 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   An <dfn>active network attacker</dfn> has both read- and write-access to the
   bits going over the wire between users and the servers they're communicating
   with. She can collect and analyze data, but also modify it in-flight,
-  injecting and manipulating JavaScript and HTML at will. This is more common
-  than you might expect, for both benign and malicious purposes:
+  injecting and manipulating Javascript, HTML, and other content at will.
+  This is more common than you might expect, for both benign and malicious
+  purposes:
 
   *   ISPs and caching proxies regularly cache and compress images before
       delivering them to users in an effort to reduce data usage. This can be
@@ -158,32 +236,48 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   <h3 id="third-party-tracking">Third-Party Tracking</h3>
 
-  Third-party tracking may occur when content from one origin is embedded or otherwise injected in another origin
-  in a way that information may be accessed, revealed, queried or reasoned by third-party. This third-party may
-  be a script injected on a first-party site
+  Part of the power of the web is its ability for a page to pull in content
+  from other third parties — from images to javascript — to enhance the content
+  and/or a user's experience of the site.  However, when a page pulls in
+  content from third parities, it inherently leaks some information to third
+  parties — referer information and other information that may be used to track
+  and profile a user.  This includes the fact that cookies go back to the
+  domain that initially stored them allowing for cross origin tracking.
+  Moreover, third parties can gain execution power through third party
+  Javascript being included by a webpage.  While pages can take steps to
+  mitigate the risks of third party content and browsers may differentiate
+  how they treat first and third party content from a given page, the risk of
+  new functionality being executed by third parties rather than the first party
+  site should be considered in the feature development process.
 
-  *   The simplest example is injecting a link to a site that behaves differently under specific condition,
-      for example based on the fact that user is or is not logged to the site. This may reveal that the user has
+  *   The simplest example is injecting a link to a site that behaves
+      differently under specific condition, for example based on the fact that
+      user is or is not logged to the site. This may reveal that the user has
       an account on a site.
 
   <h3 id="legitimate-misuse">Legitimate Misuse</h3>
 
-  Even when powerful features are made available to developers, it does not mean that all the uses should always be
-  a good idea, or justified; in fact, data privacy regulations around the world may even put limits on certain
-  uses of data. In the context of first party, a legitimate website is potentially able to interact with powerful
-  features to learn about the user behavior or habits. For example:
+  Even when powerful features are made available to developers, it does not
+  mean that all the uses should always be a good idea, or justified; in fact,
+  data privacy regulations around the world may even put limits on certain uses
+  of data. In the context of first party, a legitimate website is potentially
+  able to interact with powerful features to learn about the user behavior or
+  habits. For example:
 
-  *   Tracking the user while browsing the website via mechanisms such as mouse move tracking
+  *   Tracking the user while browsing the website via mechanisms such as mouse
+      move tracking
 
   *   Behavioral profiling of the user based on the usage patterns
 
-  *   Accessing powerful features enabling to reason about the user system, himself or the user surrounding,
-      such as a webcam, Web Bluetooth or sensors
+  *   Accessing powerful features enabling to reason about the user system,
+      himself or the user surrounding, such as a webcam, Web Bluetooth or
+      sensors
 
-  This point is admittedly different from others - and underlines that even if something may be possible, it
-  does not mean it should always be done, including the need for considering a privacy impact assessment or even
-  an ethical assessment. When designing a specification with security and privacy in mind, all both use and
-  misuse cases should be in scope.
+  This point is admittedly different from others - and underlines that even if
+  something may be possible, it does not mean it should always be done,
+  including the need for considering a privacy impact assessment or even an
+  ethical assessment. When designing a specification with security and privacy
+  in mind, all both use and misuse cases should be in scope.
 
 
 </section>
