@@ -530,6 +530,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   to a user’s host that would persist following a private browsing / incognito
   mode session ending?
 
+  There has been research into both:
+  *  Detecting whether a user agent is in private browsing mode [[ RIVERA ]]
+     using non-standardized methods like Firefox's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">requestFileSystem</a>.
+  *  Using features to fingerprint a browser and correlate private and
+     non-private mode sessions for a given user. [[ OLEJNIK-PAYMENTS ]]
+
   <h3 id="considerations">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
@@ -888,6 +894,18 @@ spec:html5; type:element; text:script
     "title": "Guidelines for Writing RFC Text on Security Considerations",
     "authors": [ "E. Rescorla", "B. Korver" ],
     "publisher": "IETF"
+  },
+  "RIVERA": {
+    "href": "https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1",
+    "title": "Detect if a browser is in Private Browsing mode",
+    "authors": [ "David Rivera" ],
+    "publisher": "David Rivera"
+  },
+  "OLEJNIK-PAYMENTS": {
+    "href": "https://blog.lukaszolejnik.com/privacy-of-web-request-api/",
+    "title": "Privacy of Web Request API",
+    "authors": [ "Lukasz Olejnik" ],
+    "publisher": "Lukasz Olejnik"
   }
 }
 </pre>
