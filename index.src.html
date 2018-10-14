@@ -619,7 +619,63 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Data Minimization
   </h3>
 
-  TODO
+  Minimization is a strategy that involves exposing as little information to
+  other communication partners as is required for a given operation to
+  complete. More specifically, it requires not providing access to more
+  information than was apparent in the user-mediated access or allowing the
+  user some control over which information exactly is provided.
+
+  For example, if the user has provided access to a given file, the object
+  representing that should not make it possible to obtain information about
+  that file's parent directory and its contents as that is clearly not what is
+  expected.
+
+  Basic fingerprinting guidance can be found here.
+
+  In context of data minimization it is natural to ask what data is passed
+  around between the different parties, how persistent the data items and
+  identifiers are, and whether there are correlation possibilities between
+  different protocol runs.
+
+  For example, the W3C Device APIs Working Group has defined the following
+  requirements in their Device API Privacy Requirements document.
+
+  *   APIs must make it easy to request as little information as required for
+      the intended usage. For instance, an API call should require specific
+      parameters to be set to obtain more information, and should default to
+      little or no information.
+  *   APIs should make it possible for user agents to convey the breadth of
+      information that the requester is asking for. For instance, if a developer
+      only needs to access a specific field of a user address book, it should be
+      possible to explicitly mark that field in the API call so that the user
+      agent can inform the user that this single field of data will be shared.
+  *   APIs should make it possible for user agents to let the user select,
+      filter, and transform information before it is shared with the requester.
+      The user agent can then act as a broker for trusted data, and will only
+      transmit data to the requester that the user has explicitly allowed.
+
+  Data minimization is applicable to specification authors, implementers as
+  well as to those deploying the final service.
+
+  As an example, consider mouse events. When a page is loaded, the application
+  has no way of knowing whether a mouse is attached, what type of mouse it is
+  (e.g., make and model), what kind of capabilities it exposes, how many are
+  attached, and so on. Only when the user decides to use the mouse — presumably
+  because it is required for interaction — does some of this information become
+  available. And even then, only a minimum of information is exposed: you could
+  not know whether it is a trackpad for instance, and the fact that it may have
+  a right button is only exposed if it is used. For instance, the Gamepad API
+  makes use of this data minisation capability. It is impossible for a Web game
+  to know if the user agent has access to gamepads, how many there are, what
+  their capabilities are, etc. It is simply assumed that if the user wishes to
+  interact with the game through the gamepad then she will know when to action
+  it — and actioning it will provide the application with all the information
+  that it needs to operate (but no more than that).
+
+  The way in which the functionality is supported for the mouse is simply by
+  only providing information on the mouse's behaviour when certain events take
+  place. The approach is therefore to expose event handling (e.g., triggering
+  on click, move, button press) as the sole interface to the device.
 
   <h3 id="privacy-friendly-defaults">
     Privacy Friendly Defaults
