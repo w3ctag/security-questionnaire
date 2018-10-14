@@ -824,6 +824,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   place. The approach is therefore to expose event handling (e.g., triggering
   on click, move, button press) as the sole interface to the device.
 
+  Two features that have minimized the data they make available are:
+  * [BATTERY-STATUS-API] <em>“The user agent should not expose high
+    precision readouts”</em>
+  * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
+
+
   <h3 id="privacy-friendly-defaults">
     Privacy Friendly Defaults
   </h3>
@@ -863,19 +869,6 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   user has over their data after it has been shared with other parties.  For
   example, are users able to determine what information was shared with other
   parties?
-
-  <h3 id="sanitize-data">
-    Sanitize the data handled in the feature
-  </h3>
-
-  It is always a good strategy to consider the kinds of data a new feature
-  is processing. For example, new features allowing the readout of data may
-  want to adopt specific privacy strategies such as minimizing the quality
-  of datas (quantization) or reducing the frequency, in line with standard
-  privacy engineering practices. Examples
-  *   [BATTERY-STATUS-API] <em>“The user agent should not expose high
-    precision readouts”</em>
-  * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
 
   <h3 id="restrict-to-first-party">
     Explicitly restrict the feature to first party origins
