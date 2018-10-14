@@ -846,7 +846,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   implement more privacy-preserving version.
 
   It is possible that the risk of a feature cannot be mitigated because the
-  risk is endemic to the feature itself.  For instance, [[ GEOLOCATION-API ]] 
+  risk is endemic to the feature itself.  For instance, [[ GEOLOCATION-API ]]
   reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
   user agents generally gate access to the feature on a permission prompt which
   the user may choose to accept.  This risk is also present and should be
@@ -898,14 +898,18 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   </h3>
 
     The simplest way to mitigate potential negative security or privacy impacts
-    of a feature, and even discussing the possibility, is to drop the feature.
-    Every feature in a spec should be considered guilty (of harming security
-    and/or privacy) until proven otherwise.
+    of a feature is to drop the feature.
+    Every feature in a spec should be considered guilty of harming security
+    and/or privacy until proven otherwise.
+    Discussing dropping the feature as a mitigation for security or privacy
+    impacts is a helpful exercise as it helps illuminate the tradeoffs between
+    the feature, whether it is exposing the minimum amount of data necessary,
+    and other possibly mitigations.
 
     Every specification should seek to be as small as possible, even if only
     for the reasons of reducing and minimizing security/privacy attack surface(s).
 
-    By doing so we can reduce the overall security (and privacy) attack surface
+    By doing so we can reduce the overall security and privacy attack surface
     of not only a particular feature, but of a module (related set of
     features), a specification, and the overall web platform.
 
@@ -913,8 +917,6 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla<a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API
   *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events
-
-
 
     <h3 id="privacy-impact-assessment">
       Making a privacy impact assessment
