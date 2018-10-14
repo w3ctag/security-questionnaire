@@ -886,11 +886,16 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Secure Contexts
   </h3>
 
-  In the presence of an <a>active network attacker</a>, offering a feature to
-  an insecure origin is the same as offering that feature to every origin (as
-  the attacker can inject frames and code at will). Requiring an encrypted and
+  If the primary risk that you’ve identified in your specification is the
+  threat posed by <a>active network attacker</a>, offering a feature to an
+  insecure origin is the same as offering that feature to every origin because
+  the attacker can inject frames and code at will. Requiring an encrypted and
   authenticated connection in order to use a feature can mitigate this kind of
   risk.
+
+  However, requiring a secure context is not sufficient to mitigate many
+  privacy risks or even security risks from other threat actors than active
+  network attackers.
 
   <h3 id="drop-feature">
     Drop the feature
