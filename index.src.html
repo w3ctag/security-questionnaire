@@ -786,15 +786,17 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Drop the feature
   </h3>
 
-  The simplest way to mitigate potential negative security or privacy impacts of a feature,
-  and even discussing the possibility, is to drop the feature.
-  Every feature in a spec should be considered guilty (of harming security and/or privacy) until proven otherwise.
+    The simplest way to mitigate potential negative security or privacy impacts
+    of a feature, and even discussing the possibility, is to drop the feature.
+    Every feature in a spec should be considered guilty (of harming security
+    and/or privacy) until proven otherwise.
 
-  Every specification should seek to be as small as possible, even if only for the reasons of reducing
-  and minimizing security/privacy attack surface(s).
+    Every specification should seek to be as small as possible, even if only
+    for the reasons of reducing and minimizing security/privacy attack surface(s).
 
-  By doing so we can reduce the overall security (and privacy) attack surface of not only a particular feature,
-  but of a module (related set of features), a specification, and the overall web platform.
+    By doing so we can reduce the overall security (and privacy) attack surface
+    of not only a particular feature, but of a module (related set of
+    features), a specification, and the overall web platform.
 
   Examples
 
@@ -805,21 +807,28 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Sanitize the data handled in the feature
   </h3>
 
-  It is always a good strategy to consider the kinds of data a new feature is processing. For example, new features allowing the readout of data may want to adopt specific privacy strategies such as minimizing the quality of datas (quantization) or reducing the frequency, in line with standard privacy engineering practices. Examples
-  * [[BATTERY-STATUS-API]] <em>“The user agent should not expose high precision readouts”</em>
-  * [[SENSORS-API]] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
+      It is always a good strategy to consider the kinds of data a new feature
+      is processing. For example, new features allowing the readout of data may
+      want to adopt specific privacy strategies such as minimizing the quality
+      of datas (quantization) or reducing the frequency, in line with standard
+      privacy engineering practices. Examples
+      *   [BATTERY-STATUS-API] <em>“The user agent should not expose high
+        precision readouts”</em>
+      * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
 
 
   <h3 id="user-mediation">
     Making a privacy impact assessment
   </h3>
 
-  Some features are potentially supplying very sensitive data, and it is the end-developer,
-  system owners, or managers responsibility to realize this and act accordingly in the design of his/her
-  system. Some use may warrant conducting as privacy impact assessment, especially when data relating to
-  individuals may be processed. Examples.
+      Some features are potentially supplying very sensitive data, and it is
+      the end-developer, system owners, or managers responsibility to realize
+      this and act accordingly in the design of his/her system. Some use may
+      warrant conducting as privacy impact assessment, especially when data
+      relating to individuals may be processed. Examples.
 
-  *   [[SENSORS-API]] advices to consider performing of a privacy impact assessment
+      *   [GENERIC-SENSORS] advices to consider performing of a privacy impact
+      assessment
 
 
 </section>
