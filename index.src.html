@@ -615,15 +615,17 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   you may want to apply one or more of the mitigations described below to your
   feature.
 
-  <h3 id="secure-contexts">
-    Secure Contexts
+  <h3 id="data-minimization">
+    Data Minimization
   </h3>
 
-  In the presence of an <a>active network attacker</a>, offering a feature to
-  an insecure origin is the same as offering that feature to every origin (as
-  the attacker can inject frames and code at will). Requiring an encrypted and
-  authenticated connection in order to use a feature can mitigate this kind of
-  risk.
+  TODO
+
+  <h3 id="privacy-friendly-defaults">
+    Privacy Friendly Defaults
+  </h3>
+
+  TODO
 
   <h3 id="user-mediation">
     Explicit user mediation
@@ -639,6 +641,35 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   Designing such prompts is difficult. Choosers are good. Walls of text are bad.
 
   ISSUE: Bring in some of felt@'s ideas here.
+
+  <h3 id="sanitize-data">
+    Sanitize the data handled in the feature
+  </h3>
+
+  It is always a good strategy to consider the kinds of data a new feature
+  is processing. For example, new features allowing the readout of data may
+  want to adopt specific privacy strategies such as minimizing the quality
+  of datas (quantization) or reducing the frequency, in line with standard
+  privacy engineering practices. Examples
+  *   [BATTERY-STATUS-API] <em>“The user agent should not expose high
+    precision readouts”</em>
+  * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
+
+  <h3 id="restrict-to-first-party">
+    Explicitly restrict the feature to first party origins
+  </h3>
+
+  TODO
+
+  <h3 id="secure-contexts">
+    Secure Contexts
+  </h3>
+
+  In the presence of an <a>active network attacker</a>, offering a feature to
+  an insecure origin is the same as offering that feature to every origin (as
+  the attacker can inject frames and code at will). Requiring an encrypted and
+  authenticated connection in order to use a feature can mitigate this kind of
+  risk.
 
   <h3 id="drop-feature">
     Drop the feature
@@ -661,32 +692,20 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla<a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API
     *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped<a> devicelight, deviceproximity and userproximity events
 
-      <h3 id="sanitize-data">
-        Sanitize the data handled in the feature
-      </h3>
-
-      It is always a good strategy to consider the kinds of data a new feature
-      is processing. For example, new features allowing the readout of data may
-      want to adopt specific privacy strategies such as minimizing the quality
-      of datas (quantization) or reducing the frequency, in line with standard
-      privacy engineering practices. Examples
-      *   [BATTERY-STATUS-API] <em>“The user agent should not expose high
-        precision readouts”</em>
-      * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
 
 
-      <h3 id="user-mediation">
-        Making a privacy impact assessment
-      </h3>
+    <h3 id="privacy-impact-assessment">
+      Making a privacy impact assessment
+    </h3>
 
-      Some features are potentially supplying very sensitive data, and it is
-      the end-developer, system owners, or managers responsibility to realize
-      this and act accordingly in the design of his/her system. Some use may
-      warrant conducting as privacy impact assessment, especially when data
-      relating to individuals may be processed. Examples.
+    Some features are potentially supplying very sensitive data, and it is
+    the end-developer, system owners, or managers responsibility to realize
+    this and act accordingly in the design of his/her system. Some use may
+    warrant conducting as privacy impact assessment, especially when data
+    relating to individuals may be processed. Examples.
 
-      *   [GENERIC-SENSORS] advices to consider performing of a privacy impact
-      assessment
+    *   [GENERIC-SENSORS] advices to consider performing of a privacy impact
+    assessment
 
 
 </section>
