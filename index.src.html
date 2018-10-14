@@ -691,16 +691,31 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Explicit user mediation
   </h3>
 
-  If a feature has privacy or security impacts that are endemic to the feature
-  itself, then one valid strategy for exposing it to the web is to require user
-  mediation before granting an origin access. For instance, [[GEOLOCATION-API]]
-  reveals a user's location, and wouldn't be particularly useful if it didn't;
+  If the security or privacy risk of a feature cannot otherwise be mitigated in
+  a specification, optionally allowing an implementer to prompt a user may
+  provide the best security/privacy possible.  If the specification does not
+  allow for the implementer to prompt, it may result in divergence
+  implementations by different user agents as some user agents choose to
+  implement more privacy-preserving version.
+
+  It is possible that the risk of a feature cannot be mitigated because the
+  risk is endemic to the feature itself.  For instance, [[ GEOLOCATION-API ]] 
+  reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
   user agents generally gate access to the feature on a permission prompt which
-  the user may choose to accept.
+  the user may choose to accept.  This risk is also present and should be
+  accounted for in features that expose personal data or identifiers.
 
-  Designing such prompts is difficult. Choosers are good. Walls of text are bad.
+  Designing such prompts is difficult as is determining the duration and timing
+  that the permission should provide. Generally speaking, the duration and
+  timing of the prompt should be inversely proportional to the risk posed by
+  the data exposed.  Often, the best prompt is one that is clearly tied to a
+  user action, like the file picker.  And, walls of text may not be read by
+  users or understood by all.
 
-  ISSUE: Bring in some of felt@'s ideas here.
+  These prompts should also include considerations for what, if any, control a
+  user has over their data after it has been shared with other parties.  For
+  example, are users able to determine what information was shared with other
+  parties?
 
   <h3 id="sanitize-data">
     Sanitize the data handled in the feature
