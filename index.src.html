@@ -98,7 +98,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   *   External audience (developers, designers, etc.) wanting to understand the
       possible security and privacy implications.
 
-<h2 id="threats">How To Use The Questionnaire</h2>
+<h2 id="howtouse">How To Use The Questionnaire</h2>
 
   Thinking about security and privacy risks and mitigations early in a project
   is the best approach as it helps ensure the privacy of your feature at an
@@ -610,87 +610,190 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Mitigation Strategies
   </h2>
 
-  <h3 id="secure-contexts">
-    Secure Contexts
+  To mitigate the security and privacy risks you’ve identified in your
+  specification as you’ve filled out the questionnaire and consulted with PING,
+  you may want to apply one or more of the mitigations described below to your
+  feature.
+
+  <h3 id="data-minimization">
+    Data Minimization
   </h3>
 
-  In the presence of an <a>active network attacker</a>, offering a feature to
-  an insecure origin is the same as offering that feature to every origin (as
-  the attacker can inject frames and code at will). Requiring an encrypted and
-  authenticated connection in order to use a feature can mitigate this kind of
-  risk.
+  Minimization is a strategy that involves exposing as little information to
+  other communication partners as is required for a given operation to
+  complete. More specifically, it requires not providing access to more
+  information than was apparent in the user-mediated access or allowing the
+  user some control over which information exactly is provided.
+
+  For example, if the user has provided access to a given file, the object
+  representing that should not make it possible to obtain information about
+  that file's parent directory and its contents as that is clearly not what is
+  expected.
+
+  Basic fingerprinting guidance can be found here.
+
+  In context of data minimization it is natural to ask what data is passed
+  around between the different parties, how persistent the data items and
+  identifiers are, and whether there are correlation possibilities between
+  different protocol runs.
+
+  For example, the W3C Device APIs Working Group has defined the following
+  requirements in their Device API Privacy Requirements document.
+
+  *   APIs must make it easy to request as little information as required for
+      the intended usage. For instance, an API call should require specific
+      parameters to be set to obtain more information, and should default to
+      little or no information.
+  *   APIs should make it possible for user agents to convey the breadth of
+      information that the requester is asking for. For instance, if a developer
+      only needs to access a specific field of a user address book, it should be
+      possible to explicitly mark that field in the API call so that the user
+      agent can inform the user that this single field of data will be shared.
+  *   APIs should make it possible for user agents to let the user select,
+      filter, and transform information before it is shared with the requester.
+      The user agent can then act as a broker for trusted data, and will only
+      transmit data to the requester that the user has explicitly allowed.
+
+  Data minimization is applicable to specification authors, implementers as
+  well as to those deploying the final service.
+
+  As an example, consider mouse events. When a page is loaded, the application
+  has no way of knowing whether a mouse is attached, what type of mouse it is
+  (e.g., make and model), what kind of capabilities it exposes, how many are
+  attached, and so on. Only when the user decides to use the mouse — presumably
+  because it is required for interaction — does some of this information become
+  available. And even then, only a minimum of information is exposed: you could
+  not know whether it is a trackpad for instance, and the fact that it may have
+  a right button is only exposed if it is used. For instance, the Gamepad API
+  makes use of this data minisation capability. It is impossible for a Web game
+  to know if the user agent has access to gamepads, how many there are, what
+  their capabilities are, etc. It is simply assumed that if the user wishes to
+  interact with the game through the gamepad then she will know when to action
+  it — and actioning it will provide the application with all the information
+  that it needs to operate (but no more than that).
+
+  The way in which the functionality is supported for the mouse is simply by
+  only providing information on the mouse's behaviour when certain events take
+  place. The approach is therefore to expose event handling (e.g., triggering
+  on click, move, button press) as the sole interface to the device.
+
+  Two features that have minimized the data they make available are:
+  * [BATTERY-STATUS-API] <em>“The user agent should not expose high
+    precision readouts”</em>
+  * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
+
+
+  <h3 id="privacy-friendly-defaults">
+    Privacy Friendly Defaults
+  </h3>
+
+  Users often do not change defaults, as a result, it is important that the
+  default mode of a specification minimizes the amount, identifiability, and
+  persistence of the data and identifiers exposed.  This is particularly true
+  if a protocol comes with flexible options so that it can be tailored to
+  specific environments.
 
   <h3 id="user-mediation">
     Explicit user mediation
   </h3>
 
-  If a feature has privacy or security impacts that are endemic to the feature
-  itself, then one valid strategy for exposing it to the web is to require user
-  mediation before granting an origin access. For instance, [[GEOLOCATION-API]]
-  reveals a user's location, and wouldn't be particularly useful if it didn't;
+  If the security or privacy risk of a feature cannot otherwise be mitigated in
+  a specification, optionally allowing an implementer to prompt a user may
+  provide the best security/privacy possible.  If the specification does not
+  allow for the implementer to prompt, it may result in divergence
+  implementations by different user agents as some user agents choose to
+  implement more privacy-preserving version.
+
+  It is possible that the risk of a feature cannot be mitigated because the
+  risk is endemic to the feature itself.  For instance, [[ GEOLOCATION-API ]]
+  reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
   user agents generally gate access to the feature on a permission prompt which
-  the user may choose to accept.
+  the user may choose to accept.  This risk is also present and should be
+  accounted for in features that expose personal data or identifiers.
 
-  Designing such prompts is difficult. Choosers are good. Walls of text are bad.
+  Designing such prompts is difficult as is determining the duration and timing
+  that the permission should provide. Generally speaking, the duration and
+  timing of the prompt should be inversely proportional to the risk posed by
+  the data exposed.  Often, the best prompt is one that is clearly tied to a
+  user action, like the file picker.  And, walls of text may not be read by
+  users or understood by all.
 
-  ISSUE: Bring in some of felt@'s ideas here.
+  These prompts should also include considerations for what, if any, control a
+  user has over their data after it has been shared with other parties.  For
+  example, are users able to determine what information was shared with other
+  parties?
+
+  <h3 id="restrict-to-first-party">
+    Explicitly restrict the feature to first party origins
+  </h3>
+
+  As described in the "Third-Party Tracking" section, the power of the web is
+  the mixing of first and third party content in a single page, but, this
+  introduces risk where the third party content can use the same set of web
+  features as the first party content.  One way to mitigate this risk is for
+  the specification to  restrict access to the feature to the first party
+  origin only and make third party’s access to the feature an optional
+  implementation for conformance.
+
+  <h3 id="secure-contexts">
+    Secure Contexts
+  </h3>
+
+  If the primary risk that you’ve identified in your specification is the
+  threat posed by <a>active network attacker</a>, offering a feature to an
+  insecure origin is the same as offering that feature to every origin because
+  the attacker can inject frames and code at will. Requiring an encrypted and
+  authenticated connection in order to use a feature can mitigate this kind of
+  risk.
+
+  However, requiring a secure context is not sufficient to mitigate many
+  privacy risks or even security risks from other threat actors than active
+  network attackers.
 
   <h3 id="drop-feature">
     Drop the feature
   </h3>
 
-    The simplest way to mitigate potential negative security or privacy impacts of a feature,
-    and even discussing the possibility, is to drop the feature.
-    Every feature in a spec should be considered guilty (of harming security and/or privacy) until proven otherwise.
+  The simplest way to mitigate potential negative security or privacy impacts
+  of a feature is to drop the feature.
+  Every feature in a spec should be considered guilty of harming security
+  and/or privacy until proven otherwise.
+  Discussing dropping the feature as a mitigation for security or privacy
+  impacts is a helpful exercise as it helps illuminate the tradeoffs between
+  the feature, whether it is exposing the minimum amount of data necessary,
+  and other possibly mitigations.
 
-    Every specification should seek to be as small as possible, even if only for the reasons of reducing
-    and minimizing security/privacy attack surface(s).
+  Every specification should seek to be as small as possible, even if only
+  for the reasons of reducing and minimizing security/privacy attack surface(s).
 
-    By doing so we can reduce the overall security (and privacy) attack surface of not only a particular feature,
-    but of a module (related set of features), a specification, and the overall web platform.
+  By doing so we can reduce the overall security and privacy attack surface
+  of not only a particular feature, but of a module (related set of
+  features), a specification, and the overall web platform.
 
-    Examples
+  Examples
 
-    *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla<a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API
-    *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped<a> devicelight, deviceproximity and userproximity events
+  *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla<a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API
+  *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped<a> devicelight, deviceproximity and userproximity events
 
-      <h3 id="sanitize-data">
-        Sanitize the data handled in the feature
-      </h3>
+  <h3 id="privacy-impact-assessment">
+    Making a privacy impact assessment
+  </h3>
 
-      It is always a good strategy to consider the kinds of data a new feature is processing. For example, new features allowing the readout of data may want to adopt specific privacy strategies such as minimizing the quality of datas (quantization) or reducing the frequency, in line with standard privacy engineering practices. Examples
-      *   [BATTERY-STATUS-API] <em>“The user agent should not expose high precision readouts”</em>
-      * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
+  Some features are potentially supplying very sensitive data, and it is
+  the end-developer, system owners, or managers responsibility to realize
+  this and act accordingly in the design of his/her system. Some use may
+  warrant conducting as privacy impact assessment, especially when data
+  relating to individuals may be processed.
 
+  Specifications that expose such sensitive data should include a
+  recommendation that websites and applications adopting the API — but not
+  necessarily the implementing user agent — conduct a privacy impact assessment
+  of the data that they collect.
 
-      <h3 id="user-mediation">
-        Making a privacy impact assessment
-      </h3>
+  A features that recommends such is:
+  *   [GENERIC-SENSORS] advices to consider performing of a privacy impact
+  assessment
 
-      Some features are potentially supplying very sensitive data, and it is the end-developer,
-      system owners, or managers responsibility to realize this and act accordingly in the design of his/her
-      system. Some use may warrant conducting as privacy impact assessment, especially when data relating to
-      individuals may be processed. Examples.
-
-      *   [GENERIC-SENSORS] advices to consider performing of a privacy impact assessment
-
-
-</section>
-
-<section>
-  <h2 id="howtouse">How to Use the questionnaire</h2>
-
-  To ensure good designs, security and privacy should be considered as early as possible.
-  This questionnaire facilitates this and the questions should be considered early in the specification development
-  process, kept in mind as it matures, with the answers being updated along the specification evolution.
-  This questionnaire should not be used as a “check box" excercise before requesting final publication - acting in
-  this manner does not help improve privacy or security on the Web.  Each question needs to be considered and that
-  any privacy or security concerns are described, along with a possible mitigation strategy.
-  It is not a good approach to provide a one-word answer (“yes” / “no”). Rather, it is expected to include an
-  explanatory description. The questions in the questionnaire are more about “why” and “how”, rather than “if”.
-
-  It is expected that a questionnaire must be filled in prior to obtaining a W3C Working Draft status, and prior to requiring a review, along the Privacy by Design principles.
-  The questionnaire and its answers should not be included in the specification itself. It is preferable to keep it in a standard and easily available place, with a link available in the TAG repository.
 
 </section>
 
