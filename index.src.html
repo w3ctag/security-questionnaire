@@ -245,7 +245,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   why expose the additional information?
 
   <h3 id="personal-data">
-    Does this specification deal with personal information or
+    How does this specification deal with personal information or
     personally-identifiable information or information derived thereof?
   </h3>
 
@@ -269,7 +269,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       Request API [[PAYMENT-REQUEST-API]]
 
   <h3 id="sensitive-data">
-    Does this specification deal with sensitive information?
+    How does this specification deal with sensitive information?
   </h3>
 
   Just because data is not personally information or PII, that does not mean
@@ -337,13 +337,14 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       ability to wipe out the data contained in these types of storage.
 
   <h3 id="underlying-platform-data">
-    Does this specification expose information to an origin that originates
-    from the underlying platform such as sensors?
+    What information from the underlying platform, e.g. configuration data, is
+    exposed by this specification to an origin?
   </h3>
 
   If so, is the information exposed from the underlying platform consistent
   across origins?  This includes but is not limited to information relating to
-  the user configuration, system information, and communication methods.
+  the user configuration, system information including sensors, and
+  communication methods.
 
   When a specification exposes specific information about a host to an origin,
   if that information changes rarely and is not variable across origins, then
@@ -377,8 +378,8 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       direct enumeration of the plugin list</a>.
 
   <h3 id="sensor-data">
-    Does this specification allow an origin access to sensors on a user’s
-    device?
+    What sensors on a user's devise does this specification allow an origin
+    to access?
   </h3>
 
   Information from sensors may serve as a fingerprinting vector across origins.
@@ -433,7 +434,8 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   * What about style?
 
   <h3 id="remote-device">
-    Does this specification allow an origin access to other devices?
+    What other, possibly remote, devices does this specification allow an
+    origin to access?
   </h3>
 
   Accessing other devices, both via network connections and via
@@ -484,7 +486,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   confirmed this conclusion?
 
   <h3 id="temporary-id">
-    Does this specification expose temporary identifiers to the web?
+    What temporary identifiers does this specification expose to the web?
   </h3>
 
   Some identifiers may be difficult to pin-point  but they revolve around
@@ -501,8 +503,9 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   Example temporary identifers include TLS Channel ID, Session Tickets, and
   IPv6 addresses.
 
-  <h3 id="first-third-party">Does this specification distinguish between
-    behavior in first-party and third-party contexts?
+  <h3 id="first-third-party">
+    How does this specification distinguish between behavior in first-party and
+    third-party contexts?
   </h3>
 
   The behavior of a feature should be considered not just in the context of its
