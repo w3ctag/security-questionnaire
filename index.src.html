@@ -378,9 +378,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
       direct enumeration of the plugin list</a>.
 
   <h3 id="sensor-data">
-    What sensors on a user's devise does this specification allow an origin
-    to access?
+    Does this specification allow an origin access to sensors on a user’s
+    device
   </h3>
+
+  If so, what kind of sensors and information derived from those sensors does
+  this standard expose to origins?
 
   Information from sensors may serve as a fingerprinting vector across origins.
   In addition, sensor also reveals something about my device or environment and
@@ -439,9 +442,10 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   * What about style?
 
   <h3 id="remote-device">
-    What other, possibly remote, devices does this specification allow an
-    origin to access?
+    Does this specification allow an origin to access other devices?
   </h3>
+
+  If so, what devices does this specification allow an origin to access?
 
   Accessing other devices, both via network connections and via
   direct connection to the user's machine (e.g. via Bluetooth,
@@ -495,7 +499,8 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   confirmed this conclusion?
 
   <h3 id="temporary-id">
-    What temporary identifiers does this specification expose to the web?
+    What temporary identifiers might this this specification create or expose
+    to the web?
   </h3>
 
   If a standard exposes a temporary identifier to the web, the identifier
@@ -503,6 +508,10 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   the risk of this identifier being used to track a user over time.  When a
   user clears state in their user agent, these temporary identifiers should be
   cleared to prevent re-correlation of state using a temporary identifier.
+
+  If this specification does create or expose a temporary identifier to the
+  web, how is it exposed, when, to what entities, and, how frequently is it
+  rotated?
 
   Example temporary identifers include TLS Channel ID, Session Tickets, and
   IPv6 addresses.
