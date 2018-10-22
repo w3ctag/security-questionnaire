@@ -630,7 +630,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   that file's parent directory and its contents as that is clearly not what is
   expected.
 
-  Basic fingerprinting guidance can be found here.
+  Basic fingerprinting guidance can be found in [DOTY-FINGERPRINTING].
 
   In context of data minimization it is natural to ask what data is passed
   around between the different parties, how persistent the data items and
@@ -705,18 +705,33 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   implement more privacy-preserving version.
 
   It is possible that the risk of a feature cannot be mitigated because the
-  risk is endemic to the feature itself.  For instance, [[ GEOLOCATION-API ]]
+  risk is endemic to the feature itself.  For instance, [GEOLOCATION-API]
   reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
   user agents generally gate access to the feature on a permission prompt which
   the user may choose to accept.  This risk is also present and should be
   accounted for in features that expose personal data or identifiers.
 
   Designing such prompts is difficult as is determining the duration and timing
-  that the permission should provide. Generally speaking, the duration and
-  timing of the prompt should be inversely proportional to the risk posed by
-  the data exposed.  Often, the best prompt is one that is clearly tied to a
-  user action, like the file picker.  And, walls of text may not be read by
-  users or understood by all.
+  that the permission should provide.
+
+  Often, the best prompt is one that is clearly tied to a user action, like the
+  file picker, where in response to a user action, the file picker is brought
+  up and a user gives access to a specific file to an individual site.
+
+  Generally speaking, the duration and timing of the prompt should be inversely
+  proportional to the risk posed by the data exposed.  In addition, the prompt
+  should consider issues such as:
+  *  How should permission requests be scoped? Especially when requested by an
+     embedded third party iframe?
+  *  Should persistence be based on the pair of top-level/embedded origins or a
+     different scope?
+  *  How is it certain that the prompt is occuring in context of requiring the
+     data and at a time that it is clear to the user why the prompt is occuring.
+  *  Explaining the implications of permission before prompting the user, in a
+     way that is accessible and localized -- _who_ is asking, _what_ are they
+     asking for, _why_ do they need it?
+  *  What happens if the user rejects the request at the time of the prompt or
+     if the user later changes their mind and revokes access.
 
   These prompts should also include considerations for what, if any, control a
   user has over their data after it has been shared with other parties.  For
@@ -727,13 +742,22 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     Explicitly restrict the feature to first party origins
   </h3>
 
-  As described in the "Third-Party Tracking" section, the power of the web is
-  the mixing of first and third party content in a single page, but, this
-  introduces risk where the third party content can use the same set of web
-  features as the first party content.  One way to mitigate this risk is for
-  the specification to  restrict access to the feature to the first party
-  origin only and make third party’s access to the feature an optional
-  implementation for conformance.
+  As described in the "Third-Party Tracking" section, a significant feature of
+  the web is the mixing of first and third party content in a single page, but,
+  this introduces risk where the third party content can use the same set of web
+  features as the first party content.
+
+  Authors should explicit specify the feature's scope of availability:
+  *  When a feature should be made available to embedded third parties -- and
+     often first parties should be able to explicitly control that (using
+     iframe attributes or feature policy)
+  *  Whether a feature should be available in the background or only in the
+     top-most, visible tab.
+  *  Whether a feature should be available to offline service workers.
+  *  Whether events will be fired simultaneously
+
+  Third party’s access to a feature should be an optional implementation for
+  conformance.
 
   <h3 id="secure-contexts">
     Secure Contexts
@@ -745,6 +769,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   the attacker can inject frames and code at will. Requiring an encrypted and
   authenticated connection in order to use a feature can mitigate this kind of
   risk.
+
+  Secure contexts also protect against <a>passive network atackers</a>.  For
+  example, if a page uses the Geolocation API and sends the sensor-provided
+  latitude and longitude back to the server over an insecure connection, then
+  any passive network attacker can learn the user's location, without any
+  feasible path to detection by the user or others.
 
   However, requiring a secure context is not sufficient to mitigate many
   privacy risks or even security risks from other threat actors than active
@@ -792,8 +822,14 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   A features that recommends such is:
   *   [GENERIC-SENSORS] advices to consider performing of a privacy impact
-  assessment
+      assessment
 
+  Documenting these impacts is important for organizations although it should
+  be noted that there are limitations to putting this onus on organizations.
+  Research has shown that sites often do not comply with security/privacy
+  requirements in specifications.  For example, in [[DOTY-GEOLOCATION]], it was
+  found that none of the studied websites informed users of their privacy
+  practices before the site prompted for location.
 
 </section>
 
@@ -908,5 +944,12 @@ spec:html5; type:element; text:script
       "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
       "authors": [ "Andy Greenberg" ],
       "publisher": "Wired"
+  },
+  "DOTY-GEOLOCATION": {
+    "href": "https://escholarship.org/uc/item/0rp834wf",
+    "title": "Privacy Issues of the W3C Geolocation API",
+    "authors": [ "Nick Doty, Deirdre K. Mulligan, Erik Wilde" ],
+    "publisher": "UC Berkeley School of Information"
+  }
 }
 </pre>
