@@ -388,6 +388,11 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   mitigations in place at the time a specification is written may have to be
   reconsidered as the threat landscape changes.
 
+  Sensor data may even become a cross-origin identifier if the sensor reading
+  is relatively stable for short time periods (seconds, minutes, even days) and
+  is consistent across-origins.  In fact, if two user-agents expose the same
+  sensor data the same way, it may become a cross-browser identifier.
+
   These are not theoretical attacks, for example:
   *   As gryoscopes advanced, their sampling rate had to be lowered to
       prevent them from being used as a microphone as one such example
@@ -493,11 +498,6 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     What temporary identifiers does this specification expose to the web?
   </h3>
 
-  Some identifiers may be difficult to pin-point  but they revolve around
-  information that is stable in short-term manner (seconds, minutes, days) and
-  may be available to web origins, whether in cross-origin manner or even
-  cross-browser manner.
-
   If a standard exposes a temporary identifier to the web, the identifier
   should be short lived and should rotate on some regular duration to mitigate
   the risk of this identifier being used to track a user over time.  When a
@@ -506,6 +506,12 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
   Example temporary identifers include TLS Channel ID, Session Tickets, and
   IPv6 addresses.
+
+  An example implementations of a privacy friendly temporary identifier
+  include:
+
+  *   The index attribute in the Gamepad API [[GAMEPAD]] which is an integer
+      that starts at zero, increments, and is reset.
 
   <h3 id="first-third-party">
     How does this specification distinguish between behavior in first-party and
@@ -926,6 +932,12 @@ spec:html5; type:element; text:script
     "title": "WebUSB API Editor's Draft, 21 October 2018",
     "publisher": "W3C",
     "authors": [ "Reilly Grant, Ken Rockot, Ovidio Henriquez"]
+  },
+  "GAMEPAD": {
+    "href": "https://www.w3.org/TR/2018/WD-gamepad-20181018/",
+    "title": "Gamepad W3C Working Draft, 18 October 2018",
+    "publisher": "W3C",
+    "authors": [ "Scott Graham, Ted Mielczarek, Brandon Jones, Steve Agoston"]
   }
 }
 </pre>
