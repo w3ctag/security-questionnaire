@@ -5,6 +5,7 @@ ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
 Level: 1
 Editor: Lukasz Olejnik, Independent researcher, me@lukaszolejnik.com
+Editor: Jason Novak, Apple Inc., https://apple.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Indent: 2
@@ -798,15 +799,15 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   Examples
 
   *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla<a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API
-  *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped<a> devicelight, deviceproximity and userproximity events
+  *   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events
 
   <h3 id="sanitize-data">
     Sanitize the data handled in the feature
   </h3>
 
   It is always a good strategy to consider the kinds of data a new feature is processing. For example, new features allowing the readout of data may want to adopt specific privacy strategies such as minimizing the quality of datas (quantization) or reducing the frequency, in line with standard privacy engineering practices. Examples
-  *   [BATTERY-STATUS-API] <em>“The user agent should not expose high precision readouts”</em>
-  * [SENSORS-API] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
+  * [[BATTERY-STATUS-API]] <em>“The user agent should not expose high precision readouts”</em>
+  * [[SENSORS-API]] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
 
 
   <h3 id="user-mediation">
@@ -818,7 +819,7 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   system. Some use may warrant conducting as privacy impact assessment, especially when data relating to
   individuals may be processed. Examples.
 
-  *   [GENERIC-SENSORS] advices to consider performing of a privacy impact assessment
+  *   [[SENSORS-API]] advices to consider performing of a privacy impact assessment
 
 
 </section>
@@ -1011,6 +1012,20 @@ spec:html5; type:element; text:script
     "title": "Gamepad W3C Working Draft, 18 October 2018",
     "publisher": "W3C",
     "authors": [ "Scott Graham, Ted Mielczarek, Brandon Jones, Steve Agoston"]
+  },
+  "BATTERY-STATUS-API": {
+    "href": "https://www.w3.org/TR/2016/CR-battery-status-20160707/",
+    "title": "Battery Status API W3C Candidate Recommendation, 07 July 2016",
+    "publisher": "W3C",
+    "authors": [ "Anssi Kostiainen, Mounir Lamouri"]
+  },
+  "SENSORS-API": {
+    "href": "https://www.w3.org/TR/2018/CR-generic-sensor-20180320/",
+    "title": "Generic Sensor API W3C Candidate Recommendation,  20 March 2018",
+    "publisher": "W3C",
+    "authors": [ "Rick Waldron, Mikhail Pozdnyakov, Alexander Shalamov, Tobie Langel" ]
   }
+
+
 }
 </pre>
