@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 1e757f3ee68e638e030f32dc3e8d2e3234d3aed5" name="generator">
   <link href="https://w3ctag.github.io/security-questionnaire/" rel="canonical">
-  <meta content="5a1ab002222b9e9ac5db197fd55f65bda8df81f5" name="document-revision">
+  <meta content="0c7f047bbd40a0dfff651211a0249014d20482e5" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1412,7 +1412,6 @@ pre .property::before, pre .property::after {
      <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html">https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/jasonanovak/security-questionnaire/issues/">GitHub</a>
-     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:me@lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://apple.com">Jason Novak</a> (<span class="p-org org">Apple Inc.</span>)
@@ -1461,9 +1460,9 @@ Parts of this work may be from another specification document.  If so, those par
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
     <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
-    <li><a href="#threats"><span class="secno">2</span> <span class="content">How To Use The Questionnaire</span></a>
+    <li><a href="#howtouse"><span class="secno">2</span> <span class="content">How To Use The Questionnaire</span></a>
     <li>
-     <a href="#threats①"><span class="secno">3</span> <span class="content">Threat Models</span></a>
+     <a href="#threats"><span class="secno">3</span> <span class="content">Threat Models</span></a>
      <ol class="toc">
       <li><a href="#passive-network"><span class="secno">3.1</span> <span class="content">Passive Network Attackers</span></a>
       <li><a href="#active-network"><span class="secno">3.2</span> <span class="content">Active Network Attackers</span></a>
@@ -1508,13 +1507,14 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#mitigations"><span class="secno">5</span> <span class="content"> Mitigation Strategies </span></a>
      <ol class="toc">
-      <li><a href="#secure-contexts"><span class="secno">5.1</span> <span class="content"> Secure Contexts </span></a>
-      <li><a href="#user-mediation"><span class="secno">5.2</span> <span class="content"> Explicit user mediation </span></a>
-      <li><a href="#drop-feature"><span class="secno">5.3</span> <span class="content"> Drop the feature </span></a>
-      <li><a href="#sanitize-data"><span class="secno">5.4</span> <span class="content"> Sanitize the data handled in the feature </span></a>
-      <li><a href="#user-mediation①"><span class="secno">5.5</span> <span class="content"> Making a privacy impact assessment </span></a>
+      <li><a href="#data-minimization"><span class="secno">5.1</span> <span class="content"> Data Minimization </span></a>
+      <li><a href="#privacy-friendly-defaults"><span class="secno">5.2</span> <span class="content"> Privacy Friendly Defaults </span></a>
+      <li><a href="#user-mediation"><span class="secno">5.3</span> <span class="content"> Explicit user mediation </span></a>
+      <li><a href="#restrict-to-first-party"><span class="secno">5.4</span> <span class="content"> Explicitly restrict the feature to first party origins </span></a>
+      <li><a href="#secure-contexts"><span class="secno">5.5</span> <span class="content"> Secure Contexts </span></a>
+      <li><a href="#drop-feature"><span class="secno">5.6</span> <span class="content"> Drop the feature </span></a>
+      <li><a href="#privacy-impact-assessment"><span class="secno">5.7</span> <span class="content"> Making a privacy impact assessment </span></a>
      </ol>
-    <li><a href="#howtouse"><span class="secno">6</span> <span class="content">How to Use the questionnaire</span></a>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1528,7 +1528,6 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
-    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
@@ -1589,7 +1588,7 @@ Parts of this work may be from another specification document.  If so, those par
       <p>External audience (developers, designers, etc.) wanting to understand the
   possible security and privacy implications.</p>
     </ul>
-    <h2 class="heading settled" data-level="2" id="threats"><span class="secno">2. </span><span class="content">How To Use The Questionnaire</span><a class="self-link" href="#threats"></a></h2>
+    <h2 class="heading settled" data-level="2" id="howtouse"><span class="secno">2. </span><span class="content">How To Use The Questionnaire</span><a class="self-link" href="#howtouse"></a></h2>
     <p>Thinking about security and privacy risks and mitigations early in a project
   is the best approach as it helps ensure the privacy of your feature at an
   architectural level and ensures the result, descriptions, protocols and
@@ -1616,7 +1615,7 @@ Parts of this work may be from another specification document.  If so, those par
   privacy remarks, or the assessment.</p>
    </section>
    <section>
-    <h2 class="heading settled" data-level="3" id="threats①"><span class="secno">3. </span><span class="content">Threat Models</span><a class="self-link" href="#threats①"></a></h2>
+    <h2 class="heading settled" data-level="3" id="threats"><span class="secno">3. </span><span class="content">Threat Models</span><a class="self-link" href="#threats"></a></h2>
     <p>To consider security and privacy it is convenient to think in terms of threat
   models, a way to illuminate the possible risks.</p>
     <p>There are some concrete privacy concerns that should be considered when
@@ -2136,28 +2135,171 @@ Security Policy’s <code>script-src</code> directive.</p>
    </section>
    <section>
     <h2 class="heading settled" data-level="5" id="mitigations"><span class="secno">5. </span><span class="content"> Mitigation Strategies </span><a class="self-link" href="#mitigations"></a></h2>
-    <h3 class="heading settled" data-level="5.1" id="secure-contexts"><span class="secno">5.1. </span><span class="content"> Secure Contexts </span><a class="self-link" href="#secure-contexts"></a></h3>
-    <p>In the presence of an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a>, offering a feature to
-  an insecure origin is the same as offering that feature to every origin (as
-  the attacker can inject frames and code at will). Requiring an encrypted and
+    <p>To mitigate the security and privacy risks you’ve identified in your
+  specification as you’ve filled out the questionnaire and consulted with PING,
+  you may want to apply one or more of the mitigations described below to your
+  feature.</p>
+    <h3 class="heading settled" data-level="5.1" id="data-minimization"><span class="secno">5.1. </span><span class="content"> Data Minimization </span><a class="self-link" href="#data-minimization"></a></h3>
+    <p>Minimization is a strategy that involves exposing as little information to
+  other communication partners as is required for a given operation to
+  complete. More specifically, it requires not providing access to more
+  information than was apparent in the user-mediated access or allowing the
+  user some control over which information exactly is provided.</p>
+    <p>For example, if the user has provided access to a given file, the object
+  representing that should not make it possible to obtain information about
+  that file’s parent directory and its contents as that is clearly not what is
+  expected.</p>
+    <p>Basic fingerprinting guidance can be found in <a data-link-type="biblio" href="#biblio-doty-fingerprinting">[DOTY-FINGERPRINTING]</a>.</p>
+    <p>In context of data minimization it is natural to ask what data is passed
+  around between the different parties, how persistent the data items and
+  identifiers are, and whether there are correlation possibilities between
+  different protocol runs.</p>
+    <p>For example, the W3C Device APIs Working Group has defined the following
+  requirements in their Device API Privacy Requirements document.</p>
+    <ul>
+     <li data-md>
+      <p>APIs must make it easy to request as little information as required for
+  the intended usage. For instance, an API call should require specific
+  parameters to be set to obtain more information, and should default to
+  little or no information.</p>
+     <li data-md>
+      <p>APIs should make it possible for user agents to convey the breadth of
+  information that the requester is asking for. For instance, if a developer
+  only needs to access a specific field of a user address book, it should be
+  possible to explicitly mark that field in the API call so that the user
+  agent can inform the user that this single field of data will be shared.</p>
+     <li data-md>
+      <p>APIs should make it possible for user agents to let the user select,
+  filter, and transform information before it is shared with the requester.
+  The user agent can then act as a broker for trusted data, and will only
+  transmit data to the requester that the user has explicitly allowed.</p>
+    </ul>
+    <p>Data minimization is applicable to specification authors and implementers, as
+  well as to those deploying the final service.</p>
+    <p>As an example, consider mouse events. When a page is loaded, the application
+  has no way of knowing whether a mouse is attached, what type of mouse it is
+  (e.g., make and model), what kind of capabilities it exposes, how many are
+  attached, and so on. Only when the user decides to use the mouse — presumably
+  because it is required for interaction — does some of this information become
+  available. And even then, only a minimum of information is exposed: you could
+  not know whether it is a trackpad for instance, and the fact that it may have
+  a right button is only exposed if it is used. For instance, the Gamepad API
+  makes use of this data minisation capability. It is impossible for a Web game
+  to know if the user agent has access to gamepads, how many there are, what
+  their capabilities are, etc. It is simply assumed that if the user wishes to
+  interact with the game through the gamepad then she will know when to action
+  it — and actioning it will provide the application with all the information
+  that it needs to operate (but no more than that).</p>
+    <p>The way in which the functionality is supported for the mouse is simply by
+  only providing information on the mouse’s behaviour when certain events take
+  place. The approach is therefore to expose event handling (e.g., triggering
+  on click, move, button press) as the sole interface to the device.</p>
+    <p>Two features that have minimized the data they make available are:</p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="biblio" href="#biblio-battery-status-api">[BATTERY-STATUS-API]</a> <em>“The user agent should not expose high
+precision readouts”</em></p>
+     <li data-md>
+      <p><a data-link-type="biblio" href="#biblio-sensors-api">[SENSORS-API]</a> <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em></p>
+    </ul>
+    <h3 class="heading settled" data-level="5.2" id="privacy-friendly-defaults"><span class="secno">5.2. </span><span class="content"> Privacy Friendly Defaults </span><a class="self-link" href="#privacy-friendly-defaults"></a></h3>
+    <p>Users often do not change defaults, as a result, it is important that the
+  default mode of a specification minimizes the amount, identifiability, and
+  persistence of the data and identifiers exposed.  This is particularly true
+  if a protocol comes with flexible options so that it can be tailored to
+  specific environments.</p>
+    <h3 class="heading settled" data-level="5.3" id="user-mediation"><span class="secno">5.3. </span><span class="content"> Explicit user mediation </span><a class="self-link" href="#user-mediation"></a></h3>
+    <p>If the security or privacy risk of a feature cannot otherwise be mitigated in
+  a specification, optionally allowing an implementer to prompt a user may
+  provide the best security/privacy possible.  If the specification does not
+  allow for the implementer to prompt, it may result in divergence
+  implementations by different user agents as some user agents choose to
+  implement more privacy-preserving version.</p>
+    <p>It is possible that the risk of a feature cannot be mitigated because the
+  risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
+  user agents generally gate access to the feature on a permission prompt which
+  the user may choose to accept.  This risk is also present and should be
+  accounted for in features that expose personal data or identifiers.</p>
+    <p>Designing such prompts is difficult as is determining the duration and timing
+  that the permission should provide.</p>
+    <p>Often, the best prompt is one that is clearly tied to a user action, like the
+  file picker, where in response to a user action, the file picker is brought
+  up and a user gives access to a specific file to an individual site.</p>
+    <p>Generally speaking, the duration and timing of the prompt should be inversely
+  proportional to the risk posed by the data exposed.  In addition, the prompt
+  should consider issues such as:</p>
+    <ul>
+     <li data-md>
+      <p>How should permission requests be scoped? Especially when requested by an
+ embedded third party iframe?</p>
+     <li data-md>
+      <p>Should persistence be based on the pair of top-level/embedded origins or a
+ different scope?</p>
+     <li data-md>
+      <p>How is it certain that the prompt is occuring in context of requiring the
+ data and at a time that it is clear to the user why the prompt is occuring.</p>
+     <li data-md>
+      <p>Explaining the implications of permission before prompting the user, in a
+ way that is accessible and localized -- _who_ is asking, _what_ are they
+ asking for, _why_ do they need it?</p>
+     <li data-md>
+      <p>What happens if the user rejects the request at the time of the prompt or
+ if the user later changes their mind and revokes access.</p>
+    </ul>
+    <p>These prompts should also include considerations for what, if any, control a
+  user has over their data after it has been shared with other parties.  For
+  example, are users able to determine what information was shared with other
+  parties?</p>
+    <h3 class="heading settled" data-level="5.4" id="restrict-to-first-party"><span class="secno">5.4. </span><span class="content"> Explicitly restrict the feature to first party origins </span><a class="self-link" href="#restrict-to-first-party"></a></h3>
+    <p>As described in the "Third-Party Tracking" section, a significant feature of
+  the web is the mixing of first and third party content in a single page, but,
+  this introduces risk where the third party content can use the same set of web
+  features as the first party content.</p>
+    <p>Authors should explicit specify the feature’s scope of availability:</p>
+    <ul>
+     <li data-md>
+      <p>When a feature should be made available to embedded third parties -- and
+ often first parties should be able to explicitly control that (using
+ iframe attributes or feature policy)</p>
+     <li data-md>
+      <p>Whether a feature should be available in the background or only in the
+ top-most, visible tab.</p>
+     <li data-md>
+      <p>Whether a feature should be available to offline service workers.</p>
+     <li data-md>
+      <p>Whether events will be fired simultaneously</p>
+    </ul>
+    <p>Third party’s access to a feature should be an optional implementation for
+  conformance.</p>
+    <h3 class="heading settled" data-level="5.5" id="secure-contexts"><span class="secno">5.5. </span><span class="content"> Secure Contexts </span><a class="self-link" href="#secure-contexts"></a></h3>
+    <p>If the primary risk that you’ve identified in your specification is the
+  threat posed by <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a>, offering a feature to an
+  insecure origin is the same as offering that feature to every origin because
+  the attacker can inject frames and code at will. Requiring an encrypted and
   authenticated connection in order to use a feature can mitigate this kind of
   risk.</p>
-    <h3 class="heading settled" data-level="5.2" id="user-mediation"><span class="secno">5.2. </span><span class="content"> Explicit user mediation </span><a class="self-link" href="#user-mediation"></a></h3>
-    <p>If a feature has privacy or security impacts that are endemic to the feature
-  itself, then one valid strategy for exposing it to the web is to require user
-  mediation before granting an origin access. For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
-  user agents generally gate access to the feature on a permission prompt which
-  the user may choose to accept.</p>
-    <p>Designing such prompts is difficult. Choosers are good. Walls of text are bad.</p>
-    <p class="issue" id="issue-4800b8c7"><a class="self-link" href="#issue-4800b8c7"></a> Bring in some of felt@'s ideas here.</p>
-    <h3 class="heading settled" data-level="5.3" id="drop-feature"><span class="secno">5.3. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
-    <p>The simplest way to mitigate potential negative security or privacy impacts of a feature,
-  and even discussing the possibility, is to drop the feature.
-  Every feature in a spec should be considered guilty (of harming security and/or privacy) until proven otherwise.</p>
-    <p>Every specification should seek to be as small as possible, even if only for the reasons of reducing
-  and minimizing security/privacy attack surface(s).</p>
-    <p>By doing so we can reduce the overall security (and privacy) attack surface of not only a particular feature,
-  but of a module (related set of features), a specification, and the overall web platform.</p>
+    <p>Secure contexts also protect against <a data-link-type="dfn">passive network atackers</a>.  For
+  example, if a page uses the Geolocation API and sends the sensor-provided
+  latitude and longitude back to the server over an insecure connection, then
+  any passive network attacker can learn the user’s location, without any
+  feasible path to detection by the user or others.</p>
+    <p>However, requiring a secure context is not sufficient to mitigate many
+  privacy risks or even security risks from other threat actors than active
+  network attackers.</p>
+    <h3 class="heading settled" data-level="5.6" id="drop-feature"><span class="secno">5.6. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
+    <p>The simplest way to mitigate potential negative security or privacy impacts
+  of a feature is to drop the feature.
+  Every feature in a spec should be considered guilty of harming security
+  and/or privacy until proven otherwise.
+  Discussing dropping the feature as a mitigation for security or privacy
+  impacts is a helpful exercise as it helps illuminate the tradeoffs between
+  the feature, whether it is exposing the minimum amount of data necessary,
+  and other possibly mitigations.</p>
+    <p>Every specification should seek to be as small as possible, even if only
+  for the reasons of reducing and minimizing security/privacy attack surface(s).</p>
+    <p>By doing so we can reduce the overall security and privacy attack surface
+  of not only a particular feature, but of a module (related set of
+  features), a specification, and the overall web platform.</p>
     <p>Examples</p>
     <ul>
      <li data-md>
@@ -2165,36 +2307,28 @@ Security Policy’s <code>script-src</code> directive.</p>
      <li data-md>
       <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events</p>
     </ul>
-    <h3 class="heading settled" data-level="5.4" id="sanitize-data"><span class="secno">5.4. </span><span class="content"> Sanitize the data handled in the feature </span><a class="self-link" href="#sanitize-data"></a></h3>
-    <p>It is always a good strategy to consider the kinds of data a new feature is processing. For example, new features allowing the readout of data may want to adopt specific privacy strategies such as minimizing the quality of datas (quantization) or reducing the frequency, in line with standard privacy engineering practices. Examples</p>
+    <h3 class="heading settled" data-level="5.7" id="privacy-impact-assessment"><span class="secno">5.7. </span><span class="content"> Making a privacy impact assessment </span><a class="self-link" href="#privacy-impact-assessment"></a></h3>
+    <p>Some features are potentially supplying very sensitive data, and it is
+  the responsibility of the end-developer, system owner, or manager to realize
+  this and act accordingly in the design of his/her system. Some use may
+  warrant conducting a privacy impact assessment, especially when data
+  relating to individuals may be processed.</p>
+    <p>Specifications that expose such sensitive data should include a
+  recommendation that websites and applications adopting the API — but not
+  necessarily the implementing user agent — conduct a privacy impact assessment
+  of the data that they collect.</p>
+    <p>A features that recommends such is:</p>
     <ul>
      <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-battery-status-api">[BATTERY-STATUS-API]</a> <em>“The user agent should not expose high precision readouts”</em></p>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-sensors-api">[SENSORS-API]</a> <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em></p>
+      <p><a data-link-type="biblio" href="#biblio-sensors-api">[SENSORS-API]</a> advices to consider performing of a privacy impact
+  assessment</p>
     </ul>
-    <h3 class="heading settled" data-level="5.5" id="user-mediation①"><span class="secno">5.5. </span><span class="content"> Making a privacy impact assessment </span><a class="self-link" href="#user-mediation①"></a></h3>
-    <p>Some features are potentially supplying very sensitive data, and it is the end-developer,
-  system owners, or managers responsibility to realize this and act accordingly in the design of his/her
-  system. Some use may warrant conducting as privacy impact assessment, especially when data relating to
-  individuals may be processed. Examples.</p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-sensors-api">[SENSORS-API]</a> advices to consider performing of a privacy impact assessment</p>
-    </ul>
-   </section>
-   <section>
-    <h2 class="heading settled" data-level="6" id="howtouse"><span class="secno">6. </span><span class="content">How to Use the questionnaire</span><a class="self-link" href="#howtouse"></a></h2>
-    <p>To ensure good designs, security and privacy should be considered as early as possible.
-  This questionnaire facilitates this and the questions should be considered early in the specification development
-  process, kept in mind as it matures, with the answers being updated along the specification evolution.
-  This questionnaire should not be used as a “check box" excercise before requesting final publication - acting in
-  this manner does not help improve privacy or security on the Web.  Each question needs to be considered and that
-  any privacy or security concerns are described, along with a possible mitigation strategy.
-  It is not a good approach to provide a one-word answer (“yes” / “no”). Rather, it is expected to include an
-  explanatory description. The questions in the questionnaire are more about “why” and “how”, rather than “if”.</p>
-    <p>It is expected that a questionnaire must be filled in prior to obtaining a W3C Working Draft status, and prior to requiring a review, along the Privacy by Design principles.
-  The questionnaire and its answers should not be included in the specification itself. It is preferable to keep it in a standard and easily available place, with a link available in the TAG repository.</p>
+    <p>Documenting these impacts is important for organizations although it should
+  be noted that there are limitations to putting this onus on organizations.
+  Research has shown that sites often do not comply with security/privacy
+  requirements in specifications.  For example, in <a data-link-type="biblio" href="#biblio-doty-geolocation">[DOTY-GEOLOCATION]</a>, it was
+  found that none of the studied websites informed users of their privacy
+  practices before the site prompted for location.</p>
    </section>
   </main>
   <div data-fill-with="conformance">
@@ -2397,12 +2531,14 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dd>Rich Tibbett. <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">Network Service Discovery</a>. URL: <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html</a>
    <dt id="biblio-doty-fingerprinting">[DOTY-FINGERPRINTING]
    <dd>Nick Doty. <a href="https://www.w3.org/TR/fingerprinting-guidance/">Fingerprinting Guidance for Web Specification Authors (Draft)</a>. URL: <a href="https://www.w3.org/TR/fingerprinting-guidance/">https://www.w3.org/TR/fingerprinting-guidance/</a>
+   <dt id="biblio-doty-geolocation">[DOTY-GEOLOCATION]
+   <dd>Nick Doty, Deirdre K. Mulligan, Erik Wilde. <a href="https://escholarship.org/uc/item/0rp834wf">Privacy Issues of the W3C Geolocation API</a>. URL: <a href="https://escholarship.org/uc/item/0rp834wf">https://escholarship.org/uc/item/0rp834wf</a>
    <dt id="biblio-gamepad">[GAMEPAD]
    <dd>Scott Graham, Ted Mielczarek, Brandon Jones, Steve Agoston. <a href="https://www.w3.org/TR/2018/WD-gamepad-20181018/">Gamepad W3C Working Draft, 18 October 2018</a>. URL: <a href="https://www.w3.org/TR/2018/WD-gamepad-20181018/">https://www.w3.org/TR/2018/WD-gamepad-20181018/</a>
    <dt id="biblio-geofencing">[GEOFENCING]
    <dd>Alex Russell. <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">Geofencing Explained</a>. URL: <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">https://github.com/slightlyoff/Geofencing/blob/master/explainer.md</a>
    <dt id="biblio-geolocation-api">[GEOLOCATION-API]
-   <dd>Andrei Popescu. <a href="https://www.w3.org/TR/geolocation-API/">Geolocation API Specification 2nd Edition</a>. 8 November 2016. REC. URL: <a href="https://www.w3.org/TR/geolocation-API/">https://www.w3.org/TR/geolocation-API/</a>
+   <dd>Andrei Popescu. <a href="https://www.w3.org/TR/2016/REC-geolocation-API-20161108/">Geolocation API Specification 2nd Edition W3C Recommendation, 8 November 2016</a>. URL: <a href="https://www.w3.org/TR/2016/REC-geolocation-API-20161108/">https://www.w3.org/TR/2016/REC-geolocation-API-20161108/</a>
    <dt id="biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]
    <dd>Yan Michalevsky; Dan Boneh; Gabi Nakibly. <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">Gyrophone: Recognizing Speech from Gyroscope Signals</a>. URL: <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf</a>
    <dt id="biblio-homakov">[HOMAKOV]
@@ -2444,17 +2580,13 @@ Security Policy’s <code>script-src</code> directive.</p>
    <dt id="biblio-yubikey-attack">[YUBIKEY-ATTACK]
    <dd>Andy Greenberg. <a href="https://www.wired.com/story/chrome-yubikey-phishing-webusb/">Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users</a>. URL: <a href="https://www.wired.com/story/chrome-yubikey-phishing-webusb/">https://www.wired.com/story/chrome-yubikey-phishing-webusb/</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
-  <div style="counter-reset:issue">
-   <div class="issue"> Bring in some of felt@'s ideas here.<a href="#issue-4800b8c7"> ↵ </a></div>
-  </div>
   <aside class="dfn-panel" data-for="active-network-attacker">
    <b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-active-network-attacker">4.5. 
     Does this specification introduce new state for an origin that persists
     across browsing sessions? </a>
-    <li><a href="#ref-for-active-network-attacker①">5.1. 
+    <li><a href="#ref-for-active-network-attacker①">5.5. 
     Secure Contexts </a>
    </ul>
   </aside>
