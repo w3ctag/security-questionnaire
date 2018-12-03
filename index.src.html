@@ -784,22 +784,8 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
   identifiers are, and whether there are correlation possibilities between
   different protocol runs.
 
-  For example, the W3C Device APIs Working Group has defined the following
-  requirements in their Device API Privacy Requirements document.
-
-  *   APIs must make it easy to request as little information as required for
-      the intended usage. For instance, an API call should require specific
-      parameters to be set to obtain more information, and should default to
-      little or no information.
-  *   APIs should make it possible for user agents to convey the breadth of
-      information that the requester is asking for. For instance, if a developer
-      only needs to access a specific field of a user address book, it should be
-      possible to explicitly mark that field in the API call so that the user
-      agent can inform the user that this single field of data will be shared.
-  *   APIs should make it possible for user agents to let the user select,
-      filter, and transform information before it is shared with the requester.
-      The user agent can then act as a broker for trusted data, and will only
-      transmit data to the requester that the user has explicitly allowed.
+  For example, the W3C Device APIs Working Group has defined a number of
+  requirements in their Privacy Requirements document. [[DEVICE-API-PRIVACY]]
 
   Data minimization is applicable to specification authors and implementers, as
   well as to those deploying the final service.
@@ -1175,6 +1161,12 @@ spec:html5; type:element; text:script
     "title": "Geolocation API Specification 2nd Edition W3C Recommendation, 8 November 2016",
     "publisher": "W3C",
     "authors": [ "Andrei Popescu" ]
+  },
+  "DEVICE-API-PRIVACY": {
+    "href": "https://www.w3.org/TR/2010/NOTE-dap-privacy-reqs-20100629/",
+    "title": "Device API Privacy Requirements, 29 June 2010",
+    "publisher": "W3C",
+    "authors": [ "Alissa Cooper, Frederick Hirsh, John Morris" ]
   }
 }
 </pre>
