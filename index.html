@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 1e757f3ee68e638e030f32dc3e8d2e3234d3aed5" name="generator">
   <link href="https://w3ctag.github.io/security-questionnaire/" rel="canonical">
-  <meta content="0c7f047bbd40a0dfff651211a0249014d20482e5" name="document-revision">
+  <meta content="59238c8236f344226e65c7083d37a626a6a436e4" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1403,7 +1403,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1>Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2018-11-09">9 November 2018</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2018-12-03">3 December 2018</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1413,7 +1413,7 @@ pre .property::before, pre .property::after {
      <dt>Issue Tracking:
      <dd><a href="https://github.com/jasonanovak/security-questionnaire/issues/">GitHub</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:me@lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://apple.com">Jason Novak</a> (<span class="p-org org">Apple Inc.</span>)
      <dt class="editor">Former Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
@@ -1424,7 +1424,7 @@ pre .property::before, pre .property::after {
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 9 November 2018,
+In addition, as of 3 December 2018,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1508,7 +1508,7 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#mitigations"><span class="secno">5</span> <span class="content"> Mitigation Strategies </span></a>
      <ol class="toc">
       <li><a href="#data-minimization"><span class="secno">5.1</span> <span class="content"> Data Minimization </span></a>
-      <li><a href="#privacy-friendly-defaults"><span class="secno">5.2</span> <span class="content"> Privacy Friendly Defaults </span></a>
+      <li><a href="#privacy-friendly-defaults"><span class="secno">5.2</span> <span class="content"> Default Privacy Settings </span></a>
       <li><a href="#user-mediation"><span class="secno">5.3</span> <span class="content"> Explicit user mediation </span></a>
       <li><a href="#restrict-to-first-party"><span class="secno">5.4</span> <span class="content"> Explicitly restrict the feature to first party origins </span></a>
       <li><a href="#secure-contexts"><span class="secno">5.5</span> <span class="content"> Secure Contexts </span></a>
@@ -2136,7 +2136,7 @@ Security Policy’s <code>script-src</code> directive.</p>
    <section>
     <h2 class="heading settled" data-level="5" id="mitigations"><span class="secno">5. </span><span class="content"> Mitigation Strategies </span><a class="self-link" href="#mitigations"></a></h2>
     <p>To mitigate the security and privacy risks you’ve identified in your
-  specification as you’ve filled out the questionnaire and consulted with PING,
+  specification as you’ve filled out the questionnaire,
   you may want to apply one or more of the mitigations described below to your
   feature.</p>
     <h3 class="heading settled" data-level="5.1" id="data-minimization"><span class="secno">5.1. </span><span class="content"> Data Minimization </span><a class="self-link" href="#data-minimization"></a></h3>
@@ -2149,31 +2149,12 @@ Security Policy’s <code>script-src</code> directive.</p>
   representing that should not make it possible to obtain information about
   that file’s parent directory and its contents as that is clearly not what is
   expected.</p>
-    <p>Basic fingerprinting guidance can be found in <a data-link-type="biblio" href="#biblio-doty-fingerprinting">[DOTY-FINGERPRINTING]</a>.</p>
     <p>In context of data minimization it is natural to ask what data is passed
   around between the different parties, how persistent the data items and
   identifiers are, and whether there are correlation possibilities between
   different protocol runs.</p>
-    <p>For example, the W3C Device APIs Working Group has defined the following
-  requirements in their Device API Privacy Requirements document.</p>
-    <ul>
-     <li data-md>
-      <p>APIs must make it easy to request as little information as required for
-  the intended usage. For instance, an API call should require specific
-  parameters to be set to obtain more information, and should default to
-  little or no information.</p>
-     <li data-md>
-      <p>APIs should make it possible for user agents to convey the breadth of
-  information that the requester is asking for. For instance, if a developer
-  only needs to access a specific field of a user address book, it should be
-  possible to explicitly mark that field in the API call so that the user
-  agent can inform the user that this single field of data will be shared.</p>
-     <li data-md>
-      <p>APIs should make it possible for user agents to let the user select,
-  filter, and transform information before it is shared with the requester.
-  The user agent can then act as a broker for trusted data, and will only
-  transmit data to the requester that the user has explicitly allowed.</p>
-    </ul>
+    <p>For example, the W3C Device APIs Working Group has defined a number of
+  requirements in their Privacy Requirements document. <a data-link-type="biblio" href="#biblio-device-api-privacy">[DEVICE-API-PRIVACY]</a></p>
     <p>Data minimization is applicable to specification authors and implementers, as
   well as to those deploying the final service.</p>
     <p>As an example, consider mouse events. When a page is loaded, the application
@@ -2202,7 +2183,7 @@ precision readouts”</em></p>
      <li data-md>
       <p><a data-link-type="biblio" href="#biblio-sensors-api">[SENSORS-API]</a> <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em></p>
     </ul>
-    <h3 class="heading settled" data-level="5.2" id="privacy-friendly-defaults"><span class="secno">5.2. </span><span class="content"> Privacy Friendly Defaults </span><a class="self-link" href="#privacy-friendly-defaults"></a></h3>
+    <h3 class="heading settled" data-level="5.2" id="privacy-friendly-defaults"><span class="secno">5.2. </span><span class="content"> Default Privacy Settings </span><a class="self-link" href="#privacy-friendly-defaults"></a></h3>
     <p>Users often do not change defaults, as a result, it is important that the
   default mode of a specification minimizes the amount, identifiability, and
   persistence of the data and identifiers exposed.  This is particularly true
@@ -2211,17 +2192,17 @@ precision readouts”</em></p>
     <h3 class="heading settled" data-level="5.3" id="user-mediation"><span class="secno">5.3. </span><span class="content"> Explicit user mediation </span><a class="self-link" href="#user-mediation"></a></h3>
     <p>If the security or privacy risk of a feature cannot otherwise be mitigated in
   a specification, optionally allowing an implementer to prompt a user may
-  provide the best security/privacy possible.  If the specification does not
-  allow for the implementer to prompt, it may result in divergence
-  implementations by different user agents as some user agents choose to
-  implement more privacy-preserving version.</p>
+  be the best mitigation possible, understanding it does not entirely remove
+  the privacy risk.  If the specification does not allow for the implementer to
+  prompt, it may result in divergence implementations by different user agents
+  as some user agents choose to implement more privacy-friendly version.</p>
     <p>It is possible that the risk of a feature cannot be mitigated because the
-  risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location, and wouldn’t be particularly useful if it didn’t;
-  user agents generally gate access to the feature on a permission prompt which
-  the user may choose to accept.  This risk is also present and should be
-  accounted for in features that expose personal data or identifiers.</p>
-    <p>Designing such prompts is difficult as is determining the duration and timing
-  that the permission should provide.</p>
+  risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location intentionally; user agents generally gate access to
+  the feature on a permission prompt which the user may choose to accept.  This
+  risk is also present and should be accounted for in features that expose
+  personal data or identifiers.</p>
+    <p>Designing such prompts is difficult as is determining the duration that the
+  permission should provide.</p>
     <p>Often, the best prompt is one that is clearly tied to a user action, like the
   file picker, where in response to a user action, the file picker is brought
   up and a user gives access to a specific file to an individual site.</p>
@@ -2289,8 +2270,8 @@ precision readouts”</em></p>
     <h3 class="heading settled" data-level="5.6" id="drop-feature"><span class="secno">5.6. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
     <p>The simplest way to mitigate potential negative security or privacy impacts
   of a feature is to drop the feature.
-  Every feature in a spec should be considered guilty of harming security
-  and/or privacy until proven otherwise.
+  Every feature in a spec should be seen as potentially adding security and/or 
+  privacy risk until proven otherwise.
   Discussing dropping the feature as a mitigation for security or privacy
   impacts is a helpful exercise as it helps illuminate the tradeoffs between
   the feature, whether it is exposing the minimum amount of data necessary,
@@ -2527,6 +2508,8 @@ precision readouts”</em></p>
    <dd>Mike West. <a href="https://w3c.github.io/webappsec/specs/credentialmanagement/">Credential Management</a>. URL: <a href="https://w3c.github.io/webappsec/specs/credentialmanagement/">https://w3c.github.io/webappsec/specs/credentialmanagement/</a>
    <dt id="biblio-csp">[CSP]
    <dd>Mike West. <a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3</a>. 13 September 2016. WD. URL: <a href="https://www.w3.org/TR/CSP3/">https://www.w3.org/TR/CSP3/</a>
+   <dt id="biblio-device-api-privacy">[DEVICE-API-PRIVACY]
+   <dd>Alissa Cooper, Frederick Hirsh, John Morris. <a href="https://www.w3.org/TR/2010/NOTE-dap-privacy-reqs-20100629/">Device API Privacy Requirements, 29 June 2010</a>. URL: <a href="https://www.w3.org/TR/2010/NOTE-dap-privacy-reqs-20100629/">https://www.w3.org/TR/2010/NOTE-dap-privacy-reqs-20100629/</a>
    <dt id="biblio-discovery">[DISCOVERY]
    <dd>Rich Tibbett. <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">Network Service Discovery</a>. URL: <a href="http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html</a>
    <dt id="biblio-doty-fingerprinting">[DOTY-FINGERPRINTING]
