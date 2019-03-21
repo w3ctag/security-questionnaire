@@ -131,156 +131,6 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 
 </section>
 
-<!-- Big Text: Threats -->
-<section>
-  <h2 id="threats">Threat Models</h2>
-
-  To consider security and privacy it is convenient to think in terms of threat
-  models, a way to illuminate the possible risks.
-
-  There are some concrete privacy concerns that should be considered when
-  developing a feature for the web platform:
-  *   Surveillance: Surveillance is the observation or monitoring of an
-      individual's communications or activities.
-  *   Stored Data Compromise: End systems that do not take adequate measures to
-      secure stored data from unauthorized or inappropriate access.
-  *   Intrusion: Intrusion consists of invasive acts that disturb or interrupt
-      one's life or activities.
-  *   Misattribution: Misattribution occurs when data or communications related
-      to one individual are attributed to another.
-  *   Correlation: Correlation is the combination of various pieces of
-      information related to an individual or that obtain that characteristic
-      when combined.
-  *   Identification: Identification is the linking of information to a
-      particular individual to infer an individual's identity or to allow the
-      inference of an individual's identity.
-  *   Secondary Use: Secondary use is the use of collected information about an
-      individual without the individual's consent for a purpose different from
-      that for which the information was collected.
-  *   Disclosure: Disclosure is the revelation of information about an
-      individual that affects the way others judge the individual.
-  *   Exclusion: Exclusion is the failure to allow individuals to know about
-      the data that others have about them and to participate in its handling
-      and use.
-
-  In the mitigations section, this document outlines a number of techniques
-  that can be applied to mitigate these risks.
-
-  Enumerated below are some broad classes of threats that should be
-  considered when developing a web feature.
-
-  <h3 id="passive-network">Passive Network Attackers</h3>
-
-  A <dfn>passive network attacker</dfn> has read-access to the bits going over
-  the wire between users and the servers they're communicating with. She can't
-  <em>modify</em> the bytes, but she can collect and analyze them.
-
-  Due to the decentralized nature of the internet, and the general level of
-  interest in user activity, it's reasonable to assume that practically every
-  unencrypted bit that's bouncing around the network of proxies, routers, and
-  servers you're using right now is being read by someone. It's equally likely
-  that some of these attackers are doing their best to understand the encrypted
-  bits as well, including storing encrypted communications for later
-  cryptanalysis (though that requires significantly more effort).
-
-  *   The IETF's "Pervasive Monitoring Is an Attack" document [[RFC7258]] is
-      useful reading, outlining some of the impacts on privacy that this
-      assumption entails.
-
-  *   Governments aren't the only concern; your local coffee shop is likely to
-      be gathering information on its customers, your ISP at home is likely to
-      be doing the same.
-
-  <h3 id="active-network">Active Network Attackers</h3>
-
-  An <dfn>active network attacker</dfn> has both read- and write-access to the
-  bits going over the wire between users and the servers they're communicating
-  with. She can collect and analyze data, but also modify it in-flight,
-  injecting and manipulating Javascript, HTML, and other content at will.
-  This is more common than you might expect, for both benign and malicious
-  purposes:
-
-  *   ISPs and caching proxies regularly cache and compress images before
-      delivering them to users in an effort to reduce data usage. This can be
-      especially useful for users on low-bandwidth, high-latency devices like
-      phones.
-
-  *   ISPs also regularly inject JavaScript [[COMCAST]] and other identifiers
-      [[VERIZON]] for less benign purposes.
-
-  *   If your ISP is willing to modify substantial amounts of traffic flowing
-      through it for profit, it's difficult to believe that state-level
-      attackers will remain passive.
-
-  <h3 id="sop-violations">Same-Origin Policy Violations</h3>
-
-  The <dfn>same-origin policy</dfn> is the cornerstone of security on the web;
-  one origin should not have direct access to another origin's data (the policy
-  is more formally defined in Section 3 of [[RFC6454]]). A corollary to this
-  policy is that an origin should not have direct access to data that isn't
-  associated with <em>any</em> origin: the contents of a user's hard drive,
-  for instance. Various kinds of attacks bypass this protection in one way or
-  another. For example:
-
-  *   <dfn local-lt="XSS">Cross-site scripting attacks</dfn> involve an
-      attacker tricking an origin into executing attacker-controlled code in
-      the context of a target origin.
-
-  *   <dfn local-lt="CSRF">Cross-site request forgery attacks</dfn> trick
-      user agents into exerting a user's ambient authority on sites where
-      they've logged in by submitting requests on their behalf.
-
-  *   Data leakage occurs when bits of information are inadvertantly made
-      available cross-origin, either explicitly via CORS headers [[CORS]],
-      or implicitly, via side-channel attacks like [[TIMING]].
-
-  <h3 id="third-party-tracking">Third-Party Tracking</h3>
-
-  Part of the power of the web is its ability for a page to pull in content
-  from other third parties — from images to javascript — to enhance the content
-  and/or a user's experience of the site.  However, when a page pulls in
-  content from third parities, it inherently leaks some information to third
-  parties — referer information and other information that may be used to track
-  and profile a user.  This includes the fact that cookies go back to the
-  domain that initially stored them allowing for cross origin tracking.
-  Moreover, third parties can gain execution power through third party
-  Javascript being included by a webpage.  While pages can take steps to
-  mitigate the risks of third party content and browsers may differentiate
-  how they treat first and third party content from a given page, the risk of
-  new functionality being executed by third parties rather than the first party
-  site should be considered in the feature development process.
-
-  *   The simplest example is injecting a link to a site that behaves
-      differently under specific condition, for example based on the fact that
-      user is or is not logged to the site. This may reveal that the user has
-      an account on a site.
-
-  <h3 id="legitimate-misuse">Legitimate Misuse</h3>
-
-  Even when powerful features are made available to developers, it does not
-  mean that all the uses should always be a good idea, or justified; in fact,
-  data privacy regulations around the world may even put limits on certain uses
-  of data. In the context of first party, a legitimate website is potentially
-  able to interact with powerful features to learn about the user behavior or
-  habits. For example:
-
-  *   Tracking the user while browsing the website via mechanisms such as mouse
-      move tracking
-
-  *   Behavioral profiling of the user based on the usage patterns
-
-  *   Accessing powerful features enabling to reason about the user system,
-      himself or the user surrounding, such as a webcam, Web Bluetooth or
-      sensors
-
-  This point is admittedly different from others - and underlines that even if
-  something may be possible, it does not mean it should always be done,
-  including the need for considering a privacy impact assessment or even an
-  ethical assessment. When designing a specification with security and privacy
-  in mind, all both use and misuse cases should be in scope.
-
-
-</section>
 
 <!-- Big Text: Questions -->
 <section>
@@ -751,6 +601,158 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
     can think of improved or new questions that would have covered this aspect.
 
 </section>
+      
+      <!-- Big Text: Threats -->
+<section>
+  <h2 id="threats">Threat Models</h2>
+
+  To consider security and privacy it is convenient to think in terms of threat
+  models, a way to illuminate the possible risks.
+
+  There are some concrete privacy concerns that should be considered when
+  developing a feature for the web platform:
+  *   Surveillance: Surveillance is the observation or monitoring of an
+      individual's communications or activities.
+  *   Stored Data Compromise: End systems that do not take adequate measures to
+      secure stored data from unauthorized or inappropriate access.
+  *   Intrusion: Intrusion consists of invasive acts that disturb or interrupt
+      one's life or activities.
+  *   Misattribution: Misattribution occurs when data or communications related
+      to one individual are attributed to another.
+  *   Correlation: Correlation is the combination of various pieces of
+      information related to an individual or that obtain that characteristic
+      when combined.
+  *   Identification: Identification is the linking of information to a
+      particular individual to infer an individual's identity or to allow the
+      inference of an individual's identity.
+  *   Secondary Use: Secondary use is the use of collected information about an
+      individual without the individual's consent for a purpose different from
+      that for which the information was collected.
+  *   Disclosure: Disclosure is the revelation of information about an
+      individual that affects the way others judge the individual.
+  *   Exclusion: Exclusion is the failure to allow individuals to know about
+      the data that others have about them and to participate in its handling
+      and use.
+
+  In the mitigations section, this document outlines a number of techniques
+  that can be applied to mitigate these risks.
+
+  Enumerated below are some broad classes of threats that should be
+  considered when developing a web feature.
+
+  <h3 id="passive-network">Passive Network Attackers</h3>
+
+  A <dfn>passive network attacker</dfn> has read-access to the bits going over
+  the wire between users and the servers they're communicating with. She can't
+  <em>modify</em> the bytes, but she can collect and analyze them.
+
+  Due to the decentralized nature of the internet, and the general level of
+  interest in user activity, it's reasonable to assume that practically every
+  unencrypted bit that's bouncing around the network of proxies, routers, and
+  servers you're using right now is being read by someone. It's equally likely
+  that some of these attackers are doing their best to understand the encrypted
+  bits as well, including storing encrypted communications for later
+  cryptanalysis (though that requires significantly more effort).
+
+  *   The IETF's "Pervasive Monitoring Is an Attack" document [[RFC7258]] is
+      useful reading, outlining some of the impacts on privacy that this
+      assumption entails.
+
+  *   Governments aren't the only concern; your local coffee shop is likely to
+      be gathering information on its customers, your ISP at home is likely to
+      be doing the same.
+
+  <h3 id="active-network">Active Network Attackers</h3>
+
+  An <dfn>active network attacker</dfn> has both read- and write-access to the
+  bits going over the wire between users and the servers they're communicating
+  with. She can collect and analyze data, but also modify it in-flight,
+  injecting and manipulating Javascript, HTML, and other content at will.
+  This is more common than you might expect, for both benign and malicious
+  purposes:
+
+  *   ISPs and caching proxies regularly cache and compress images before
+      delivering them to users in an effort to reduce data usage. This can be
+      especially useful for users on low-bandwidth, high-latency devices like
+      phones.
+
+  *   ISPs also regularly inject JavaScript [[COMCAST]] and other identifiers
+      [[VERIZON]] for less benign purposes.
+
+  *   If your ISP is willing to modify substantial amounts of traffic flowing
+      through it for profit, it's difficult to believe that state-level
+      attackers will remain passive.
+
+  <h3 id="sop-violations">Same-Origin Policy Violations</h3>
+
+  The <dfn>same-origin policy</dfn> is the cornerstone of security on the web;
+  one origin should not have direct access to another origin's data (the policy
+  is more formally defined in Section 3 of [[RFC6454]]). A corollary to this
+  policy is that an origin should not have direct access to data that isn't
+  associated with <em>any</em> origin: the contents of a user's hard drive,
+  for instance. Various kinds of attacks bypass this protection in one way or
+  another. For example:
+
+  *   <dfn local-lt="XSS">Cross-site scripting attacks</dfn> involve an
+      attacker tricking an origin into executing attacker-controlled code in
+      the context of a target origin.
+
+  *   <dfn local-lt="CSRF">Cross-site request forgery attacks</dfn> trick
+      user agents into exerting a user's ambient authority on sites where
+      they've logged in by submitting requests on their behalf.
+
+  *   Data leakage occurs when bits of information are inadvertantly made
+      available cross-origin, either explicitly via CORS headers [[CORS]],
+      or implicitly, via side-channel attacks like [[TIMING]].
+
+  <h3 id="third-party-tracking">Third-Party Tracking</h3>
+
+  Part of the power of the web is its ability for a page to pull in content
+  from other third parties — from images to javascript — to enhance the content
+  and/or a user's experience of the site.  However, when a page pulls in
+  content from third parities, it inherently leaks some information to third
+  parties — referer information and other information that may be used to track
+  and profile a user.  This includes the fact that cookies go back to the
+  domain that initially stored them allowing for cross origin tracking.
+  Moreover, third parties can gain execution power through third party
+  Javascript being included by a webpage.  While pages can take steps to
+  mitigate the risks of third party content and browsers may differentiate
+  how they treat first and third party content from a given page, the risk of
+  new functionality being executed by third parties rather than the first party
+  site should be considered in the feature development process.
+
+  *   The simplest example is injecting a link to a site that behaves
+      differently under specific condition, for example based on the fact that
+      user is or is not logged to the site. This may reveal that the user has
+      an account on a site.
+
+  <h3 id="legitimate-misuse">Legitimate Misuse</h3>
+
+  Even when powerful features are made available to developers, it does not
+  mean that all the uses should always be a good idea, or justified; in fact,
+  data privacy regulations around the world may even put limits on certain uses
+  of data. In the context of first party, a legitimate website is potentially
+  able to interact with powerful features to learn about the user behavior or
+  habits. For example:
+
+  *   Tracking the user while browsing the website via mechanisms such as mouse
+      move tracking
+
+  *   Behavioral profiling of the user based on the usage patterns
+
+  *   Accessing powerful features enabling to reason about the user system,
+      himself or the user surrounding, such as a webcam, Web Bluetooth or
+      sensors
+
+  This point is admittedly different from others - and underlines that even if
+  something may be possible, it does not mean it should always be done,
+  including the need for considering a privacy impact assessment or even an
+  ethical assessment. When designing a specification with security and privacy
+  in mind, all both use and misuse cases should be in scope.
+
+
+</section>
+
 
 <section>
   <h2 id="mitigations">
