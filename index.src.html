@@ -1,6 +1,6 @@
 <h1>Self-Review Questionnaire: Security and Privacy</h1>
 <pre class="metadata">
-Status: DREAM
+Status: ED
 ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
 Level: 1
@@ -40,94 +40,42 @@ Version History: https://github.com/w3ctag/security-questionnaire/commits/master
 <section>
   <h2 id="intro">Introduction</h2>
 
-  New features make the web a stronger and livelier platform.  Throughout the
-  feature development process — planning, drafting, and implementing — there
-  are both foreseeable and unexpected security and privacy risks.  These risks
-  may arise from the nature of the feature, some of its part(s), or unforeseen
-  interactions with other features and may be mitigated through careful design
-  and consideration of security and privacy design patterns.
+  New features make the web a stronger and livelier platform. Throughout the feature 
+  development process there are both foreseeable and unexpected security and privacy 
+  risks. These risks may arise from the nature of the feature, some of its part(s), 
+  or unforeseen interactions with other features.  Such risks and may be mitigated 
+  through careful design and application of security and privacy design patterns.
+  
+  Standardizing web features presents unique challenges. Descriptions, protocols 
+  and algorithms need to be considered strictly before they are broadly adopted by 
+  vendors with large user bases.  If features are found to have undesirable privacy 
+  properties after they are standardized, then, browser vendors may break compatibility 
+  in their implementations to protect users' privacy as the user agent is the user’s agent. 
+  
+  <em>This is why each Working Group needs to consider security and privacy by design and by 
+  default</em>. 
+  This consideration is mandatory. Assessing the impact of a mechanism on privacy 
+  should be done from the ground up, during each iteration of the specification. 
+  Thinking about security and privacy risks and mitigations early in a project is 
+  the best approach as it helps ensure the privacy of your feature at an architectural 
+  level and ensures the result, descriptions, protocols, and algorithms incorporate 
+  privacy by default as opposed to through possible implementation mitigations.
+  
+<h3 id="howtouse">How To Use The Questionnaire</h2>
 
-  Standardizing web features presents unique challenges as, inherently, the web
-  standardization process requires multiple independent implementations of a
-  feature.  As a result, descriptions, protocols and algorithms need to be
-  considered strictly so they are broadly adoption by vendors with large user
-  bases.
+  This document is meant to help developers and reviewers. It encourages early 
+  review by posing a number of questions that you as an individual reader, writer, 
+  or contributor can ask and that working groups and spec editors need to consider, 
+  prior requesting a formal review. The intent includes highlighting areas which 
+  historically may have had implications to user’s security or privacy, and thereby 
+  to focus the editor, working group attention, and reviewers' attention. As such, 
+  the questionnaire is evidence and research based and provides examples and past cases.
 
-  A user agent is the user’s agent, and it is important that feature authors
-  consider that if their feature contains privacy risks, then, user agents may
-  implement the feature in a compatibility breaking way to protect user
-  privacy.  This is especially true if and when features are not clearly
-  defined and privacy exposures are identified and left unmitigated — or left
-  to user agents to mitigate — vendors may implement their own compatibility
-  breaking mitigations that risk wide adoption of the feature.
+The audience of this document is general:
 
-  This is why each Working Group needs to consider <em>security and
-  privacy</em> <b>by default</b>. This consideration is <b>mandatory</b>.
-  Furthermore, assessing the impact of a mechanism on privacy should be done
-  from the ground up, during each iteration of the specification. The
-  questionnaire and guidance presented here is meant to assist authors consider
-  security and privacy in their feature as earlier as possible — beginning with
-  ideation in Community Groups through to formalization in Working Groups.
-  The guidance should help authors develop standards with privacy by default
-  allowing for the questionnaire to be addressed simply and straightforwardly.
-
-  Providing adequate and informative answers to the questions, such as
-  providing context, or explaining the reasoning behind certain choices, will
-  also help in a wide security and privacy review performed later on, within
-  the W3C review proces, and beyond.
-
-  This document encourages early review by posing a number of questions that
-  you as an individual reader/writer/contributor of a specification can ask —
-  and that working groups and spec editors need to consider, prior asking for a
-  more formal review. The intent is to highlight areas which have historically
-  had interesting implications on a user’s security or privacy, and thereby to
-  focus the editor, working group attention, and reviewers' attention on areas
-  that might previously have been overlooked.
-
-  This document does not attempt to define what privacy is (in a Web context).
-  Instead privacy is the sum of what is contained in this document. While this
-  may not be exactly what most readers would typically assume but privacy is a
-  complicated concept with a rich history that spans many disciplines and there
-  remains confusion over the meaning.</p>
-
-  The audience of this document is general:
-
-  *   The editors and contributors who are responsible for the development of
-      the feature,
-  *   The W3C TAG, who receive the questionnaire along with the request, and in
-      line with the W3C Process,
-  *   External audience (developers, designers, etc.) wanting to understand the
-      possible security and privacy implications.
-
-<h2 id="howtouse">How To Use The Questionnaire</h2>
-
-  Thinking about security and privacy risks and mitigations early in a project
-  is the best approach as it helps ensure the privacy of your feature at an
-  architectural level and ensures the result, descriptions, protocols and
-  algorithms incorporate privacy by default as opposed to through possible
-  implementation mitigations.
-
-  The Privacy Interest Group (PING) recommends that a feature group review the
-  guidance and questionnaire when first considering their feature and meet with
-  PING at that time to discuss any questions they have about how the
-  guidance/questionnaire intersects with their feature at a conceptual level.
-  After the feature group has developed their feature with the
-  guidance/questionnaire informing their development process, the group should
-  bring an early draft of their feature specification with Privacy consideration
-  section to PING for review.  From there the feature group should iterate on
-  their design.
-
-  When requesting a Technical Architecture Group review, include the filled
-  questionnaire, along with the description of changes or observations made
-  during the design process. This allows external reviewers understand the
-  rationale, as well as the challenges and evolution of the feature, with
-  respect to security and privacy.
-
-  It is understandable that developers may not always have the necessary data
-  to see the broader picture and possible implications, for example in relation
-  to other existing web functionalities. The answers to the questionnaire are
-  meant as help and input for people who may nonetheless make security and
-  privacy remarks, or the assessment.
+	• The editors and contributors who are responsible for the development of the feature,
+	• The W3C TAG, who receive the questionnaire along with the request, and in line with the W3C Process,
+	• External audience (developers, designers, etc.) wanting to understand the possible security and privacy implications.
 
 </section>
 
