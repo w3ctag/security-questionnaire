@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version faf287cebf32287e91a51785dc509107b2a13353" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="102a65373ff17800f3e43f4a330b4b1284279c90" name="document-revision">
+  <meta content="ae4b585c10c125d901805f6f3837bd9aa83fecda" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1749,7 +1749,7 @@ Parts of this work may be from another specification document.  If so, those par
     <h3 class="heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
     <ul>
      <li data-md>
-      <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element">script</a></code>, which might be easy to overlook when
+      <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script" id="ref-for-script">script</a></code>, which might be easy to overlook when
 evaluating an application’s attack surface. The working group notes this
 risk, and ensured that they required reasonable interactions with Content
 Security Policy’s <code>script-src</code> directive.</p>
@@ -1929,7 +1929,7 @@ Security Policy’s <code>script-src</code> directive.</p>
      <li data-md>
       <p><a data-link-type="biblio" href="#biblio-webmessaging">[WEBMESSAGING]</a></p>
      <li data-md>
-      <p><code>referrer <a class="property" data-link-type="propdesc">unsafe-always</a></code></p>
+      <p><code>referrer 'unsafe-always'</code></p>
     </ul>
     <h3 class="heading settled" data-level="2.17" id="missing-questions"><span class="secno">2.17. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
     <p>This questionnaire is not exhaustive. After completing a privacy review, it
@@ -2239,7 +2239,7 @@ precision readouts”</em></p>
     <p>Examples</p>
     <ul>
      <li data-md>
-      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla</a><a data-link-type="dfn"> and </a><a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API</p>
+      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580%20">Mozilla</a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped Battery Status API</p>
      <li data-md>
       <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events</p>
     </ul>
@@ -2431,12 +2431,20 @@ precision readouts”</em></p>
     Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-script">
+   <a href="https://html.spec.whatwg.org/multipage/scripting.html#script">https://html.spec.whatwg.org/multipage/scripting.html#script</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-script">2.9. 
+    Does this specification enable new script execution/loading mechanisms? </a>
+   </ul>
+  </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-the-link-element" style="color:initial">link</span>
+     <li><span class="dfn-paneled" id="term-for-script" style="color:initial">script</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
