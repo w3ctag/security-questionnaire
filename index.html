@@ -1212,9 +1212,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 872cce6d3026423d677f3bd5837f1a1a46299a04" name="generator">
+  <meta content="Bikeshed version faf287cebf32287e91a51785dc509107b2a13353" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="a28b9c0f047e55912e18c91b02dd505e01fd61c6" name="document-revision">
+  <meta content="dd907dd7463599c61d091c053cf8004fc4bf0403" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1403,7 +1403,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1>Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-06-11">11 June 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-05-23">23 May 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1413,7 +1413,7 @@ pre .property::before, pre .property::after {
      <dt>Version History:
      <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html">https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html</a>
      <dt>Issue Tracking:
-     <dd><a href="https://github.com/w3cping/security-questionnaire/issues/">GitHub</a>
+     <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/">GitHub</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://apple.com">Jason Novak</a> (<span class="p-org org">Apple Inc.</span>)
@@ -1426,7 +1426,7 @@ pre .property::before, pre .property::after {
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 11 June 2019,
+In addition, as of 23 May 2019,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1539,40 +1539,35 @@ Parts of this work may be from another specification document.  If so, those par
    <section>
     <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
     <p>New features make the web a stronger and livelier platform. Throughout the feature
-  development process there are both foreseeable and unexpected security and privacy
-  risks. These risks may arise from the nature of the feature, some of its part(s),
-  or unforeseen interactions with other features.  Such risks and may be mitigated
+  development process there are both foreseeable and unexpected security and privacy 
+  risks. These risks may arise from the nature of the feature, some of its part(s), 
+  or unforeseen interactions with other features.  Such risks and may be mitigated 
   through careful design and application of security and privacy design patterns.</p>
     <p>Standardizing web features presents unique challenges. Descriptions, protocols
-  and algorithms need to be considered strictly before they are broadly adopted by
-  vendors with large user bases.  If features are found to have undesirable privacy
-  properties after they are standardized, then, browser vendors may break compatibility
+  and algorithms need to be considered strictly before they are broadly adopted by 
+  vendors with large user bases.  If features are found to have undesirable privacy 
+  properties after they are standardized, then, browser vendors may break compatibility 
   in their implementations to protect users' privacy as the user agent is the user’s agent.</p>
     <p><em>This is why each Working Group needs to consider security and privacy by design and by
-  default</em>.
-  This consideration is mandatory. Assessing the impact of a mechanism on privacy
-  should be done from the ground up, during each iteration of the specification.
-  Thinking about security and privacy risks and mitigations early in a project is
-  the best approach as it helps ensure the privacy of your feature at an architectural
-  level and ensures the result, descriptions, protocols, and algorithms incorporate
+  default</em>. 
+  This consideration is mandatory. Assessing the impact of a mechanism on privacy 
+  should be done from the ground up, during each iteration of the specification. 
+  Thinking about security and privacy risks and mitigations early in a project is 
+  the best approach as it helps ensure the privacy of your feature at an architectural 
+  level and ensures the result, descriptions, protocols, and algorithms incorporate 
   privacy by default as opposed to through possible implementation mitigations.</p>
     <h3 class="heading settled" data-level="1.1" id="howtouse"><span class="secno">1.1. </span><span class="content">How To Use The Questionnaire</span><a class="self-link" href="#howtouse"></a></h3>
     <p>This document is meant to help developers and reviewers. It encourages early
-  review by posing a number of questions that you as an individual reader, writer,
-  or contributor can ask and that working groups and spec editors need to consider,
-  prior requesting a formal review. The intent includes highlighting areas which
-  historically may have had implications to user’s security or privacy, and thereby
-  to focus the editor, working group attention, and reviewers' attention. As such,
+  review by posing a number of questions that you as an individual reader, writer, 
+  or contributor can ask and that working groups and spec editors need to consider, 
+  prior requesting a formal review. The intent includes highlighting areas which 
+  historically may have had implications to user’s security or privacy, and thereby 
+  to focus the editor, working group attention, and reviewers' attention. As such, 
   the questionnaire is evidence and research based and provides examples and past cases.</p>
     <p>The audience of this document is general:</p>
-    <ul>
-     <li data-md>
-      <p>The editors and contributors who are responsible for the development of the feature,</p>
-     <li data-md>
-      <p>The W3C TAG, who receive the questionnaire along with the request, and in line with the W3C Process,</p>
-     <li data-md>
-      <p>External audience (developers, designers, etc.) wanting to understand the possible security and privacy implications.</p>
-    </ul>
+    <p>• The editors and contributors who are responsible for the development of the feature,
+	• The W3C TAG, who receive the questionnaire along with the request, and in line with the W3C Process,
+	• External audience (developers, designers, etc.) wanting to understand the possible security and privacy implications.</p>
    </section>
    <section>
     <h2 class="heading settled" data-level="2" id="questions"><span class="secno">2. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
@@ -1734,7 +1729,7 @@ Parts of this work may be from another specification document.  If so, those par
     <h3 class="heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
     document what data is identical to data exposed by other features, in the
     same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
-    <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
+    <p>As noted above in <a href="#sop-violations">§3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
   important security barrier that new features need to carefully consider.
   If a specification exposes details about another origin’s state, or allows
   POST or GET requests to be made to another origin, the consequences can be
@@ -2230,7 +2225,7 @@ precision readouts”</em></p>
     <h3 class="heading settled" data-level="4.6" id="drop-feature"><span class="secno">4.6. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
     <p>The simplest way to mitigate potential negative security or privacy impacts
   of a feature is to drop the feature.
-  Every feature in a spec should be seen as potentially adding security and/or
+  Every feature in a spec should be seen as potentially adding security and/or 
   privacy risk until proven otherwise.
   Discussing dropping the feature as a mitigation for security or privacy
   impacts is a helpful exercise as it helps illuminate the tradeoffs between
