@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version a33f8714, updated Thu Apr 23 16:21:43 2020 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="5e24389503651b7bc4d8158150981afa15761ec6" name="document-revision">
+  <meta content="ce34f29ed40f1cafed98a0bf3530f3d4040b07e5" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1412,7 +1412,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1>Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-05-04">4 May 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-05-05">5 May 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1437,7 +1437,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 4 May 2020,
+In addition, as of 5 May 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1770,7 +1770,7 @@ evaluating an application’s attack surface. The working group notes this
 risk, and ensured that they required reasonable interactions with Content
 Security Policy’s <code>script-src</code> directive.</p>
      <li data-md>
-      <p>New string-to-script mechanism? (e.g. `eval()` or `setTimeout([string], ...)`)</p>
+      <p>New string-to-script mechanism? (e.g. <code>eval()</code> or <code>setTimeout([string], ...)</code>)</p>
      <li data-md>
       <p>What about style?</p>
     </ul>
@@ -2239,17 +2239,38 @@ precision readouts”</em></p>
   privacy risks or even security risks from other threat actors than active
   network attackers.</p>
     <h3 class="heading settled" data-level="4.6" id="drop-feature"><span class="secno">4.6. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
-    <p>The simplest way to mitigate potential negative security or privacy impacts
-  of a feature is to drop the feature.
-  Every feature in a spec should be seen as potentially adding security and/or
-  privacy risk until proven otherwise.
-  Discussing dropping the feature as a mitigation for security or privacy
-  impacts is a helpful exercise as it helps illuminate the tradeoffs between
-  the feature, whether it is exposing the minimum amount of data necessary,
-  and other possibly mitigations.</p>
+    <p>Possibly the simplest way
+  to mitigate potential negative security or privacy impacts of a feature
+  is to drop the feature,
+  though you should keep in mind that some security or privacy risks
+  may be removed or mitigated
+  by adding features to the platform.
+  Every feature in a spec
+  should be seen as
+  potentially adding security and/or privacy risk
+  until proven otherwise.
+  Discussing dropping the feature
+  as a mitigation for security or privacy impacts
+  is a helpful exercise
+  as it helps illuminate the tradeoffs
+  between the feature,
+  whether it is exposing the minimum amount of data necessary,
+  and other possible mitigations.</p>
+    <p>Consider also the cumulative effect
+  of feature addition
+  to the overall impression that users have
+  that <a href="https://w3ctag.github.io/design-principles/#safe-to-browse">it is safe to visit a web page</a>.
+  Doing things that complicate users' understanding
+  that it is safe to visit websites,
+  or that complicate what users need to understand
+  about the safety of the web
+  (e.g., adding features that are less safe)
+  reduces the ability of users
+  to act based on that understanding of safety,
+  or to act in ways that correctly reflect the safety that exists.</p>
     <p>Every specification should seek to be as small as possible, even if only
-  for the reasons of reducing and minimizing security/privacy attack surface(s).</p>
-    <p>By doing so we can reduce the overall security and privacy attack surface
+  for the reasons of reducing and minimizing security/privacy attack surface(s).
+  By doing so we can reduce the overall security and privacy attack surface
   of not only a particular feature, but of a module (related set of
   features), a specification, and the overall web platform.</p>
     <p>Examples</p>
