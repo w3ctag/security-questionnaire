@@ -12,7 +12,7 @@ Former Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Indent: 2
-Markup Shorthands: css no
+Markup Shorthands: css no, markdown yes
 Abstract:
   This document provides help in considering the privacy impact of
   a new feature or specification as well as common mitigation strategies for
@@ -870,18 +870,39 @@ The audience of this document is general:
     Drop the feature
   </h3>
 
-  The simplest way to mitigate potential negative security or privacy impacts
-  of a feature is to drop the feature.
-  Every feature in a spec should be seen as potentially adding security and/or
-  privacy risk until proven otherwise.
-  Discussing dropping the feature as a mitigation for security or privacy
-  impacts is a helpful exercise as it helps illuminate the tradeoffs between
-  the feature, whether it is exposing the minimum amount of data necessary,
-  and other possibly mitigations.
+  Possibly the simplest way
+  to mitigate potential negative security or privacy impacts of a feature
+  is to drop the feature,
+  though you should keep in mind that some security or privacy risks
+  may be removed or mitigated
+  by adding features to the platform.
+  Every feature in a spec
+  should be seen as
+  potentially adding security and/or privacy risk
+  until proven otherwise.
+  Discussing dropping the feature
+  as a mitigation for security or privacy impacts
+  is a helpful exercise
+  as it helps illuminate the tradeoffs
+  between the feature,
+  whether it is exposing the minimum amount of data necessary,
+  and other possible mitigations.
+
+  Consider also the cumulative effect
+  of feature addition
+  to the overall impression that users have
+  that [it is safe to visit a web page](https://w3ctag.github.io/design-principles/#safe-to-browse).
+  Doing things that complicate users' understanding
+  that it is safe to visit websites,
+  or that complicate what users need to understand
+  about the safety of the web
+  (e.g., adding features that are less safe)
+  reduces the ability of users
+  to act based on that understanding of safety,
+  or to act in ways that correctly reflect the safety that exists.
 
   Every specification should seek to be as small as possible, even if only
   for the reasons of reducing and minimizing security/privacy attack surface(s).
-
   By doing so we can reduce the overall security and privacy attack surface
   of not only a particular feature, but of a module (related set of
   features), a specification, and the overall web platform.
