@@ -1,4 +1,3 @@
-
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -1030,7 +1029,7 @@ Possible extra rowspan handling
 		}
 	/* } */
 
-	@supports (display:grid) {
+	@supports (display:grid) and (display:contents) {
 		/* Use #toc over .toc to override non-@supports rules. */
 		#toc {
 			display: grid;
@@ -1168,6 +1167,18 @@ Possible extra rowspan handling
 		margin-left: auto;
 		margin-right: auto;
 	}
+	.overlarge {
+		/* Magic to create good table positioning:
+		   "content column" is 50ems wide at max; less on smaller screens.
+		   Extra space (after ToC + content) is empty on the right.
+
+		   1. When table < content column, centers table in column.
+		   2. When content < table < available, left-aligns.
+		   3. When table > available, fills available + scroll bar.
+		*/ 
+		display: grid;
+		grid-template-columns: minmax(0, 50em);
+	}
 	.overlarge > table {
 		/* limit preferred width of table */
 		max-width: 50em;
@@ -1177,7 +1188,6 @@ Possible extra rowspan handling
 
 	@media (min-width: 55em) {
 		.overlarge {
-			margin-left: calc(13px + 26.5rem - 50vw);
 			margin-right: calc(13px + 26.5rem - 50vw);
 			max-width: none;
 		}
@@ -1185,14 +1195,12 @@ Possible extra rowspan handling
 	@media screen and (min-width: 78em) {
 		body:not(.toc-inline) .overlarge {
 			/* 30.5em body padding 50em content area */
-			margin-left: calc(40em - 50vw) !important;
 			margin-right: calc(40em - 50vw) !important;
 		}
 	}
 	@media screen and (min-width: 90em) {
 		body:not(.toc-inline) .overlarge {
 			/* 4em html margin 30.5em body padding 50em content area */
-			margin-left: 0 !important;
 			margin-right: calc(84.5em - 100vw) !important;
 		}
 	}
@@ -1213,17 +1221,70 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 872cce6d3026423d677f3bd5837f1a1a46299a04" name="generator">
+  <meta content="Bikeshed version a33f8714, updated Thu Apr 23 16:21:43 2020 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-<style>/* style-md-lists */
+  <meta content="546f258d62526756779e684a18ae07c66bab1523" name="document-revision">
+<style>/* style-autolinks */
 
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
+.css.css, .property.property, .descriptor.descriptor {
+    color: #005a9c;
+    font-size: inherit;
+    font-family: inherit;
 }
-[data-md] > :last-child {
-    margin-bottom: 0;
+.css::before, .property::before, .descriptor::before {
+    content: "‘";
+}
+.css::after, .property::after, .descriptor::after {
+    content: "’";
+}
+.property, .descriptor {
+    /* Don't wrap property and descriptor names */
+    white-space: nowrap;
+}
+.type { /* CSS value <type> */
+    font-style: italic;
+}
+pre .property::before, pre .property::after {
+    content: "";
+}
+[data-link-type="property"]::before,
+[data-link-type="propdesc"]::before,
+[data-link-type="descriptor"]::before,
+[data-link-type="value"]::before,
+[data-link-type="function"]::before,
+[data-link-type="at-rule"]::before,
+[data-link-type="selector"]::before,
+[data-link-type="maybe"]::before {
+    content: "‘";
+}
+[data-link-type="property"]::after,
+[data-link-type="propdesc"]::after,
+[data-link-type="descriptor"]::after,
+[data-link-type="value"]::after,
+[data-link-type="function"]::after,
+[data-link-type="at-rule"]::after,
+[data-link-type="selector"]::after,
+[data-link-type="maybe"]::after {
+    content: "’";
+}
+
+[data-link-type].production::before,
+[data-link-type].production::after,
+.prod [data-link-type]::before,
+.prod [data-link-type]::after {
+    content: "";
+}
+
+[data-link-type=element],
+[data-link-type=element-attr] {
+    font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    font-size: .9em;
+}
+[data-link-type=element]::before { content: "<" }
+[data-link-type=element]::after  { content: ">" }
+
+[data-link-type=biblio] {
+    white-space: pre;
 }</style>
 <style>/* style-counters */
 
@@ -1291,6 +1352,16 @@ figcaption:not(.no-marker)::before {
 
 .dfn-paneled { cursor: pointer; }
 </style>
+<style>/* style-md-lists */
+
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}</style>
 <style>/* style-selflinks */
 
 .heading, .issue, .note, .example, li, dt {
@@ -1337,73 +1408,11 @@ dfn > a.self-link:hover {
 a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
 dfn > a.self-link::before      { content: "#"; }</style>
-<style>/* style-autolinks */
-
-.css.css, .property.property, .descriptor.descriptor {
-    color: #005a9c;
-    font-size: inherit;
-    font-family: inherit;
-}
-.css::before, .property::before, .descriptor::before {
-    content: "‘";
-}
-.css::after, .property::after, .descriptor::after {
-    content: "’";
-}
-.property, .descriptor {
-    /* Don't wrap property and descriptor names */
-    white-space: nowrap;
-}
-.type { /* CSS value <type> */
-    font-style: italic;
-}
-pre .property::before, pre .property::after {
-    content: "";
-}
-[data-link-type="property"]::before,
-[data-link-type="propdesc"]::before,
-[data-link-type="descriptor"]::before,
-[data-link-type="value"]::before,
-[data-link-type="function"]::before,
-[data-link-type="at-rule"]::before,
-[data-link-type="selector"]::before,
-[data-link-type="maybe"]::before {
-    content: "‘";
-}
-[data-link-type="property"]::after,
-[data-link-type="propdesc"]::after,
-[data-link-type="descriptor"]::after,
-[data-link-type="value"]::after,
-[data-link-type="function"]::after,
-[data-link-type="at-rule"]::after,
-[data-link-type="selector"]::after,
-[data-link-type="maybe"]::after {
-    content: "’";
-}
-
-[data-link-type].production::before,
-[data-link-type].production::after,
-.prod [data-link-type]::before,
-.prod [data-link-type]::after {
-    content: "";
-}
-
-[data-link-type=element],
-[data-link-type=element-attr] {
-    font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
-    font-size: .9em;
-}
-[data-link-type=element]::before { content: "<" }
-[data-link-type=element]::after  { content: ">" }
-
-[data-link-type=biblio] {
-    white-space: pre;
-}</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1>Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-06-25">25 June 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-05-04">4 May 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1412,10 +1421,14 @@ pre .property::before, pre .property::after {
      <dd><a href="https://www.w3.org/TR/security-privacy-questionnaire/">https://www.w3.org/TR/security-privacy-questionnaire/</a>
      <dt>Version History:
      <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html">https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html</a>
+     <dt>Issue Tracking:
+     <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/">GitHub</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
+     <dd class="editor p-author h-card vcard" data-editor-id="40614"><a class="p-name fn u-email email" href="mailto:hober@apple.com">Theresa O’Connor</a> (<a class="p-org org" href="https://apple.com">Apple Inc.</a>)
+     <dd class="editor p-author h-card vcard" data-editor-id="109401"><a class="p-name fn u-email email" href="mailto:psnyder@brave.com">Pete Snyder</a> (<a class="p-org org" href="https://brave.com">Brave</a>)
+     <dt class="editor">Former Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://apple.com">Jason Novak</a> (<span class="p-org org">Apple Inc.</span>)
-     <dt class="editor">Former Editor:
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
      <dt>Bug Reports:
      <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
@@ -1424,7 +1437,7 @@ pre .property::before, pre .property::after {
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 25 June 2019,
+In addition, as of 4 May 2020,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1432,7 +1445,7 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document provides a points to help in considering the privacy impact of
+   <p>This document provides help in considering the privacy impact of
 
   a new feature or specification as well as common mitigation strategies for
   common privacy impacts. The questions are meant to be useful when considering
@@ -1590,7 +1603,7 @@ Parts of this work may be from another specification document.  If so, those par
   why expose the additional information?</p>
     <h3 class="heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information or
     personally-identifiable information or information derived thereof? </span><a class="self-link" href="#personal-data"></a></h3>
-    <p>Personally information is data about a user (home address) or information
+    <p>Personal information is data about a user (home address) or information
   that could be used to identify a user (alias or email address).  This is
   distinct from personally identifiable information (PII), as the exact
   definition of what’s considered PII varies from jurisdiction to jurisdiction.</p>
@@ -1611,7 +1624,7 @@ Parts of this work may be from another specification document.  If so, those par
   Request API <a data-link-type="biblio" href="#biblio-payment-request-api">[PAYMENT-REQUEST-API]</a></p>
     </ul>
     <h3 class="heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
-    <p>Just because data is not personally information or PII, that does not mean
+    <p>Just because data is not personal information or PII, that does not mean
   that it is not sensitive information; moreover, whether any given information
   is sensitive may vary from user to user.  Data to consider if sensitive
   includes: financial data, credentials, health information, location, or
@@ -2515,7 +2528,7 @@ precision readouts”</em></p>
    <dt id="biblio-sensors-api">[SENSORS-API]
    <dd>Rick Waldron, Mikhail Pozdnyakov, Alexander Shalamov, Tobie Langel. <a href="https://www.w3.org/TR/2018/CR-generic-sensor-20180320/">Generic Sensor API W3C Candidate Recommendation,  20 March 2018</a>. URL: <a href="https://www.w3.org/TR/2018/CR-generic-sensor-20180320/">https://www.w3.org/TR/2018/CR-generic-sensor-20180320/</a>
    <dt id="biblio-service-workers">[SERVICE-WORKERS]
-   <dd>Alex Russell; et al. <a href="https://www.w3.org/TR/service-workers-1/">Service Workers 1</a>. 2 November 2017. WD. URL: <a href="https://www.w3.org/TR/service-workers-1/">https://www.w3.org/TR/service-workers-1/</a>
+   <dd>Alex Russell; et al. <a href="https://www.w3.org/TR/service-workers-1/">Service Workers 1</a>. 19 November 2019. CR. URL: <a href="https://www.w3.org/TR/service-workers-1/">https://www.w3.org/TR/service-workers-1/</a>
    <dt id="biblio-timing">[TIMING]
    <dd>Paul Stone. <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">Pixel Perfect Timing Attacks with HTML5</a>. URL: <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf</a>
    <dt id="biblio-verizon">[VERIZON]
