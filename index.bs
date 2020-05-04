@@ -5,8 +5,9 @@ TR: https://www.w3.org/TR/security-privacy-questionnaire/
 ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
 Level: 1
-Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
-Editor: Jason Novak, Apple Inc., https://apple.com
+Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
+Former Editor: Jason Novak, Apple Inc., https://apple.com
+Former Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Indent: 2
