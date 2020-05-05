@@ -146,7 +146,7 @@ The audience of this document is general:
   credentials. When this data is exposed to the web, steps should be taken to
   mitigate the risk of exposing it; for example:
 
-  *   Credential Management [[CREDENTIAL-MANAGEMENT]] allows sites to request
+  *   Credential Management [[CREDENTIAL-MANAGEMENT-1]] allows sites to request
       a user's credentials from a user agent's password manager in order to
       sign the user in quickly and easily. This opens the door for abuse, as
       a single XSS vulnerability could expose user data trivially to
@@ -338,13 +338,13 @@ The audience of this document is general:
       same-origin checks in an early U2F API. [[YUBIKEY-ATTACK]]
 
   Example mitigations include:
-  *   The Network Service Discovery API [[DISCOVERY]] recommends CORS preflights
+  *   The Network Service Discovery API [[DISCOVERY-API]] recommends CORS preflights
       before granting access to a device, and requires user agents to involve
       the user with a permission request of some kind. The spec's
       <a href="https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html#security-and-privacy-considerations">Security
       and privacy considerations"</a> section has more details.
 
-  *   Likewise, the Web Bluetooth [[BLUETOOTH]] has an extensive discussion of
+  *   Likewise, the Web Bluetooth [[WEB-BLUETOOTH]] has an extensive discussion of
       <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy-considerations">"Security
       and privacy considerations"</a>, which is worth reading as an example for
       similar work.
@@ -737,7 +737,7 @@ The audience of this document is general:
   different protocol runs.
 
   For example, the W3C Device APIs Working Group has defined a number of
-  requirements in their Privacy Requirements document. [[DEVICE-API-PRIVACY]]
+  requirements in their Privacy Requirements document. [[DAP-PRIVACY-REQS]]
 
   Data minimization is applicable to specification authors and implementers, as
   well as to those deploying the final service.
@@ -763,7 +763,7 @@ The audience of this document is general:
   on click, move, button press) as the sole interface to the device.
 
   Two features that have minimized the data they make available are:
-  * [[BATTERY-STATUS-API]] <em>“The user agent should not expose high
+  * [[BATTERY-STATUS]] <em>“The user agent should not expose high
     precision readouts”</em>
   * [[SENSORS-API]] <em>“Limit maximum sampling frequency”, “Reduce accuracy”</em>
 
@@ -946,29 +946,11 @@ spec:html; type:element; text:link
 
 <pre class="biblio">
 {
-  "BLUETOOTH": {
-      "href": "https://webbluetoothcg.github.io/web-bluetooth/",
-      "title": "Web Bluetooth",
-      "publisher": "W3C",
-      "authors": [ "Jeffrey Yasskin", "Vincent Scheib" ]
-  },
   "COMCAST": {
       "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
       "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
       "publisher": "Ars Technica",
       "authors": [ "David Kravets" ]
-  },
-  "CREDENTIAL-MANAGEMENT": {
-      "href": "https://w3c.github.io/webappsec/specs/credentialmanagement/",
-      "title": "Credential Management",
-      "publisher": "W3C",
-      "authors": [ "Mike West" ]
-  },
-  "DISCOVERY": {
-      "href": "http://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html",
-      "title": "Network Service Discovery",
-      "authors": [ "Rich Tibbett" ],
-      "publisher": "W3C"
   },
   "GEOFENCING": {
       "href": "https://github.com/slightlyoff/Geofencing/blob/master/explainer.md",
@@ -1064,12 +1046,6 @@ spec:html; type:element; text:link
     "publisher": "W3C",
     "authors": [ "Scott Graham, Ted Mielczarek, Brandon Jones, Steve Agoston"]
   },
-  "BATTERY-STATUS-API": {
-    "href": "https://www.w3.org/TR/2016/CR-battery-status-20160707/",
-    "title": "Battery Status API W3C Candidate Recommendation, 07 July 2016",
-    "publisher": "W3C",
-    "authors": [ "Anssi Kostiainen, Mounir Lamouri"]
-  },
   "SENSORS-API": {
     "href": "https://www.w3.org/TR/2018/CR-generic-sensor-20180320/",
     "title": "Generic Sensor API W3C Candidate Recommendation,  20 March 2018",
@@ -1087,12 +1063,6 @@ spec:html; type:element; text:link
     "title": "Geolocation API Specification 2nd Edition W3C Recommendation, 8 November 2016",
     "publisher": "W3C",
     "authors": [ "Andrei Popescu" ]
-  },
-  "DEVICE-API-PRIVACY": {
-    "href": "https://www.w3.org/TR/2010/NOTE-dap-privacy-reqs-20100629/",
-    "title": "Device API Privacy Requirements, 29 June 2010",
-    "publisher": "W3C",
-    "authors": [ "Alissa Cooper, Frederick Hirsh, John Morris" ]
   }
 }
 </pre>
