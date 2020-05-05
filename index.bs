@@ -940,13 +940,6 @@ The audience of this document is general:
 
 </section>
 
-<pre class="anchors">
-urlPrefix: http://www.w3.org/TR/html5/
-  type: interface
-    urlPrefix: webappapis.html
-      text: NavigatorPlugins
-</pre>
-
 <pre class="link-defaults">
 spec:html; type:element; text:script
 spec:html; type:element; text:link
