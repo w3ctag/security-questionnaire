@@ -1005,18 +1005,6 @@ spec:html; type:element; text:link
       "authors": [ "Paul Stone" ],
       "publisher": "Context Information Security"
   },
-  "RFC6454": {
-      "href": "https://tools.ietf.org/html/rfc6454",
-      "title": "The Web Origin Concept",
-      "authors": [ "Adam Barth" ],
-      "publisher": "IETF"
-  },
-  "RFC7258": {
-      "href": "http://tools.ietf.org/html/rfc7258",
-      "title": "Pervasive Monitoring Is an Attack",
-      "authors": [ "Stephen Farrell", "Hannes Tschofenig" ],
-      "publisher": "IETF"
-  },
   "YUBIKEY-ATTACK": {
       "href": "https://www.wired.com/story/chrome-yubikey-phishing-webusb/",
       "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
@@ -1052,12 +1040,6 @@ spec:html; type:element; text:link
     "title": "Your Secrets Are Safe: How Browsers' Explanations Impact Misconceptions About Private Browsing Mode",
     "publisher": "WWW '18 Proceedings of the 2018 World Wide Web Conference",
     "authors": [ "Yuxi Wu", "Panya Gupta", "Miranda Wei", "Yasemin Acar", "Sascha Fahl", "Blase Ur"]
-  },
-  "RFC3552": {
-    "href": "http://tools.ietf.org/html/rfc3552",
-    "title": "Guidelines for Writing RFC Text on Security Considerations",
-    "authors": [ "E. Rescorla", "B. Korver" ],
-    "publisher": "IETF"
   },
   "RIVERA": {
     "href": "https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1",
