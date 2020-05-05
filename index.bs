@@ -4,6 +4,7 @@ Status: w3c/ED
 TR: https://www.w3.org/TR/security-privacy-questionnaire/
 ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
+Repository: w3ctag/security-questionnaire
 Level: 1
 Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
 Editor: Pete Snyder, w3cid 109401, Brave https://brave.com, psnyder@brave.com
@@ -13,6 +14,8 @@ Former Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Indent: 2
 Markup Shorthands: css no, markdown yes
+Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.bs
+!Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
 Abstract:
   This document provides help in considering the privacy impact of
   a new feature or specification as well as common mitigation strategies for
@@ -35,10 +38,6 @@ Abstract:
   publication. Furthermore, the filled questionnaire should not be understood
   as security and privacy considerations, although part of the answers may be
   relevant in drafting the considerations.
-
-Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html
-!Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
-Repository: https://github.com/w3ctag/security-questionnaire/
 </pre>
 
 <!-- Big Text: Intro -->

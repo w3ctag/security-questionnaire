@@ -1221,9 +1221,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version a33f8714, updated Thu Apr 23 16:21:43 2020 -0700" name="generator">
+  <meta content="Bikeshed version 4be3a54e, updated Mon May 4 06:47:10 2020 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="ce34f29ed40f1cafed98a0bf3530f3d4040b07e5" name="document-revision">
+  <meta content="9549efc2c1f7da3b8b112f82e177a39a6028ef2e" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1420,7 +1420,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/security-privacy-questionnaire/">https://www.w3.org/TR/security-privacy-questionnaire/</a>
      <dt>Version History:
-     <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html">https://github.com/w3ctag/security-questionnaire/commits/master/index.src.html</a>
+     <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.bs">https://github.com/w3ctag/security-questionnaire/commits/master/index.bs</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/">GitHub</a>
      <dt class="editor">Editors:
@@ -1712,7 +1712,7 @@ Parts of this work may be from another specification document.  If so, those par
   device-level details should be carefully weighed to ensure that the costs
   are outweighed by the benefits.</p>
      <li data-md>
-      <p>The <code class="idl"><a data-link-type="idl" href="http://www.w3.org/TR/html5/webappapis.html#navigatorplugins" id="ref-for-navigatorplugins">NavigatorPlugins</a></code> list exposed via the DOM practically never
+      <p>The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins" id="ref-for-navigatorplugins">NavigatorPlugins</a></code> list exposed via the DOM practically never
   changes for most users. Some user agents have taken steps to reduce the
   entropy introduced by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing
   direct enumeration of the plugin list</a>.</p>
@@ -2461,6 +2461,14 @@ precision readouts”</em></p>
    <li><a href="#same-origin-policy">same-origin policy</a><span>, in §3.3</span>
    <li><a href="#cross-site-scripting-attacks">XSS</a><span>, in §3.3</span>
   </ul>
+  <aside class="dfn-panel" data-for="term-for-navigatorplugins">
+   <a href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins">https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-navigatorplugins">2.6. 
+    What information from the underlying platform, e.g. configuration data, is
+    exposed by this specification to an origin? </a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-the-link-element">
    <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
    <ul>
@@ -2480,6 +2488,7 @@ precision readouts”</em></p>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="term-for-navigatorplugins" style="color:initial">NavigatorPlugins</span>
      <li><span class="dfn-paneled" id="term-for-the-link-element" style="color:initial">link</span>
      <li><span class="dfn-paneled" id="term-for-script" style="color:initial">script</span>
     </ul>
@@ -2539,13 +2548,13 @@ precision readouts”</em></p>
    <dt id="biblio-permissions">[PERMISSIONS]
    <dd>Mounir Lamouri; Marcos Cáceres; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/">Permissions API</a>. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
    <dt id="biblio-rfc3552">[RFC3552]
-   <dd>E. Rescorla; B. Korver. <a href="http://tools.ietf.org/html/rfc3552">Guidelines for Writing RFC Text on Security Considerations</a>. URL: <a href="http://tools.ietf.org/html/rfc3552">http://tools.ietf.org/html/rfc3552</a>
+   <dd>E. Rescorla; B. Korver. <a href="https://tools.ietf.org/html/rfc3552">Guidelines for Writing RFC Text on Security Considerations</a>. July 2003. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc3552">https://tools.ietf.org/html/rfc3552</a>
    <dt id="biblio-rfc6454">[RFC6454]
-   <dd>Adam Barth. <a href="https://tools.ietf.org/html/rfc6454">The Web Origin Concept</a>. URL: <a href="https://tools.ietf.org/html/rfc6454">https://tools.ietf.org/html/rfc6454</a>
+   <dd>A. Barth. <a href="https://tools.ietf.org/html/rfc6454">The Web Origin Concept</a>. December 2011. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc6454">https://tools.ietf.org/html/rfc6454</a>
    <dt id="biblio-rfc6973">[RFC6973]
    <dd>A. Cooper; et al. <a href="https://tools.ietf.org/html/rfc6973">Privacy Considerations for Internet Protocols</a>. July 2013. Informational. URL: <a href="https://tools.ietf.org/html/rfc6973">https://tools.ietf.org/html/rfc6973</a>
    <dt id="biblio-rfc7258">[RFC7258]
-   <dd>Stephen Farrell; Hannes Tschofenig. <a href="http://tools.ietf.org/html/rfc7258">Pervasive Monitoring Is an Attack</a>. URL: <a href="http://tools.ietf.org/html/rfc7258">http://tools.ietf.org/html/rfc7258</a>
+   <dd>S. Farrell; H. Tschofenig. <a href="https://tools.ietf.org/html/rfc7258">Pervasive Monitoring Is an Attack</a>. May 2014. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc7258">https://tools.ietf.org/html/rfc7258</a>
    <dt id="biblio-rivera">[RIVERA]
    <dd>David Rivera. <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">Detect if a browser is in Private Browsing mode</a>. URL: <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1</a>
    <dt id="biblio-sensors-api">[SENSORS-API]
