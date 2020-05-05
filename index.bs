@@ -563,7 +563,7 @@ The audience of this document is general:
   models, a way to illuminate the possible risks.
 
   There are some concrete privacy concerns that should be considered when
-  developing a feature for the web platform:
+  developing a feature for the web platform [[RFC6973]]:
   *   Surveillance: Surveillance is the observation or monitoring of an
       individual's communications or activities.
   *   Stored Data Compromise: End systems that do not take adequate measures to
