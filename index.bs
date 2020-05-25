@@ -562,11 +562,19 @@ The audience of this document is general:
   What should this questionnaire have asked?
   </h3>
 
-    This questionnaire is not exhaustive. After completing a privacy review, it
-    may be that there are privacy aspects of your specification that a strict
-    reading, and response to, this questionnaire, would not have revealed. If
-    this is the case, please convey those privacy concerns, and indicate if you
-    can think of improved or new questions that would have covered this aspect.
+    This questionnaire is not exhaustive.
+    After completing a privacy review,
+    it may be that
+    there are privacy aspects of your specification
+    that a strict reading, and response to, this questionnaire,
+    would not have revealed.
+    If this is the case,
+    please convey those privacy concerns,
+    and indicate if you can think of improved or new questions
+    that would have covered this aspect.
+
+    Please consider [filing an issue](https://github.com/w3ctag/security-questionnaire/issues/new)
+    to let us know what the questionnaire should have asked.
 
 </section>
 
