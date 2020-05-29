@@ -24,6 +24,12 @@ class MarkdownGenerator:
             self.first_line_in_question = True
 
     def generateMarkdown(self, infile=sys.stdin, outfile=sys.stdout):
+        print("""# Self-Review Questionnaire: Security and Privacy
+
+This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
+
+For convenience, a copy of its questions is preserved here.
+""", file=outfile)
         [self.process_line(line, outfile) for line in infile]
 
 if __name__ == '__main__':

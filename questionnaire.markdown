@@ -1,3 +1,9 @@
+# Self-Review Questionnaire: Security and Privacy
+
+This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
+
+For convenience, a copy of its questions is preserved here.
+
 1. What information might this feature expose to Web sites or other parties,
    and for what purposes is that exposure necessary?
 1. Is this specification exposing the minimum amount of information necessary
