@@ -1530,11 +1530,11 @@ dfn > a.self-link::before      { content: "#"; }</style>
     <li>
      <a href="#threats"><span class="secno">3</span> <span class="content">Threat Models</span></a>
      <ol class="toc">
-      <li><a href="#passive-network"><span class="secno">3.1</span> <span class="content">Passive Network Attackers</span></a>
-      <li><a href="#active-network"><span class="secno">3.2</span> <span class="content">Active Network Attackers</span></a>
-      <li><a href="#sop-violations"><span class="secno">3.3</span> <span class="content">Same-Origin Policy Violations</span></a>
-      <li><a href="#third-party-tracking"><span class="secno">3.4</span> <span class="content">Third-Party Tracking</span></a>
-      <li><a href="#legitimate-misuse"><span class="secno">3.5</span> <span class="content">Legitimate Misuse</span></a>
+      <li><a href="#passive-network"><span class="secno">3.1</span> <span class="content"> Passive Network Attackers </span></a>
+      <li><a href="#active-network"><span class="secno">3.2</span> <span class="content"> Active Network Attackers </span></a>
+      <li><a href="#sop-violations"><span class="secno">3.3</span> <span class="content"> Same-Origin Policy Violations </span></a>
+      <li><a href="#third-party-tracking"><span class="secno">3.4</span> <span class="content"> Third-Party Tracking </span></a>
+      <li><a href="#legitimate-misuse"><span class="secno">3.5</span> <span class="content"> Legitimate Misuse </span></a>
      </ol>
     <li>
      <a href="#mitigations"><span class="secno">4</span> <span class="content"> Mitigation Strategies </span></a>
@@ -1602,7 +1602,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
    </section>
    <section>
     <h2 class="heading settled" data-level="2" id="questions"><span class="secno">2. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
-    <h3 class="heading settled" data-level="2.1" id="purpose"><span class="secno">2.1. </span><span class="content"> What information might this feature expose to Web sites or other parties,
+    <h3 class="question heading settled" data-level="2.1" id="purpose"><span class="secno">2.1. </span><span class="content"> What information might this feature expose to Web sites or other parties,
     and for what purposes is that exposure necessary? </span><a class="self-link" href="#purpose"></a></h3>
     <p>Just because information can be exposed to the web doesn’t mean that it
   should be. How does exposing this information to an origin benefit a user?
@@ -1611,12 +1611,12 @@ dfn > a.self-link::before      { content: "#"; }</style>
   feature and specification is enable are made clear in the specification
   itself to ensure that TAG and PING understand the feature-privacy tradeoffs
   being made.</p>
-    <h3 class="heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
+    <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
     to power the feature? </span><a class="self-link" href="#minimum-data"></a></h3>
     <p>Regardless of what data is being exposed, is the specification exposing the
   bare minimum necessary to achieve the desired use cases?  If not, why not and
   why expose the additional information?</p>
-    <h3 class="heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information or
+    <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information or
     personally-identifiable information or information derived thereof? </span><a class="self-link" href="#personal-data"></a></h3>
     <p>Personal information is data about a user (home address) or information
   that could be used to identify a user (alias or email address).  This is
@@ -1638,7 +1638,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   Permission API <a data-link-type="biblio" href="#biblio-permissions">[PERMISSIONS]</a>, or additional dialogs like in Payment
   Request API <a data-link-type="biblio" href="#biblio-payment-request">[PAYMENT-REQUEST]</a></p>
     </ul>
-    <h3 class="heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
+    <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
     <p>Just because data is not personal information or PII, that does not mean
   that it is not sensitive information; moreover, whether any given information
   is sensitive may vary from user to user.  Data to consider if sensitive
@@ -1667,7 +1667,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <p>A Geofencing proposal <a data-link-type="biblio" href="#biblio-geofencing-explained">[GEOFENCING-EXPLAINED]</a> ties itself to service workers and
     therefore to encrypted and authenticated origins.</p>
     </div>
-    <h3 class="heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Does this specification introduce new state for an origin that persists
+    <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Does this specification introduce new state for an origin that persists
     across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
     <p>Allowing an origin to persist data on a user’s device across browsing
   sessions introduces the risk that this state may be used to track a user
@@ -1703,7 +1703,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
     storage mechanisms will form a persistent identifier by offering users the
     ability to wipe out the data contained in these types of storage.</p>
     </div>
-    <h3 class="heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> What information from the underlying platform, e.g. configuration data, is
+    <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> What information from the underlying platform, e.g. configuration data, is
     exposed by this specification to an origin? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
     <p>If so, is the information exposed from the underlying platform consistent
   across origins?  This includes but is not limited to information relating to
@@ -1738,7 +1738,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
     changes for most users. Some user agents have taken steps to reduce the
     entropy introduced by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing direct enumeration of the plugin list</a>.</p>
     </div>
-    <h3 class="heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin access to sensors on a user’s
+    <h3 class="question heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin access to sensors on a user’s
     device </span><a class="self-link" href="#sensor-data"></a></h3>
     <p>If so, what kind of sensors and information derived from those sensors does
   this standard expose to origins?</p>
@@ -1766,7 +1766,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <p>Even relatively short lived data, like the battery status, may be able to
     serve as an identifier if misused/abused <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>.</p>
     </div>
-    <h3 class="heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
+    <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
     document what data is identical to data exposed by other features, in the
     same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
     <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
@@ -1788,7 +1788,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
     attack surface above and beyond what normal form submission entails, so
     no extra mitigation was necessary.</p>
     </div>
-    <h3 class="heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
+    <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
     <ul>
      <li data-md>
       <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script" id="ref-for-script">script</a></code>, which might be easy to overlook when
@@ -1800,7 +1800,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
      <li data-md>
       <p>What about style?</p>
     </ul>
-    <h3 class="heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Does this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
+    <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Does this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
     <p>If so, what devices does this specification allow an origin to access?</p>
     <p>Accessing other devices, both via network connections and via
   direct connection to the user’s machine (e.g. via Bluetooth,
@@ -1847,7 +1847,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
     prompting, secure origins, and feature policy.
     See <a href="https://wicg.github.io/webusb/#security-and-privacy">WebUSB §3 Security and Privacy Considerations</a> for more.</p>
     </div>
-    <h3 class="heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Does this specification allow an origin some measure of control over a user
+    <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Does this specification allow an origin some measure of control over a user
     agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
     <p>Features that allow for control over a user agent’s UI (e.g. full screen
   mode) or changes to the underlying system (e.g. installing an ‘app’ on a
@@ -1855,7 +1855,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   controls.  To the extent that your feature does allow for the changing of a
   user agent’s UI, can it effect security / privacy controls?  What analysis
   confirmed this conclusion?</p>
-    <h3 class="heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this this specification create or expose
+    <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this this specification create or expose
     to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
     <p>If a standard exposes a temporary identifier to the web, the identifier
   should be short lived and should rotate on some regular duration to mitigate
@@ -1870,7 +1870,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
     <p>The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
   at zero, increments, and is reset — is a good example of a privacy friendly
   temporary identifier.</p>
-    <h3 class="heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
+    <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
     third-party contexts? </span><a class="self-link" href="#first-third-party"></a></h3>
     <p>The behavior of a feature should be considered not just in the context of its
   being used by a first party origin that a user is visiting but also the
@@ -1883,7 +1883,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   This is particularly important as user agents may take steps to reduce the
   availability or functionality of certain features to third parties if the
   third parties are found to be abusing the functionality.</p>
-    <h3 class="heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a user agent’s Private
+    <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a user agent’s Private
     Browsing or "incognito" mode? </span><a class="self-link" href="#private-browsing"></a></h3>
     <p>Each major user agent implements a private browsing / incognito mode feature
   with significant variation across user agents in threat models,
@@ -1904,7 +1904,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
       <p>Using features to fingerprint a browser and correlate private and
  non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments">[OLEJNIK-PAYMENTS]</a></p>
     </ul>
-    <h3 class="heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have a "Security Considerations" and "Privacy
+    <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have a "Security Considerations" and "Privacy
     Considerations" section? </span><a class="self-link" href="#considerations"></a></h3>
     <p>Documenting the various concerns and potential abuses in "Security
   Considerations" and "Privacy Considerations" sections of a document is a good
@@ -1973,7 +1973,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   specifications must have security and privacy considerations sections to be
   considered for wide reviews. Interesting features added to the web platform
   generally often already had security and/or privacy impacts.</p>
-    <h3 class="heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
+    <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
     <p>Does this feature allow for a site to opt-out of security settings to
   accomplish some piece of functionality?  If so, in what situations does your
   specification allow such security setting downgrading and what mitigations
@@ -1989,7 +1989,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
      <li data-md>
       <p><a data-link-type="biblio" href="#biblio-referrer-policy">[REFERRER-POLICY]</a>'s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url" id="ref-for-referrer-policy-unsafe-url">"unsafe-url"</a></p>
     </ul>
-    <h3 class="heading settled" data-level="2.17" id="missing-questions"><span class="secno">2.17. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
+    <h3 class="question heading settled" data-level="2.17" id="missing-questions"><span class="secno">2.17. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
     <p>This questionnaire is not exhaustive.
     After completing a privacy review,
     it may be that
@@ -2045,7 +2045,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   that can be applied to mitigate these risks.</p>
     <p>Enumerated below are some broad classes of threats that should be
   considered when developing a web feature.</p>
-    <h3 class="heading settled" data-level="3.1" id="passive-network"><span class="secno">3.1. </span><span class="content">Passive Network Attackers</span><a class="self-link" href="#passive-network"></a></h3>
+    <h3 class="heading settled" data-level="3.1" id="passive-network"><span class="secno">3.1. </span><span class="content"> Passive Network Attackers </span><a class="self-link" href="#passive-network"></a></h3>
     <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="passive-network-attacker">passive network attacker</dfn> has read-access to the bits going over
   the wire between users and the servers they’re communicating with. She can’t <em>modify</em> the bytes, but she can collect and analyze them.</p>
     <p>Due to the decentralized nature of the internet, and the general level of
@@ -2065,7 +2065,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   be gathering information on its customers, your ISP at home is likely to
   be doing the same.</p>
     </ul>
-    <h3 class="heading settled" data-level="3.2" id="active-network"><span class="secno">3.2. </span><span class="content">Active Network Attackers</span><a class="self-link" href="#active-network"></a></h3>
+    <h3 class="heading settled" data-level="3.2" id="active-network"><span class="secno">3.2. </span><span class="content"> Active Network Attackers </span><a class="self-link" href="#active-network"></a></h3>
     <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="active-network-attacker">active network attacker</dfn> has both read- and write-access to the
   bits going over the wire between users and the servers they’re communicating
   with. She can collect and analyze data, but also modify it in-flight,
@@ -2085,7 +2085,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   through it for profit, it’s difficult to believe that state-level
   attackers will remain passive.</p>
     </ul>
-    <h3 class="heading settled" data-level="3.3" id="sop-violations"><span class="secno">3.3. </span><span class="content">Same-Origin Policy Violations</span><a class="self-link" href="#sop-violations"></a></h3>
+    <h3 class="heading settled" data-level="3.3" id="sop-violations"><span class="secno">3.3. </span><span class="content"> Same-Origin Policy Violations </span><a class="self-link" href="#sop-violations"></a></h3>
     <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="same-origin-policy">same-origin policy</dfn> is the cornerstone of security on the web;
   one origin should not have direct access to another origin’s data (the policy
   is more formally defined in Section 3 of <a data-link-type="biblio" href="#biblio-rfc6454">[RFC6454]</a>). A corollary to this
@@ -2107,7 +2107,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
   available cross-origin, either explicitly via CORS headers <a data-link-type="biblio" href="#biblio-cors">[CORS]</a>,
   or implicitly, via side-channel attacks like <a data-link-type="biblio" href="#biblio-timing">[TIMING]</a>.</p>
     </ul>
-    <h3 class="heading settled" data-level="3.4" id="third-party-tracking"><span class="secno">3.4. </span><span class="content">Third-Party Tracking</span><a class="self-link" href="#third-party-tracking"></a></h3>
+    <h3 class="heading settled" data-level="3.4" id="third-party-tracking"><span class="secno">3.4. </span><span class="content"> Third-Party Tracking </span><a class="self-link" href="#third-party-tracking"></a></h3>
     <p>Part of the power of the web is its ability for a page to pull in content
   from other third parties — from images to javascript — to enhance the content
   and/or a user’s experience of the site.  However, when a page pulls in
@@ -2124,7 +2124,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
     <p>The simplest example is injecting a link to a site that behaves differently
   under specific condition, for example based on the fact that user is or is not
   logged to the site. This may reveal that the user has an account on a site.</p>
-    <h3 class="heading settled" data-level="3.5" id="legitimate-misuse"><span class="secno">3.5. </span><span class="content">Legitimate Misuse</span><a class="self-link" href="#legitimate-misuse"></a></h3>
+    <h3 class="heading settled" data-level="3.5" id="legitimate-misuse"><span class="secno">3.5. </span><span class="content"> Legitimate Misuse </span><a class="self-link" href="#legitimate-misuse"></a></h3>
     <p>Even when powerful features are made available to developers, it does not
   mean that all the uses should always be a good idea, or justified; in fact,
   data privacy regulations around the world may even put limits on certain uses
