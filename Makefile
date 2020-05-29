@@ -6,5 +6,5 @@ all: index.html
 clean:
 	rm -f index.html *~
 
-.bs.html:
-	bikeshed spec $< $@
+.bs.html: Makefile
+	bikeshed --die-on=warning spec $< $@
