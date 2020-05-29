@@ -87,7 +87,7 @@ The audience of this document is general:
 <section>
   <h2 id="questions">Questions to Consider</h2>
 
-  <h3 id="purpose">
+  <h3 class=question id="purpose">
     What information might this feature expose to Web sites or other parties,
     and for what purposes is that exposure necessary?
   </h3>
@@ -101,7 +101,7 @@ The audience of this document is general:
   itself to ensure that TAG and PING understand the feature-privacy tradeoffs
   being made.
 
-  <h3 id="minimum-data">
+  <h3 class=question id="minimum-data">
     Is this specification exposing the minimum amount of information necessary
     to power the feature?
   </h3>
@@ -110,7 +110,7 @@ The audience of this document is general:
   bare minimum necessary to achieve the desired use cases?  If not, why not and
   why expose the additional information?
 
-  <h3 id="personal-data">
+  <h3 class=question id="personal-data">
     How does this specification deal with personal information or
     personally-identifiable information or information derived thereof?
   </h3>
@@ -134,7 +134,7 @@ The audience of this document is general:
       Permission API [[PERMISSIONS]], or additional dialogs like in Payment
       Request API [[PAYMENT-REQUEST]]
 
-  <h3 id="sensitive-data">
+  <h3 class=question id="sensitive-data">
     How does this specification deal with sensitive information?
   </h3>
 
@@ -176,7 +176,7 @@ The audience of this document is general:
 
   </div>
 
-  <h3 id="persistent-origin-specific-state">
+  <h3 class=question id="persistent-origin-specific-state">
     Does this specification introduce new state for an origin that persists
     across browsing sessions?
   </h3>
@@ -223,7 +223,7 @@ The audience of this document is general:
 
   </div>
 
-  <h3 id="underlying-platform-data">
+  <h3 class=question id="underlying-platform-data">
     What information from the underlying platform, e.g. configuration data, is
     exposed by this specification to an origin?
   </h3>
@@ -268,7 +268,7 @@ The audience of this document is general:
 
   </div>
 
-  <h3 id="sensor-data">
+  <h3 class=question id="sensor-data">
     Does this specification allow an origin access to sensors on a user’s
     device
   </h3>
@@ -309,7 +309,7 @@ The audience of this document is general:
 
   </div>
 
-  <h3 id="other-data">
+  <h3 class=question id="other-data">
     What data does this specification expose to an origin?  Please also
     document what data is identical to data exposed by other features, in the
     same or different contexts.
@@ -339,7 +339,7 @@ The audience of this document is general:
 
   </div>
 
-  <h3 id="string-to-script">
+  <h3 class=question id="string-to-script">
     Does this specification enable new script execution/loading mechanisms?
   </h3>
 
@@ -353,7 +353,7 @@ The audience of this document is general:
 
   * What about style?
 
-  <h3 id="remote-device">
+  <h3 class=question id="remote-device">
     Does this specification allow an origin to access other devices?
   </h3>
 
@@ -406,7 +406,7 @@ The audience of this document is general:
 
   </div>
 
-  <h3 id="native-ui">
+  <h3 class=question id="native-ui">
     Does this specification allow an origin some measure of control over a user
     agent's native UI?
   </h3>
@@ -418,7 +418,7 @@ The audience of this document is general:
   user agent’s UI, can it effect security / privacy controls?  What analysis
   confirmed this conclusion?
 
-  <h3 id="temporary-id">
+  <h3 class=question id="temporary-id">
     What temporary identifiers might this this specification create or expose
     to the web?
   </h3>
@@ -440,7 +440,7 @@ The audience of this document is general:
   at zero, increments, and is reset — is a good example of a privacy friendly
   temporary identifier.
 
-  <h3 id="first-third-party">
+  <h3 class=question id="first-third-party">
     How does this specification distinguish between behavior in first-party and
     third-party contexts?
   </h3>
@@ -457,7 +457,7 @@ The audience of this document is general:
   availability or functionality of certain features to third parties if the
   third parties are found to be abusing the functionality.
 
-  <h3 id="private-browsing">
+  <h3 class=question id="private-browsing">
     How does this specification work in the context of a user agent’s Private
     Browsing or "incognito" mode?
   </h3>
@@ -483,7 +483,7 @@ The audience of this document is general:
   *  Using features to fingerprint a browser and correlate private and
      non-private mode sessions for a given user. [[OLEJNIK-PAYMENTS]]
 
-  <h3 id="considerations">
+  <h3 class=question id="considerations">
     Does this specification have a "Security Considerations" and "Privacy
     Considerations" section?
   </h3>
@@ -543,7 +543,7 @@ The audience of this document is general:
   considered for wide reviews. Interesting features added to the web platform
   generally often already had security and/or privacy impacts.
 
-  <h3 id="relaxed-sop">
+  <h3 class=question id="relaxed-sop">
     Does this specification allow downgrading default security characteristics?
   </h3>
 
@@ -558,8 +558,8 @@ The audience of this document is general:
   *   [[WEBMESSAGING]]
   *   [[REFERRER-POLICY]]'s <a>"unsafe-url"</a>
 
-  <h3 id="missing-questions">
-  What should this questionnaire have asked?
+  <h3 class=question id="missing-questions">
+    What should this questionnaire have asked?
   </h3>
 
     This questionnaire is not exhaustive.
@@ -616,7 +616,9 @@ The audience of this document is general:
   Enumerated below are some broad classes of threats that should be
   considered when developing a web feature.
 
-  <h3 id="passive-network">Passive Network Attackers</h3>
+  <h3 id="passive-network">
+    Passive Network Attackers
+  </h3>
 
   A <dfn>passive network attacker</dfn> has read-access to the bits going over
   the wire between users and the servers they're communicating with. She can't
@@ -638,7 +640,9 @@ The audience of this document is general:
       be gathering information on its customers, your ISP at home is likely to
       be doing the same.
 
-  <h3 id="active-network">Active Network Attackers</h3>
+  <h3 id="active-network">
+    Active Network Attackers
+  </h3>
 
   An <dfn>active network attacker</dfn> has both read- and write-access to the
   bits going over the wire between users and the servers they're communicating
@@ -659,7 +663,9 @@ The audience of this document is general:
       through it for profit, it's difficult to believe that state-level
       attackers will remain passive.
 
-  <h3 id="sop-violations">Same-Origin Policy Violations</h3>
+  <h3 id="sop-violations">
+    Same-Origin Policy Violations
+  </h3>
 
   The <dfn>same-origin policy</dfn> is the cornerstone of security on the web;
   one origin should not have direct access to another origin's data (the policy
@@ -681,7 +687,9 @@ The audience of this document is general:
       available cross-origin, either explicitly via CORS headers [[CORS]],
       or implicitly, via side-channel attacks like [[TIMING]].
 
-  <h3 id="third-party-tracking">Third-Party Tracking</h3>
+  <h3 id="third-party-tracking">
+    Third-Party Tracking
+  </h3>
 
   Part of the power of the web is its ability for a page to pull in content
   from other third parties — from images to javascript — to enhance the content
@@ -701,7 +709,9 @@ The audience of this document is general:
   under specific condition, for example based on the fact that user is or is not
   logged to the site. This may reveal that the user has an account on a site.
 
-  <h3 id="legitimate-misuse">Legitimate Misuse</h3>
+  <h3 id="legitimate-misuse">
+    Legitimate Misuse
+  </h3>
 
   Even when powerful features are made available to developers, it does not
   mean that all the uses should always be a good idea, or justified; in fact,
