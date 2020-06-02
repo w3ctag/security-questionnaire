@@ -3,7 +3,7 @@ specs   = $(patsubst %.bs,build/%.html,$(wildcard *.bs))
 .PHONY: all clean
 .SUFFIXES: .bs .html
 
-all: build $(specs) questionnaire.markdown
+all: $(specs) questionnaire.markdown
 
 clean:
 	rm -rf build questionnaire.markdown *~
@@ -11,7 +11,7 @@ clean:
 build:
 	mkdir -p build
 
-build/%.html: %.bs Makefile
+build/%.html: %.bs Makefile build
 	bikeshed --die-on=warning spec $< $@
 
 questionnaire.markdown: index.bs generate-markdown.py
