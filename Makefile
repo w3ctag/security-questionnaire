@@ -1,15 +1,12 @@
 specs   = $(patsubst %.bs,build/%.html,$(wildcard *.bs))
 
-.PHONY: all clean pristine
+.PHONY: all clean
 .SUFFIXES: .bs .html
 
 all: build $(specs) questionnaire.markdown
 
 clean:
-	rm -f $(specs) questionnaire.markdown *~
-
-pristine: clean
-	rm -rf build
+	rm -rf build questionnaire.markdown *~
 
 build:
 	mkdir -p build
