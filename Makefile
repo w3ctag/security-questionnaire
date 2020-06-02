@@ -1,12 +1,20 @@
-.PHONY: all clean
+specs   = $(patsubst %.bs,build/%.html,$(wildcard *.bs))
+
+.PHONY: all clean pristine
 .SUFFIXES: .bs .html
 
-all: index.html questionnaire.markdown
+all: build $(specs) questionnaire.markdown
 
 clean:
-	rm -f index.html questionnaire.markdown *~
+	rm -f $(specs) questionnaire.markdown *~
 
-.bs.html: Makefile
+pristine: clean
+	rm -rf build
+
+build:
+	mkdir -p build
+
+build/%.html: %.bs
 	bikeshed --die-on=warning spec $< $@
 
 questionnaire.markdown: index.bs generate-markdown.py
