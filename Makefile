@@ -14,7 +14,7 @@ pristine: clean
 build:
 	mkdir -p build
 
-build/%.html: %.bs
+build/%.html: %.bs Makefile
 	bikeshed --die-on=warning spec $< $@
 
 questionnaire.markdown: index.bs generate-markdown.py
