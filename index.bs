@@ -16,69 +16,73 @@ Indent: 2
 Markup Shorthands: css no, markdown yes
 Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.bs
 !Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
-Abstract:
-  This document provides help in considering the privacy impact of
-  a new feature or specification as well as common mitigation strategies for
-  common privacy impacts. The questions are meant to be useful when considering
-  the security and privacy aspects of a new feature or specification and the
-  mitigation strategies are meant to assist in the design of the feature or
-  specification. Authors of a new proposal or feature should implement the
-  mitigations as appropriate; doing so will assist in addressing the respective
-  points in the questionnaire. Given the variety and nature of specifications,
-  it is likely that the listed questions will not be comprehensive in a way
-  enabling to reason about the full privacy impact, and some mitigations may
-  not be appropriate or other mitigations may be necessary. It is nonetheless
-  the aim to present the questions and mitigations as a starting point, helping
-  to consider security and privacy at the start of work on a new feature, and
-  throughout the lifecycle of a feature.
-
-  It is not meant as a "security checklist", nor does an editor or group’s use
-  of this questionnaire obviate the editor or group’s responsibility to obtain
-  "wide review" of a specification security and privacy properties before
-  publication. Furthermore, the filled questionnaire should not be understood
-  as security and privacy considerations, although part of the answers may be
-  relevant in drafting the considerations.
+Abstract: This document contains a set of questions to be used when evaluating the security and privacy characteristics of web platform technologies.
 </pre>
 
 <!-- Big Text: Intro -->
 <section>
   <h2 id="intro">Introduction</h2>
 
-  New features make the web a stronger and livelier platform. Throughout the feature
-  development process there are both foreseeable and unexpected security and privacy
-  risks. These risks may arise from the nature of the feature, some of its part(s),
-  or unforeseen interactions with other features.  Such risks and may be mitigated
-  through careful design and application of security and privacy design patterns.
+  When designing new features for the Web platform,
+  it's vital that we consider the security and privacy implications of our work,
+  and strive to make design decisions that
+  enhance rather than degrade
+  the security and privacy characteristics of the Web.
 
-  Standardizing web features presents unique challenges. Descriptions, protocols
-  and algorithms need to be considered strictly before they are broadly adopted by
-  vendors with large user bases.  If features are found to have undesirable privacy
-  properties after they are standardized, then, browser vendors may break compatibility
-  in their implementations to protect users' privacy as the user agent is the user’s agent.
+  This document contains a set of questions
+  intended to help <abbr title="specification">spec</abbr> authors
+  as they think through
+  the security and privacy implications
+  of their work.
+  It also documents mitigation strategies
+  that spec authors can use to address
+  security and privacy concerns they encounter as they work on their spec.
 
-  *This is why each Working Group needs to consider security and privacy by design and by default*.
-  This consideration is mandatory. Assessing the impact of a mechanism on privacy
-  should be done from the ground up, during each iteration of the specification.
-  Thinking about security and privacy risks and mitigations early in a project is
-  the best approach as it helps ensure the privacy of your feature at an architectural
-  level and ensures the result, descriptions, protocols, and algorithms incorporate
-  privacy by default as opposed to through possible implementation mitigations.
+  This document is itself a work in progress,
+  and there may be security or privacy concerns
+  which this document does not (yet) cover.
+  Please [let us know](https://github.com/w3ctag/security-questionnaire/issues/new)
+  if you identify a security or privacy concern
+  this questionnaire should ask about.
 
-<h3 id="howtouse">How To Use The Questionnaire</h2>
+  <h3 id="howtouse">How To Use The Questionnaire</h3>
 
-  This document is meant to help developers and reviewers. It encourages early
-  review by posing a number of questions that you as an individual reader, writer,
-  or contributor can ask and that working groups and spec editors need to consider,
-  prior requesting a formal review. The intent includes highlighting areas which
-  historically may have had implications to user’s security or privacy, and thereby
-  to focus the editor, working group attention, and reviewers' attention. As such,
-  the questionnaire is evidence and research based and provides examples and past cases.
+  Spec authors should work through these questions
+  early on in the design process,
+  when things are easier to change.
+  When privacy and security issues are only found later,
+  after the feature has shipped
+  and when it's much harder to change the design,
+  user agents may need to adopt breaking changes
+  to protect their users' privacy and security.
 
-The audience of this document is general:
+  These questions should be kept in mind throught work on a specification.
+  Spec authors should periodically revisit this questionnaire
+  to freshly consider the privacy and security implications of their specification
+  as their feature's design changes over time.
 
-  *   The editors and contributors who are responsible for the development of the feature,
-  *   The W3C TAG, who receive the questionnaire along with the request, and in line with the W3C Process,
-  *   External audience (developers, designers, etc.) wanting to understand the possible security and privacy implications.
+  <h3 id=reviews>TAG and PING reviews and this questionnaire</h3>
+
+  When authors request
+  a [specification review](https://github.com/w3ctag/design-reviews)
+  from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
+  the TAG asks that authors provide answers
+  to the questions in this document.
+  The [Privacy Interest Group (PING)](https://www.w3.org/Privacy/IG/)
+  also considers answers to these questions
+  while conducting
+  [privacy reviews](https://github.com/w3cping/privacy-reviews/issues).
+
+  The TAG and PING use this document
+  to record security and privacy questions
+  which come up during our spec reviews.
+  Working through these questions can save
+  both spec authors and the folks performing design reviews
+  a lot of time.
+
+  To make it easier for those requesting reviews
+  to provide their answers to these questions to the reviewing body,
+  we've prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
 
 </section>
 
