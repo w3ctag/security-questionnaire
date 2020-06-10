@@ -1223,7 +1223,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 19c1873c, updated Thu Jun 4 14:44:17 2020 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="3b1ad789ed00ac5c092f6b5f02855ace4f3a2b0c" name="document-revision">
+  <meta content="90c4e42d63b0d159cb0be59ba7890232e9f012a7" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1411,7 +1411,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1>Self-Review Questionnaire: Security and Privacy</h1>
+   <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-06-10">10 June 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
@@ -1419,8 +1419,6 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <dd><a class="u-url" href="https://w3ctag.github.io/security-questionnaire/">https://w3ctag.github.io/security-questionnaire/</a>
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/security-privacy-questionnaire/">https://www.w3.org/TR/security-privacy-questionnaire/</a>
-     <dt>Version History:
-     <dd><a href="https://github.com/w3ctag/security-questionnaire/commits/master/index.bs">https://github.com/w3ctag/security-questionnaire/commits/master/index.bs</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/">GitHub</a>
      <dt class="editor">Editors:
@@ -1430,8 +1428,6 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://apple.com">Jason Novak</a> (<span class="p-org org">Apple Inc.</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
-     <dt>Bug Reports:
-     <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -1483,33 +1479,33 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <a href="#questions"><span class="secno">2</span> <span class="content">Questions to Consider</span></a>
      <ol class="toc">
       <li><a href="#purpose"><span class="secno">2.1</span> <span class="content"> What information might this feature expose to Web sites or other parties,
-    and for what purposes is that exposure necessary? </span></a>
+  and for what purposes is that exposure necessary? </span></a>
       <li><a href="#minimum-data"><span class="secno">2.2</span> <span class="content"> Is this specification exposing the minimum amount of information necessary
-    to power the feature? </span></a>
+  to power the feature? </span></a>
       <li><a href="#personal-data"><span class="secno">2.3</span> <span class="content"> How does this specification deal with personal information or
-    personally-identifiable information or information derived thereof? </span></a>
+  personally-identifiable information or information derived thereof? </span></a>
       <li><a href="#sensitive-data"><span class="secno">2.4</span> <span class="content"> How does this specification deal with sensitive information? </span></a>
       <li><a href="#persistent-origin-specific-state"><span class="secno">2.5</span> <span class="content"> Does this specification introduce new state for an origin that persists
-    across browsing sessions? </span></a>
+  across browsing sessions? </span></a>
       <li><a href="#underlying-platform-data"><span class="secno">2.6</span> <span class="content"> What information from the underlying platform, e.g. configuration data, is
-    exposed by this specification to an origin? </span></a>
+  exposed by this specification to an origin? </span></a>
       <li><a href="#sensor-data"><span class="secno">2.7</span> <span class="content"> Does this specification allow an origin access to sensors on a user’s
-    device </span></a>
+  device </span></a>
       <li><a href="#other-data"><span class="secno">2.8</span> <span class="content"> What data does this specification expose to an origin?  Please also
-    document what data is identical to data exposed by other features, in the
-    same or different contexts. </span></a>
+  document what data is identical to data exposed by other features, in the
+  same or different contexts. </span></a>
       <li><a href="#string-to-script"><span class="secno">2.9</span> <span class="content"> Does this specification enable new script execution/loading mechanisms? </span></a>
       <li><a href="#remote-device"><span class="secno">2.10</span> <span class="content"> Does this specification allow an origin to access other devices? </span></a>
       <li><a href="#native-ui"><span class="secno">2.11</span> <span class="content"> Does this specification allow an origin some measure of control over a user
-    agent’s native UI? </span></a>
+  agent’s native UI? </span></a>
       <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers might this this specification create or expose
-    to the web? </span></a>
+  to the web? </span></a>
       <li><a href="#first-third-party"><span class="secno">2.13</span> <span class="content"> How does this specification distinguish between behavior in first-party and
-    third-party contexts? </span></a>
+  third-party contexts? </span></a>
       <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How does this specification work in the context of a user agent’s Private
-    Browsing or "incognito" mode? </span></a>
+  Browsing or "incognito" mode? </span></a>
       <li><a href="#considerations"><span class="secno">2.15</span> <span class="content"> Does this specification have a "Security Considerations" and "Privacy
-    Considerations" section? </span></a>
+  Considerations" section? </span></a>
       <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Does this specification allow downgrading default security characteristics? </span></a>
       <li><a href="#missing-questions"><span class="secno">2.17</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
@@ -1549,803 +1545,747 @@ dfn > a.self-link::before      { content: "#"; }</style>
    </ol>
   </nav>
   <main>
-   <section>
-    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-    <p>When designing new features for the Web platform,
-  we must always consider the security and privacy implications of our work.</p>
-     New Web features should always
- maintain or enhance
-the overall security and privacy of the Web. 
-    <p>This document contains a set of questions
-  intended to help <abbr title="specification">spec</abbr> authors
-  as they think through
-  the security and privacy implications
-  of their work.
-  It also documents mitigation strategies
-  that spec authors can use to address
-  security and privacy concerns they encounter as they work on their spec.</p>
-    <p>This document is itself a work in progress,
-  and there may be security or privacy concerns
-  which this document does not (yet) cover.
-  Please <a href="https://github.com/w3ctag/security-questionnaire/issues/new">let us know</a> if you identify a security or privacy concern
-  this questionnaire should ask about.</p>
-    <h3 class="heading settled" data-level="1.1" id="howtouse"><span class="secno">1.1. </span><span class="content">How To Use The Questionnaire</span><a class="self-link" href="#howtouse"></a></h3>
-    <p>Spec authors should work through these questions
-  early on in the design process,
-  when things are easier to change.
-  When privacy and security issues are only found later,
-  after the feature has shipped,
-  it’s much harder to change the design.
-  If security or privacy issues are found late,
-  user agents may need to adopt breaking changes
-  to protect their users' privacy and security.</p>
-    <p>These questions should be kept in mind throughout work on any specification.
-  Spec authors should periodically revisit this questionnaire
-  to continue to consider the privacy and security implications of
-  their features, as their design changes over time.</p>
-    <h3 class="heading settled" data-level="1.2" id="reviews"><span class="secno">1.2. </span><span class="content">TAG and PING reviews and this questionnaire</span><a class="self-link" href="#reviews"></a></h3>
-    <p>When authors request
-  a <a href="https://github.com/w3ctag/design-reviews">review</a> from the <a href="https://www.w3.org/2001/tag/">Technical Architecture Group (TAG)</a>,
-  the TAG asks that authors provide answers
-  to the questions in this document.
-  The <a href="https://www.w3.org/Privacy/IG/">Privacy Interest Group (PING)</a> also considers answers to these questions
-  while conducting <a href="https://github.com/w3cping/privacy-reviews/issues">privacy reviews</a>.</p>
-    <p>The TAG and PING use this document
-  to record security and privacy questions
-  which come up during our reviews.
-  Working through these questions can save
-  both spec authors and the people performing design reviews
-  a lot of time.</p>
-    <p>To make it easier for anyone requesting a review
-  to provide their answers to these questions to the reviewers,
-  we’ve prepared <a href="https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown">a list of these questions in Markdown</a>.</p>
-   </section>
-   <section>
-    <h2 class="heading settled" data-level="2" id="questions"><span class="secno">2. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
-    <h3 class="question heading settled" data-level="2.1" id="purpose"><span class="secno">2.1. </span><span class="content"> What information might this feature expose to Web sites or other parties,
-    and for what purposes is that exposure necessary? </span><a class="self-link" href="#purpose"></a></h3>
-    <p>Just because information can be exposed to the web doesn’t mean that it
-  should be. How does exposing this information to an origin benefit a user?
-  Is the benefit outweighed by the potential risks?  If so, how?</p>
-    <p>In answering this question, it often helps to ensure that the use cases your
-  feature and specification is enable are made clear in the specification
-  itself to ensure that TAG and PING understand the feature-privacy tradeoffs
-  being made.</p>
-    <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
-    to power the feature? </span><a class="self-link" href="#minimum-data"></a></h3>
-    <p>Regardless of what data is being exposed, is the specification exposing the
-  bare minimum necessary to achieve the desired use cases?  If not, why not and
-  why expose the additional information?</p>
-    <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information or
-    personally-identifiable information or information derived thereof? </span><a class="self-link" href="#personal-data"></a></h3>
-    <p>Personal information is data about a user (home address) or information
-  that could be used to identify a user (alias or email address).  This is
-  distinct from personally identifiable information (PII), as the exact
-  definition of what’s considered PII varies from jurisdiction to jurisdiction.</p>
-    <p>If the specification under consideration exposes personal information or PII
-  or their derivatives that could still identify an individual to the web, it’s
-  important to consider ways to mitigate the obvious impacts. For instance:</p>
-    <ul>
-     <li data-md>
-      <p>A feature which uses biometric data (fingerprints or retina scans)
-  should refuse to expose the raw data to the web, instead using the raw
-  data only to unlock some origin-specific and ephemeral secret and
-  transmitting that secret instead.</p>
-     <li data-md>
-      <p>Including a factor of user mediation should be considered, in order to
-  ensure that no data is exposed without a user’s explicit choice (and
-  hopefully understanding). One way to achieve this may be the use of
-  Permission API <a data-link-type="biblio" href="#biblio-permissions">[PERMISSIONS]</a>, or additional dialogs like in Payment
-  Request API <a data-link-type="biblio" href="#biblio-payment-request">[PAYMENT-REQUEST]</a></p>
-    </ul>
-    <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
-    <p>Just because data is not personal information or PII, that does not mean
-  that it is not sensitive information; moreover, whether any given information
-  is sensitive may vary from user to user.  Data to consider if sensitive
-  includes: financial data, credentials, health information, location, or
-  credentials. When this data is exposed to the web, steps should be taken to
-  mitigate the risk of exposing it.</p>
-    <div class="example" id="example-6cd83a5c">
-     <a class="self-link" href="#example-6cd83a5c"></a> 
-     <p>Credential Management <a data-link-type="biblio" href="#biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]</a> allows sites to request
-    a user’s credentials from a user agent’s password manager in order to
-    sign the user in quickly and easily. This opens the door for abuse, as
-    a single XSS vulnerability could expose user data trivially to
-    JavaScript. The Credential Management API mitigates
-    the risk by offering the username and password as only an opaque <code class="idl"><a data-link-type="idl" href="https://xhr.spec.whatwg.org/#formdata" id="ref-for-formdata">FormData</a></code> object which cannot be directly read by JavaScript
-    and strongly suggests that authors use Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> with reasonable <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#connect-src" id="ref-for-connect-src">connect-src</a> and <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#form-action" id="ref-for-form-action">form-action</a> values to further mitigate the risk of exfiltration.</p>
-    </div>
-    <div class="example" id="example-d4e0f588">
-     <a class="self-link" href="#example-d4e0f588"></a> 
-     <p>Geolocation information can serve many use cases at a much less granular
-    precision than the user agent can offer. For instance, a restaurant
-    recommendation can be generated by asking for a user’s city-level
-    location rather than a position accurate to the centimeter.</p>
-    </div>
-    <div class="example" id="example-cde72f90">
-     <a class="self-link" href="#example-cde72f90"></a> 
-     <p>A Geofencing proposal <a data-link-type="biblio" href="#biblio-geofencing-explained">[GEOFENCING-EXPLAINED]</a> ties itself to service workers and
-    therefore to encrypted and authenticated origins.</p>
-    </div>
-    <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Does this specification introduce new state for an origin that persists
-    across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
-    <p>Allowing an origin to persist data on a user’s device across browsing
-  sessions introduces the risk that this state may be used to track a user
-  without their knowledge or control, either in a first party or third party
-  contexts.  New state persistence mechanisms should not be introduced without
-  mitigations to prevent it from being used to track users across domains or
-  without control over clearing this state.  And, are there specific caches
-  that a user agent should specially consider?</p>
-    <div class="example" id="example-b1acc33b">
-     <a class="self-link" href="#example-b1acc33b"></a> 
-     <p>Service Worker <a data-link-type="biblio" href="#biblio-service-workers">[SERVICE-WORKERS]</a> intercept all requests made by an
-    origin, allowing sites to function perfectly even when offline. A
-    maliciously-injected service worker, however, would be devastating (as
-    documented in <a href="https://www.w3.org/TR/service-workers-1/#security-considerations">Service Workers §6 Security Considerations</a>).
-    They mitigate the risks an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker">active network attacker</a> or <a data-link-type="dfn" href="#cross-site-scripting-attacks" id="ref-for-cross-site-scripting-attacks">XSS</a> vulnerability present by requiring an encrypted and authenticated
-    connection in order to register a service worker.</p>
-    </div>
-    <div class="example" id="example-8c6a65e3">
-     <a class="self-link" href="#example-8c6a65e3"></a> 
-     <p>Platform-specific DRM implementations might expose origin-specific
-    information in order to help identify users and determine whether they
-    ought to be granted access to a specific piece of media. These kinds of
-    identifiers should be carefully evaluated to determine how abuse can be
-    mitigated; identifiers which a user cannot easily change are very
-    valuable from a tracking perspective, and protecting the identifiers from
-    an active network attacker is an important concern.</p>
-    </div>
-    <div class="example" id="example-7ac55a84">
-     <a class="self-link" href="#example-7ac55a84"></a> 
-     <p>Cookies, <code>ETag</code>, <code>Last Modified</code>, <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage" id="ref-for-dom-localstorage">localStorage</a></code>, <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb" id="ref-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</a></code>, etc. all
-    allow an origin to store information about a user, and retrieve it later,
-    directly or indirectly. User agents mitigate the risk that these kinds of
-    storage mechanisms will form a persistent identifier by offering users the
-    ability to wipe out the data contained in these types of storage.</p>
-    </div>
-    <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> What information from the underlying platform, e.g. configuration data, is
-    exposed by this specification to an origin? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
-    <p>If so, is the information exposed from the underlying platform consistent
-  across origins?  This includes but is not limited to information relating to
-  the user configuration, system information including sensors, and
-  communication methods.</p>
-    <p>When a specification exposes specific information about a host to an origin,
-  if that information changes rarely and is not variable across origins, then
-  it can be used to uniquely identify a user across two origins — either
-  directly because any given piece of information is unique or because the
-  combination of disparate pieces of information are unique and can be used to
-  form a fingerprint <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a>. Specifications and user agents
-  should treat the risk of fingerprinting by carefully considering the surface
-  of available information, and the relative differences between software and
-  hardware stacks. Sometimes reducing fingerprintability may as simple as
-  ensuring consistency, i.e. ordering the list of fonts, but sometimes may be
-  more complex.</p>
-    <p>Such information should not be revealed to an origin without a user’s
-  knowledge and consent barring mitigations in the specification to prevent the
-  information from being uniquely identifying or able to unexpectedly
-  exfiltrate data.</p>
-    <div class="example" id="example-625b9138">
-     <a class="self-link" href="#example-625b9138"></a> 
-     <p>The <code>RENDERER</code> string exposed by some WebGL implementations
-    improves performance in some kinds of applications, but does so at the
-    cost of adding persistent state to a user’s fingerprint. These kinds of
-    device-level details should be carefully weighed to ensure that the costs
-    are outweighed by the benefits.</p>
-    </div>
-    <div class="example" id="example-422fc448">
-     <a class="self-link" href="#example-422fc448"></a> 
-     <p>The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins" id="ref-for-navigatorplugins">NavigatorPlugins</a></code> list exposed via the DOM practically never
-    changes for most users. Some user agents have taken steps to reduce the
-    entropy introduced by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing direct enumeration of the plugin list</a>.</p>
-    </div>
-    <h3 class="question heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin access to sensors on a user’s
-    device </span><a class="self-link" href="#sensor-data"></a></h3>
-    <p>If so, what kind of sensors and information derived from those sensors does
-  this standard expose to origins?</p>
-    <p>Information from sensors may serve as a fingerprinting vector across origins.
-  In addition, sensor also reveals something about my device or environment and
-  that fact might be what is sensitive.  In addition, as technology advances,
-  mitigations in place at the time a specification is written may have to be
-  reconsidered as the threat landscape changes.</p>
-    <p>Sensor data might even become a cross-origin identifier when the sensor reading
-  is relatively stable, for example for short time periods (seconds, minutes, even days), and
-  is consistent across-origins.  In fact, if two user-agents expose the same
-  sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.</p>
-    <div class="example" id="example-1eecc614">
-     <a class="self-link" href="#example-1eecc614"></a> 
-     <p>As gyroscopes advanced, their sampling rate had to be lowered to
-    prevent them from being used as a microphone as one such example <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>.</p>
-    </div>
-    <div class="example" id="example-03ab6b8a">
-     <a class="self-link" href="#example-03ab6b8a"></a> 
-     <p>ALS sensors could allowed for an attacker to exfiltrate whether or not a
-    user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>.</p>
-    </div>
-    <div class="example" id="example-c4f3e5a0">
-     <a class="self-link" href="#example-c4f3e5a0"></a> 
-     <p>Even relatively short lived data, like the battery status, may be able to
-    serve as an identifier if misused/abused <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>.</p>
-    </div>
-    <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
-    document what data is identical to data exposed by other features, in the
-    same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
-    <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
-  important security barrier that new features need to carefully consider.
-  If a specification exposes details about another origin’s state, or allows
-  POST or GET requests to be made to another origin, the consequences can be
-  severe.</p>
-    <div class="example" id="example-416d4171">
-     <a class="self-link" href="#example-416d4171"></a> 
-     <p>Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> unintentionally exposed redirect targets
-    cross-origin by allowing one origin to infer details about another origin
-    through violation reports (see <a data-link-type="biblio" href="#biblio-homakov">[HOMAKOV]</a>). The working group eventually
-    mitigated the risk by reducing a policy’s granularity after a redirect.</p>
-    </div>
-    <div class="example" id="example-502f91a6">
-     <a class="self-link" href="#example-502f91a6"></a> 
-     <p>Beacon <a data-link-type="biblio" href="#biblio-beacon">[BEACON]</a> allows an origin to send POST requests to an endpoint
-    on another origin. They decided that this feature didn’t add any new
-    attack surface above and beyond what normal form submission entails, so
-    no extra mitigation was necessary.</p>
-    </div>
-    <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
-    <ul>
-     <li data-md>
-      <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script" id="ref-for-script">script</a></code>, which might be easy to overlook when
+   <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+   <p>When designing new features for the Web platform,
+we must always consider the security and privacy implications of our work.
+New Web features should always
+maintain or enhance
+the overall security and privacy of the Web.</p>
+   <p>This document contains a set of questions
+intended to help <abbr title="specification">spec</abbr> authors
+as they think through
+the security and privacy implications
+of their work.
+It also documents mitigation strategies
+that spec authors can use to address
+security and privacy concerns they encounter as they work on their spec.</p>
+   <p>This document is itself a work in progress,
+and there may be security or privacy concerns
+which this document does not (yet) cover.
+Please <a href="https://github.com/w3ctag/security-questionnaire/issues/new">let us know</a> if you identify a security or privacy concern
+this questionnaire should ask about.</p>
+   <h3 class="heading settled" data-level="1.1" id="howtouse"><span class="secno">1.1. </span><span class="content">How To Use The Questionnaire</span><a class="self-link" href="#howtouse"></a></h3>
+   <p>Spec authors should work through these questions
+early on in the design process,
+when things are easier to change.
+When privacy and security issues are only found later,
+after the feature has shipped,
+it’s much harder to change the design.
+If security or privacy issues are found late,
+user agents may need to adopt breaking changes
+to protect their users' privacy and security.</p>
+   <p>These questions should be kept in mind throughout work on any specification.
+Spec authors should periodically revisit this questionnaire
+to continue to consider the privacy and security implications of
+their features, as their design changes over time.</p>
+   <h3 class="heading settled" data-level="1.2" id="reviews"><span class="secno">1.2. </span><span class="content">TAG and PING reviews and this questionnaire</span><a class="self-link" href="#reviews"></a></h3>
+   <p>When authors request
+a <a href="https://github.com/w3ctag/design-reviews">review</a> from the <a href="https://www.w3.org/2001/tag/">Technical Architecture Group (TAG)</a>,
+the TAG asks that authors provide answers
+to the questions in this document.
+The <a href="https://www.w3.org/Privacy/IG/">Privacy Interest Group (PING)</a> also considers answers to these questions
+while conducting <a href="https://github.com/w3cping/privacy-reviews/issues">privacy reviews</a>.</p>
+   <p>The TAG and PING use this document
+to record security and privacy questions
+which come up during our reviews.
+Working through these questions can save
+both spec authors and the people performing design reviews
+a lot of time.</p>
+   <p>To make it easier for anyone requesting a review
+to provide their answers to these questions to the reviewers,
+we’ve prepared <a href="https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown">a list of these questions in Markdown</a>.</p>
+   <h2 class="heading settled" data-level="2" id="questions"><span class="secno">2. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
+   <h3 class="question heading settled" data-level="2.1" id="purpose"><span class="secno">2.1. </span><span class="content"> What information might this feature expose to Web sites or other parties,
+  and for what purposes is that exposure necessary? </span><a class="self-link" href="#purpose"></a></h3>
+   <p>Just because information can be exposed to the web doesn’t mean that it
+should be. How does exposing this information to an origin benefit a user?
+Is the benefit outweighed by the potential risks?  If so, how?</p>
+   <p>In answering this question, it often helps to ensure that the use cases your
+feature and specification is enable are made clear in the specification
+itself to ensure that TAG and PING understand the feature-privacy tradeoffs
+being made.</p>
+   <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
+  to power the feature? </span><a class="self-link" href="#minimum-data"></a></h3>
+   <p>Regardless of what data is being exposed, is the specification exposing the
+bare minimum necessary to achieve the desired use cases?  If not, why not and
+why expose the additional information?</p>
+   <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information or
+  personally-identifiable information or information derived thereof? </span><a class="self-link" href="#personal-data"></a></h3>
+   <p>Personal information is data about a user (home address) or information
+that could be used to identify a user (alias or email address).  This is
+distinct from personally identifiable information (PII), as the exact
+definition of what’s considered PII varies from jurisdiction to jurisdiction.</p>
+   <p>If the specification under consideration exposes personal information or PII
+or their derivatives that could still identify an individual to the web, it’s
+important to consider ways to mitigate the obvious impacts. For instance:</p>
+   <ul>
+    <li data-md>
+     <p>A feature which uses biometric data (fingerprints or retina scans)
+should refuse to expose the raw data to the web, instead using the raw
+data only to unlock some origin-specific and ephemeral secret and
+transmitting that secret instead.</p>
+    <li data-md>
+     <p>Including a factor of user mediation should be considered, in order to
+ensure that no data is exposed without a user’s explicit choice (and
+hopefully understanding). One way to achieve this may be the use of
+Permission API <a data-link-type="biblio" href="#biblio-permissions">[PERMISSIONS]</a>, or additional dialogs like in Payment
+Request API <a data-link-type="biblio" href="#biblio-payment-request">[PAYMENT-REQUEST]</a></p>
+   </ul>
+   <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
+   <p>Just because data is not personal information or PII, that does not mean
+that it is not sensitive information; moreover, whether any given information
+is sensitive may vary from user to user.  Data to consider if sensitive
+includes: financial data, credentials, health information, location, or
+credentials. When this data is exposed to the web, steps should be taken to
+mitigate the risk of exposing it.</p>
+   <p class="example" id="example-6cd83a5c"><a class="self-link" href="#example-6cd83a5c"></a> Credential Management <a data-link-type="biblio" href="#biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]</a> allows sites to request
+a user’s credentials from a user agent’s password manager in order to
+sign the user in quickly and easily. This opens the door for abuse, as
+a single XSS vulnerability could expose user data trivially to
+JavaScript. The Credential Management API mitigates
+the risk by offering the username and password as only an opaque <code class="idl"><a data-link-type="idl" href="https://xhr.spec.whatwg.org/#formdata" id="ref-for-formdata">FormData</a></code> object which cannot be directly read by JavaScript
+and strongly suggests that authors use Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> with reasonable <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#connect-src" id="ref-for-connect-src">connect-src</a> and <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#form-action" id="ref-for-form-action">form-action</a> values to further mitigate the risk of exfiltration. </p>
+   <p class="example" id="example-d4e0f588"><a class="self-link" href="#example-d4e0f588"></a> Geolocation information can serve many use cases at a much less granular
+precision than the user agent can offer. For instance, a restaurant
+recommendation can be generated by asking for a user’s city-level
+location rather than a position accurate to the centimeter. </p>
+   <p class="example" id="example-cde72f90"><a class="self-link" href="#example-cde72f90"></a> A Geofencing proposal <a data-link-type="biblio" href="#biblio-geofencing-explained">[GEOFENCING-EXPLAINED]</a> ties itself to service workers and
+therefore to encrypted and authenticated origins. </p>
+   <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Does this specification introduce new state for an origin that persists
+  across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
+   <p>Allowing an origin to persist data on a user’s device across browsing
+sessions introduces the risk that this state may be used to track a user
+without their knowledge or control, either in a first party or third party
+contexts.  New state persistence mechanisms should not be introduced without
+mitigations to prevent it from being used to track users across domains or
+without control over clearing this state.  And, are there specific caches
+that a user agent should specially consider?</p>
+   <p class="example" id="example-b1acc33b"><a class="self-link" href="#example-b1acc33b"></a> Service Worker <a data-link-type="biblio" href="#biblio-service-workers">[SERVICE-WORKERS]</a> intercept all requests made by an
+origin, allowing sites to function perfectly even when offline. A
+maliciously-injected service worker, however, would be devastating (as
+documented in <a href="https://www.w3.org/TR/service-workers-1/#security-considerations">Service Workers §6 Security Considerations</a>).
+They mitigate the risks an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker">active network attacker</a> or <a data-link-type="dfn" href="#cross-site-scripting-attacks" id="ref-for-cross-site-scripting-attacks">XSS</a> vulnerability present by requiring an encrypted and authenticated
+connection in order to register a service worker. </p>
+   <p class="example" id="example-8c6a65e3"><a class="self-link" href="#example-8c6a65e3"></a> Platform-specific DRM implementations might expose origin-specific
+information in order to help identify users and determine whether they
+ought to be granted access to a specific piece of media. These kinds of
+identifiers should be carefully evaluated to determine how abuse can be
+mitigated; identifiers which a user cannot easily change are very
+valuable from a tracking perspective, and protecting the identifiers from
+an active network attacker is an important concern. </p>
+   <p class="example" id="example-7ac55a84"><a class="self-link" href="#example-7ac55a84"></a> Cookies, <code>ETag</code>, <code>Last Modified</code>, <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage" id="ref-for-dom-localstorage">localStorage</a></code>, <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb" id="ref-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</a></code>, etc. all
+allow an origin to store information about a user, and retrieve it later,
+directly or indirectly. User agents mitigate the risk that these kinds of
+storage mechanisms will form a persistent identifier by offering users the
+ability to wipe out the data contained in these types of storage. </p>
+   <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> What information from the underlying platform, e.g. configuration data, is
+  exposed by this specification to an origin? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
+   <p>If so, is the information exposed from the underlying platform consistent
+across origins?  This includes but is not limited to information relating to
+the user configuration, system information including sensors, and
+communication methods.</p>
+   <p>When a specification exposes specific information about a host to an origin,
+if that information changes rarely and is not variable across origins, then
+it can be used to uniquely identify a user across two origins — either
+directly because any given piece of information is unique or because the
+combination of disparate pieces of information are unique and can be used to
+form a fingerprint <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a>. Specifications and user agents
+should treat the risk of fingerprinting by carefully considering the surface
+of available information, and the relative differences between software and
+hardware stacks. Sometimes reducing fingerprintability may as simple as
+ensuring consistency, i.e. ordering the list of fonts, but sometimes may be
+more complex.</p>
+   <p>Such information should not be revealed to an origin without a user’s
+knowledge and consent barring mitigations in the specification to prevent the
+information from being uniquely identifying or able to unexpectedly
+exfiltrate data.</p>
+   <p class="example" id="example-625b9138"><a class="self-link" href="#example-625b9138"></a> The <code>RENDERER</code> string exposed by some WebGL implementations
+improves performance in some kinds of applications, but does so at the
+cost of adding persistent state to a user’s fingerprint. These kinds of
+device-level details should be carefully weighed to ensure that the costs
+are outweighed by the benefits. </p>
+   <p class="example" id="example-422fc448"><a class="self-link" href="#example-422fc448"></a> The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins" id="ref-for-navigatorplugins">NavigatorPlugins</a></code> list exposed via the DOM practically never
+changes for most users. Some user agents have taken steps to reduce the
+entropy introduced by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disallowing direct enumeration of the plugin list</a>. </p>
+   <h3 class="question heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin access to sensors on a user’s
+  device </span><a class="self-link" href="#sensor-data"></a></h3>
+   <p>If so, what kind of sensors and information derived from those sensors does
+this standard expose to origins?</p>
+   <p>Information from sensors may serve as a fingerprinting vector across origins.
+In addition, sensor also reveals something about my device or environment and
+that fact might be what is sensitive.  In addition, as technology advances,
+mitigations in place at the time a specification is written may have to be
+reconsidered as the threat landscape changes.</p>
+   <p>Sensor data might even become a cross-origin identifier when the sensor reading
+is relatively stable, for example for short time periods (seconds, minutes, even days), and
+is consistent across-origins.  In fact, if two user-agents expose the same
+sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.</p>
+   <p class="example" id="example-1eecc614"><a class="self-link" href="#example-1eecc614"></a> As gyroscopes advanced, their sampling rate had to be lowered to
+prevent them from being used as a microphone as one such example <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>. </p>
+   <p class="example" id="example-03ab6b8a"><a class="self-link" href="#example-03ab6b8a"></a> ALS sensors could allowed for an attacker to exfiltrate whether or not a
+user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
+   <p class="example" id="example-c4f3e5a0"><a class="self-link" href="#example-c4f3e5a0"></a> Even relatively short lived data, like the battery status, may be able to
+serve as an identifier if misused/abused <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
+   <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
+  document what data is identical to data exposed by other features, in the
+  same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
+   <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
+important security barrier that new features need to carefully consider.
+If a specification exposes details about another origin’s state, or allows
+POST or GET requests to be made to another origin, the consequences can be
+severe.</p>
+   <p class="example" id="example-416d4171"><a class="self-link" href="#example-416d4171"></a> Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> unintentionally exposed redirect targets
+cross-origin by allowing one origin to infer details about another origin
+through violation reports (see <a data-link-type="biblio" href="#biblio-homakov">[HOMAKOV]</a>). The working group eventually
+mitigated the risk by reducing a policy’s granularity after a redirect. </p>
+   <p class="example" id="example-502f91a6"><a class="self-link" href="#example-502f91a6"></a> Beacon <a data-link-type="biblio" href="#biblio-beacon">[BEACON]</a> allows an origin to send POST requests to an endpoint
+on another origin. They decided that this feature didn’t add any new
+attack surface above and beyond what normal form submission entails, so
+no extra mitigation was necessary. </p>
+   <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
+   <ul>
+    <li data-md>
+     <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script" id="ref-for-script">script</a></code>, which might be easy to overlook when
 evaluating an application’s attack surface. The working group notes this
 risk, and ensured that they required reasonable interactions with Content
 Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#script-src" id="ref-for-script-src">script-src</a> directive.</p>
-     <li data-md>
-      <p>New string-to-script mechanism? (e.g. <code class="idl"><a data-link-type="idl" href="https://tc39.github.io/ecma262/#sec-eval-x" id="ref-for-sec-eval-x">eval()</a></code> or <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout" id="ref-for-dom-settimeout">setTimeout()</a></code>)</p>
-     <li data-md>
-      <p>What about style?</p>
-    </ul>
-    <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Does this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
-    <p>If so, what devices does this specification allow an origin to access?</p>
-    <p>Accessing other devices, both via network connections and via
-  direct connection to the user’s machine (e.g. via Bluetooth,
-  NFC, or USB), could expose vulnerabilities - some of
-  these devices were not created with web connectivity in mind and may be inadequately
-  hardened against malicious input, or with the use on the web.</p>
-    <p>Exposing other devices on a user’s local network also has significant privacy
-  risk:</p>
-    <ul>
-     <li data-md>
-      <p>If two user agents have the same devices on their local network, an
-  attacker may infer that the two user agents are running on the same host
-  or are being used by two separate users who are in the same physical
-  location.</p>
-     <li data-md>
-      <p>Enumerating the devices on a user’s local network provides significant
-  entropy that an attacker may use to fingerprint the user agent.</p>
-     <li data-md>
-      <p>If the specification exposes persistent or long lived identifiers of
-  local network devices, that provides attackers with a way to track a user
-  over time even if a user takes steps to prevent such tracking (e.g.
-  clearing cookies and other stateful tracking mechanisms).</p>
-     <li data-md>
-      <p>Direct connections might be also be used to bypass security checks that
-  other APIs would provide. For example, attackers used the WebUSB API to
-  access others sites' credentials on a hardware security, bypassing
-  same-origin checks in an early U2F API. <a data-link-type="biblio" href="#biblio-yubikey-attack">[YUBIKEY-ATTACK]</a></p>
-    </ul>
-    <div class="example" id="example-779b6f03">
-     <a class="self-link" href="#example-779b6f03"></a> 
-     <p>The Network Service Discovery API <a data-link-type="biblio" href="#biblio-discovery-api">[DISCOVERY-API]</a> recommended CORS
-    preflights before granting access to a device, and requires user agents to
-    involve the user with a permission request of some kind.</p>
-    </div>
-    <div class="example" id="example-01b5b20a">
-     <a class="self-link" href="#example-01b5b20a"></a> 
-     <p>Likewise, the Web Bluetooth <a data-link-type="biblio" href="#biblio-web-bluetooth">[WEB-BLUETOOTH]</a> has an extensive discussion of
-    such issues in <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy">Web Bluetooth §2 Security and privacy considerations</a>, which is worth
-    reading as an example for similar work.</p>
-    </div>
-    <div class="example" id="example-38bdd3d3">
-     <a class="self-link" href="#example-38bdd3d3"></a> 
-     <p><a data-link-type="biblio" href="#biblio-webusb">[WEBUSB]</a> addresses these risks through a combination of user mediation /
-    prompting, secure origins, and feature policy.
-    See <a href="https://wicg.github.io/webusb/#security-and-privacy">WebUSB §3 Security and Privacy Considerations</a> for more.</p>
-    </div>
-    <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Does this specification allow an origin some measure of control over a user
-    agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
-    <p>Features that allow for control over a user agent’s UI (e.g. full screen
-  mode) or changes to the underlying system (e.g. installing an ‘app’ on a
-  smartphone home screen) may surprise users or obscure security / privacy
-  controls.  To the extent that your feature does allow for the changing of a
-  user agent’s UI, can it effect security / privacy controls?  What analysis
-  confirmed this conclusion?</p>
-    <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this this specification create or expose
-    to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
-    <p>If a standard exposes a temporary identifier to the web, the identifier
-  should be short lived and should rotate on some regular duration to mitigate
-  the risk of this identifier being used to track a user over time.  When a
-  user clears state in their user agent, these temporary identifiers should be
-  cleared to prevent re-correlation of state using a temporary identifier.</p>
-    <p>If this specification does create or expose a temporary identifier to the
-  web, how is it exposed, when, to what entities, and, how frequently is it
-  rotated?</p>
-    <p>Example temporary identifiers include TLS Channel ID, Session Tickets, and
-  IPv6 addresses.</p>
-    <p>The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
-  at zero, increments, and is reset — is a good example of a privacy friendly
-  temporary identifier.</p>
-    <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
-    third-party contexts? </span><a class="self-link" href="#first-third-party"></a></h3>
-    <p>The behavior of a feature should be considered not just in the context of its
-  being used by a first party origin that a user is visiting but also the
-  implications of its being used by an arbitrary third party that the first
-  party includes. When developing your specification, consider the implications
-  of its use by third party resources on a page and, consider if support for
-  use by third party resources should be optional to conform to the
-  specification.  If supporting use by third party resources is mandatory for
-  conformance, please explain why and what privacy mitigations are in place.
-  This is particularly important as user agents may take steps to reduce the
-  availability or functionality of certain features to third parties if the
-  third parties are found to be abusing the functionality.</p>
-    <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a user agent’s Private
-    Browsing or "incognito" mode? </span><a class="self-link" href="#private-browsing"></a></h3>
-    <p>Each major user agent implements a private browsing / incognito mode feature
-  with significant variation across user agents in threat models,
-  functionality, and descriptions to users regarding the protections afforded <a data-link-type="biblio" href="#biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]</a>.</p>
-    <p>One typical commonality across user agents' private browsing / incognito
-  modes is that they have a set of state than the user agents’ in their
-  ‘normal’ modes.</p>
-    <p>Does the specification provide information that would allow for the
-  correlation of a single user’s activity across normal and private browsing /
-  incognito modes?  Does the specification result in information being written
-  to a user’s host that would persist following a private browsing / incognito
-  mode session ending?</p>
-    <p>There has been research into both:</p>
-    <ul>
-     <li data-md>
-      <p>Detecting whether a user agent is in private browsing mode <a data-link-type="biblio" href="#biblio-rivera">[RIVERA]</a> using non-standardized methods such as <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">window.requestFileSystem()</a></code>.</p>
-     <li data-md>
-      <p>Using features to fingerprint a browser and correlate private and
- non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments">[OLEJNIK-PAYMENTS]</a></p>
-    </ul>
-    <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have a "Security Considerations" and "Privacy
-    Considerations" section? </span><a class="self-link" href="#considerations"></a></h3>
-    <p>Documenting the various concerns and potential abuses in "Security
-  Considerations" and "Privacy Considerations" sections of a document is a good
-  way to help implementers and web developers understand the risks that a
-  feature presents, and to ensure that adequate mitigations are in place.
-  Simply adding a section to your specification with yes/no responses to the
-  questions in this document is insufficient.</p>
-    <p>If it seems like a feature does not have security or privacy impacts,
-  then say so inline in the spec section for that feature:</p>
-    <blockquote>
-     <p>There are no known security or privacy impacts of this feature.</p>
-    </blockquote>
-    <p>Saying so explicitly in the specification serves several purposes:</p>
-    <ol>
-     <li data-md>
-      <p>Shows that a spec author/editor has explicitly considered security and
- privacy when designing a feature.</p>
-     <li data-md>
-      <p>Provides some sense of confidence that there might be no such impacts.</p>
-     <li data-md>
-      <p>Challenges security and privacy minded individuals to think of and find
- even the potential for such impacts.</p>
-     <li data-md>
-      <p>Demonstrates the spec author/editor’s receptivity to feedback about such
- impacts.</p>
-     <li data-md>
-      <p>Demonstrates a desire that the specification should not be introducing
- security and privacy issues</p>
-    </ol>
-    <p><a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security Consideration
-  sections.  Generally, there should be a clear description of the kinds of
-  privacy risks the new specification introduces to for users of the web
-  platform.  Below is a set of considerations, informed by that RFC, for
-  writing a privacy considerations section.</p>
-    <p>Authors must describe:</p>
-    <ol>
-     <li data-md>
-      <p>What privacy attacks have been considered?</p>
-     <li data-md>
-      <p>What privacy attacks have been deemed out of scope (and why)?</p>
-     <li data-md>
-      <p>What privacy mitigations have been implemented?</p>
-     <li data-md>
-      <p>What privacy mitigations have considered and not implemented (and why)?</p>
-    </ol>
-    <p>In addition, attacks considered must include:</p>
-    <ol>
-     <li data-md>
-      <p>Fingerprinting risk;</p>
-     <li data-md>
-      <p>Unexpected exfiltration of data through abuse of sensors;</p>
-     <li data-md>
-      <p>Unexpected usage of the specification / feature by third parties;</p>
-     <li data-md>
-      <p>If the specification includes identifiers, the authors must document what
- rotation period was selected for the identifiers and why.</p>
-     <li data-md>
-      <p>If the specification introduces new state to the user agent, the authors
- must document what guidance regarding clearing said storage was given and
- why.</p>
-     <li data-md>
-      <p>There should be a clear description of the residual risk to the user
- after the privacy mitigations has been implemented.</p>
-    </ol>
-    <p>The crucial aspect is to actually considering security and privacy. All new
-  specifications must have security and privacy considerations sections to be
-  considered for wide reviews. Interesting features added to the web platform
-  generally often already had security and/or privacy impacts.</p>
-    <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
-    <p>Does this feature allow for a site to opt-out of security settings to
-  accomplish some piece of functionality?  If so, in what situations does your
-  specification allow such security setting downgrading and what mitigations
-  are in place to make sure optional downgrading doesn’t dramatically increase
-  risks?</p>
-    <ul>
-     <li data-md>
-      <p><code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code></p>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-cors">[CORS]</a></p>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-webmessaging">[WEBMESSAGING]</a></p>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-referrer-policy">[REFERRER-POLICY]</a>'s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url" id="ref-for-referrer-policy-unsafe-url">"unsafe-url"</a></p>
-    </ul>
-    <h3 class="question heading settled" data-level="2.17" id="missing-questions"><span class="secno">2.17. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
-    <p>This questionnaire is not exhaustive.
-    After completing a privacy review,
-    it may be that
-    there are privacy aspects of your specification
-    that a strict reading, and response to, this questionnaire,
-    would not have revealed.
-    If this is the case,
-    please convey those privacy concerns,
-    and indicate if you can think of improved or new questions
-    that would have covered this aspect.</p>
-    <p>Please consider <a href="https://github.com/w3ctag/security-questionnaire/issues/new">filing an issue</a> to let us know what the questionnaire should have asked.</p>
-   </section>
-   <section>
-    <h2 class="heading settled" data-level="3" id="threats"><span class="secno">3. </span><span class="content">Threat Models</span><a class="self-link" href="#threats"></a></h2>
-    <p>To consider security and privacy it is convenient to think in terms of threat
-  models, a way to illuminate the possible risks.</p>
-    <p>There are some concrete privacy concerns that should be considered when
-  developing a feature for the web platform <a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a>:</p>
-    <ul>
-     <li data-md>
-      <p>Surveillance: Surveillance is the observation or monitoring of an
-  individual’s communications or activities.</p>
-     <li data-md>
-      <p>Stored Data Compromise: End systems that do not take adequate measures to
-  secure stored data from unauthorized or inappropriate access.</p>
-     <li data-md>
-      <p>Intrusion: Intrusion consists of invasive acts that disturb or interrupt
-  one’s life or activities.</p>
-     <li data-md>
-      <p>Misattribution: Misattribution occurs when data or communications related
-  to one individual are attributed to another.</p>
-     <li data-md>
-      <p>Correlation: Correlation is the combination of various pieces of
-  information related to an individual or that obtain that characteristic
-  when combined.</p>
-     <li data-md>
-      <p>Identification: Identification is the linking of information to a
-  particular individual to infer an individual’s identity or to allow the
-  inference of an individual’s identity.</p>
-     <li data-md>
-      <p>Secondary Use: Secondary use is the use of collected information about an
-  individual without the individual’s consent for a purpose different from
-  that for which the information was collected.</p>
-     <li data-md>
-      <p>Disclosure: Disclosure is the revelation of information about an
-  individual that affects the way others judge the individual.</p>
-     <li data-md>
-      <p>Exclusion: Exclusion is the failure to allow individuals to know about
-  the data that others have about them and to participate in its handling
-  and use.</p>
-    </ul>
-    <p>In the mitigations section, this document outlines a number of techniques
-  that can be applied to mitigate these risks.</p>
-    <p>Enumerated below are some broad classes of threats that should be
-  considered when developing a web feature.</p>
-    <h3 class="heading settled" data-level="3.1" id="passive-network"><span class="secno">3.1. </span><span class="content"> Passive Network Attackers </span><a class="self-link" href="#passive-network"></a></h3>
-    <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="passive-network-attacker">passive network attacker</dfn> has read-access to the bits going over
-  the wire between users and the servers they’re communicating with. She can’t <em>modify</em> the bytes, but she can collect and analyze them.</p>
-    <p>Due to the decentralized nature of the internet, and the general level of
-  interest in user activity, it’s reasonable to assume that practically every
-  unencrypted bit that’s bouncing around the network of proxies, routers, and
-  servers you’re using right now is being read by someone. It’s equally likely
-  that some of these attackers are doing their best to understand the encrypted
-  bits as well, including storing encrypted communications for later
-  cryptanalysis (though that requires significantly more effort).</p>
-    <ul>
-     <li data-md>
-      <p>The IETF’s "Pervasive Monitoring Is an Attack" document <a data-link-type="biblio" href="#biblio-rfc7258">[RFC7258]</a> is
-  useful reading, outlining some of the impacts on privacy that this
-  assumption entails.</p>
-     <li data-md>
-      <p>Governments aren’t the only concern; your local coffee shop is likely to
-  be gathering information on its customers, your ISP at home is likely to
-  be doing the same.</p>
-    </ul>
-    <h3 class="heading settled" data-level="3.2" id="active-network"><span class="secno">3.2. </span><span class="content"> Active Network Attackers </span><a class="self-link" href="#active-network"></a></h3>
-    <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="active-network-attacker">active network attacker</dfn> has both read- and write-access to the
-  bits going over the wire between users and the servers they’re communicating
-  with. She can collect and analyze data, but also modify it in-flight,
-  injecting and manipulating Javascript, HTML, and other content at will.
-  This is more common than you might expect, for both benign and malicious
-  purposes:</p>
-    <ul>
-     <li data-md>
-      <p>ISPs and caching proxies regularly cache and compress images before
-  delivering them to users in an effort to reduce data usage. This can be
-  especially useful for users on low-bandwidth, high-latency devices like
-  phones.</p>
-     <li data-md>
-      <p>ISPs also regularly inject JavaScript <a data-link-type="biblio" href="#biblio-comcast">[COMCAST]</a> and other identifiers <a data-link-type="biblio" href="#biblio-verizon">[VERIZON]</a> for less benign purposes.</p>
-     <li data-md>
-      <p>If your ISP is willing to modify substantial amounts of traffic flowing
-  through it for profit, it’s difficult to believe that state-level
-  attackers will remain passive.</p>
-    </ul>
-    <h3 class="heading settled" data-level="3.3" id="sop-violations"><span class="secno">3.3. </span><span class="content"> Same-Origin Policy Violations </span><a class="self-link" href="#sop-violations"></a></h3>
-    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="same-origin-policy">same-origin policy</dfn> is the cornerstone of security on the web;
-  one origin should not have direct access to another origin’s data (the policy
-  is more formally defined in Section 3 of <a data-link-type="biblio" href="#biblio-rfc6454">[RFC6454]</a>). A corollary to this
-  policy is that an origin should not have direct access to data that isn’t
-  associated with <em>any</em> origin: the contents of a user’s hard drive,
-  for instance. Various kinds of attacks bypass this protection in one way or
-  another. For example:</p>
-    <ul>
-     <li data-md>
-      <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-local-lt="XSS" data-noexport id="cross-site-scripting-attacks">Cross-site scripting attacks</dfn> involve an
-  attacker tricking an origin into executing attacker-controlled code in
-  the context of a target origin.</p>
-     <li data-md>
-      <p>Cross-site request forgery attacks trick user agents into exerting a
-  user’s ambient authority on sites where they’ve logged in by submitting
-  requests on their behalf.</p>
-     <li data-md>
-      <p>Data leakage occurs when bits of information are inadvertently made
-  available cross-origin, either explicitly via CORS headers <a data-link-type="biblio" href="#biblio-cors">[CORS]</a>,
-  or implicitly, via side-channel attacks like <a data-link-type="biblio" href="#biblio-timing">[TIMING]</a>.</p>
-    </ul>
-    <h3 class="heading settled" data-level="3.4" id="third-party-tracking"><span class="secno">3.4. </span><span class="content"> Third-Party Tracking </span><a class="self-link" href="#third-party-tracking"></a></h3>
-    <p>Part of the power of the web is its ability for a page to pull in content
-  from other third parties — from images to javascript — to enhance the content
-  and/or a user’s experience of the site.  However, when a page pulls in
-  content from third parities, it inherently leaks some information to third
-  parties — referer information and other information that may be used to track
-  and profile a user.  This includes the fact that cookies go back to the
-  domain that initially stored them allowing for cross origin tracking.
-  Moreover, third parties can gain execution power through third party
-  Javascript being included by a webpage.  While pages can take steps to
-  mitigate the risks of third party content and browsers may differentiate
-  how they treat first and third party content from a given page, the risk of
-  new functionality being executed by third parties rather than the first party
-  site should be considered in the feature development process.</p>
-    <p>The simplest example is injecting a link to a site that behaves differently
-  under specific condition, for example based on the fact that user is or is not
-  logged to the site. This may reveal that the user has an account on a site.</p>
-    <h3 class="heading settled" data-level="3.5" id="legitimate-misuse"><span class="secno">3.5. </span><span class="content"> Legitimate Misuse </span><a class="self-link" href="#legitimate-misuse"></a></h3>
-    <p>Even when powerful features are made available to developers, it does not
-  mean that all the uses should always be a good idea, or justified; in fact,
-  data privacy regulations around the world may even put limits on certain uses
-  of data. In the context of first party, a legitimate website is potentially
-  able to interact with powerful features to learn about the user behavior or
-  habits. For example:</p>
-    <ul>
-     <li data-md>
-      <p>Tracking the user while browsing the website via mechanisms such as mouse
-  move tracking</p>
-     <li data-md>
-      <p>Behavioral profiling of the user based on the usage patterns</p>
-     <li data-md>
-      <p>Accessing powerful features enabling to reason about the user system,
-  himself or the user surrounding, such as a webcam, Web Bluetooth or
-  sensors</p>
-    </ul>
-    <p>This point is admittedly different from others - and underlines that even if
-  something may be possible, it does not mean it should always be done,
-  including the need for considering a privacy impact assessment or even an
-  ethical assessment. When designing a specification with security and privacy
-  in mind, all both use and misuse cases should be in scope.</p>
-   </section>
-   <section>
-    <h2 class="heading settled" data-level="4" id="mitigations"><span class="secno">4. </span><span class="content"> Mitigation Strategies </span><a class="self-link" href="#mitigations"></a></h2>
-    <p>To mitigate the security and privacy risks you’ve identified in your
-  specification as you’ve filled out the questionnaire,
-  you may want to apply one or more of the mitigations described below to your
-  feature.</p>
-    <h3 class="heading settled" data-level="4.1" id="data-minimization"><span class="secno">4.1. </span><span class="content"> Data Minimization </span><a class="self-link" href="#data-minimization"></a></h3>
-    <p>Minimization is a strategy that involves exposing as little information to
-  other communication partners as is required for a given operation to
-  complete. More specifically, it requires not providing access to more
-  information than was apparent in the user-mediated access or allowing the
-  user some control over which information exactly is provided.</p>
-    <p>For example, if the user has provided access to a given file, the object
-  representing that should not make it possible to obtain information about
-  that file’s parent directory and its contents as that is clearly not what is
-  expected.</p>
-    <p>In context of data minimization it is natural to ask what data is passed
-  around between the different parties, how persistent the data items and
-  identifiers are, and whether there are correlation possibilities between
-  different protocol runs.</p>
-    <p>For example, the W3C Device APIs Working Group has defined a number of
-  requirements in their Privacy Requirements document. <a data-link-type="biblio" href="#biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]</a></p>
-    <p>Data minimization is applicable to specification authors and implementers, as
-  well as to those deploying the final service.</p>
-    <p>As an example, consider mouse events. When a page is loaded, the application
-  has no way of knowing whether a mouse is attached, what type of mouse it is
-  (e.g., make and model), what kind of capabilities it exposes, how many are
-  attached, and so on. Only when the user decides to use the mouse — presumably
-  because it is required for interaction — does some of this information become
-  available. And even then, only a minimum of information is exposed: you could
-  not know whether it is a trackpad for instance, and the fact that it may have
-  a right button is only exposed if it is used. For instance, the Gamepad API
-  makes use of this data minimization capability. It is impossible for a Web game
-  to know if the user agent has access to gamepads, how many there are, what
-  their capabilities are, etc. It is simply assumed that if the user wishes to
-  interact with the game through the gamepad then she will know when to action
-  it — and actioning it will provide the application with all the information
-  that it needs to operate (but no more than that).</p>
-    <p>The way in which the functionality is supported for the mouse is simply by
-  only providing information on the mouse’s behaviour when certain events take
-  place. The approach is therefore to expose event handling (e.g., triggering
-  on click, move, button press) as the sole interface to the device.</p>
-    <p>Two features that have minimized the data they make available are:</p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-battery-status">[BATTERY-STATUS]</a> <q>The user agent should not expose high precision readouts</q></p>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> <q>Limit maximum sampling frequency</q>, <q>Reduce accuracy</q></p>
-    </ul>
-    <h3 class="heading settled" data-level="4.2" id="privacy-friendly-defaults"><span class="secno">4.2. </span><span class="content"> Default Privacy Settings </span><a class="self-link" href="#privacy-friendly-defaults"></a></h3>
-    <p>Users often do not change defaults, as a result, it is important that the
-  default mode of a specification minimizes the amount, identifiability, and
-  persistence of the data and identifiers exposed.  This is particularly true
-  if a protocol comes with flexible options so that it can be tailored to
-  specific environments.</p>
-    <h3 class="heading settled" data-level="4.3" id="user-mediation"><span class="secno">4.3. </span><span class="content"> Explicit user mediation </span><a class="self-link" href="#user-mediation"></a></h3>
-    <p>If the security or privacy risk of a feature cannot otherwise be mitigated in
-  a specification, optionally allowing an implementer to prompt a user may
-  be the best mitigation possible, understanding it does not entirely remove
-  the privacy risk.  If the specification does not allow for the implementer to
-  prompt, it may result in divergence implementations by different user agents
-  as some user agents choose to implement more privacy-friendly version.</p>
-    <p>It is possible that the risk of a feature cannot be mitigated because the
-  risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location intentionally; user agents generally gate access to
-  the feature on a permission prompt which the user may choose to accept.  This
-  risk is also present and should be accounted for in features that expose
-  personal data or identifiers.</p>
-    <p>Designing such prompts is difficult as is determining the duration that the
-  permission should provide.</p>
-    <p>Often, the best prompt is one that is clearly tied to a user action, like the
-  file picker, where in response to a user action, the file picker is brought
-  up and a user gives access to a specific file to an individual site.</p>
-    <p>Generally speaking, the duration and timing of the prompt should be inversely
-  proportional to the risk posed by the data exposed.  In addition, the prompt
-  should consider issues such as:</p>
-    <ul>
-     <li data-md>
-      <p>How should permission requests be scoped? Especially when requested by an
- embedded third party iframe?</p>
-     <li data-md>
-      <p>Should persistence be based on the pair of top-level/embedded origins or a
- different scope?</p>
-     <li data-md>
-      <p>How is it certain that the prompt is occurring in context of requiring the
- data and at a time that it is clear to the user why the prompt is occurring.</p>
-     <li data-md>
-      <p>Explaining the implications of permission before prompting the user, in a
- way that is accessible and localized -- _who_ is asking, _what_ are they
- asking for, _why_ do they need it?</p>
-     <li data-md>
-      <p>What happens if the user rejects the request at the time of the prompt or
- if the user later changes their mind and revokes access.</p>
-    </ul>
-    <p>These prompts should also include considerations for what, if any, control a
-  user has over their data after it has been shared with other parties.  For
-  example, are users able to determine what information was shared with other
-  parties?</p>
-    <h3 class="heading settled" data-level="4.4" id="restrict-to-first-party"><span class="secno">4.4. </span><span class="content"> Explicitly restrict the feature to first party origins </span><a class="self-link" href="#restrict-to-first-party"></a></h3>
-    <p>As described in the "Third-Party Tracking" section, a significant feature of
-  the web is the mixing of first and third party content in a single page, but,
-  this introduces risk where the third party content can use the same set of web
-  features as the first party content.</p>
-    <p>Authors should explicit specify the feature’s scope of availability:</p>
-    <ul>
-     <li data-md>
-      <p>When a feature should be made available to embedded third parties -- and
- often first parties should be able to explicitly control that (using
- iframe attributes or feature policy)</p>
-     <li data-md>
-      <p>Whether a feature should be available in the background or only in the
- top-most, visible tab.</p>
-     <li data-md>
-      <p>Whether a feature should be available to offline service workers.</p>
-     <li data-md>
-      <p>Whether events will be fired simultaneously</p>
-    </ul>
-    <p>Third party’s access to a feature should be an optional implementation for
-  conformance.</p>
-    <h3 class="heading settled" data-level="4.5" id="secure-contexts"><span class="secno">4.5. </span><span class="content"> Secure Contexts </span><a class="self-link" href="#secure-contexts"></a></h3>
-    <p>If the primary risk that you’ve identified in your specification is the
-  threat posed by <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a>, offering a feature to an
-  insecure origin is the same as offering that feature to every origin because
-  the attacker can inject frames and code at will. Requiring an encrypted and
-  authenticated connection in order to use a feature can mitigate this kind of
-  risk.</p>
-    <p>Secure contexts also protect against <a data-link-type="dfn" href="#passive-network-attacker" id="ref-for-passive-network-attacker">passive network attackers</a>.  For
-  example, if a page uses the Geolocation API and sends the sensor-provided
-  latitude and longitude back to the server over an insecure connection, then
-  any passive network attacker can learn the user’s location, without any
-  feasible path to detection by the user or others.</p>
-    <p>However, requiring a secure context is not sufficient to mitigate many
-  privacy risks or even security risks from other threat actors than active
-  network attackers.</p>
-    <h3 class="heading settled" data-level="4.6" id="drop-feature"><span class="secno">4.6. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
-    <p>Possibly the simplest way
-  to mitigate potential negative security or privacy impacts of a feature
-  is to drop the feature,
-  though you should keep in mind that some security or privacy risks
-  may be removed or mitigated
-  by adding features to the platform.
-  Every feature in a spec
-  should be seen as
-  potentially adding security and/or privacy risk
-  until proven otherwise.
-  Discussing dropping the feature
-  as a mitigation for security or privacy impacts
-  is a helpful exercise
-  as it helps illuminate the tradeoffs
-  between the feature,
-  whether it is exposing the minimum amount of data necessary,
-  and other possible mitigations.</p>
-    <p>Consider also the cumulative effect
-  of feature addition
-  to the overall impression that users have
-  that <a href="https://w3ctag.github.io/design-principles/#safe-to-browse">it is safe to visit a web page</a>.
-  Doing things that complicate users' understanding
-  that it is safe to visit websites,
-  or that complicate what users need to understand
-  about the safety of the web
-  (e.g., adding features that are less safe)
-  reduces the ability of users
-  to act based on that understanding of safety,
-  or to act in ways that correctly reflect the safety that exists.</p>
-    <p>Every specification should seek to be as small as possible, even if only
-  for the reasons of reducing and minimizing security/privacy attack surface(s).
-  By doing so we can reduce the overall security and privacy attack surface
-  of not only a particular feature, but of a module (related set of
-  features), a specification, and the overall web platform.</p>
-    <p>Examples</p>
-    <ul>
-     <li data-md>
-      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580">Mozilla</a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped the Battery Status API</p>
-     <li data-md>
-      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events</p>
-    </ul>
-    <h3 class="heading settled" data-level="4.7" id="privacy-impact-assessment"><span class="secno">4.7. </span><span class="content"> Making a privacy impact assessment </span><a class="self-link" href="#privacy-impact-assessment"></a></h3>
-    <p>Some features are potentially supplying very sensitive data, and it is
-  the responsibility of the end-developer, system owner, or manager to realize
-  this and act accordingly in the design of his/her system. Some use may
-  warrant conducting a privacy impact assessment, especially when data
-  relating to individuals may be processed.</p>
-    <p>Specifications that expose such sensitive data should include a
-  recommendation that websites and applications adopting the API — but not
-  necessarily the implementing user agent — conduct a privacy impact assessment
-  of the data that they collect.</p>
-    <p>A features that recommends such is:</p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> advises to consider performing of a privacy impact
-  assessment</p>
-    </ul>
-    <p>Documenting these impacts is important for organizations although it should
-  be noted that there are limitations to putting this onus on organizations.
-  Research has shown that sites often do not comply with security/privacy
-  requirements in specifications.  For example, in <a data-link-type="biblio" href="#biblio-doty-geolocation">[DOTY-GEOLOCATION]</a>, it was
-  found that none of the studied websites informed users of their privacy
-  practices before the site prompted for location.</p>
-   </section>
+    <li data-md>
+     <p>New string-to-script mechanism? (e.g. <code class="idl"><a data-link-type="idl" href="https://tc39.github.io/ecma262/#sec-eval-x" id="ref-for-sec-eval-x">eval()</a></code> or <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout" id="ref-for-dom-settimeout">setTimeout()</a></code>)</p>
+    <li data-md>
+     <p>What about style?</p>
+   </ul>
+   <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Does this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
+   <p>If so, what devices does this specification allow an origin to access?</p>
+   <p>Accessing other devices, both via network connections and via
+direct connection to the user’s machine (e.g. via Bluetooth,
+NFC, or USB), could expose vulnerabilities - some of
+these devices were not created with web connectivity in mind and may be inadequately
+hardened against malicious input, or with the use on the web.</p>
+   <p>Exposing other devices on a user’s local network also has significant privacy
+risk:</p>
+   <ul>
+    <li data-md>
+     <p>If two user agents have the same devices on their local network, an
+attacker may infer that the two user agents are running on the same host
+or are being used by two separate users who are in the same physical
+location.</p>
+    <li data-md>
+     <p>Enumerating the devices on a user’s local network provides significant
+entropy that an attacker may use to fingerprint the user agent.</p>
+    <li data-md>
+     <p>If the specification exposes persistent or long lived identifiers of
+local network devices, that provides attackers with a way to track a user
+over time even if a user takes steps to prevent such tracking (e.g.
+clearing cookies and other stateful tracking mechanisms).</p>
+    <li data-md>
+     <p>Direct connections might be also be used to bypass security checks that
+other APIs would provide. For example, attackers used the WebUSB API to
+access others sites' credentials on a hardware security, bypassing
+same-origin checks in an early U2F API. <a data-link-type="biblio" href="#biblio-yubikey-attack">[YUBIKEY-ATTACK]</a></p>
+   </ul>
+   <p class="example" id="example-779b6f03"><a class="self-link" href="#example-779b6f03"></a> The Network Service Discovery API <a data-link-type="biblio" href="#biblio-discovery-api">[DISCOVERY-API]</a> recommended CORS
+preflights before granting access to a device, and requires user agents to
+involve the user with a permission request of some kind. </p>
+   <p class="example" id="example-01b5b20a"><a class="self-link" href="#example-01b5b20a"></a> Likewise, the Web Bluetooth <a data-link-type="biblio" href="#biblio-web-bluetooth">[WEB-BLUETOOTH]</a> has an extensive discussion of
+such issues in <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy">Web Bluetooth §2 Security and privacy considerations</a>, which is worth
+reading as an example for similar work. </p>
+   <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb">[WEBUSB]</a> addresses these risks through a combination of user mediation /
+prompting, secure origins, and feature policy.
+See <a href="https://wicg.github.io/webusb/#security-and-privacy">WebUSB §3 Security and Privacy Considerations</a> for more. </p>
+   <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Does this specification allow an origin some measure of control over a user
+  agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
+   <p>Features that allow for control over a user agent’s UI (e.g. full screen
+mode) or changes to the underlying system (e.g. installing an ‘app’ on a
+smartphone home screen) may surprise users or obscure security / privacy
+controls.  To the extent that your feature does allow for the changing of a
+user agent’s UI, can it effect security / privacy controls?  What analysis
+confirmed this conclusion?</p>
+   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this this specification create or expose
+  to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
+   <p>If a standard exposes a temporary identifier to the web, the identifier
+should be short lived and should rotate on some regular duration to mitigate
+the risk of this identifier being used to track a user over time.  When a
+user clears state in their user agent, these temporary identifiers should be
+cleared to prevent re-correlation of state using a temporary identifier.</p>
+   <p>If this specification does create or expose a temporary identifier to the
+web, how is it exposed, when, to what entities, and, how frequently is it
+rotated?</p>
+   <p>Example temporary identifiers include TLS Channel ID, Session Tickets, and
+IPv6 addresses.</p>
+   <p>The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
+at zero, increments, and is reset — is a good example of a privacy friendly
+temporary identifier.</p>
+   <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
+  third-party contexts? </span><a class="self-link" href="#first-third-party"></a></h3>
+   <p>The behavior of a feature should be considered not just in the context of its
+being used by a first party origin that a user is visiting but also the
+implications of its being used by an arbitrary third party that the first
+party includes. When developing your specification, consider the implications
+of its use by third party resources on a page and, consider if support for
+use by third party resources should be optional to conform to the
+specification.  If supporting use by third party resources is mandatory for
+conformance, please explain why and what privacy mitigations are in place.
+This is particularly important as user agents may take steps to reduce the
+availability or functionality of certain features to third parties if the
+third parties are found to be abusing the functionality.</p>
+   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a user agent’s Private
+  Browsing or "incognito" mode? </span><a class="self-link" href="#private-browsing"></a></h3>
+   <p>Each major user agent implements a private browsing / incognito mode feature
+with significant variation across user agents in threat models,
+functionality, and descriptions to users regarding the protections afforded <a data-link-type="biblio" href="#biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]</a>.</p>
+   <p>One typical commonality across user agents' private browsing / incognito
+modes is that they have a set of state than the user agents’ in their
+‘normal’ modes.</p>
+   <p>Does the specification provide information that would allow for the
+correlation of a single user’s activity across normal and private browsing /
+incognito modes?  Does the specification result in information being written
+to a user’s host that would persist following a private browsing / incognito
+mode session ending?</p>
+   <p>There has been research into both:</p>
+   <ul>
+    <li data-md>
+     <p>Detecting whether a user agent is in private browsing mode <a data-link-type="biblio" href="#biblio-rivera">[RIVERA]</a> using non-standardized methods such as <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">window.requestFileSystem()</a></code>.</p>
+    <li data-md>
+     <p>Using features to fingerprint a browser and correlate private and
+non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments">[OLEJNIK-PAYMENTS]</a></p>
+   </ul>
+   <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have a "Security Considerations" and "Privacy
+  Considerations" section? </span><a class="self-link" href="#considerations"></a></h3>
+   <p>Documenting the various concerns and potential abuses in "Security
+Considerations" and "Privacy Considerations" sections of a document is a good
+way to help implementers and web developers understand the risks that a
+feature presents, and to ensure that adequate mitigations are in place.
+Simply adding a section to your specification with yes/no responses to the
+questions in this document is insufficient.</p>
+   <p>If it seems like a feature does not have security or privacy impacts,
+then say so inline in the spec section for that feature:</p>
+   <blockquote>
+    <p>There are no known security or privacy impacts of this feature.</p>
+   </blockquote>
+   <p>Saying so explicitly in the specification serves several purposes:</p>
+   <ol>
+    <li data-md>
+     <p>Shows that a spec author/editor has explicitly considered security and
+privacy when designing a feature.</p>
+    <li data-md>
+     <p>Provides some sense of confidence that there might be no such impacts.</p>
+    <li data-md>
+     <p>Challenges security and privacy minded individuals to think of and find
+even the potential for such impacts.</p>
+    <li data-md>
+     <p>Demonstrates the spec author/editor’s receptivity to feedback about such
+impacts.</p>
+    <li data-md>
+     <p>Demonstrates a desire that the specification should not be introducing
+security and privacy issues</p>
+   </ol>
+   <p><a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security Consideration
+sections.  Generally, there should be a clear description of the kinds of
+privacy risks the new specification introduces to for users of the web
+platform.  Below is a set of considerations, informed by that RFC, for
+writing a privacy considerations section.</p>
+   <p>Authors must describe:</p>
+   <ol>
+    <li data-md>
+     <p>What privacy attacks have been considered?</p>
+    <li data-md>
+     <p>What privacy attacks have been deemed out of scope (and why)?</p>
+    <li data-md>
+     <p>What privacy mitigations have been implemented?</p>
+    <li data-md>
+     <p>What privacy mitigations have considered and not implemented (and why)?</p>
+   </ol>
+   <p>In addition, attacks considered must include:</p>
+   <ol>
+    <li data-md>
+     <p>Fingerprinting risk;</p>
+    <li data-md>
+     <p>Unexpected exfiltration of data through abuse of sensors;</p>
+    <li data-md>
+     <p>Unexpected usage of the specification / feature by third parties;</p>
+    <li data-md>
+     <p>If the specification includes identifiers, the authors must document what
+rotation period was selected for the identifiers and why.</p>
+    <li data-md>
+     <p>If the specification introduces new state to the user agent, the authors
+must document what guidance regarding clearing said storage was given and
+why.</p>
+    <li data-md>
+     <p>There should be a clear description of the residual risk to the user
+after the privacy mitigations has been implemented.</p>
+   </ol>
+   <p>The crucial aspect is to actually considering security and privacy. All new
+specifications must have security and privacy considerations sections to be
+considered for wide reviews. Interesting features added to the web platform
+generally often already had security and/or privacy impacts.</p>
+   <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
+   <p>Does this feature allow for a site to opt-out of security settings to
+accomplish some piece of functionality?  If so, in what situations does your
+specification allow such security setting downgrading and what mitigations
+are in place to make sure optional downgrading doesn’t dramatically increase
+risks?</p>
+   <ul>
+    <li data-md>
+     <p><code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code></p>
+    <li data-md>
+     <p><a data-link-type="biblio" href="#biblio-cors">[CORS]</a></p>
+    <li data-md>
+     <p><a data-link-type="biblio" href="#biblio-webmessaging">[WEBMESSAGING]</a></p>
+    <li data-md>
+     <p><a data-link-type="biblio" href="#biblio-referrer-policy">[REFERRER-POLICY]</a>'s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url" id="ref-for-referrer-policy-unsafe-url">"unsafe-url"</a></p>
+   </ul>
+   <h3 class="question heading settled" data-level="2.17" id="missing-questions"><span class="secno">2.17. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
+   <p>This questionnaire is not exhaustive.
+After completing a privacy review,
+it may be that
+there are privacy aspects of your specification
+that a strict reading, and response to, this questionnaire,
+would not have revealed.
+If this is the case,
+please convey those privacy concerns,
+and indicate if you can think of improved or new questions
+that would have covered this aspect.</p>
+   <p>Please consider <a href="https://github.com/w3ctag/security-questionnaire/issues/new">filing an issue</a> to let us know what the questionnaire should have asked.</p>
+   <h2 class="heading settled" data-level="3" id="threats"><span class="secno">3. </span><span class="content">Threat Models</span><a class="self-link" href="#threats"></a></h2>
+   <p>To consider security and privacy it is convenient to think in terms of threat
+models, a way to illuminate the possible risks.</p>
+   <p>There are some concrete privacy concerns that should be considered when
+developing a feature for the web platform <a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a>:</p>
+   <ul>
+    <li data-md>
+     <p>Surveillance: Surveillance is the observation or monitoring of an
+individual’s communications or activities.</p>
+    <li data-md>
+     <p>Stored Data Compromise: End systems that do not take adequate measures to
+secure stored data from unauthorized or inappropriate access.</p>
+    <li data-md>
+     <p>Intrusion: Intrusion consists of invasive acts that disturb or interrupt
+one’s life or activities.</p>
+    <li data-md>
+     <p>Misattribution: Misattribution occurs when data or communications related
+to one individual are attributed to another.</p>
+    <li data-md>
+     <p>Correlation: Correlation is the combination of various pieces of
+information related to an individual or that obtain that characteristic
+when combined.</p>
+    <li data-md>
+     <p>Identification: Identification is the linking of information to a
+particular individual to infer an individual’s identity or to allow the
+inference of an individual’s identity.</p>
+    <li data-md>
+     <p>Secondary Use: Secondary use is the use of collected information about an
+individual without the individual’s consent for a purpose different from
+that for which the information was collected.</p>
+    <li data-md>
+     <p>Disclosure: Disclosure is the revelation of information about an
+individual that affects the way others judge the individual.</p>
+    <li data-md>
+     <p>Exclusion: Exclusion is the failure to allow individuals to know about
+the data that others have about them and to participate in its handling
+and use.</p>
+   </ul>
+   <p>In the mitigations section, this document outlines a number of techniques
+that can be applied to mitigate these risks.</p>
+   <p>Enumerated below are some broad classes of threats that should be
+considered when developing a web feature.</p>
+   <h3 class="heading settled" data-level="3.1" id="passive-network"><span class="secno">3.1. </span><span class="content"> Passive Network Attackers </span><a class="self-link" href="#passive-network"></a></h3>
+   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="passive-network-attacker">passive network attacker</dfn> has read-access to the bits going over
+the wire between users and the servers they’re communicating with. She can’t <em>modify</em> the bytes, but she can collect and analyze them.</p>
+   <p>Due to the decentralized nature of the internet, and the general level of
+interest in user activity, it’s reasonable to assume that practically every
+unencrypted bit that’s bouncing around the network of proxies, routers, and
+servers you’re using right now is being read by someone. It’s equally likely
+that some of these attackers are doing their best to understand the encrypted
+bits as well, including storing encrypted communications for later
+cryptanalysis (though that requires significantly more effort).</p>
+   <ul>
+    <li data-md>
+     <p>The IETF’s "Pervasive Monitoring Is an Attack" document <a data-link-type="biblio" href="#biblio-rfc7258">[RFC7258]</a> is
+useful reading, outlining some of the impacts on privacy that this
+assumption entails.</p>
+    <li data-md>
+     <p>Governments aren’t the only concern; your local coffee shop is likely to
+be gathering information on its customers, your ISP at home is likely to
+be doing the same.</p>
+   </ul>
+   <h3 class="heading settled" data-level="3.2" id="active-network"><span class="secno">3.2. </span><span class="content"> Active Network Attackers </span><a class="self-link" href="#active-network"></a></h3>
+   <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="active-network-attacker">active network attacker</dfn> has both read- and write-access to the
+bits going over the wire between users and the servers they’re communicating
+with. She can collect and analyze data, but also modify it in-flight,
+injecting and manipulating Javascript, HTML, and other content at will.
+This is more common than you might expect, for both benign and malicious
+purposes:</p>
+   <ul>
+    <li data-md>
+     <p>ISPs and caching proxies regularly cache and compress images before
+delivering them to users in an effort to reduce data usage. This can be
+especially useful for users on low-bandwidth, high-latency devices like
+phones.</p>
+    <li data-md>
+     <p>ISPs also regularly inject JavaScript <a data-link-type="biblio" href="#biblio-comcast">[COMCAST]</a> and other identifiers <a data-link-type="biblio" href="#biblio-verizon">[VERIZON]</a> for less benign purposes.</p>
+    <li data-md>
+     <p>If your ISP is willing to modify substantial amounts of traffic flowing
+through it for profit, it’s difficult to believe that state-level
+attackers will remain passive.</p>
+   </ul>
+   <h3 class="heading settled" data-level="3.3" id="sop-violations"><span class="secno">3.3. </span><span class="content"> Same-Origin Policy Violations </span><a class="self-link" href="#sop-violations"></a></h3>
+   <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="same-origin-policy">same-origin policy</dfn> is the cornerstone of security on the web;
+one origin should not have direct access to another origin’s data (the policy
+is more formally defined in Section 3 of <a data-link-type="biblio" href="#biblio-rfc6454">[RFC6454]</a>). A corollary to this
+policy is that an origin should not have direct access to data that isn’t
+associated with <em>any</em> origin: the contents of a user’s hard drive,
+for instance. Various kinds of attacks bypass this protection in one way or
+another. For example:</p>
+   <ul>
+    <li data-md>
+     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-local-lt="XSS" data-noexport id="cross-site-scripting-attacks">Cross-site scripting attacks</dfn> involve an
+attacker tricking an origin into executing attacker-controlled code in
+the context of a target origin.</p>
+    <li data-md>
+     <p>Cross-site request forgery attacks trick user agents into exerting a
+user’s ambient authority on sites where they’ve logged in by submitting
+requests on their behalf.</p>
+    <li data-md>
+     <p>Data leakage occurs when bits of information are inadvertently made
+available cross-origin, either explicitly via CORS headers <a data-link-type="biblio" href="#biblio-cors">[CORS]</a>,
+or implicitly, via side-channel attacks like <a data-link-type="biblio" href="#biblio-timing">[TIMING]</a>.</p>
+   </ul>
+   <h3 class="heading settled" data-level="3.4" id="third-party-tracking"><span class="secno">3.4. </span><span class="content"> Third-Party Tracking </span><a class="self-link" href="#third-party-tracking"></a></h3>
+   <p>Part of the power of the web is its ability for a page to pull in content
+from other third parties — from images to javascript — to enhance the content
+and/or a user’s experience of the site.  However, when a page pulls in
+content from third parities, it inherently leaks some information to third
+parties — referer information and other information that may be used to track
+and profile a user.  This includes the fact that cookies go back to the
+domain that initially stored them allowing for cross origin tracking.
+Moreover, third parties can gain execution power through third party
+Javascript being included by a webpage.  While pages can take steps to
+mitigate the risks of third party content and browsers may differentiate
+how they treat first and third party content from a given page, the risk of
+new functionality being executed by third parties rather than the first party
+site should be considered in the feature development process.</p>
+   <p>The simplest example is injecting a link to a site that behaves differently
+under specific condition, for example based on the fact that user is or is not
+logged to the site. This may reveal that the user has an account on a site.</p>
+   <h3 class="heading settled" data-level="3.5" id="legitimate-misuse"><span class="secno">3.5. </span><span class="content"> Legitimate Misuse </span><a class="self-link" href="#legitimate-misuse"></a></h3>
+   <p>Even when powerful features are made available to developers, it does not
+mean that all the uses should always be a good idea, or justified; in fact,
+data privacy regulations around the world may even put limits on certain uses
+of data. In the context of first party, a legitimate website is potentially
+able to interact with powerful features to learn about the user behavior or
+habits. For example:</p>
+   <ul>
+    <li data-md>
+     <p>Tracking the user while browsing the website via mechanisms such as mouse
+move tracking</p>
+    <li data-md>
+     <p>Behavioral profiling of the user based on the usage patterns</p>
+    <li data-md>
+     <p>Accessing powerful features enabling to reason about the user system,
+himself or the user surrounding, such as a webcam, Web Bluetooth or
+sensors</p>
+   </ul>
+   <p>This point is admittedly different from others - and underlines that even if
+something may be possible, it does not mean it should always be done,
+including the need for considering a privacy impact assessment or even an
+ethical assessment. When designing a specification with security and privacy
+in mind, all both use and misuse cases should be in scope.</p>
+   <h2 class="heading settled" data-level="4" id="mitigations"><span class="secno">4. </span><span class="content"> Mitigation Strategies </span><a class="self-link" href="#mitigations"></a></h2>
+   <p>To mitigate the security and privacy risks you’ve identified in your
+specification as you’ve filled out the questionnaire,
+you may want to apply one or more of the mitigations described below to your
+feature.</p>
+   <h3 class="heading settled" data-level="4.1" id="data-minimization"><span class="secno">4.1. </span><span class="content"> Data Minimization </span><a class="self-link" href="#data-minimization"></a></h3>
+   <p>Minimization is a strategy that involves exposing as little information to
+other communication partners as is required for a given operation to
+complete. More specifically, it requires not providing access to more
+information than was apparent in the user-mediated access or allowing the
+user some control over which information exactly is provided.</p>
+   <p>For example, if the user has provided access to a given file, the object
+representing that should not make it possible to obtain information about
+that file’s parent directory and its contents as that is clearly not what is
+expected.</p>
+   <p>In context of data minimization it is natural to ask what data is passed
+around between the different parties, how persistent the data items and
+identifiers are, and whether there are correlation possibilities between
+different protocol runs.</p>
+   <p>For example, the W3C Device APIs Working Group has defined a number of
+requirements in their Privacy Requirements document. <a data-link-type="biblio" href="#biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]</a></p>
+   <p>Data minimization is applicable to specification authors and implementers, as
+well as to those deploying the final service.</p>
+   <p>As an example, consider mouse events. When a page is loaded, the application
+has no way of knowing whether a mouse is attached, what type of mouse it is
+(e.g., make and model), what kind of capabilities it exposes, how many are
+attached, and so on. Only when the user decides to use the mouse — presumably
+because it is required for interaction — does some of this information become
+available. And even then, only a minimum of information is exposed: you could
+not know whether it is a trackpad for instance, and the fact that it may have
+a right button is only exposed if it is used. For instance, the Gamepad API
+makes use of this data minimization capability. It is impossible for a Web game
+to know if the user agent has access to gamepads, how many there are, what
+their capabilities are, etc. It is simply assumed that if the user wishes to
+interact with the game through the gamepad then she will know when to action
+it — and actioning it will provide the application with all the information
+that it needs to operate (but no more than that).</p>
+   <p>The way in which the functionality is supported for the mouse is simply by
+only providing information on the mouse’s behaviour when certain events take
+place. The approach is therefore to expose event handling (e.g., triggering
+on click, move, button press) as the sole interface to the device.</p>
+   <p>Two features that have minimized the data they make available are:</p>
+   <ul>
+    <li data-md>
+     <p><a data-link-type="biblio" href="#biblio-battery-status">[BATTERY-STATUS]</a> <q>The user agent should not expose high precision readouts</q></p>
+    <li data-md>
+     <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> <q>Limit maximum sampling frequency</q>, <q>Reduce accuracy</q></p>
+   </ul>
+   <h3 class="heading settled" data-level="4.2" id="privacy-friendly-defaults"><span class="secno">4.2. </span><span class="content"> Default Privacy Settings </span><a class="self-link" href="#privacy-friendly-defaults"></a></h3>
+   <p>Users often do not change defaults, as a result, it is important that the
+default mode of a specification minimizes the amount, identifiability, and
+persistence of the data and identifiers exposed.  This is particularly true
+if a protocol comes with flexible options so that it can be tailored to
+specific environments.</p>
+   <h3 class="heading settled" data-level="4.3" id="user-mediation"><span class="secno">4.3. </span><span class="content"> Explicit user mediation </span><a class="self-link" href="#user-mediation"></a></h3>
+   <p>If the security or privacy risk of a feature cannot otherwise be mitigated in
+a specification, optionally allowing an implementer to prompt a user may
+be the best mitigation possible, understanding it does not entirely remove
+the privacy risk.  If the specification does not allow for the implementer to
+prompt, it may result in divergence implementations by different user agents
+as some user agents choose to implement more privacy-friendly version.</p>
+   <p>It is possible that the risk of a feature cannot be mitigated because the
+risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location intentionally; user agents generally gate access to
+the feature on a permission prompt which the user may choose to accept.  This
+risk is also present and should be accounted for in features that expose
+personal data or identifiers.</p>
+   <p>Designing such prompts is difficult as is determining the duration that the
+permission should provide.</p>
+   <p>Often, the best prompt is one that is clearly tied to a user action, like the
+file picker, where in response to a user action, the file picker is brought
+up and a user gives access to a specific file to an individual site.</p>
+   <p>Generally speaking, the duration and timing of the prompt should be inversely
+proportional to the risk posed by the data exposed.  In addition, the prompt
+should consider issues such as:</p>
+   <ul>
+    <li data-md>
+     <p>How should permission requests be scoped? Especially when requested by an
+embedded third party iframe?</p>
+    <li data-md>
+     <p>Should persistence be based on the pair of top-level/embedded origins or a
+different scope?</p>
+    <li data-md>
+     <p>How is it certain that the prompt is occurring in context of requiring the
+data and at a time that it is clear to the user why the prompt is occurring.</p>
+    <li data-md>
+     <p>Explaining the implications of permission before prompting the user, in a
+way that is accessible and localized -- _who_ is asking, _what_ are they
+asking for, _why_ do they need it?</p>
+    <li data-md>
+     <p>What happens if the user rejects the request at the time of the prompt or
+if the user later changes their mind and revokes access.</p>
+   </ul>
+   <p>These prompts should also include considerations for what, if any, control a
+user has over their data after it has been shared with other parties.  For
+example, are users able to determine what information was shared with other
+parties?</p>
+   <h3 class="heading settled" data-level="4.4" id="restrict-to-first-party"><span class="secno">4.4. </span><span class="content"> Explicitly restrict the feature to first party origins </span><a class="self-link" href="#restrict-to-first-party"></a></h3>
+   <p>As described in the "Third-Party Tracking" section, a significant feature of
+the web is the mixing of first and third party content in a single page, but,
+this introduces risk where the third party content can use the same set of web
+features as the first party content.</p>
+   <p>Authors should explicit specify the feature’s scope of availability:</p>
+   <ul>
+    <li data-md>
+     <p>When a feature should be made available to embedded third parties -- and
+often first parties should be able to explicitly control that (using
+iframe attributes or feature policy)</p>
+    <li data-md>
+     <p>Whether a feature should be available in the background or only in the
+top-most, visible tab.</p>
+    <li data-md>
+     <p>Whether a feature should be available to offline service workers.</p>
+    <li data-md>
+     <p>Whether events will be fired simultaneously</p>
+   </ul>
+   <p>Third party’s access to a feature should be an optional implementation for
+conformance.</p>
+   <h3 class="heading settled" data-level="4.5" id="secure-contexts"><span class="secno">4.5. </span><span class="content"> Secure Contexts </span><a class="self-link" href="#secure-contexts"></a></h3>
+   <p>If the primary risk that you’ve identified in your specification is the
+threat posed by <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a>, offering a feature to an
+insecure origin is the same as offering that feature to every origin because
+the attacker can inject frames and code at will. Requiring an encrypted and
+authenticated connection in order to use a feature can mitigate this kind of
+risk.</p>
+   <p>Secure contexts also protect against <a data-link-type="dfn" href="#passive-network-attacker" id="ref-for-passive-network-attacker">passive network attackers</a>.  For
+example, if a page uses the Geolocation API and sends the sensor-provided
+latitude and longitude back to the server over an insecure connection, then
+any passive network attacker can learn the user’s location, without any
+feasible path to detection by the user or others.</p>
+   <p>However, requiring a secure context is not sufficient to mitigate many
+privacy risks or even security risks from other threat actors than active
+network attackers.</p>
+   <h3 class="heading settled" data-level="4.6" id="drop-feature"><span class="secno">4.6. </span><span class="content"> Drop the feature </span><a class="self-link" href="#drop-feature"></a></h3>
+   <p>Possibly the simplest way
+to mitigate potential negative security or privacy impacts of a feature
+is to drop the feature,
+though you should keep in mind that some security or privacy risks
+may be removed or mitigated
+by adding features to the platform.
+Every feature in a spec
+should be seen as
+potentially adding security and/or privacy risk
+until proven otherwise.
+Discussing dropping the feature
+as a mitigation for security or privacy impacts
+is a helpful exercise
+as it helps illuminate the tradeoffs
+between the feature,
+whether it is exposing the minimum amount of data necessary,
+and other possible mitigations.</p>
+   <p>Consider also the cumulative effect
+of feature addition
+to the overall impression that users have
+that <a href="https://w3ctag.github.io/design-principles/#safe-to-browse">it is safe to visit a web page</a>.
+Doing things that complicate users' understanding
+that it is safe to visit websites,
+or that complicate what users need to understand
+about the safety of the web
+(e.g., adding features that are less safe)
+reduces the ability of users
+to act based on that understanding of safety,
+or to act in ways that correctly reflect the safety that exists.</p>
+   <p>Every specification should seek to be as small as possible, even if only
+for the reasons of reducing and minimizing security/privacy attack surface(s).
+By doing so we can reduce the overall security and privacy attack surface
+of not only a particular feature, but of a module (related set of
+features), a specification, and the overall web platform.</p>
+   <p>Examples</p>
+   <ul>
+    <li data-md>
+     <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1313580">Mozilla</a> and <a href="https://bugs.webkit.org/show_bug.cgi?id=164213">WebKit</a> dropped the Battery Status API</p>
+    <li data-md>
+     <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events</p>
+   </ul>
+   <h3 class="heading settled" data-level="4.7" id="privacy-impact-assessment"><span class="secno">4.7. </span><span class="content"> Making a privacy impact assessment </span><a class="self-link" href="#privacy-impact-assessment"></a></h3>
+   <p>Some features are potentially supplying very sensitive data, and it is
+the responsibility of the end-developer, system owner, or manager to realize
+this and act accordingly in the design of his/her system. Some use may
+warrant conducting a privacy impact assessment, especially when data
+relating to individuals may be processed.</p>
+   <p>Specifications that expose such sensitive data should include a
+recommendation that websites and applications adopting the API — but not
+necessarily the implementing user agent — conduct a privacy impact assessment
+of the data that they collect.</p>
+   <p>A features that recommends such is:</p>
+   <ul>
+    <li data-md>
+     <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> advises to consider performing of a privacy impact
+assessment</p>
+   </ul>
+   <p>Documenting these impacts is important for organizations although it should
+be noted that there are limitations to putting this onus on organizations.
+Research has shown that sites often do not comply with security/privacy
+requirements in specifications.  For example, in <a data-link-type="biblio" href="#biblio-doty-geolocation">[DOTY-GEOLOCATION]</a>, it was
+found that none of the studied websites informed users of their privacy
+practices before the site prompted for location.</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2506,94 +2446,94 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
    <a href="https://w3c.github.io/webappsec-csp/#connect-src">https://w3c.github.io/webappsec-csp/#connect-src</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-connect-src">2.4. 
-    How does this specification deal with sensitive information? </a>
+  How does this specification deal with sensitive information? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-form-action">
    <a href="https://w3c.github.io/webappsec-csp/#form-action">https://w3c.github.io/webappsec-csp/#form-action</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-form-action">2.4. 
-    How does this specification deal with sensitive information? </a>
+  How does this specification deal with sensitive information? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-script-src">
    <a href="https://w3c.github.io/webappsec-csp/#script-src">https://w3c.github.io/webappsec-csp/#script-src</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-script-src">2.9. 
-    Does this specification enable new script execution/loading mechanisms? </a>
+  Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-sec-eval-x">
    <a href="https://tc39.github.io/ecma262/#sec-eval-x">https://tc39.github.io/ecma262/#sec-eval-x</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-sec-eval-x">2.9. 
-    Does this specification enable new script execution/loading mechanisms? </a>
+  Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-navigatorplugins">
    <a href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins">https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-navigatorplugins">2.6. 
-    What information from the underlying platform, e.g. configuration data, is
-    exposed by this specification to an origin? </a>
+  What information from the underlying platform, e.g. configuration data, is
+  exposed by this specification to an origin? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-document-domain">
    <a href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain">https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-document-domain">2.16. 
-    Does this specification allow downgrading default security characteristics? </a>
+  Does this specification allow downgrading default security characteristics? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-link-element">
    <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-the-link-element">2.9. 
-    Does this specification enable new script execution/loading mechanisms? </a>
+  Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-localstorage">
    <a href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage">https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-localstorage">2.5. 
-    Does this specification introduce new state for an origin that persists
-    across browsing sessions? </a>
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-script">
    <a href="https://html.spec.whatwg.org/multipage/scripting.html#script">https://html.spec.whatwg.org/multipage/scripting.html#script</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-script">2.9. 
-    Does this specification enable new script execution/loading mechanisms? </a>
+  Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-settimeout">
    <a href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout">https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-settimeout">2.9. 
-    Does this specification enable new script execution/loading mechanisms? </a>
+  Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-windoworworkerglobalscope-indexeddb">
    <a href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb">https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-windoworworkerglobalscope-indexeddb">2.5. 
-    Does this specification introduce new state for an origin that persists
-    across browsing sessions? </a>
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-referrer-policy-unsafe-url">
    <a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url">https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-referrer-policy-unsafe-url">2.16. 
-    Does this specification allow downgrading default security characteristics? </a>
+  Does this specification allow downgrading default security characteristics? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-formdata">
    <a href="https://xhr.spec.whatwg.org/#formdata">https://xhr.spec.whatwg.org/#formdata</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-formdata">2.4. 
-    How does this specification deal with sensitive information? </a>
+  How does this specification deal with sensitive information? </a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
@@ -2729,34 +2669,34 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
    <b><a href="#passive-network-attacker">#passive-network-attacker</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-passive-network-attacker">4.5. 
-    Secure Contexts </a>
+  Secure Contexts </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="active-network-attacker">
    <b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-active-network-attacker">2.5. 
-    Does this specification introduce new state for an origin that persists
-    across browsing sessions? </a>
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
     <li><a href="#ref-for-active-network-attacker①">4.5. 
-    Secure Contexts </a>
+  Secure Contexts </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="same-origin-policy">
    <b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-same-origin-policy">2.8. 
-    What data does this specification expose to an origin?  Please also
-    document what data is identical to data exposed by other features, in the
-    same or different contexts. </a>
+  What data does this specification expose to an origin?  Please also
+  document what data is identical to data exposed by other features, in the
+  same or different contexts. </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="cross-site-scripting-attacks">
    <b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cross-site-scripting-attacks">2.5. 
-    Does this specification introduce new state for an origin that persists
-    across browsing sessions? </a>
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
