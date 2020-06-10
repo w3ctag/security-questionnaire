@@ -124,7 +124,7 @@ See also
 Personal information is data about a user
 (for example, their home address),
 or information that could be used to identify a user,
-such as an alias or email address.
+such as an alias, email address, or identification number.
 
 Note: Personal information is
 distinct from personally identifiable information
@@ -144,7 +144,7 @@ for authentication
 should not directly expose this biometric data to the web.
 Instead,
 it can use the biometric data
-to look up or generate some origin-specific, ephemeral secret
+to look up or generate some temporary key which is not shared across origins
 which can then be safely exposed to the origin. [[WEBAUTHN]]
 </p>
 
@@ -161,7 +161,7 @@ added to the web platform
 increases the risk
 that users will ignore
 the contents of all permission prompts.
-It is sometimes possible to come up with
+Before adding a permission prompt, consider your options for using
 a less obtrusive way to gain meaningful user consent.
 [[ADDING-PERMISSION]]
 
