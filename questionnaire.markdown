@@ -7,9 +7,9 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 01. What information might this feature expose to Web sites or other parties,
 >     and for what purposes is that exposure necessary?
 > 02. Is this specification exposing the minimum amount of information necessary
->     to power the feature?
-> 03. How does this specification deal with personal information or
->     personally-identifiable information or information derived thereof?
+>     to power its features?
+> 03. How does this specification deal with personal information,
+>     personally-identifiable information, or information derived from them?
 > 04. How does this specification deal with sensitive information?
 > 05. Does this specification introduce new state for an origin that persists
 >     across browsing sessions?
