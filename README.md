@@ -2,4 +2,4 @@ This repository contains the [Editor's Draft](https://w3ctag.github.io/security-
 
 The questionnaire is a joint product of the [TAG](https://tag.w3.org/) and [PING](https://www.w3.org/Privacy/IG/).
 
-When folks request a [design review](https://github.com/w3ctag/design-reviews) from the TAG, [filling out](questionnaire.markdown) the security and privacy questionnaire helps everyone to understand potential security and privacy issues and mitigations for the design, and can save us asking redundant questions.
+When folks request a [design review](https://github.com/w3ctag/design-reviews) from the TAG or a [privacy review](https://github.com/w3cping/privacy-reviews/issues) from PING, [filling out](questionnaire.markdown) the security and privacy questionnaire helps everyone to understand potential security and privacy issues and mitigations for the design, and can save us asking redundant questions.
