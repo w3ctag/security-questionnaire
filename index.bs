@@ -29,7 +29,7 @@ Abstract: This document contains a set of questions to be used when
   we must always consider the security and privacy implications of our work.
 New Web features should always
  maintain or enhance
-  the security and privacy characteristics of the Web.
+the overall security and privacy of the Web.
 
   This document contains a set of questions
   intended to help <abbr title="specification">spec</abbr> authors
@@ -54,19 +54,20 @@ New Web features should always
   when things are easier to change.
   When privacy and security issues are only found later,
   after the feature has shipped
-  and when it's much harder to change the design,
+it's much harder to change the design.
+  If security or privacy issues are found late,
   user agents may need to adopt breaking changes
   to protect their users' privacy and security.
 
-  These questions should be kept in mind throught work on a specification.
+  These questions should be kept in mind throughout work on any specification.
   Spec authors should periodically revisit this questionnaire
-  to freshly consider the privacy and security implications of their specification
-  as their feature's design changes over time.
+  to continue to consider the privacy and security implications of
+  their features, as their design changes over time.
 
   <h3 id=reviews>TAG and PING reviews and this questionnaire</h3>
 
   When authors request
-  a [specification review](https://github.com/w3ctag/design-reviews)
+  a [review](https://github.com/w3ctag/design-reviews)
   from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
   the TAG asks that authors provide answers
   to the questions in this document.
@@ -77,13 +78,13 @@ New Web features should always
 
   The TAG and PING use this document
   to record security and privacy questions
-  which come up during our spec reviews.
+  which come up during our reviews.
   Working through these questions can save
-  both spec authors and the folks performing design reviews
+  both spec authors and the people performing design reviews
   a lot of time.
 
-  To make it easier for those requesting reviews
-  to provide their answers to these questions to the reviewing body,
+  To make it easier for anyone requesting a review
+  to provide their answers to these questions to the reviewers,
   we've prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
 
 </section>
