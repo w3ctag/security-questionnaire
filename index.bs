@@ -17,7 +17,7 @@ Markup Shorthands: css no, markdown yes
 Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.bs
 !Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
 Abstract: This document contains a set of questions to be used when
-    evaluating the security and privacy characteristics of web platform
+    evaluating the security and privacy implications of web platform
     technologies.
 </pre>
 
