@@ -11,7 +11,7 @@ class MarkdownGenerator:
 
     def process_line(self, line, outfile):
         if self.in_question:
-            if not line.startswith("  </h3>"):
+            if not line.startswith("</h3>"):
                 line = line.lstrip()
                 if self.first_line_in_question:
                     self.qnum += 1
@@ -21,7 +21,7 @@ class MarkdownGenerator:
                 self.prefix = ">     "
             else:
                 self.in_question = False
-        elif line.startswith("  <h3 class=question id="):
+        elif line.startswith("<h3 class=question id="):
             self.in_question = True
             self.first_line_in_question = True
 
