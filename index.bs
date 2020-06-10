@@ -26,7 +26,7 @@ Abstract: This document contains a set of questions to be used when
   <h2 id="intro">Introduction</h2>
 
   When designing new features for the Web platform,
-  it's vital that we consider the security and privacy implications of our work,
+  we must always consider the security and privacy implications of our work.
   and strive to make design decisions that
   enhance rather than degrade
   the security and privacy characteristics of the Web.
