@@ -53,8 +53,8 @@ the overall security and privacy of the Web.
   early on in the design process,
   when things are easier to change.
   When privacy and security issues are only found later,
-  after the feature has shipped
-it's much harder to change the design.
+  after the feature has shipped,
+  it's much harder to change the design.
   If security or privacy issues are found late,
   user agents may need to adopt breaking changes
   to protect their users' privacy and security.
