@@ -28,7 +28,7 @@ Abstract: This document contains a set of questions to be used when
   When designing new features for the Web platform,
   we must always consider the security and privacy implications of our work.
 New Web features should always
-  enhance rather than degrade
+ maintain or enhance
   the security and privacy characteristics of the Web.
 
   This document contains a set of questions
