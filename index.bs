@@ -118,10 +118,11 @@ See also
 
 <h3 class=question id="personal-data">
   How does this specification deal with personal information,
-  personally-identifiable information, or information derived from them?
+  personally-identifiable information (PII), or information derived from
+  them?
 </h3>
 
-Personal information is data about a user
+Personal information is any data about a user
 (for example, their home address),
 or information that could be used to identify a user,
 such as an alias, email address, or identification number.
@@ -131,6 +132,10 @@ distinct from personally identifiable information
 (<abbr title="personally identifiable information">PII</abbr>).
 PII is a legal concept,
 the definition of which varies from jurisdiction to jurisdiction.
+When used in a non-legal context,
+PII tends to refer generally
+to information
+that could be used to identify a user.
 
 When exposing
 personal information, PII, or derivative information,
