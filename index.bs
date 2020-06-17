@@ -5,7 +5,7 @@ TR: https://www.w3.org/TR/security-privacy-questionnaire/
 ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
 Repository: w3ctag/security-questionnaire
-Level: 1
+Level: None
 Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
 Editor: Pete Snyder, w3cid 109401, Brave https://brave.com, psnyder@brave.com
 Former Editor: Jason Novak, Apple Inc., https://apple.com
