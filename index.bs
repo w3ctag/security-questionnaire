@@ -215,7 +215,8 @@ See also
 
 There are many existing mechanisms
 origins can use to
-store information about a user—cookies,
+store information about a user.
+Cookies,
 `ETag`,
 `Last Modified`,
 {{localStorage}},
@@ -248,6 +249,15 @@ to track users
 across domains
 or without control
 over clearing this state.
+That said,
+manually clearing storage
+is something users do only rarely.
+Spec authors should consider ways
+to make new features more privacy-preserving without full storage clearing,
+such as
+reducing the uniqueness of values,
+rotating values,
+or otherwise making features no more identifying than is needed.
 <!-- https://github.com/w3ctag/design-principles/issues/215 -->
 Also, keep in mind that
 user agents make use of several different caching mechanisms.
