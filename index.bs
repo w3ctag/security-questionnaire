@@ -91,8 +91,9 @@ we've prepared [a list of these questions in Markdown](https://raw.githubusercon
 </h3>
 
 Just because information can be exposed to the web doesn’t mean that it
-should be. How does exposing this information to an origin benefit a user?
-Is the benefit outweighed by the potential risks?  If so, how?
+should be. How does exposing this information to an origin or other party 
+benefit a user? Is the benefit outweighed by the potential risks?  If so,
+how?
 
 In answering this question, it often helps to ensure that the use cases your
 feature and specification is enable are made clear in the specification
@@ -314,7 +315,7 @@ communication methods.
 
 When a specification exposes specific information about a host to an origin,
 if that information changes rarely and is not variable across origins, then
-it can be used to uniquely identify a user across two origins — either
+it can be used to uniquely identify a user's agent across two origins — either
 directly because any given piece of information is unique or because the
 combination of disparate pieces of information are unique and can be used to
 form a fingerprint [[FINGERPRINTING-GUIDANCE]]. Specifications and user agents
@@ -332,7 +333,7 @@ exfiltrate data.
 <p class=example>
 The `RENDERER` string exposed by some WebGL implementations
 improves performance in some kinds of applications, but does so at the
-cost of adding persistent state to a user's fingerprint. These kinds of
+cost of adding persistent state to a user agent's fingerprint. These kinds of
 device-level details should be carefully weighed to ensure that the costs
 are outweighed by the benefits.
 </p>
@@ -351,11 +352,11 @@ entropy introduced by [disallowing direct enumeration of the plugin list](https:
 If so, what kind of sensors and information derived from those sensors does
 this standard expose to origins?
 
-Information from sensors may serve as a fingerprinting vector across origins.
-In addition, sensor also reveals something about my device or environment and
-that fact might be what is sensitive.  In addition, as technology advances,
-mitigations in place at the time a specification is written may have to be
-reconsidered as the threat landscape changes.
+Information from sensors may serve as a fingerprinting vector on the same origin
+or across origins.  In addition, sensor also reveals something about the user’s 
+agent or environment and that fact might be what is sensitive.  In addition, as 
+technology advances, mitigations in place at the time a specification is written 
+may have to be reconsidered as the threat landscape changes.
 
 Sensor data might even become a cross-origin identifier when the sensor reading
 is relatively stable, for example for short time periods (seconds, minutes, even days), and
@@ -379,16 +380,16 @@ serve as an identifier if misused/abused [[OLEJNIK-BATTERY]].
 </p>
 
 <h3 class=question id="other-data">
-  What data does this specification expose to an origin?  Please also
-  document what data is identical to data exposed by other features, in the
-  same or different contexts.
+  What data does this specification expose to an origin or other party?  
+  Please also at data is identical to data exposed by other features, in 
+  the same or different contexts.
 </h3>
 
-As noted above in [[#sop-violations]], the [=same-origin policy=] is an
+As noted in [[#sop-violations]], the [=same-origin policy=] is an
 important security barrier that new features need to carefully consider.
 If a specification exposes details about another origin's state, or allows
-POST or GET requests to be made to another origin, the consequences can be
-severe.
+POST or GET requests to be made to another origin or party, the consequences
+can be severe.
 
 <p class=example>
 Content Security Policy [[CSP]] unintentionally exposed redirect targets
@@ -501,21 +502,18 @@ at zero, increments, and is reset — is a good example of a privacy friendly
 temporary identifier.
 
 <h3 class=question id="first-third-party">
-  How does this specification distinguish between behavior in first-party and
-  third-party contexts?
+  How does this specification protect end users from storing persistent data 
+  on a user’s device across browsing session?
 </h3>
 
-The behavior of a feature should be considered not just in the context of its
-being used by a first party origin that a user is visiting but also the
-implications of its being used by an arbitrary third party that the first
-party includes. When developing your specification, consider the implications
-of its use by third party resources on a page and, consider if support for
-use by third party resources should be optional to conform to the
-specification.  If supporting use by third party resources is mandatory for
-conformance, please explain why and what privacy mitigations are in place.
-This is particularly important as user agents may take steps to reduce the
-availability or functionality of certain features to third parties if the
-third parties are found to be abusing the functionality.
+The behavior of a feature should be considered not just in the context of 
+its being used by a first party origin that a user is visiting but also the 
+implications of its being used by other parties. When developing your 
+specification, consider the implications of its use by all parties. Consider
+if this sufficiently protects end users from storing persistent data on a 
+user’s agent across browsing sessions. If supporting use by parties other 
+than the first party origin is mandatory for conformance, please explain why
+and what privacy mitigations are in place.
 
 <h3 class=question id="private-browsing">
   How does this specification work in the context of a user agent’s Private
