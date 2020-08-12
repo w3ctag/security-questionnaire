@@ -145,6 +145,10 @@ Information that would be harmless if known about
 one person or group of people
 could be dangerous if known about
 another person or group.
+Information about a person
+that would be harmless in one country
+might be used in another country
+to detain, kidnap, or imprison them.
 
 Note:
 caste,
@@ -243,7 +247,7 @@ to clear out the data stored by origins.
 New state persistence mechanisms
 should not be introduced
 without mitigations
-to prevent it
+to prevent them
 from being used
 to track users
 across domains
@@ -272,7 +276,7 @@ which enables sites
 to continue to function when the browser goes offline.
 Because of this,
 a maliciously-injected service worker
-could be devastating (as documented in [[SERVICE-WORKERS#security-considerations]]).
+could compromise the user (as documented in [[SERVICE-WORKERS#security-considerations]]).
 
 The spec mitigates the risks
 an [=active network attacker=] or [=XSS=] vulnerability present
