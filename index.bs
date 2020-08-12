@@ -90,12 +90,11 @@ we've prepared [a list of these questions in Markdown](https://raw.githubusercon
   and for what purposes is that exposure necessary?
 </h3>
 
-Just because information **can** be exposed to the web
-doesn’t mean that it **should** be.
+User Agents should only expose information to the web
+when doing so is necessary to serve a clear user need.
 Does your feature expose information to origins?
 If so, how does exposing this information serve user needs?
-Be sure to document the user needs that the feature aims to address.
-Do the benefits of exposing this information outweigh the potential risks?
+Are the risks to the user outweighed by the benefits to the user?
 If so, how?
 
 See also
