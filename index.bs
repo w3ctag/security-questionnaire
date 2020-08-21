@@ -380,9 +380,9 @@ serve as an identifier if misused/abused [[OLEJNIK-BATTERY]].
 </p>
 
 <h3 class=question id="other-data">
-  What data does this specification expose to an origin or other party?  
-  Please also at data is identical to data exposed by other features, in 
-  the same or different contexts.
+  What data does this specification expose to an origin or other party?
+  Please also document what data is identical to data exposed by other 
+  features, in the same or different contexts.
 </h3>
 
 As noted in [[#sop-violations]], the [=same-origin policy=] is an
