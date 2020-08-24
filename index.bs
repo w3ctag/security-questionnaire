@@ -90,47 +90,101 @@ we've prepared [a list of these questions in Markdown](https://raw.githubusercon
   and for what purposes is that exposure necessary?
 </h3>
 
-Just because information can be exposed to the web doesn’t mean that it
-should be. How does exposing this information to an origin benefit a user?
-Is the benefit outweighed by the potential risks?  If so, how?
+User Agents should only expose information to the web
+when doing so is necessary to serve a clear user need.
+Does your feature expose information to origins?
+If so, how does exposing this information serve user needs?
+Are the risks to the user outweighed by the benefits to the user?
+If so, how?
 
-In answering this question, it often helps to ensure that the use cases your
-feature and specification is enable are made clear in the specification
-itself to ensure that TAG and PING understand the feature-privacy tradeoffs
-being made.
+See also
+
+* [[DESIGN-PRINCIPLES#priority-of-constituencies]]
 
 <h3 class=question id="minimum-data">
   Is this specification exposing the minimum amount of information necessary
-  to power the feature?
+  to power its features?
 </h3>
 
-Regardless of what data is being exposed, is the specification exposing the
-bare minimum necessary to achieve the desired use cases?  If not, why not and
-why expose the additional information?
+Features should only expose information
+when it's absolutely necessary to satisfy its use cases.
+If your feature exposes more information than is necessary,
+why does it do so?
+
+See also
+
+* [[#data-minimization]]
 
 <h3 class=question id="personal-data">
-  How does this specification deal with personal information or
-  personally-identifiable information or information derived thereof?
+  How does this specification deal with personal information,
+  personally-identifiable information (PII), or information derived from
+  them?
 </h3>
 
-Personal information is data about a user (home address) or information
-that could be used to identify a user (alias or email address).  This is
-distinct from personally identifiable information (PII), as the exact
-definition of what’s considered PII varies from jurisdiction to jurisdiction.
+Personal information is any data about a user
+(for example, their home address),
+or information that could be used to identify a user,
+such as an alias, email address, or identification number.
 
-If the specification under consideration exposes personal information or PII
-or their derivatives that could still identify an individual to the web, it’s
-important to consider ways to mitigate the obvious impacts. For instance:
+Note: Personal information is
+distinct from personally identifiable information
+(<abbr title="personally identifiable information">PII</abbr>).
+PII is a legal concept,
+the definition of which varies from jurisdiction to jurisdiction.
+When used in a non-legal context,
+PII tends to refer generally
+to information
+that could be used to identify a user.
 
-* A feature which uses biometric data (fingerprints or retina scans)
-    should refuse to expose the raw data to the web, instead using the raw
-    data only to unlock some origin-specific and ephemeral secret and
-    transmitting that secret instead.
-* Including a factor of user mediation should be considered, in order to
-    ensure that no data is exposed without a user’s explicit choice (and
-    hopefully understanding). One way to achieve this may be the use of
-    Permission API [[PERMISSIONS]], or additional dialogs like in Payment
-    Request API [[PAYMENT-REQUEST]]
+When exposing
+personal information, PII, or derivative information,
+spec authors must take steps to minimize the potential harm to users.
+
+<p class=example>
+A feature
+which gathers biometric data
+(such as fingerprints or retina scans)
+for authentication
+should not directly expose this biometric data to the web.
+Instead,
+it can use the biometric data
+to look up or generate some temporary key which is not shared across origins
+which can then be safely exposed to the origin. [[WEBAUTHN]]
+</p>
+
+Personal information, PII, or their derivatives
+should not be exposed to origins
+without [meaningful user consent](https://w3ctag.github.io/design-principles/#consent).
+Many APIs
+use the Permissions API to acquire meaningful user consent.
+[[PERMISSIONS]]
+
+Keep in mind
+that each permission prompt
+added to the web platform
+increases the risk
+that users will ignore
+the contents of all permission prompts.
+Before adding a permission prompt, consider your options for using
+a less obtrusive way to gain meaningful user consent.
+[[ADDING-PERMISSION]]
+
+<p class=example>
+`<input type=file>` can be used to upload
+documents containing personal information
+to websites.
+It makes use of
+the underlying native platform's file picker
+to ensure the user understands
+that the file and its contents
+will be exposed to the website,
+without a separate permissions prompt.
+</p>
+
+See also
+
+* [[#user-mediation]]
+* [[DESIGN-PRINCIPLES#consent]]
 
 <h3 class=question id="sensitive-data">
   How does this specification deal with sensitive information?
@@ -948,6 +1002,12 @@ spec:html; type:element; text:link
 
 <pre class="biblio">
 {
+  "ADDING-PERMISSION": {
+    "href": "https://github.com/w3cping/adding-permissions",
+    "title": "Adding another permission? A guide",
+    "authors": [ "Nick Doty" ],
+    "publisher": "W3C Privacy Interest Group"
+  },
   "COMCAST": {
       "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
       "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
