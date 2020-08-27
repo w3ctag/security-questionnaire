@@ -1221,9 +1221,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 40de15f9, updated Thu Jun 11 17:47:04 2020 -0700" name="generator">
+  <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="3b4e9688385a1672a1be1893df26f10314c3400a" name="document-revision">
+  <meta content="c48d1e5afd7c668a6d378fa2a27188238aaf2301" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1412,7 +1412,7 @@ dfn > a.self-link::before      { content: "#"; }</style>
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-06-17">17 June 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-08-27">27 August 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1481,9 +1481,10 @@ dfn > a.self-link::before      { content: "#"; }</style>
       <li><a href="#purpose"><span class="secno">2.1</span> <span class="content"> What information might this feature expose to Web sites or other parties,
   and for what purposes is that exposure necessary? </span></a>
       <li><a href="#minimum-data"><span class="secno">2.2</span> <span class="content"> Is this specification exposing the minimum amount of information necessary
-  to power the feature? </span></a>
-      <li><a href="#personal-data"><span class="secno">2.3</span> <span class="content"> How does this specification deal with personal information or
-  personally-identifiable information or information derived thereof? </span></a>
+  to power its features? </span></a>
+      <li><a href="#personal-data"><span class="secno">2.3</span> <span class="content"> How does this specification deal with personal information,
+  personally-identifiable information (PII), or information derived from
+  them? </span></a>
       <li><a href="#sensitive-data"><span class="secno">2.4</span> <span class="content"> How does this specification deal with sensitive information? </span></a>
       <li><a href="#persistent-origin-specific-state"><span class="secno">2.5</span> <span class="content"> Does this specification introduce new state for an origin that persists
   across browsing sessions? </span></a>
@@ -1597,87 +1598,223 @@ we’ve prepared <a href="https://raw.githubusercontent.com/w3ctag/security-ques
    <h2 class="heading settled" data-level="2" id="questions"><span class="secno">2. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
    <h3 class="question heading settled" data-level="2.1" id="purpose"><span class="secno">2.1. </span><span class="content"> What information might this feature expose to Web sites or other parties,
   and for what purposes is that exposure necessary? </span><a class="self-link" href="#purpose"></a></h3>
-   <p>Just because information can be exposed to the web doesn’t mean that it
-should be. How does exposing this information to an origin benefit a user?
-Is the benefit outweighed by the potential risks?  If so, how?</p>
-   <p>In answering this question, it often helps to ensure that the use cases your
-feature and specification is enable are made clear in the specification
-itself to ensure that TAG and PING understand the feature-privacy tradeoffs
-being made.</p>
-   <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
-  to power the feature? </span><a class="self-link" href="#minimum-data"></a></h3>
-   <p>Regardless of what data is being exposed, is the specification exposing the
-bare minimum necessary to achieve the desired use cases?  If not, why not and
-why expose the additional information?</p>
-   <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information or
-  personally-identifiable information or information derived thereof? </span><a class="self-link" href="#personal-data"></a></h3>
-   <p>Personal information is data about a user (home address) or information
-that could be used to identify a user (alias or email address).  This is
-distinct from personally identifiable information (PII), as the exact
-definition of what’s considered PII varies from jurisdiction to jurisdiction.</p>
-   <p>If the specification under consideration exposes personal information or PII
-or their derivatives that could still identify an individual to the web, it’s
-important to consider ways to mitigate the obvious impacts. For instance:</p>
+   <p>User Agents should only expose information to the web
+when doing so is necessary to serve a clear user need.
+Does your feature expose information to origins?
+If so, how does exposing this information serve user needs?
+Are the risks to the user outweighed by the benefits to the user?
+If so, how?</p>
+   <p>See also</p>
    <ul>
     <li data-md>
-     <p>A feature which uses biometric data (fingerprints or retina scans)
-should refuse to expose the raw data to the web, instead using the raw
-data only to unlock some origin-specific and ephemeral secret and
-transmitting that secret instead.</p>
+     <p><a href="https://w3ctag.github.io/design-principles/#priority-of-constituencies">Web Platform Design Principles §priority-of-constituencies</a></p>
+   </ul>
+   <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
+  to power its features? </span><a class="self-link" href="#minimum-data"></a></h3>
+   <p>Features should only expose information
+when it’s absolutely necessary to satisfy its use cases.
+If your feature exposes more information than is necessary,
+why does it do so?</p>
+   <p>See also</p>
+   <ul>
     <li data-md>
-     <p>Including a factor of user mediation should be considered, in order to
-ensure that no data is exposed without a user’s explicit choice (and
-hopefully understanding). One way to achieve this may be the use of
-Permission API <a data-link-type="biblio" href="#biblio-permissions">[PERMISSIONS]</a>, or additional dialogs like in Payment
-Request API <a data-link-type="biblio" href="#biblio-payment-request">[PAYMENT-REQUEST]</a></p>
+     <p><a href="#data-minimization">§ 4.1 Data Minimization</a></p>
+   </ul>
+   <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information,
+  personally-identifiable information (PII), or information derived from
+  them? </span><a class="self-link" href="#personal-data"></a></h3>
+   <p>Personal information is any data about a user
+(for example, their home address),
+or information that could be used to identify a user,
+such as an alias, email address, or identification number.</p>
+   <p class="note" role="note"><span>Note:</span> Personal information is
+distinct from personally identifiable information
+(<abbr title="personally identifiable information">PII</abbr>).
+PII is a legal concept,
+the definition of which varies from jurisdiction to jurisdiction.
+When used in a non-legal context,
+PII tends to refer generally
+to information
+that could be used to identify a user.</p>
+   <p>When exposing
+personal information, PII, or derivative information,
+spec authors must take steps to minimize the potential harm to users.</p>
+   <p class="example" id="example-1d75986f"><a class="self-link" href="#example-1d75986f"></a> A feature
+which gathers biometric data
+(such as fingerprints or retina scans)
+for authentication
+should not directly expose this biometric data to the web.
+Instead,
+it can use the biometric data
+to look up or generate some temporary key which is not shared across origins
+which can then be safely exposed to the origin. <a data-link-type="biblio" href="#biblio-webauthn">[WEBAUTHN]</a> </p>
+   <p>Personal information, PII, or their derivatives
+should not be exposed to origins
+without <a href="https://w3ctag.github.io/design-principles/#consent">meaningful user consent</a>.
+Many APIs
+use the Permissions API to acquire meaningful user consent. <a data-link-type="biblio" href="#biblio-permissions">[PERMISSIONS]</a></p>
+   <p>Keep in mind
+that each permission prompt
+added to the web platform
+increases the risk
+that users will ignore
+the contents of all permission prompts.
+Before adding a permission prompt, consider your options for using
+a less obtrusive way to gain meaningful user consent. <a data-link-type="biblio" href="#biblio-adding-permission">[ADDING-PERMISSION]</a></p>
+   <p class="example" id="example-e2335d65"><a class="self-link" href="#example-e2335d65"></a> <code>&lt;input type=file></code> can be used to upload
+documents containing personal information
+to websites.
+It makes use of
+the underlying native platform’s file picker
+to ensure the user understands
+that the file and its contents
+will be exposed to the website,
+without a separate permissions prompt. </p>
+   <p>See also</p>
+   <ul>
+    <li data-md>
+     <p><a href="#user-mediation">§ 4.3 Explicit user mediation</a></p>
+    <li data-md>
+     <p><a href="https://w3ctag.github.io/design-principles/#consent">Web Platform Design Principles §consent</a></p>
    </ul>
    <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
-   <p>Just because data is not personal information or PII, that does not mean
-that it is not sensitive information; moreover, whether any given information
-is sensitive may vary from user to user.  Data to consider if sensitive
-includes: financial data, credentials, health information, location, or
-credentials. When this data is exposed to the web, steps should be taken to
-mitigate the risk of exposing it.</p>
-   <p class="example" id="example-6cd83a5c"><a class="self-link" href="#example-6cd83a5c"></a> Credential Management <a data-link-type="biblio" href="#biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]</a> allows sites to request
-a user’s credentials from a user agent’s password manager in order to
-sign the user in quickly and easily. This opens the door for abuse, as
-a single XSS vulnerability could expose user data trivially to
-JavaScript. The Credential Management API mitigates
-the risk by offering the username and password as only an opaque <code class="idl"><a data-link-type="idl" href="https://xhr.spec.whatwg.org/#formdata" id="ref-for-formdata">FormData</a></code> object which cannot be directly read by JavaScript
-and strongly suggests that authors use Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> with reasonable <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#connect-src" id="ref-for-connect-src">connect-src</a> and <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#form-action" id="ref-for-form-action">form-action</a> values to further mitigate the risk of exfiltration. </p>
-   <p class="example" id="example-d4e0f588"><a class="self-link" href="#example-d4e0f588"></a> Geolocation information can serve many use cases at a much less granular
-precision than the user agent can offer. For instance, a restaurant
-recommendation can be generated by asking for a user’s city-level
-location rather than a position accurate to the centimeter. </p>
-   <p class="example" id="example-cde72f90"><a class="self-link" href="#example-cde72f90"></a> A Geofencing proposal <a data-link-type="biblio" href="#biblio-geofencing-explained">[GEOFENCING-EXPLAINED]</a> ties itself to service workers and
-therefore to encrypted and authenticated origins. </p>
+   <p>Personal information is not the only kind of sensitive information.
+Many other kinds of information may also be sensitive.
+What is or isn’t sensitive information can vary
+from person to person
+or from place to place.
+Information that would be harmless if known about
+one person or group of people
+could be dangerous if known about
+another person or group.
+Information about a person
+that would be harmless in one country
+might be used in another country
+to detain, kidnap, or imprison them.</p>
+   <p class="note" role="note"><span>Note:</span> caste,
+citizenship,
+color,
+credentials,
+criminal record,
+demographic information,
+employment status,
+ethnicity,
+financial information,
+health information,
+location data,
+marital status,
+political beliefs,
+profession,
+race,
+religious beliefs or nonbeliefs,
+sexual preferences,
+and
+trans status
+are all examples of sensitive information.</p>
+   <p>When a feature exposes sensitive information to the web,
+its designers must take steps
+to mitigate the risk of exposing the information.</p>
+   <div class="example" id="example-faf2460c">
+    <a class="self-link" href="#example-faf2460c"></a> 
+    <p>The Credential Management API allows sites
+to request a user’s credentials
+from a password manager. <a data-link-type="biblio" href="#biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]</a> If it exposed the user’s credentials to JavaScript,
+and if the page using the API were vulnerable to <a data-link-type="dfn" href="#cross-site-scripting-attacks" id="ref-for-cross-site-scripting-attacks">XSS</a> attacks,
+the user’s credentials could be leaked to attackers.</p>
+    <p>The Credential Management API
+mitigates this risk
+by not exposing the credentials to JavaScript.
+Instead, it exposes
+an opaque <code class="idl"><a data-link-type="idl" href="https://xhr.spec.whatwg.org/#formdata" id="ref-for-formdata">FormData</a></code> object
+which cannot be read by JavaScript.
+The spec also recommends
+that sites configure Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> with reasonable <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#connect-src" id="ref-for-connect-src">connect-src</a> and <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#form-action" id="ref-for-form-action">form-action</a> values
+to further mitigate the risk of exfiltration.</p>
+   </div>
+   <p>Many use cases
+which require location information
+can be adequately served
+with very coarse location data.
+For instance,
+a site which recommends restaurants
+could adequately serve its users
+with city-level location information
+instead of exposing the user’s precise location.</p>
+   <p>See also</p>
+   <ul>
+    <li data-md>
+     <p><a href="https://w3ctag.github.io/design-principles/#do-not-expose-use-of-assistive-tech">Web Platform Design Principles §do-not-expose-use-of-assistive-tech</a></p>
+   </ul>
    <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Does this specification introduce new state for an origin that persists
   across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
-   <p>Allowing an origin to persist data on a user’s device across browsing
-sessions introduces the risk that this state may be used to track a user
-without their knowledge or control, either in a first party or third party
-contexts.  New state persistence mechanisms should not be introduced without
-mitigations to prevent it from being used to track users across domains or
-without control over clearing this state.  And, are there specific caches
-that a user agent should specially consider?</p>
-   <p class="example" id="example-b1acc33b"><a class="self-link" href="#example-b1acc33b"></a> Service Worker <a data-link-type="biblio" href="#biblio-service-workers">[SERVICE-WORKERS]</a> intercept all requests made by an
-origin, allowing sites to function perfectly even when offline. A
-maliciously-injected service worker, however, would be devastating (as
-documented in <a href="https://www.w3.org/TR/service-workers-1/#security-considerations">Service Workers §6 Security Considerations</a>).
-They mitigate the risks an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker">active network attacker</a> or <a data-link-type="dfn" href="#cross-site-scripting-attacks" id="ref-for-cross-site-scripting-attacks">XSS</a> vulnerability present by requiring an encrypted and authenticated
-connection in order to register a service worker. </p>
-   <p class="example" id="example-8c6a65e3"><a class="self-link" href="#example-8c6a65e3"></a> Platform-specific DRM implementations might expose origin-specific
-information in order to help identify users and determine whether they
-ought to be granted access to a specific piece of media. These kinds of
-identifiers should be carefully evaluated to determine how abuse can be
-mitigated; identifiers which a user cannot easily change are very
-valuable from a tracking perspective, and protecting the identifiers from
-an active network attacker is an important concern. </p>
-   <p class="example" id="example-7ac55a84"><a class="self-link" href="#example-7ac55a84"></a> Cookies, <code>ETag</code>, <code>Last Modified</code>, <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage" id="ref-for-dom-localstorage">localStorage</a></code>, <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb" id="ref-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</a></code>, etc. all
-allow an origin to store information about a user, and retrieve it later,
-directly or indirectly. User agents mitigate the risk that these kinds of
-storage mechanisms will form a persistent identifier by offering users the
-ability to wipe out the data contained in these types of storage. </p>
+   <p>There are many existing mechanisms
+origins can use to
+store information about a user.
+Cookies, <code>ETag</code>, <code>Last Modified</code>, <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage" id="ref-for-dom-localstorage">localStorage</a></code>,
+and <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb" id="ref-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</a></code> are just a few examples.</p>
+   <p>Allowing an origin
+to store data
+on a user’s device
+in a way that persists across browsing sessions
+introduces the risk
+that this state may be used
+to track a user
+without their knowledge or control,
+either in <a data-link-type="dfn" href="https://privacycg.github.io/storage-access/#first-party-site-context" id="ref-for-first-party-site-context">first-</a> or <a data-link-type="dfn" href="https://privacycg.github.io/storage-access/#third-party-context" id="ref-for-third-party-context">third-party</a> contexts.</p>
+   <p>One of the ways
+user agents mitigate the risk
+that client-side storage mechanisms
+will form a persistent identifier
+is by providing users with the ability
+to clear out the data stored by origins.
+New state persistence mechanisms
+should not be introduced
+without mitigations
+to prevent them
+from being used
+to track users
+across domains
+or without control
+over clearing this state.
+That said,
+manually clearing storage
+is something users do only rarely.
+Spec authors should consider ways
+to make new features more privacy-preserving without full storage clearing,
+such as
+reducing the uniqueness of values,
+rotating values,
+or otherwise making features no more identifying than is needed.
+Also, keep in mind that
+user agents make use of several different caching mechanisms.
+Which, if any, caches will store this new state?
+Are additional mitigations necessary?</p>
+   <div class="example" id="example-c6a8651b">
+    <a class="self-link" href="#example-c6a8651b"></a> 
+    <p>Service Workers
+intercept all requests made by an origin,
+which enables sites
+to continue to function when the browser goes offline.
+Because of this,
+a maliciously-injected service worker
+could compromise the user (as documented in <a href="https://www.w3.org/TR/service-workers-1/#security-considerations">Service Workers §6 Security Considerations</a>).</p>
+    <p>The spec mitigates the risks
+an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker">active network attacker</a> or <a data-link-type="dfn" href="#cross-site-scripting-attacks" id="ref-for-cross-site-scripting-attacks①">XSS</a> vulnerability present
+by limiting service worker registration to <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#secure-contexts" id="ref-for-secure-contexts">secure contexts</a>. <a data-link-type="biblio" href="#biblio-service-workers">[SERVICE-WORKERS]</a></p>
+   </div>
+   <p class="example" id="example-32a45432"><a class="self-link" href="#example-32a45432"></a> Platform-specific DRM implementations
+(such as <a data-link-type="dfn" href="https://www.w3.org/TR/encrypted-media/#cdm" id="ref-for-cdm">content decryption modules</a> in <a data-link-type="biblio" href="#biblio-encrypted-media">[ENCRYPTED-MEDIA]</a>)
+might expose origin-specific information
+in order to help identify users
+and determine whether they ought to be granted access
+to a specific piece of media.
+These kinds of identifiers
+should be carefully evaluated
+to determine how abuse can be mitigated;
+identifiers which a user cannot easily change
+are very valuable from a tracking perspective,
+and protecting such identifiers
+from an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a> is vital. </p>
    <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> What information from the underlying platform, e.g. configuration data, is
   exposed by this specification to an origin? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
    <p>If so, is the information exposed from the underlying platform consistent
@@ -2209,7 +2346,7 @@ top-most, visible tab.</p>
 conformance.</p>
    <h3 class="heading settled" data-level="4.5" id="secure-contexts"><span class="secno">4.5. </span><span class="content"> Secure Contexts </span><a class="self-link" href="#secure-contexts"></a></h3>
    <p>If the primary risk that you’ve identified in your specification is the
-threat posed by <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a>, offering a feature to an
+threat posed by <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker②">active network attacker</a>, offering a feature to an
 insecure origin is the same as offering that feature to every origin because
 the attacker can inject frames and code at will. Requiring an encrypted and
 authenticated connection in order to use a feature can mitigate this kind of
@@ -2470,6 +2607,14 @@ practices before the site prompted for location.</p>
   Does this specification enable new script execution/loading mechanisms? </a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-cdm">
+   <a href="https://www.w3.org/TR/encrypted-media/#cdm">https://www.w3.org/TR/encrypted-media/#cdm</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-cdm">2.5. 
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-navigatorplugins">
    <a href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins">https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins</a><b>Referenced in:</b>
    <ul>
@@ -2529,6 +2674,30 @@ practices before the site prompted for location.</p>
   Does this specification allow downgrading default security characteristics? </a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-secure-contexts">
+   <a href="https://w3c.github.io/webappsec-secure-contexts/#secure-contexts">https://w3c.github.io/webappsec-secure-contexts/#secure-contexts</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-secure-contexts">2.5. 
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-first-party-site-context">
+   <a href="https://privacycg.github.io/storage-access/#first-party-site-context">https://privacycg.github.io/storage-access/#first-party-site-context</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-first-party-site-context">2.5. 
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-third-party-context">
+   <a href="https://privacycg.github.io/storage-access/#third-party-context">https://privacycg.github.io/storage-access/#third-party-context</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-third-party-context">2.5. 
+  Does this specification introduce new state for an origin that persists
+  across browsing sessions? </a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-formdata">
    <a href="https://xhr.spec.whatwg.org/#formdata">https://xhr.spec.whatwg.org/#formdata</a><b>Referenced in:</b>
    <ul>
@@ -2551,6 +2720,11 @@ practices before the site prompted for location.</p>
      <li><span class="dfn-paneled" id="term-for-sec-eval-x" style="color:initial">eval()</span>
     </ul>
    <li>
+    <a data-link-type="biblio">[ENCRYPTED-MEDIA]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-cdm" style="color:initial">content decryption module</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-navigatorplugins" style="color:initial">NavigatorPlugins</span>
@@ -2571,6 +2745,17 @@ practices before the site prompted for location.</p>
      <li><span class="dfn-paneled" id="term-for-referrer-policy-unsafe-url" style="color:initial">"unsafe-url"</span>
     </ul>
    <li>
+    <a data-link-type="biblio">[secure-contexts]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-secure-contexts" style="color:initial">secure contexts</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[storage-access]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-first-party-site-context" style="color:initial">first-party-site context</span>
+     <li><span class="dfn-paneled" id="term-for-third-party-context" style="color:initial">third-party context</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[XHR]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-formdata" style="color:initial">FormData</span>
@@ -2585,6 +2770,8 @@ practices before the site prompted for location.</p>
    <dd><a href="https://tc39.es/ecma262/">ECMAScript Language Specification</a>. URL: <a href="https://tc39.es/ecma262/">https://tc39.es/ecma262/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+   <dt id="biblio-indexeddb-2">[IndexedDB-2]
+   <dd>Ali Alabbas; Joshua Bell. <a href="https://www.w3.org/TR/IndexedDB-2/">Indexed Database API 2.0</a>. 30 January 2018. REC. URL: <a href="https://www.w3.org/TR/IndexedDB-2/">https://www.w3.org/TR/IndexedDB-2/</a>
    <dt id="biblio-referrer-policy">[REFERRER-POLICY]
    <dd>Jochen Eisinger; Emily Stark. <a href="https://www.w3.org/TR/referrer-policy/">Referrer Policy</a>. 26 January 2017. CR. URL: <a href="https://www.w3.org/TR/referrer-policy/">https://www.w3.org/TR/referrer-policy/</a>
    <dt id="biblio-rfc2119">[RFC2119]
@@ -2592,6 +2779,8 @@ practices before the site prompted for location.</p>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
+   <dt id="biblio-adding-permission">[ADDING-PERMISSION]
+   <dd>Nick Doty. <a href="https://github.com/w3cping/adding-permissions">Adding another permission? A guide</a>. URL: <a href="https://github.com/w3cping/adding-permissions">https://github.com/w3cping/adding-permissions</a>
    <dt id="biblio-battery-status">[BATTERY-STATUS]
    <dd>Anssi Kostiainen; Mounir Lamouri. <a href="https://www.w3.org/TR/battery-status/">Battery Status API</a>. 7 July 2016. CR. URL: <a href="https://www.w3.org/TR/battery-status/">https://www.w3.org/TR/battery-status/</a>
    <dt id="biblio-beacon">[BEACON]
@@ -2608,14 +2797,14 @@ practices before the site prompted for location.</p>
    <dd>Rich Tibbett. <a href="https://www.w3.org/TR/discovery-api/">Network Service Discovery</a>. 12 January 2017. NOTE. URL: <a href="https://www.w3.org/TR/discovery-api/">https://www.w3.org/TR/discovery-api/</a>
    <dt id="biblio-doty-geolocation">[DOTY-GEOLOCATION]
    <dd>Nick Doty, Deirdre K. Mulligan, Erik Wilde. <a href="https://escholarship.org/uc/item/0rp834wf">Privacy Issues of the W3C Geolocation API</a>. URL: <a href="https://escholarship.org/uc/item/0rp834wf">https://escholarship.org/uc/item/0rp834wf</a>
+   <dt id="biblio-encrypted-media">[ENCRYPTED-MEDIA]
+   <dd>David Dorwin; et al. <a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media Extensions</a>. 18 September 2017. REC. URL: <a href="https://www.w3.org/TR/encrypted-media/">https://www.w3.org/TR/encrypted-media/</a>
    <dt id="biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]
    <dd>Nick Doty. <a href="https://www.w3.org/TR/fingerprinting-guidance/">Mitigating Browser Fingerprinting in Web Specifications</a>. 28 March 2019. NOTE. URL: <a href="https://www.w3.org/TR/fingerprinting-guidance/">https://www.w3.org/TR/fingerprinting-guidance/</a>
    <dt id="biblio-gamepad">[GAMEPAD]
-   <dd>James Hollyer; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 25 February 2020. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
+   <dd>James Hollyer; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 18 June 2020. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
-   <dt id="biblio-geofencing-explained">[GEOFENCING-EXPLAINED]
-   <dd>Alex Russell. <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">Geofencing Explained</a>. URL: <a href="https://github.com/slightlyoff/Geofencing/blob/master/explainer.md">https://github.com/slightlyoff/Geofencing/blob/master/explainer.md</a>
    <dt id="biblio-geolocation-api">[GEOLOCATION-API]
    <dd>Andrei Popescu. <a href="https://www.w3.org/TR/geolocation-API/">Geolocation API Specification 2nd Edition</a>. 8 November 2016. REC. URL: <a href="https://www.w3.org/TR/geolocation-API/">https://www.w3.org/TR/geolocation-API/</a>
    <dt id="biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]
@@ -2624,18 +2813,14 @@ practices before the site prompted for location.</p>
    <dd>Egor Homakov. <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">Using Content-Security-Policy for Evil</a>. URL: <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html</a>
    <dt id="biblio-html-imports">[HTML-IMPORTS]
    <dd>Dimitri Glazkov; Hajime Morita. <a href="https://www.w3.org/TR/html-imports/">HTML Imports</a>. 25 February 2016. WD. URL: <a href="https://www.w3.org/TR/html-imports/">https://www.w3.org/TR/html-imports/</a>
-   <dt id="biblio-indexeddb-2">[IndexedDB-2]
-   <dd>Ali Alabbas; Joshua Bell. <a href="https://www.w3.org/TR/IndexedDB-2/">Indexed Database API 2.0</a>. 30 January 2018. REC. URL: <a href="https://www.w3.org/TR/IndexedDB-2/">https://www.w3.org/TR/IndexedDB-2/</a>
    <dt id="biblio-olejnik-als">[OLEJNIK-ALS]
    <dd>Lukasz Olejnik. <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">Privacy analysis of Ambient Light Sensors</a>. URL: <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/</a>
    <dt id="biblio-olejnik-battery">[OLEJNIK-BATTERY]
    <dd>Lukasz Olejnik; et al. <a href="https://eprint.iacr.org/2015/616">The leaking battery: A privacy analysis of the HTML5 Battery Status API</a>. URL: <a href="https://eprint.iacr.org/2015/616">https://eprint.iacr.org/2015/616</a>
    <dt id="biblio-olejnik-payments">[OLEJNIK-PAYMENTS]
    <dd>Lukasz Olejnik. <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">Privacy of Web Request API</a>. URL: <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">https://blog.lukaszolejnik.com/privacy-of-web-request-api/</a>
-   <dt id="biblio-payment-request">[PAYMENT-REQUEST]
-   <dd>Marcos Caceres; et al. <a href="https://www.w3.org/TR/payment-request/">Payment Request API</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/payment-request/">https://www.w3.org/TR/payment-request/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Mounir Lamouri; Marcos Caceres; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/">Permissions</a>. 25 September 2017. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dd>Mounir Lamouri; Marcos Caceres; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/">Permissions</a>. 20 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
    <dt id="biblio-rfc3552">[RFC3552]
    <dd>E. Rescorla; B. Korver. <a href="https://tools.ietf.org/html/rfc3552">Guidelines for Writing RFC Text on Security Considerations</a>. July 2003. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc3552">https://tools.ietf.org/html/rfc3552</a>
    <dt id="biblio-rfc6454">[RFC6454]
@@ -2646,6 +2831,8 @@ practices before the site prompted for location.</p>
    <dd>S. Farrell; H. Tschofenig. <a href="https://tools.ietf.org/html/rfc7258">Pervasive Monitoring Is an Attack</a>. May 2014. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc7258">https://tools.ietf.org/html/rfc7258</a>
    <dt id="biblio-rivera">[RIVERA]
    <dd>David Rivera. <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">Detect if a browser is in Private Browsing mode</a>. URL: <a href="https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1">https://gist.github.com/jherax/a81c8c132d09cc354a0e2cb911841ff1</a>
+   <dt id="biblio-secure-contexts">[SECURE-CONTEXTS]
+   <dd>Mike West. <a href="https://www.w3.org/TR/secure-contexts/">Secure Contexts</a>. 15 September 2016. CR. URL: <a href="https://www.w3.org/TR/secure-contexts/">https://www.w3.org/TR/secure-contexts/</a>
    <dt id="biblio-service-workers">[SERVICE-WORKERS]
    <dd>Alex Russell; et al. <a href="https://www.w3.org/TR/service-workers-1/">Service Workers 1</a>. 19 November 2019. CR. URL: <a href="https://www.w3.org/TR/service-workers-1/">https://www.w3.org/TR/service-workers-1/</a>
    <dt id="biblio-timing">[TIMING]
@@ -2654,6 +2841,8 @@ practices before the site prompted for location.</p>
    <dd>Mark Bergen; Alex Kantrowitz. <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">Verizon looks to target its mobile subscribers with ads</a>. URL: <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/</a>
    <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
    <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
+   <dt id="biblio-webauthn">[WEBAUTHN]
+   <dd>Dirk Balfanz; et al. <a href="https://www.w3.org/TR/webauthn-1/">Web Authentication:An API for accessing Public Key Credentials Level 1</a>. 4 March 2019. REC. URL: <a href="https://www.w3.org/TR/webauthn-1/">https://www.w3.org/TR/webauthn-1/</a>
    <dt id="biblio-webmessaging">[WEBMESSAGING]
    <dd>Ian Hickson. <a href="https://www.w3.org/TR/webmessaging/">HTML5 Web Messaging</a>. 19 May 2015. REC. URL: <a href="https://www.w3.org/TR/webmessaging/">https://www.w3.org/TR/webmessaging/</a>
    <dt id="biblio-webusb">[WEBUSB]
@@ -2677,8 +2866,8 @@ practices before the site prompted for location.</p>
    <ul>
     <li><a href="#ref-for-active-network-attacker">2.5. 
   Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
-    <li><a href="#ref-for-active-network-attacker①">4.5. 
+  across browsing sessions? </a> <a href="#ref-for-active-network-attacker①">(2)</a>
+    <li><a href="#ref-for-active-network-attacker②">4.5. 
   Secure Contexts </a>
    </ul>
   </aside>
@@ -2694,7 +2883,9 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="cross-site-scripting-attacks">
    <b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-cross-site-scripting-attacks">2.5. 
+    <li><a href="#ref-for-cross-site-scripting-attacks">2.4. 
+  How does this specification deal with sensitive information? </a>
+    <li><a href="#ref-for-cross-site-scripting-attacks①">2.5. 
   Does this specification introduce new state for an origin that persists
   across browsing sessions? </a>
    </ul>
