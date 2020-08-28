@@ -357,45 +357,77 @@ is vital.
 </p>
 
 <h3 class=question id="underlying-platform-data">
-  What information from the underlying platform, e.g. configuration data, is
-  exposed by this specification to an origin?
+  Does this specification expose information about the underlying
+  platform to origins?
 </h3>
 
-If so, is the information exposed from the underlying platform consistent
-across origins?  This includes but is not limited to information relating to
-the user configuration, system information including sensors, and
-communication methods.
+(Underlying platform information includes
+user configuration data,
+the presence and attributes of hardware I/O devices such as sensors,
+and the availability and behavior of various software features.)
 
-When a specification exposes specific information about a host to an origin,
-if that information changes rarely and is not variable across origins, then
-it can be used to uniquely identify a user across two origins — either
-directly because any given piece of information is unique or because the
-combination of disparate pieces of information are unique and can be used to
-form a fingerprint [[FINGERPRINTING-GUIDANCE]]. Specifications and user agents
-should treat the risk of fingerprinting by carefully considering the surface
-of available information, and the relative differences between software and
-hardware stacks. Sometimes reducing fingerprintability may as simple as
-ensuring consistency, i.e. ordering the list of fonts, but sometimes may be
-more complex.
+If so, is the same information exposed across origins?
+Do different origins see different data or the same data?
+Does the data change frequently or rarely?
+Rarely-changing data exposed to multiple origins
+can be used to uniquely identify a user across those origins.
+This may be direct
+(when the piece of information is unique)
+or indirect
+(because the data may be combined with other data to form a fingerprint). [[FINGERPRINTING-GUIDANCE]]
 
-Such information should not be revealed to an origin without a user’s
-knowledge and consent barring mitigations in the specification to prevent the
-information from being uniquely identifying or able to unexpectedly
-exfiltrate data.
+When considering whether or not to expose such information,
+specifications and user agents
+should not consider the information in isolation,
+but should evaluate the risk of adding it
+to the existing fingerprinting surface of the platform.
+
+Keep in mind that
+the fingerprinting risk of a particular piece of information
+may vary between platforms.
+The fingerprinting risk of some data
+on the hardware and software platforms *you* use
+may be different than
+the fingerprinting risk on other platforms.
+
+When you do decide to expose such information,
+you should take steps to mitigate the harm of such exposure.
+
+Sometimes the right answer is to not expose the data in the first place (see [[#drop-feature]]).
+In other cases,
+reducing fingerprintability may be as simple as
+ensuring consistency—for instance,
+by ordering a list of available resources—but sometimes,
+more complex mitigations may be necessary.
+See [[#mitigations]] for more.
+
+If your specification exposes such data
+and does not define adequate mitigations,
+you should ensure that such information
+is not revealed to origins
+without [[DESIGN-PRINCIPLES#consent|meaningful user consent]],
+and
+you should clearly describe this
+in your specificaiton's Security and Privacy Considerations sections.
 
 <p class=example>
-The `RENDERER` string exposed by some WebGL implementations
-improves performance in some kinds of applications, but does so at the
-cost of adding persistent state to a user's fingerprint. These kinds of
-device-level details should be carefully weighed to ensure that the costs
-are outweighed by the benefits.
+WebGL's `RENDERER` string
+enables some applications to improve performance.
+It's also valuable fingerprinting data.
+This privacy risk must be carefully weighed
+when considering exposing such data to origins.
 </p>
 
 <p class=example>
-The {{NavigatorPlugins}} list exposed via the DOM practically never
-changes for most users. Some user agents have taken steps to reduce the
-entropy introduced by [disallowing direct enumeration of the plugin list](https://bugzilla.mozilla.org/show_bug.cgi?id=757726).
+The {{NavigatorPlugins}} list almost never changes.
+Some user agents have [disabled direct enumeration of the plugin list](https://bugzilla.mozilla.org/show_bug.cgi?id=757726)
+to reduce the fingerprinting harm of this interface.
 </p>
+
+See also:
+
+* [[DESIGN-PRINCIPLES#device-ids|Use care when exposing identifying information about devices]]
+* [[DESIGN-PRINCIPLES#device-enumeration|Use care when exposing APIs for selecting or enumerating devices]]
 
 <h3 class=question id="sensor-data">
   Does this specification allow an origin access to sensors on a user’s
