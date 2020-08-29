@@ -397,6 +397,30 @@ changes for most users. Some user agents have taken steps to reduce the
 entropy introduced by [disallowing direct enumeration of the plugin list](https://bugzilla.mozilla.org/show_bug.cgi?id=757726).
 </p>
 
+<h3 class=question id=send-to-platform>
+  Does this specification allow an origin to send data to the underlying
+  platform?
+</h3>
+
+If so, what kind of data can be sent?
+
+Platforms differ in how they process data passed into them,
+which may present different risks to users.
+
+<p class=example>
+URLs may or may not be dereferenced by a platform API,
+and if they are dereferenced,
+redirects may or may not be followed.
+If your specification sends URLs to underlying platform APIs,
+the potential harm of *your* API
+may vary depending on
+the behavior of the various underlying platform APIs it's built upon.
+What happens when `file:`, `data:`, or `blob:` URLs
+are passed to the underlying platform API?
+Keep in mind that, even if your API only allows `http:` and `https:` URLs,
+servers can redirect these to  `file:`, `data:`, or `blob:` URLs.
+</p>
+
 <h3 class=question id="sensor-data">
   Does this specification allow an origin access to sensors on a user’s
   device
