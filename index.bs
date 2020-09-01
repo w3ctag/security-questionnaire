@@ -315,13 +315,13 @@ communication methods.
 
 When a specification exposes specific information about a host to an origin,
 if that information changes rarely and is not variable across origins, then
-it can be used to uniquely identify a user's agent across two origins — either
-directly because any given piece of information is unique or because the
-combination of disparate pieces of information are unique and can be used to
-form a fingerprint [[FINGERPRINTING-GUIDANCE]]. Specifications and user agents
-should treat the risk of fingerprinting by carefully considering the surface
-of available information, and the relative differences between software and
-hardware stacks. Sometimes reducing fingerprintability may as simple as
+it can be used to uniquely identify a user agent or user across two origins 
+— either directly because any given piece of information is unique or because 
+the combination of disparate pieces of information are unique and can be used 
+to form a fingerprint [[FINGERPRINTING-GUIDANCE]]. Specifications and user 
+agents should treat the risk of fingerprinting by carefully considering the 
+surface of available information, and the relative differences between software 
+and hardware stacks. Sometimes reducing fingerprintability may as simple as
 ensuring consistency, i.e. ordering the list of fonts, but sometimes may be
 more complex.
 
@@ -353,15 +353,16 @@ If so, what kind of sensors and information derived from those sensors does
 this standard expose to origins?
 
 Information from sensors may serve as a fingerprinting vector on the same origin
-or across origins.  In addition, sensor also reveals something about the user’s 
+or across origins.  In addition, sensor can reveal something about the user 
 agent or environment and that fact might be what is sensitive.  In addition, as 
 technology advances, mitigations in place at the time a specification is written 
 may have to be reconsidered as the threat landscape changes.
 
 Sensor data might even become a cross-origin identifier when the sensor reading
-is relatively stable, for example for short time periods (seconds, minutes, even days), and
-is consistent across-origins.  In fact, if two user-agents expose the same
-sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.
+is relatively stable, for example for short time periods (seconds, minutes, 
+even days), and is consistent across-origins.  In fact, if two user agents 
+expose the same sensor data the same way, it may become a cross-browser, 
+possibly even a cross-device identifier.
 
 <p class=example>
 As gyroscopes advanced, their sampling rate had to be lowered to
@@ -1040,10 +1041,10 @@ spec:html; type:element; text:link
 <pre class="biblio">
 {
   "COMCAST": {
-      "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
-      "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
-      "publisher": "Ars Technica",
-      "authors": [ "David Kravets" ]
+    "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
+    "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
+    "publisher": "Ars Technica",
+    "authors": [ "David Kravets" ]
   },
   "DOTY-GEOLOCATION": {
     "href": "https://escholarship.org/uc/item/0rp834wf",
@@ -1052,9 +1053,9 @@ spec:html; type:element; text:link
     "publisher": "UC Berkeley School of Information"
   },
   "GEOFENCING-EXPLAINED": {
-      "href": "https://github.com/slightlyoff/Geofencing/blob/master/explainer.md",
-      "title": "Geofencing Explained",
-      "authors": [ "Alex Russell" ]
+    "href": "https://github.com/slightlyoff/Geofencing/blob/master/explainer.md",
+    "title": "Geofencing Explained",
+    "authors": [ "Alex Russell" ]
   },
   "GYROSPEECHRECOGNITION": {
     "href": "https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf",
@@ -1063,9 +1064,9 @@ spec:html; type:element; text:link
     "authors": [ "Yan Michalevsky", "Dan Boneh", "Gabi Nakibly"]
   },
   "HOMAKOV": {
-      "href": "http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html",
-      "title": "Using Content-Security-Policy for Evil",
-      "authors": [ "Egor Homakov" ]
+    "href": "http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html",
+    "title": "Using Content-Security-Policy for Evil",
+    "authors": [ "Egor Homakov" ]
   },
   "OLEJNIK-ALS": {
     "href": "https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/",
@@ -1092,16 +1093,16 @@ spec:html; type:element; text:link
     "publisher": "David Rivera"
   },
   "TIMING": {
-      "href": "http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf",
-      "title": "Pixel Perfect Timing Attacks with HTML5",
-      "authors": [ "Paul Stone" ],
-      "publisher": "Context Information Security"
+    "href": "http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf",
+    "title": "Pixel Perfect Timing Attacks with HTML5",
+    "authors": [ "Paul Stone" ],
+    "publisher": "Context Information Security"
   },
   "VERIZON": {
-      "href": "http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/",
-      "title": "Verizon looks to target its mobile subscribers with ads",
-      "publisher": "Advertising Age",
-      "authors": [ "Mark Bergen", "Alex Kantrowitz" ]
+    "href": "http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/",
+    "title": "Verizon looks to target its mobile subscribers with ads",
+    "publisher": "Advertising Age",
+    "authors": [ "Mark Bergen", "Alex Kantrowitz" ]
   },
   "WU-PRIVATE-BROWSING": {
     "href": "https://dl.acm.org/citation.cfm?id=3186088",
@@ -1110,10 +1111,10 @@ spec:html; type:element; text:link
     "authors": [ "Yuxi Wu", "Panya Gupta", "Miranda Wei", "Yasemin Acar", "Sascha Fahl", "Blase Ur"]
   },
   "YUBIKEY-ATTACK": {
-      "href": "https://www.wired.com/story/chrome-yubikey-phishing-webusb/",
-      "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
-      "authors": [ "Andy Greenberg" ],
-      "publisher": "Wired"
+    "href": "https://www.wired.com/story/chrome-yubikey-phishing-webusb/",
+    "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
+    "authors": [ "Andy Greenberg" ],
+    "publisher": "Wired"
   }
 }
 </pre>
