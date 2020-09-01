@@ -1041,10 +1041,10 @@ spec:html; type:element; text:link
 <pre class="biblio">
 {
   "COMCAST": {
-    "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
-    "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
-    "publisher": "Ars Technica",
-    "authors": [ "David Kravets" ]
+      "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
+      "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
+      "publisher": "Ars Technica",
+      "authors": [ "David Kravets" ]
   },
   "DOTY-GEOLOCATION": {
     "href": "https://escholarship.org/uc/item/0rp834wf",
@@ -1053,9 +1053,9 @@ spec:html; type:element; text:link
     "publisher": "UC Berkeley School of Information"
   },
   "GEOFENCING-EXPLAINED": {
-    "href": "https://github.com/slightlyoff/Geofencing/blob/master/explainer.md",
-    "title": "Geofencing Explained",
-    "authors": [ "Alex Russell" ]
+      "href": "https://github.com/slightlyoff/Geofencing/blob/master/explainer.md",
+      "title": "Geofencing Explained",
+      "authors": [ "Alex Russell" ]
   },
   "GYROSPEECHRECOGNITION": {
     "href": "https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf",
@@ -1064,9 +1064,9 @@ spec:html; type:element; text:link
     "authors": [ "Yan Michalevsky", "Dan Boneh", "Gabi Nakibly"]
   },
   "HOMAKOV": {
-    "href": "http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html",
-    "title": "Using Content-Security-Policy for Evil",
-    "authors": [ "Egor Homakov" ]
+      "href": "http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html",
+      "title": "Using Content-Security-Policy for Evil",
+      "authors": [ "Egor Homakov" ]
   },
   "OLEJNIK-ALS": {
     "href": "https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/",
@@ -1093,16 +1093,16 @@ spec:html; type:element; text:link
     "publisher": "David Rivera"
   },
   "TIMING": {
-    "href": "http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf",
-    "title": "Pixel Perfect Timing Attacks with HTML5",
-    "authors": [ "Paul Stone" ],
-    "publisher": "Context Information Security"
+      "href": "http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf",
+      "title": "Pixel Perfect Timing Attacks with HTML5",
+      "authors": [ "Paul Stone" ],
+      "publisher": "Context Information Security"
   },
   "VERIZON": {
-    "href": "http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/",
-    "title": "Verizon looks to target its mobile subscribers with ads",
-    "publisher": "Advertising Age",
-    "authors": [ "Mark Bergen", "Alex Kantrowitz" ]
+      "href": "http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/",
+      "title": "Verizon looks to target its mobile subscribers with ads",
+      "publisher": "Advertising Age",
+      "authors": [ "Mark Bergen", "Alex Kantrowitz" ]
   },
   "WU-PRIVATE-BROWSING": {
     "href": "https://dl.acm.org/citation.cfm?id=3186088",
@@ -1111,10 +1111,10 @@ spec:html; type:element; text:link
     "authors": [ "Yuxi Wu", "Panya Gupta", "Miranda Wei", "Yasemin Acar", "Sascha Fahl", "Blase Ur"]
   },
   "YUBIKEY-ATTACK": {
-    "href": "https://www.wired.com/story/chrome-yubikey-phishing-webusb/",
-    "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
-    "authors": [ "Andy Greenberg" ],
-    "publisher": "Wired"
+      "href": "https://www.wired.com/story/chrome-yubikey-phishing-webusb/",
+      "title": "Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users",
+      "authors": [ "Andy Greenberg" ],
+      "publisher": "Wired"
   }
 }
 </pre>
