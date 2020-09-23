@@ -204,13 +204,14 @@ that would be harmless in one country
 might be used in another country
 to detain, kidnap, or imprison them.
 
-Note:
+Examples of sensitive information include:
 caste,
 citizenship,
 color,
 credentials,
 criminal record,
 demographic information,
+disability status,
 employment status,
 ethnicity,
 financial information,
@@ -223,8 +224,7 @@ race,
 religious beliefs or nonbeliefs,
 sexual preferences,
 and
-trans status
-are all examples of sensitive information.
+trans status.
 
 When a feature exposes sensitive information to the web,
 its designers must take steps
@@ -361,7 +361,7 @@ is vital.
   exposed by this specification to an origin?
 </h3>
 
-If so, is the information exposed from the underlying platform consistent
+Is the information exposed from the underlying platform consistent
 across origins?  This includes but is not limited to information relating to
 the user configuration, system information including sensors, and
 communication methods.
@@ -416,20 +416,18 @@ is relatively stable, for example for short time periods (seconds, minutes, even
 is consistent across-origins.  In fact, if two user-agents expose the same
 sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.
 
-<p class=example>
-As gyroscopes advanced, their sampling rate had to be lowered to
-prevent them from being used as a microphone as one such example
-[[GYROSPEECHRECOGNITION]].
-</p>
+<p class=example> As gyroscopes advanced, they could be used as
+microphones [[GYROSPEECHRECOGNITION]].  This was mitigated by lowering
+their sample rates.  </p>
 
 <p class=example>
-ALS sensors could allowed for an attacker to exfiltrate whether or not a
+Ambient light sensors could allow an attacker to learn whether or not a
 user had visited given links [[OLEJNIK-ALS]].
 </p>
 
 <p class=example>
 Even relatively short lived data, like the battery status, may be able to
-serve as an identifier if misused/abused [[OLEJNIK-BATTERY]].
+serve as an identifier [[OLEJNIK-BATTERY]].
 </p>
 
 <h3 class=question id="other-data">
@@ -447,16 +445,15 @@ severe.
 <p class=example>
 Content Security Policy [[CSP]] unintentionally exposed redirect targets
 cross-origin by allowing one origin to infer details about another origin
-through violation reports (see [[HOMAKOV]]). The working group eventually
+through violation reports (see [[HOMAKOV]]). The working group
 mitigated the risk by reducing a policy's granularity after a redirect.
 </p>
 
-<p class=example>
-Beacon [[BEACON]] allows an origin to send POST requests to an endpoint
-on another origin. They decided that this feature didn't add any new
-attack surface above and beyond what normal form submission entails, so
-no extra mitigation was necessary.
-</p>
+<p class=example> Beacon [[BEACON]] allows an origin to send POST
+requests to an endpoint on another origin. The working group concluded
+that this feature did not add any new attack surface above and beyond
+what normal form submission entails, so no extra mitigation was
+necessary.  </p>
 
 <h3 class=question id="string-to-script">
   Does this specification enable new script execution/loading mechanisms?
@@ -533,7 +530,7 @@ user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?
 
 <h3 class=question id="temporary-id">
-  What temporary identifiers might this this specification create or expose
+  What temporary identifiers might this specification create or expose
   to the web?
 </h3>
 
@@ -550,9 +547,12 @@ rotated?
 Example temporary identifiers include TLS Channel ID, Session Tickets, and
 IPv6 addresses.
 
+<p class=example>
 The index attribute in the Gamepad API [[GAMEPAD]] — an integer that starts
 at zero, increments, and is reset — is a good example of a privacy friendly
 temporary identifier.
+</p>
+
 
 <h3 class=question id="first-third-party">
   How does this specification distinguish between behavior in first-party and
@@ -572,24 +572,22 @@ availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.
 
 <h3 class=question id="private-browsing">
-  How does this specification work in the context of a user agent’s Private
-  Browsing or "incognito" mode?
+  How does this specification work in the context of a browser’s Private
+  Browsing or Incognito mode?
 </h3>
 
-Each major user agent implements a private browsing / incognito mode feature
-with significant variation across user agents in threat models,
-functionality, and descriptions to users regarding the protections afforded
-[[WU-PRIVATE-BROWSING]].
+Most browsers implement a private browsing or incognito mode,
+though they vary significantly in what functionality they provide and
+how that protection is described to users [[WU-PRIVATE-BROWSING]].
 
-One typical commonality across user agents' private browsing / incognito
-modes is that they have a set of state than the user agents’ in their
-‘normal’ modes.
+One commonality is that they provide a different set of state
+than the browser's 'normal' state.
 
 Does the specification provide information that would allow for the
-correlation of a single user's activity across normal and private browsing /
-incognito modes?  Does the specification result in information being written
-to a user’s host that would persist following a private browsing / incognito
-mode session ending?
+correlation of a single user's activity across normal and private
+browsing / incognito modes?  Does the specification result in
+information being written to a user’s host that would persist
+following a private browsing / incognito mode session ending?
 
 There has been research into both:
 
@@ -599,64 +597,39 @@ There has been research into both:
     non-private mode sessions for a given user. [[OLEJNIK-PAYMENTS]]
 
 <h3 class=question id="considerations">
-  Does this specification have a "Security Considerations" and "Privacy
-  Considerations" section?
+  Does this specification have both "Security Considerations" and "Privacy
 </h3>
 
-Documenting the various concerns and potential abuses in "Security
 Considerations" and "Privacy Considerations" sections of a document is a good
-way to help implementers and web developers understand the risks that a
-feature presents, and to ensure that adequate mitigations are in place.
-Simply adding a section to your specification with yes/no responses to the
-questions in this document is insufficient.
+Specifications should have both "Security Considerations" and "Privacy
+Considerations" sections to help implementers and web developers
+understand the risks that a feature presents and to ensure that
+adequate mitigations are in place.  While your answers to the
+questions in this document will inform your writing of those sections,
+do not merely copy this questionnaire into those sections.  Instead,
+craft language specific to your specification that will be helpful to
+implementers and web developers.
+
+[[RFC6973]] is an excellent resource to consult when considering
+privacy impacts of your specification, particularly Section 7 of
+RFC6983.  [[RFC3552]] provides general advice as to writing Security
+Consideration sections.
+
+Generally, these sections should contain clear descriptions of the
+privacy and security risks the specification introduces.  It is also
+appropriate to document risks that are mitigated elsewhere in the
+specification and to call out details that, if implemented
+other-than-according-to-spec, are likely to lead to vulnerabilities.
 
 If it seems like a feature does not have security or privacy impacts,
-then say so inline in the spec section for that feature:
+say so in-line, e.g.:
 
-> There are no known security or privacy impacts of this feature.
+> There are no known security impacts of this feature.
 
-Saying so explicitly in the specification serves several purposes:
-
-1. Shows that a spec author/editor has explicitly considered security and
-    privacy when designing a feature.
-1. Provides some sense of confidence that there might be no such impacts.
-1. Challenges security and privacy minded individuals to think of and find
-    even the potential for such impacts.
-1. Demonstrates the spec author/editor's receptivity to feedback about such
-    impacts.
-1. Demonstrates a desire that the specification should not be introducing
-    security and privacy issues
-
-[[RFC3552]] provides general advice as to writing Security Consideration
-sections.  Generally, there should be a clear description of the kinds of
-privacy risks the new specification introduces to for users of the web
-platform.  Below is a set of considerations, informed by that RFC, for
-writing a privacy considerations section.
-
-Authors must describe:
-
-1. What privacy attacks have been considered?
-1. What privacy attacks have been deemed out of scope (and why)?
-1. What privacy mitigations have been implemented?
-1. What privacy mitigations have considered and not implemented (and why)?
-
-In addition, attacks considered must include:
-
-1. Fingerprinting risk;
-1. Unexpected exfiltration of data through abuse of sensors;
-1. Unexpected usage of the specification / feature by third parties;
-1. If the specification includes identifiers, the authors must document what
-    rotation period was selected for the identifiers and why.
-1. If the specification introduces new state to the user agent, the authors
-    must document what guidance regarding clearing said storage was given and
-    why.
-1. There should be a clear description of the residual risk to the user
-    after the privacy mitigations has been implemented.
-
-The crucial aspect is to actually considering security and privacy. All new
-specifications must have security and privacy considerations sections to be
-considered for wide reviews. Interesting features added to the web platform
-generally often already had security and/or privacy impacts.
+Be aware, though, that most specifications will have at least some
+impact on the fingerprinting surface of the browser.  If you believe
+your specification in an outlier, justifying that claim is in
+order.
 
 <h3 class=question id="relaxed-sop">
   Does this specification allow downgrading default security characteristics?
