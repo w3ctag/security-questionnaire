@@ -31,7 +31,7 @@ This document contains a set of questions
 intended to help <abbr title="specification">spec</abbr> authors
 as they think through
 the security and privacy implications
-of their work.
+of their work and write the narrative Security Considerations and Privacy Considerations sections for inclusion in-line in their specifications, as described below in [[#considerations]].
 It also documents mitigation strategies
 that spec authors can use to address
 security and privacy concerns they encounter as they work on their spec.
@@ -58,30 +58,36 @@ to protect their users' privacy and security.
 These questions should be kept in mind throughout work on any specification.
 Spec authors should periodically revisit this questionnaire
 to continue to consider the privacy and security implications of
-their features, as their design changes over time.
+their features, particularly as their design changes over time.
 
-<h3 id=reviews>TAG and PING reviews and this questionnaire</h3>
+<h3 id=reviews>TAG, PING, and security reviews and this questionnaire</h3>
+
+Before requesting
+[privacy](https://github.com/w3cping/privacy-reviews/issues) and
+security reviews from the [Privacy Interest Group
+(PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
+respectively, authors must write both "Security Considerations" and
+"Privacy Considerations" sections for their documents, as described in
+[[#considerations]].  While your answers to the questions in this
+document will inform your writing of those sections, it is not
+appropriate to merely copy this questionnaire into those sections.
 
 When authors request
 a [review](https://github.com/w3ctag/design-reviews)
 from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
 the TAG asks that authors provide answers
 to the questions in this document.
-The [Privacy Interest Group (PING)](https://www.w3.org/Privacy/IG/)
-also considers answers to these questions
-while conducting
-[privacy reviews](https://github.com/w3cping/privacy-reviews/issues).
 
-The TAG and PING use this document
+The TAG may use this document
 to record security and privacy questions
-which come up during our reviews.
+which come up during their reviews.
 Working through these questions can save
 both spec authors and the people performing design reviews
 a lot of time.
 
 To make it easier for anyone requesting a review
-to provide their answers to these questions to the reviewers,
-we've prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
+to provide their answers to these questions to the TAG,
+we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
 
 <h2 id="questions">Questions to Consider</h2>
 
