@@ -71,6 +71,9 @@ respectively, authors must write both "Security Considerations" and
 [[#considerations]].  While your answers to the questions in this
 document will inform your writing of those sections, it is not
 appropriate to merely copy this questionnaire into those sections.
+Instructions for requesting security and privacy reviews can be
+found in the
+[Guide](https://w3c.github.io/documentreview/#how_to_get_horizontal_review).
 
 When authors request
 a [review](https://github.com/w3ctag/design-reviews)
