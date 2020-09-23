@@ -63,7 +63,7 @@ their features, particularly as their design changes over time.
 <h3 id=reviews>TAG, PING, and security reviews and this questionnaire</h3>
 
 Before requesting
-[privacy](https://github.com/w3cping/privacy-reviews/issues) and
+privacy and
 security reviews from the [Privacy Interest Group
 (PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
 respectively, authors must write both "Security Considerations" and

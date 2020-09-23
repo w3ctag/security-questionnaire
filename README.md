@@ -5,7 +5,7 @@ The questionnaire is a joint product of the [TAG](https://tag.w3.org/) and [PING
 When folks request a [design review](https://github.com/w3ctag/design-reviews) from the TAG, [filling out](questionnaire.markdown) the security and privacy questionnaire helps the TAG to understand potential security and privacy issues and mitigations for the design, and can save us asking redundant questions.
 
 Before requesting security and
-[privacy](https://github.com/w3cping/privacy-reviews/issues) review
+privacy review
 from the security reviewers and PING, respectively, documents must
 contain both "Security Considerations" and "Privacy Considerations"
 sections for their documents, as described in Section 2.15.  While
