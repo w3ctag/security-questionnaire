@@ -598,9 +598,9 @@ There has been research into both:
 
 <h3 class=question id="considerations">
   Does this specification have both "Security Considerations" and "Privacy
+  Considerations" sections?
 </h3>
 
-Considerations" and "Privacy Considerations" sections of a document is a good
 Specifications should have both "Security Considerations" and "Privacy
 Considerations" sections to help implementers and web developers
 understand the risks that a feature presents and to ensure that
