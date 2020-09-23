@@ -92,6 +92,22 @@ To make it easier for anyone requesting a review
 to provide their answers to these questions to the TAG,
 we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
 
+
+<h3 id=reviews>Additional resources</h3>
+
+This document is only one of the tools you should use to inform your
+consideration of privacy and security issues in your specifications.
+
+The Mitigating Browser Fingerprinting in Web Specifications
+[[FINGERPRINTING-GUIDANCE]] document published by PING goes into
+further depth about browser fingerprinting and should be considered in
+parallel with this document.
+
+The IETF's RFC about privacy considerations, [[RFC6973]], is a
+wonderful resource.  We recommend that all spec authors read section 7
+of RFC6973.
+
+
 <h2 id="questions">Questions to Consider</h2>
 
 <h3 class=question id="purpose">
