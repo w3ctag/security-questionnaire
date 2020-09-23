@@ -1,6 +1,6 @@
 # [Self-Review Questionnaire: Security and Privacy](https://w3ctag.github.io/security-questionnaire/)
 
-This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
+For further explanation see [the full questionnaire](https://w3ctag.github.io/security-questionnaire/).
 
 For your convenience, a copy of the questionnaire's questions is quoted here in Markdwon, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
 
@@ -25,13 +25,13 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 10. Does this specification allow an origin to access other devices?
 > 11. Does this specification allow an origin some measure of control over a user
 >     agent's native UI?
-> 12. What temporary identifiers might this this specification create or expose
+> 12. What temporary identifiers might this specification create or expose
 >     to the web?
 > 13. How does this specification distinguish between behavior in first-party and
 >     third-party contexts?
 > 14. How does this specification work in the context of a user agent’s Private
 >     Browsing or "incognito" mode?
-> 15. Does this specification have a "Security Considerations" and "Privacy
->     Considerations" section?
+> 15. Does this specification have both "Security Considerations" and "Privacy
+>     Considerations" sections?
 > 16. Does this specification allow downgrading default security characteristics?
 > 17. What should this questionnaire have asked?
