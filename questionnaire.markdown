@@ -14,8 +14,8 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 04. How does this specification deal with sensitive information?
 > 05. Does this specification introduce new state for an origin that persists
 >     across browsing sessions?
-> 06. What information from the underlying platform, e.g. configuration data, is
->     exposed by this specification to an origin?
+> 06. Does this specification expose information about the underlying
+>     platform to origins?
 > 07. Does this specification allow an origin access to sensors on a user’s
 >     device
 > 08. What data does this specification expose to an origin?  Please also
