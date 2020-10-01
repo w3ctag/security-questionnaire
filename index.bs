@@ -93,7 +93,7 @@ to provide their answers to these questions to the TAG,
 we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
 
 
-<h3 id=reviews>Additional resources</h3>
+<h3 id=resources>Additional resources</h3>
 
 This document is only one of the tools you should use to inform your
 consideration of privacy and security issues in your specifications.
