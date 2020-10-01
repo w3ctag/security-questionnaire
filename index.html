@@ -68,9 +68,18 @@
  *
  ******************************************************************************/
 
+/* color variables included separately for reliability */
+
 /******************************************************************************/
 /*                                   Body                                     */
 /******************************************************************************/
+
+	html {
+		color: black;
+		color: var(--text);
+		background-color: white;
+		background-color: var(--bg);
+	}
 
 	body {
 		counter-reset: example figure issue;
@@ -90,9 +99,7 @@
 		overflow-wrap: break-word;
 		hyphens: auto;
 
-		/* Colors */
-		color: black;
-		background: white top left fixed no-repeat;
+		background: transparent top left fixed no-repeat;
 		background-size: 25px auto;
 	}
 
@@ -124,10 +131,13 @@
 	.head img[src*="logos/W3C"] {
 		display: block;
 		border: solid #1a5e9a;
+		border: solid var(--logo-bg);
 		border-width: .65rem .7rem .6rem;
 		border-radius: .4rem;
 		background: #1a5e9a;
+		background: var(--logo-bg);
 		color: white;
+		color: var(--logo-text);
 		font-weight: bold;
 	}
 
@@ -138,7 +148,9 @@
 
 	.head a:active > img[src*="logos/W3C"] {
 		background: #c00;
+		background: var(--logo-active-bg);
 		border-color: #c00;
+		border-color: var(--logo-active-bg);
 	}
 
 	/* see also additional rules in Link Styling section */
@@ -165,7 +177,6 @@
 			border-top-right-radius: 2rem;
 			box-shadow: 0 0 2px;
 			font-size: 1.5em;
-			color: black;
 		}
 		#toc-nav > a {
 			display: block;
@@ -175,23 +186,32 @@
 			padding: .1em 0.3em;
 			margin: 0;
 
-			background: white;
 			box-shadow: 0 0 2px;
 			border: none;
 			border-top-right-radius: 1.33em;
+
+			color: #707070;
+			color: var(--tocnav-normal-text);
 			background: white;
+			background: var(--tocnav-normal-bg);
 		}
+		#toc-nav > a:hover,
+		#toc-nav > a:focus {
+			color: black;
+			color: var(--tocnav-hover-text);
+			background: #f8f8f8;
+			background: var(--tocnav-hover-bg);
+		}
+		#toc-nav > a:active {
+			color: #c00;
+			color: var(--tocnav-active-text);
+			background: white;
+			background: var(--tocnav-active-bg);
+		}
+
 		#toc-nav > #toc-jump {
 			padding-bottom: 2em;
 			margin-bottom: -1.9em;
-		}
-
-		#toc-nav > a:hover,
-		#toc-nav > a:focus {
-			background: #f8f8f8;
-		}
-		#toc-nav > a:not(:hover):not(:focus) {
-			color: #707070;
 		}
 
 		/* statusbar gets in the way on keyboard focus; remove once browsers fix */
@@ -205,26 +225,6 @@
 		}
 		#toc-nav > a > span + span {
 			padding-right: 0.2em;
-		}
-
-		#toc-toggle-inline {
-			vertical-align: 0.05em;
-			font-size: 80%;
-			color: gray;
-			color: hsla(203,20%,40%,.7);
-			border-style: none;
-			background: transparent;
-			position: relative;
-		}
-		#toc-toggle-inline:hover:not(:active),
-		#toc-toggle-inline:focus:not(:active) {
-			text-shadow: 1px 1px silver;
-			top: -1px;
-			left: -1px;
-		}
-
-		#toc-nav :active {
-			color: #C00;
 		}
 	}
 
@@ -243,10 +243,14 @@
 			padding: 0 1em;
 			padding-left: 42px;
 			padding-left: calc(1em + 26px);
+			color: black;
+			color: var(--tocsidebar-text);
 			background: inherit;
 			background-color: #f7f8f9;
+			background-color: var(--tocsidebar-bg);
 			z-index: 1;
 			box-shadow: -.1em 0 .25em rgba(0,0,0,.1) inset;
+			box-shadow: -.1em 0 .25em var(--tocsidebar-shadow) inset;
 		}
 		body.toc-sidebar #toc h2 {
 			margin-top: .8rem;
@@ -256,6 +260,7 @@
 			font-weight: bold;
 			color: gray;
 			color: hsla(203,20%,40%,.7);
+			color: var(--tocsidebar-heading-text);
 		}
 		body.toc-sidebar #toc-jump:not(:focus) {
 			width: 0;
@@ -283,10 +288,14 @@
 			padding: 0 1em;
 			padding-left: 42px;
 			padding-left: calc(1em + 26px);
+			color: black;
+			color: var(--tocsidebar-text);
 			background: inherit;
 			background-color: #f7f8f9;
+			background-color: var(--tocsidebar-bg);
 			z-index: 1;
 			box-shadow: -.1em 0 .25em rgba(0,0,0,.1) inset;
+			box-shadow: -.1em 0 .25em var(--tocsidebar-shadow) inset;
 		}
 		body:not(.toc-inline) #toc h2 {
 			margin-top: .8rem;
@@ -296,6 +305,7 @@
 			font-weight: bold;
 			color: gray;
 			color: hsla(203,20%,40%,.7);
+			color: var(--tocsidebar-heading-text);
 		}
 
 		body:not(.toc-inline) {
@@ -338,7 +348,7 @@
 
 	h1, h2, h3 {
 		color: #005A9C;
-		background: transparent;
+		color: var(--heading-text);
 	}
 
 	h1 { font-size: 170%; }
@@ -365,11 +375,13 @@
 
 /** Section divider ***********************************************************/
 
-	:not(.head) > hr {
+	:not(.head) > :not(.head) + hr {
 		font-size: 1.5em;
 		text-align: center;
 		margin: 1em auto;
 		height: auto;
+		color: black;
+		color: var(--hr-text);
 		border: transparent solid 0;
 		background: transparent;
 	}
@@ -412,12 +424,15 @@
 	ol.algorithm ol:not(.algorithm),
 	.algorithm > ol ol:not(.algorithm) {
 	 border-left: 0.5em solid #DEF;
+	 border-left: 0.5em solid var(--algo-border);
 	}
 
 	/* Put nice boxes around each algorithm. */
 	[data-algorithm]:not(.heading) {
 	  padding: .5em;
-	  border: thin solid #ddd; border-radius: .5em;
+	  border: thin solid #ddd;
+	  border: thin solid var(--algo-border);
+	  border-radius: .5em;
 	  margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
@@ -478,8 +493,20 @@
 
 /** Change Marking ************************************************************/
 
-	del { color: red;  text-decoration: line-through; }
-	ins { color: #080; text-decoration: underline;    }
+	del {
+		color: red;
+		color: var(--del-text);
+		background: transparent;
+		background: var(--del-bg);
+		text-decoration: line-through;
+	}
+	ins {
+		color: #080;
+		color: var(--ins-text);
+		background: transparent;
+		background: var(--ins-bg);
+		text-decoration: underline;
+	}
 
 /** Miscellaneous improvements to inline formatting ***************************/
 
@@ -497,9 +524,14 @@
 	pre, code, samp {
 		font-family: Menlo, Consolas, "DejaVu Sans Mono", Monaco, monospace;
 		font-size: .9em;
-		page-break-inside: avoid;
 		hyphens: none;
 		text-transform: none;
+		text-align: left;
+		text-align: start;
+		font-variant: normal;
+		orphans: 3;
+		widows: 3;
+		page-break-before: avoid;
 	}
 	pre code,
 	code code {
@@ -525,14 +557,19 @@
 	/* We hyperlink a lot, so make it less intrusive */
 	a[href] {
 		color: #034575;
+		color: var(--a-normal-text);
 		text-decoration: none;
 		border-bottom: 1px solid #707070;
+		border-bottom: 1px solid var(--a-normal-underline);
 		/* Need a bit of extending for it to look okay */
 		padding: 0 1px 0;
 		margin: 0 -1px 0;
 	}
 	a:visited {
-		border-bottom-color: #BBB;
+		color: #034575;
+		color: var(--a-visited-text);
+		border-bottom-color: #bbb;
+		border-bottom-color: var(--a-visited-underline);
 	}
 
 	/* Use distinguishing colors when user is interacting with the link */
@@ -540,12 +577,15 @@
 	a[href]:hover {
 		background: #f8f8f8;
 		background: rgba(75%, 75%, 75%, .25);
+		background: var(--a-hover-bg);
 		border-bottom-width: 3px;
 		margin-bottom: -2px;
 	}
 	a[href]:active {
-		color: #C00;
-		border-color: #C00;
+		color: #c00;
+		color: var(--a-active-text);
+		border-color: #c00;
+		border-color: var(--a-active-underline);
 	}
 
 	/* Backout above styling for W3C logo */
@@ -564,6 +604,11 @@
 		border-style: none;
 	}
 
+	img, svg {
+		/* Intentionally not color-scheme aware. */
+		background: white;
+	}
+
 	/* For autogen numbers, add
 	   .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
 	*/
@@ -577,6 +622,7 @@
 	.figure object, .sidefigure object, figure object {
 		max-width: 100%;
 		margin: auto;
+		height: auto;
 	}
 	.figure pre, .sidefigure pre, figure pre {
 		text-align: left;
@@ -639,25 +685,46 @@
 		margin-bottom: 0;
 	}
 
+
+	.issue::before, .issue > .marker,
+	.example::before, .example > .marker,
+	.note::before, .note > .marker,
+	details.note > summary > .marker {
+		text-transform: uppercase;
+		padding-right: 1em;
+	}
+
+	.example::before, .example > .marker {
+		display: block;
+		padding-right: 0em;
+	}
+
 /** Blockquotes ***************************************************************/
 
 	blockquote {
 		border-color: silver;
+		border-color: var(--blockquote-border);
+		background: transparent;
+		background: var(--blockquote-bg);
+		color: currentcolor;
+		color: var(--blockquote-text);
 	}
 
 /** Open issue ****************************************************************/
 
 	.issue {
-		border-color: #E05252;
-		background: #FBE9E9;
+		border-color: #e05252;
+		border-color: var(--issue-border);
+		background: #fbe9e9;
+		background: var(--issue-bg);
+		color: black;
+		color: var(--issue-text);
 		counter-increment: issue;
 		overflow: auto;
 	}
 	.issue::before, .issue > .marker {
-		text-transform: uppercase;
-		color: #AE1E1E;
-		padding-right: 1em;
-		text-transform: uppercase;
+		color: #831616;
+		color: var(--issueheading-text);
 	}
 	/* Add .issue::before { content: "Issue " counter(issue) " "; } for autogen numbers,
 	   or use class="marker" to mark up the issue number in source. */
@@ -665,17 +732,19 @@
 /** Example *******************************************************************/
 
 	.example {
-		border-color: #E0CB52;
-		background: #FCFAEE;
+		border-color: #e0cb52;
+		border-color: var(--example-border);
+		background: #fcfaee;
+		background: var(--example-bg);
+		color: black;
+		color: var(--example-text);
 		counter-increment: example;
 		overflow: auto;
 		clear: both;
 	}
 	.example::before, .example > .marker {
-		text-transform: uppercase;
-		color: #827017;
-		min-width: 7.5em;
-		display: block;
+		color: #574b0f;
+		color: var(--exampleheading-text);
 	}
 	/* Add .example::before { content: "Example " counter(example) " "; } for autogen numbers,
 	   or use class="marker" to mark up the example number in source. */
@@ -683,27 +752,26 @@
 /** Non-normative Note ********************************************************/
 
 	.note {
-		border-color: #52E052;
-		background: #E9FBE9;
+		border-color: #52e052;
+		border-color: var(--note-border);
+		background: #e9fbe9;
+		background: var(--note-bg);
+		color: black;
+		color: var(--note-text);
 		overflow: auto;
 	}
 
 	.note::before, .note > .marker,
-	details.note > summary::before,
-	details.note > summary > .marker {
-		text-transform: uppercase;
-		display: block;
+	details.note > summary {
 		color: hsl(120, 70%, 30%);
+		color: var(--noteheading-text);
 	}
-	/* Add .note::before { content: "Note"; } for autogen label,
+	/* Add .note::before { content: "Note "; } for autogen label,
 	   or use class="marker" to mark up the label in source. */
 
-	details.note > summary {
-		display: block;
-		color: hsl(120, 70%, 30%);
-	}
 	details.note[open] > summary {
 		border-bottom: 1px silver solid;
+		border-bottom: 1px var(--notesummary-underline) solid;
 	}
 
 /** Assertion Box *************************************************************/
@@ -711,7 +779,11 @@
 
 	.assertion {
 		border-color: #AAA;
+		border-color: var(--assertion-border);
 		background: #EEE;
+		background: var(--assertion-bg);
+		color: black;
+		color: var(--assertion-text);
 	}
 
 /** Advisement Box ************************************************************/
@@ -719,15 +791,20 @@
 
 	.advisement {
 		border-color: orange;
+		border-color: var(--advisement-border);
 		border-style: none solid;
-		background: #FFEECC;
+		background: #fec;
+		background: var(--advisement-bg);
+		color: black;
+		color: var(--advisement-text);
 	}
 	strong.advisement {
 		display: block;
 		text-align: center;
 	}
-	.advisement > .marker {
-		color: #B35F00;
+	.advisement::before, .advisement > .marker {
+		color: #b35f00;
+		color: var(--advisementheading-text);
 	}
 
 /** Spec Obsoletion Notice ****************************************************/
@@ -743,27 +820,30 @@
 	.annoying-warning:not(details),
 	details.annoying-warning:not([open]) > summary,
 	details.annoying-warning[open] {
-		background: #fdd;
-		color: red;
-		font-weight: bold;
+		background: hsla(40,100%,50%,0.95);
+		background: var(--warning-bg);
+		color: black;
+		color: var(--warning-text);
 		padding: .75em 1em;
-		border: thick red;
-		border-style: solid;
-		border-radius: 1em;
+		border: red;
+		border: var(--warning-border);
+		border-style: solid none;
+		box-shadow: 0 2px 8px black;
+		text-align: center;
 	}
 	.annoying-warning :last-child {
 		margin-bottom: 0;
 	}
 
-@media not print {
-	details.annoying-warning[open] {
-		position: fixed;
-		left: 1em;
-		right: 1em;
-		bottom: 1em;
-		z-index: 1000;
+	@media not print {
+		details.annoying-warning[open] {
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 2em;
+			z-index: 1000;
+		}
 	}
-}
 
 	details.annoying-warning:not([open]) > summary {
 		text-align: center;
@@ -773,9 +853,13 @@
 
 	.def {
 		padding: .5em 1em;
-		background: #DEF;
+		background: #def;
+		background: var(--def-bg);
 		margin: 1.2em 0;
-		border-left: 0.5em solid #8CCBF2;
+		border-left: 0.5em solid #8ccbf2;
+		border-left: 0.5em solid var(--def-border);
+		color: black;
+		color: var(--def-text);
 	}
 
 /******************************************************************************/
@@ -800,6 +884,7 @@
 		padding: 0.5em;
 		vertical-align: baseline;
 		border-bottom: 1px solid #bbd7e9;
+		border-bottom: 1px solid var(--defrow-border);
 	}
 
 	table.def > tbody > tr:last-child th,
@@ -820,10 +905,10 @@
 	}
 
 	/* A footnote at the bottom of a def table */
-	table.def           td.footnote {
+	table.def td.footnote {
 		padding-top: 0.6em;
 	}
-	table.def           td.footnote::before {
+	table.def td.footnote::before {
 		content: " ";
 		display: block;
 		height: 0.6em;
@@ -868,6 +953,7 @@
 		padding: 0.5em 1em;
 		border-width: 1px;
 		border-color: silver;
+		border-color: var(--datacell-border);
 		border-top-style: solid;
 	}
 
@@ -892,6 +978,7 @@
 	table.index tbody th:first-child  {
 		border-right: 2px solid;
 		border-top: 1px solid silver;
+		border-top: 1px solid var(--datacell-border);
 		padding-right: 1em;
 	}
 
@@ -903,13 +990,14 @@
 	table.complex.data th,
 	table.complex.data td {
 		border: 1px solid silver;
+		border: 1px solid var(--datacell-border);
 		text-align: center;
 	}
 
 	table.data.longlastcol td:last-child,
 	table.data td.long {
-	 vertical-align: baseline;
-	 text-align: left;
+		vertical-align: baseline;
+		text-align: left;
 	}
 
 	table.data img {
@@ -967,12 +1055,15 @@ Possible extra rowspan handling
 		display: block;
 		/* Reverse color scheme */
 		color: black;
-		border-color: #3980B5;
-		border-bottom-width: 3px !important;
-		margin-bottom: 0px !important;
+		color: var(--toclink-text);
+		border-color: #3980b5;
+		border-color: var(--toclink-underline);
 	}
 	.toc a:visited {
+		color: black;
+		color: var(--toclink-visited-text);
 		border-color: #054572;
+		border-color: var(--toclink-visited-underline);
 	}
 	.toc a:not(:focus):not(:hover) {
 		/* Allow colors to cascade through from link styling */
@@ -1027,6 +1118,15 @@ Possible extra rowspan handling
 			.toc > li li li li .secno    { margin-left: -6rem; }
 			.toc > li li li li li .secno { margin-left: -7rem; }
 		}
+		/* Loosen it on wide screens */
+		@media screen and (min-width: 78em) {
+			body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
+			body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
+			body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
+			body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
+			body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
+			body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
+	}
 	/* } */
 
 	@supports (display:grid) and (display:contents) {
@@ -1068,9 +1168,12 @@ Possible extra rowspan handling
 			width: auto;
 			margin-right: 1rem;
 		}
-		#toc .content:hover {
+		#toc .content:hover,
+		#toc .content:focus {
 			background: rgba(75%, 75%, 75%, .25);
+			background: var(--a-hover-bg);
 			border-bottom: 3px solid #054572;
+			border-bottom: 3px solid var(--toclink-underline);
 			margin-bottom: -3px;
 		}
 		#toc li li li .content {
@@ -1101,6 +1204,7 @@ Possible extra rowspan handling
 		ul.index li a:hover + span,
 		ul.index li a:focus + span {
 			color: #707070;
+			color: var(--indexinfo-text);
 		}
 	}
 
@@ -1122,7 +1226,10 @@ Possible extra rowspan handling
 
 	table.index tr:hover td:not([rowspan]),
 	table.index tr:hover th:not([rowspan]) {
+		color: black;
+		color: var(--indextable-hover-text);
 		background: #f7f8f9;
+		background: var(--indextable-hover-bg);
 	}
 
 	/* The link in the first column in the property table (formerly a TD) */
@@ -1147,13 +1254,6 @@ Possible extra rowspan handling
 	@page {
 		margin: 1.5cm 1.1cm;
 	}
-
-/******************************************************************************/
-/*                                    Legacy                                  */
-/******************************************************************************/
-
-	/* This rule is inherited from past style sheets. No idea what it's for. */
-	.hide { display: none }
 
 
 
@@ -1221,13 +1321,13 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 5f7b0e20, updated Tue Aug 18 15:46:28 2020 -0700" name="generator">
+  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="5c235b23dfa729bff0f3b0500086143b9edf8a13" name="document-revision">
+  <meta content="afd23341db48e11ed209d22eb6d2c4c1b3e5d5aa" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
-    color: #005a9c;
+    color: var(--a-normal-text);
     font-size: inherit;
     font-family: inherit;
 }
@@ -1286,6 +1386,114 @@ pre .property::before, pre .property::after {
 [data-link-type=biblio] {
     white-space: pre;
 }</style>
+<style>/* style-colors */
+
+/* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
+html {
+    color: black;
+    color: var(--text);
+    background-color: white;
+    background-color: var(--bg);
+}
+:root {
+    color-scheme: light dark;
+
+    --text: black;
+    --bg: white;
+
+    --logo-bg: #1a5e9a;
+    --logo-active-bg: #c00;
+    --logo-text: white;
+
+    --tocnav-normal-text: #707070;
+    --tocnav-normal-bg: var(--bg);
+    --tocnav-hover-text: var(--tocnav-normal-text);
+    --tocnav-hover-bg: #f8f8f8;
+    --tocnav-active-text: #c00;
+    --tocnav-active-bg: var(--tocnav-normal-bg);
+
+    --tocsidebar-text: var(--text);
+    --tocsidebar-bg: #f7f8f9;
+    --tocsidebar-shadow: rgba(0,0,0,.1);
+    --tocsidebar-heading-text: hsla(203,20%,40%,.7);
+
+    --toclink-text: var(--text);
+    --toclink-underline: #3980b5;
+    --toclink-visited-text: var(--toclink-text);
+    --toclink-visited-underline: #054572;
+
+    --heading-text: #005a9c;
+
+    --hr-text: var(--text);
+
+    --algo-border: #def;
+
+    --del-text: red;
+    --del-bg: transparent;
+    --ins-text: #080;
+    --ins-bg: transparent;
+
+    --a-normal-text: #034575;
+    --a-normal-underline: #707070;
+    --a-visited-text: var(--a-normal-text);
+    --a-visited-underline: #bbb;
+    --a-hover-bg: rgba(75%, 75%, 75%, .25);
+    --a-active-text: #c00;
+    --a-active-underline: #c00;
+
+    --blockquote-border: silver;
+    --blockquote-bg: transparent;
+    --blockquote-text: currentcolor;
+
+    --issue-border: #e05252;
+    --issue-bg: #fbe9e9;
+    --issue-text: var(--text);
+    --issueheading-text: #831616;
+
+    --example-border: #e0cb52;
+    --example-bg: #fcfaee;
+    --example-text: var(--text);
+    --exampleheading-text: #574b0f;
+
+    --note-border: #52e052;
+    --note-bg: #e9fbe9;
+    --note-text: var(--text);
+    --noteheading-text: hsl(120, 70%, 30%);
+    --notesummary-underline: silver;
+
+    --assertion-border: #aaa;
+    --assertion-bg: #eee;
+    --assertion-text: black;
+
+    --advisement-border: orange;
+    --advisement-bg: #fec;
+    --advisement-text: var(--text);
+    --advisementheading-text: #b35f00;
+
+    --warning-border: red;
+    --warning-bg: hsla(40,100%,50%,0.95);
+    --warning-text: var(--text);
+
+    --def-border: #8ccbf2;
+    --def-bg: #def;
+    --def-text: var(--text);
+    --defrow-border: #bbd7e9;
+
+    --datacell-border: silver;
+
+    --indexinfo-text: #707070;
+
+    --indextable-hover-text: black;
+    --indextable-hover-bg: #f7f8f9;
+
+    --outdatedspec-bg: rgba(0, 0, 0, .5);
+    --outdatedspec-text: black;
+    --outdated-bg: maroon;
+    --outdated-text: white;
+    --outdated-shadow: red;
+
+    --editedrec-bg: darkorange;
+}</style>
 <style>/* style-counters */
 
 body {
@@ -1317,6 +1525,10 @@ figcaption:not(.no-marker)::before {
 }</style>
 <style>/* style-dfn-panel */
 
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
 .dfn-panel {
     position: absolute;
     z-index: 35;
@@ -1328,8 +1540,8 @@ figcaption:not(.no-marker)::before {
     overflow: auto;
     padding: 0.5em 0.75em;
     font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-    background: #DDDDDD;
-    color: black;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
     border: outset 0.2em;
 }
 .dfn-panel:not(.on) { display: none; }
@@ -1364,6 +1576,11 @@ figcaption:not(.no-marker)::before {
 }</style>
 <style>/* style-selflinks */
 
+:root {
+    --selflink-text: white;
+    --selflink-bg: gray;
+    --selflink-hover-text: black;
+}
 .heading, .issue, .note, .example, li, dt {
     position: relative;
 }
@@ -1393,8 +1610,8 @@ dfn > a.self-link {
     opacity: 0;
     width: 1.5em;
     height: 1.5em;
-    background: gray;
-    color: white;
+    background: var(--selflink-bg);
+    color: var(--selflink-text);
     font-style: normal;
     transition: opacity .2s, background-color .2s, color .2s;
 }
@@ -1402,17 +1619,138 @@ dfn:hover > a.self-link {
     opacity: 1;
 }
 dfn > a.self-link:hover {
-    color: black;
+    color: var(--selflink-hover-text);
 }
 
 a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }</style>
+dfn > a.self-link::before      { content: "#"; }
+</style>
+<style>/* style-darkmode */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #ddd;
+        --bg: black;
+
+        --logo-bg: #1a5e9a;
+        --logo-active-bg: #c00;
+        --logo-text: white;
+
+        --tocnav-normal-text: #999;
+        --tocnav-normal-bg: var(--bg);
+        --tocnav-hover-text: var(--tocnav-normal-text);
+        --tocnav-hover-bg: #080808;
+        --tocnav-active-text: #f44;
+        --tocnav-active-bg: var(--tocnav-normal-bg);
+
+        --tocsidebar-text: var(--text);
+        --tocsidebar-bg: #080808;
+        --tocsidebar-shadow: rgba(255,255,255,.1);
+        --tocsidebar-heading-text: hsla(203,20%,40%,.7);
+
+        --toclink-text: var(--text);
+        --toclink-underline: #6af;
+        --toclink-visited-text: var(--toclink-text);
+        --toclink-visited-underline: #054572;
+
+        --heading-text: #8af;
+
+        --hr-text: var(--text);
+
+        --algo-border: #456;
+
+        --del-text: #f44;
+        --del-bg: transparent;
+        --ins-text: #4a4;
+        --ins-bg: transparent;
+
+        --a-normal-text: #6af;
+        --a-normal-underline: #555;
+        --a-visited-text: var(--a-normal-text);
+        --a-visited-underline: var(--a-normal-underline);
+        --a-hover-bg: rgba(25%, 25%, 25%, .2);
+        --a-active-text: #f44;
+        --a-active-underline: var(--a-active-text);
+
+        --borderedblock-bg: rgba(255, 255, 255, .05);
+
+        --blockquote-border: silver;
+        --blockquote-bg: var(--borderedblock-bg);
+        --blockquote-text: currentcolor;
+
+        --issue-border: #e05252;
+        --issue-bg: var(--borderedblock-bg);
+        --issue-text: var(--text);
+        --issueheading-text: hsl(0deg, 70%, 70%);
+
+        --example-border: hsl(50deg, 90%, 60%);
+        --example-bg: var(--borderedblock-bg);
+        --example-text: var(--text);
+        --exampleheading-text: hsl(50deg, 70%, 70%);
+
+        --note-border: hsl(120deg, 100%, 35%);
+        --note-bg: var(--borderedblock-bg);
+        --note-text: var(--text);
+        --noteheading-text: hsl(120, 70%, 70%);
+        --notesummary-underline: silver;
+
+        --assertion-border: #444;
+        --assertion-bg: var(--borderedblock-bg);
+        --assertion-text: var(--text);
+
+        --advisement-border: orange;
+        --advisement-bg: #222218;
+        --advisement-text: var(--text);
+        --advisementheading-text: #f84;
+
+        --warning-border: red;
+        --warning-bg: hsla(40,100%,20%,0.95);
+        --warning-text: var(--text);
+
+        --def-border: #8ccbf2;
+        --def-bg: #080818;
+        --def-text: var(--text);
+        --defrow-border: #136;
+
+        --datacell-border: silver;
+
+        --indexinfo-text: #aaa;
+
+        --indextable-hover-text: var(--text);
+        --indextable-hover-bg: #181818;
+
+        --outdatedspec-bg: rgba(255, 255, 255, .5);
+        --outdatedspec-text: black;
+        --outdated-bg: maroon;
+        --outdated-text: white;
+        --outdated-shadow: red;
+
+        --editedrec-bg: darkorange;
+    }
+    /* In case a transparent-bg image doesn't expect to be on a dark bg,
+       which is quite common in practice... */
+    img { background: white; }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --selflink-text: black;
+        --selflink-bg: silver;
+        --selflink-hover-text: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dfnpanel-bg: #222;
+        --dfnpanel-text: var(--text);
+    }
+}</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-09-24">24 September 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-10-01">1 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1473,7 +1811,8 @@ dfn > a.self-link::before      { content: "#"; }</style>
      <a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
      <ol class="toc">
       <li><a href="#howtouse"><span class="secno">1.1</span> <span class="content">How To Use The Questionnaire</span></a>
-      <li><a href="#reviews"><span class="secno">1.2</span> <span class="content">TAG and PING reviews and this questionnaire</span></a>
+      <li><a href="#reviews"><span class="secno">1.2</span> <span class="content">TAG, PING, and security reviews and this questionnaire</span></a>
+      <li><a href="#resources"><span class="secno">1.3</span> <span class="content">Additional resources</span></a>
      </ol>
     <li>
      <a href="#questions"><span class="secno">2</span> <span class="content">Questions to Consider</span></a>
@@ -1499,14 +1838,14 @@ dfn > a.self-link::before      { content: "#"; }</style>
       <li><a href="#remote-device"><span class="secno">2.10</span> <span class="content"> Does this specification allow an origin to access other devices? </span></a>
       <li><a href="#native-ui"><span class="secno">2.11</span> <span class="content"> Does this specification allow an origin some measure of control over a user
   agent’s native UI? </span></a>
-      <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers might this this specification create or expose
+      <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers might this specification create or expose
   to the web? </span></a>
       <li><a href="#first-third-party"><span class="secno">2.13</span> <span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span></a>
-      <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How does this specification work in the context of a user agent’s Private
-  Browsing or "incognito" mode? </span></a>
-      <li><a href="#considerations"><span class="secno">2.15</span> <span class="content"> Does this specification have a "Security Considerations" and "Privacy
-  Considerations" section? </span></a>
+      <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How does this specification work in the context of a browser’s Private
+  Browsing or Incognito mode? </span></a>
+      <li><a href="#considerations"><span class="secno">2.15</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
+  Considerations" sections? </span></a>
       <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Does this specification allow downgrading default security characteristics? </span></a>
       <li><a href="#missing-questions"><span class="secno">2.17</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
@@ -1556,7 +1895,8 @@ the overall security and privacy of the Web.</p>
 intended to help <abbr title="specification">spec</abbr> authors
 as they think through
 the security and privacy implications
-of their work.
+of their work and write the narrative Security Considerations and Privacy Considerations sections for inclusion in-line in their specifications, as described below in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+  Considerations" sections?</a>.
 It also documents mitigation strategies
 that spec authors can use to address
 security and privacy concerns they encounter as they work on their spec.</p>
@@ -1578,23 +1918,41 @@ to protect their users' privacy and security.</p>
    <p>These questions should be kept in mind throughout work on any specification.
 Spec authors should periodically revisit this questionnaire
 to continue to consider the privacy and security implications of
-their features, as their design changes over time.</p>
-   <h3 class="heading settled" data-level="1.2" id="reviews"><span class="secno">1.2. </span><span class="content">TAG and PING reviews and this questionnaire</span><a class="self-link" href="#reviews"></a></h3>
+their features, particularly as their design changes over time.</p>
+   <h3 class="heading settled" data-level="1.2" id="reviews"><span class="secno">1.2. </span><span class="content">TAG, PING, and security reviews and this questionnaire</span><a class="self-link" href="#reviews"></a></h3>
+   <p>Before requesting
+privacy and
+security reviews from the <a href="https://www.w3.org/Privacy/IG/">Privacy Interest Group
+(PING)</a> and security reviewers,
+respectively, authors must write both "Security Considerations" and
+"Privacy Considerations" sections for their documents, as described in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+  Considerations" sections?</a>.  While your answers to the questions in this
+document will inform your writing of those sections, it is not
+appropriate to merely copy this questionnaire into those sections.
+Instructions for requesting security and privacy reviews can be
+found in the <a href="https://w3c.github.io/documentreview/#how_to_get_horizontal_review">Guide</a>.</p>
    <p>When authors request
 a <a href="https://github.com/w3ctag/design-reviews">review</a> from the <a href="https://www.w3.org/2001/tag/">Technical Architecture Group (TAG)</a>,
 the TAG asks that authors provide answers
-to the questions in this document.
-The <a href="https://www.w3.org/Privacy/IG/">Privacy Interest Group (PING)</a> also considers answers to these questions
-while conducting <a href="https://github.com/w3cping/privacy-reviews/issues">privacy reviews</a>.</p>
-   <p>The TAG and PING use this document
+to the questions in this document.</p>
+   <p>The TAG may use this document
 to record security and privacy questions
-which come up during our reviews.
+which come up during their reviews.
 Working through these questions can save
 both spec authors and the people performing design reviews
 a lot of time.</p>
    <p>To make it easier for anyone requesting a review
-to provide their answers to these questions to the reviewers,
-we’ve prepared <a href="https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown">a list of these questions in Markdown</a>.</p>
+to provide their answers to these questions to the TAG,
+we have prepared <a href="https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown">a list of these questions in Markdown</a>.</p>
+   <h3 class="heading settled" data-level="1.3" id="resources"><span class="secno">1.3. </span><span class="content">Additional resources</span><a class="self-link" href="#resources"></a></h3>
+   <p>This document is only one of the tools you should use to inform your
+consideration of privacy and security issues in your specifications.</p>
+   <p>The Mitigating Browser Fingerprinting in Web Specifications <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a> document published by PING goes into
+further depth about browser fingerprinting and should be considered in
+parallel with this document.</p>
+   <p>The IETF’s RFC about privacy considerations, <a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a>, is a
+wonderful resource.  We recommend that all spec authors read section 7
+of RFC6973.</p>
    <h2 class="heading settled" data-level="2" id="questions"><span class="secno">2. </span><span class="content">Questions to Consider</span><a class="self-link" href="#questions"></a></h2>
    <h3 class="question heading settled" data-level="2.1" id="purpose"><span class="secno">2.1. </span><span class="content"> What information might this feature expose to Web sites or other parties,
   and for what purposes is that exposure necessary? </span><a class="self-link" href="#purpose"></a></h3>
@@ -1691,12 +2049,14 @@ Information about a person
 that would be harmless in one country
 might be used in another country
 to detain, kidnap, or imprison them.</p>
-   <p class="note" role="note"><span>Note:</span> caste,
+   <p>Examples of sensitive information include:
+caste,
 citizenship,
 color,
 credentials,
 criminal record,
 demographic information,
+disability status,
 employment status,
 ethnicity,
 financial information,
@@ -1709,8 +2069,7 @@ race,
 religious beliefs or nonbeliefs,
 sexual preferences,
 and
-trans status
-are all examples of sensitive information.</p>
+trans status.</p>
    <p>When a feature exposes sensitive information to the web,
 its designers must take steps
 to mitigate the risk of exposing the information.</p>
@@ -1886,12 +2245,13 @@ reconsidered as the threat landscape changes.</p>
 is relatively stable, for example for short time periods (seconds, minutes, even days), and
 is consistent across-origins.  In fact, if two user-agents expose the same
 sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.</p>
-   <p class="example" id="example-1eecc614"><a class="self-link" href="#example-1eecc614"></a> As gyroscopes advanced, their sampling rate had to be lowered to
-prevent them from being used as a microphone as one such example <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>. </p>
-   <p class="example" id="example-03ab6b8a"><a class="self-link" href="#example-03ab6b8a"></a> ALS sensors could allowed for an attacker to exfiltrate whether or not a
+   <p class="example" id="example-c955cd35"><a class="self-link" href="#example-c955cd35"></a> As gyroscopes advanced, they could be used as
+microphones <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>.  This was mitigated by lowering
+their sample rates. </p>
+   <p class="example" id="example-b7a8d534"><a class="self-link" href="#example-b7a8d534"></a> Ambient light sensors could allow an attacker to learn whether or not a
 user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
-   <p class="example" id="example-c4f3e5a0"><a class="self-link" href="#example-c4f3e5a0"></a> Even relatively short lived data, like the battery status, may be able to
-serve as an identifier if misused/abused <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
+   <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
+serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
    <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
   document what data is identical to data exposed by other features, in the
   same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
@@ -1900,14 +2260,15 @@ important security barrier that new features need to carefully consider.
 If a specification exposes details about another origin’s state, or allows
 POST or GET requests to be made to another origin, the consequences can be
 severe.</p>
-   <p class="example" id="example-416d4171"><a class="self-link" href="#example-416d4171"></a> Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> unintentionally exposed redirect targets
+   <p class="example" id="example-33412641"><a class="self-link" href="#example-33412641"></a> Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> unintentionally exposed redirect targets
 cross-origin by allowing one origin to infer details about another origin
-through violation reports (see <a data-link-type="biblio" href="#biblio-homakov">[HOMAKOV]</a>). The working group eventually
+through violation reports (see <a data-link-type="biblio" href="#biblio-homakov">[HOMAKOV]</a>). The working group
 mitigated the risk by reducing a policy’s granularity after a redirect. </p>
-   <p class="example" id="example-502f91a6"><a class="self-link" href="#example-502f91a6"></a> Beacon <a data-link-type="biblio" href="#biblio-beacon">[BEACON]</a> allows an origin to send POST requests to an endpoint
-on another origin. They decided that this feature didn’t add any new
-attack surface above and beyond what normal form submission entails, so
-no extra mitigation was necessary. </p>
+   <p class="example" id="example-7d3345c4"><a class="self-link" href="#example-7d3345c4"></a> Beacon <a data-link-type="biblio" href="#biblio-beacon">[BEACON]</a> allows an origin to send POST
+requests to an endpoint on another origin. The working group concluded
+that this feature did not add any new attack surface above and beyond
+what normal form submission entails, so no extra mitigation was
+necessary. </p>
    <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
    <ul>
     <li data-md>
@@ -1966,7 +2327,7 @@ smartphone home screen) may surprise users or obscure security / privacy
 controls.  To the extent that your feature does allow for the changing of a
 user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?</p>
-   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this this specification create or expose
+   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this specification create or expose
   to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
    <p>If a standard exposes a temporary identifier to the web, the identifier
 should be short lived and should rotate on some regular duration to mitigate
@@ -1978,9 +2339,9 @@ web, how is it exposed, when, to what entities, and, how frequently is it
 rotated?</p>
    <p>Example temporary identifiers include TLS Channel ID, Session Tickets, and
 IPv6 addresses.</p>
-   <p>The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
+   <p class="example" id="example-86ed6495"><a class="self-link" href="#example-86ed6495"></a> The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
 at zero, increments, and is reset — is a good example of a privacy friendly
-temporary identifier.</p>
+temporary identifier. </p>
    <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span><a class="self-link" href="#first-third-party"></a></h3>
    <p>The behavior of a feature should be considered not just in the context of its
@@ -1994,19 +2355,18 @@ conformance, please explain why and what privacy mitigations are in place.
 This is particularly important as user agents may take steps to reduce the
 availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.</p>
-   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a user agent’s Private
-  Browsing or "incognito" mode? </span><a class="self-link" href="#private-browsing"></a></h3>
-   <p>Each major user agent implements a private browsing / incognito mode feature
-with significant variation across user agents in threat models,
-functionality, and descriptions to users regarding the protections afforded <a data-link-type="biblio" href="#biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]</a>.</p>
-   <p>One typical commonality across user agents' private browsing / incognito
-modes is that they have a set of state than the user agents’ in their
-‘normal’ modes.</p>
+   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a browser’s Private
+  Browsing or Incognito mode? </span><a class="self-link" href="#private-browsing"></a></h3>
+   <p>Most browsers implement a private browsing or incognito mode,
+though they vary significantly in what functionality they provide and
+how that protection is described to users <a data-link-type="biblio" href="#biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]</a>.</p>
+   <p>One commonality is that they provide a different set of state
+than the browser’s 'normal' state.</p>
    <p>Does the specification provide information that would allow for the
-correlation of a single user’s activity across normal and private browsing /
-incognito modes?  Does the specification result in information being written
-to a user’s host that would persist following a private browsing / incognito
-mode session ending?</p>
+correlation of a single user’s activity across normal and private
+browsing / incognito modes?  Does the specification result in
+information being written to a user’s host that would persist
+following a private browsing / incognito mode session ending?</p>
    <p>There has been research into both:</p>
    <ul>
     <li data-md>
@@ -2015,75 +2375,34 @@ mode session ending?</p>
      <p>Using features to fingerprint a browser and correlate private and
 non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments">[OLEJNIK-PAYMENTS]</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have a "Security Considerations" and "Privacy
-  Considerations" section? </span><a class="self-link" href="#considerations"></a></h3>
-   <p>Documenting the various concerns and potential abuses in "Security
-Considerations" and "Privacy Considerations" sections of a document is a good
-way to help implementers and web developers understand the risks that a
-feature presents, and to ensure that adequate mitigations are in place.
-Simply adding a section to your specification with yes/no responses to the
-questions in this document is insufficient.</p>
+   <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have both "Security Considerations" and "Privacy
+  Considerations" sections? </span><a class="self-link" href="#considerations"></a></h3>
+   <p>Specifications should have both "Security Considerations" and "Privacy
+Considerations" sections to help implementers and web developers
+understand the risks that a feature presents and to ensure that
+adequate mitigations are in place.  While your answers to the
+questions in this document will inform your writing of those sections,
+do not merely copy this questionnaire into those sections.  Instead,
+craft language specific to your specification that will be helpful to
+implementers and web developers.</p>
+   <p><a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a> is an excellent resource to consult when considering
+privacy impacts of your specification, particularly Section 7 of
+RFC6983. <a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security
+Consideration sections.</p>
+   <p>Generally, these sections should contain clear descriptions of the
+privacy and security risks the specification introduces.  It is also
+appropriate to document risks that are mitigated elsewhere in the
+specification and to call out details that, if implemented
+other-than-according-to-spec, are likely to lead to vulnerabilities.</p>
    <p>If it seems like a feature does not have security or privacy impacts,
-then say so inline in the spec section for that feature:</p>
+say so in-line, e.g.:</p>
    <blockquote>
-    <p>There are no known security or privacy impacts of this feature.</p>
+    <p>There are no known security impacts of this feature.</p>
    </blockquote>
-   <p>Saying so explicitly in the specification serves several purposes:</p>
-   <ol>
-    <li data-md>
-     <p>Shows that a spec author/editor has explicitly considered security and
-privacy when designing a feature.</p>
-    <li data-md>
-     <p>Provides some sense of confidence that there might be no such impacts.</p>
-    <li data-md>
-     <p>Challenges security and privacy minded individuals to think of and find
-even the potential for such impacts.</p>
-    <li data-md>
-     <p>Demonstrates the spec author/editor’s receptivity to feedback about such
-impacts.</p>
-    <li data-md>
-     <p>Demonstrates a desire that the specification should not be introducing
-security and privacy issues</p>
-   </ol>
-   <p><a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security Consideration
-sections.  Generally, there should be a clear description of the kinds of
-privacy risks the new specification introduces to for users of the web
-platform.  Below is a set of considerations, informed by that RFC, for
-writing a privacy considerations section.</p>
-   <p>Authors must describe:</p>
-   <ol>
-    <li data-md>
-     <p>What privacy attacks have been considered?</p>
-    <li data-md>
-     <p>What privacy attacks have been deemed out of scope (and why)?</p>
-    <li data-md>
-     <p>What privacy mitigations have been implemented?</p>
-    <li data-md>
-     <p>What privacy mitigations have considered and not implemented (and why)?</p>
-   </ol>
-   <p>In addition, attacks considered must include:</p>
-   <ol>
-    <li data-md>
-     <p>Fingerprinting risk;</p>
-    <li data-md>
-     <p>Unexpected exfiltration of data through abuse of sensors;</p>
-    <li data-md>
-     <p>Unexpected usage of the specification / feature by third parties;</p>
-    <li data-md>
-     <p>If the specification includes identifiers, the authors must document what
-rotation period was selected for the identifiers and why.</p>
-    <li data-md>
-     <p>If the specification introduces new state to the user agent, the authors
-must document what guidance regarding clearing said storage was given and
-why.</p>
-    <li data-md>
-     <p>There should be a clear description of the residual risk to the user
-after the privacy mitigations has been implemented.</p>
-   </ol>
-   <p>The crucial aspect is to actually considering security and privacy. All new
-specifications must have security and privacy considerations sections to be
-considered for wide reviews. Interesting features added to the web platform
-generally often already had security and/or privacy impacts.</p>
+   <p>Be aware, though, that most specifications will have at least some
+impact on the fingerprinting surface of the browser.  If you believe
+your specification in an outlier, justifying that claim is in
+order.</p>
    <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
    <p>Does this feature allow for a site to opt-out of security settings to
 accomplish some piece of functionality?  If so, in what situations does your
