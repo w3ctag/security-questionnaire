@@ -31,7 +31,9 @@ This document contains a set of questions
 intended to help <abbr title="specification">spec</abbr> authors
 as they think through
 the security and privacy implications
-of their work and write the narrative Security Considerations and Privacy Considerations sections for inclusion in-line in their specifications, as described below in [[#considerations]].
+of their work and write the narrative Security Considerations and Privacy
+Considerations sections for inclusion in-line in their specifications,
+as described below in [[#considerations]].
 It also documents mitigation strategies
 that spec authors can use to address
 security and privacy concerns they encounter as they work on their spec.
@@ -58,7 +60,7 @@ to protect their users' privacy and security.
 These questions should be kept in mind throughout work on any specification.
 Spec authors should periodically revisit this questionnaire
 to continue to consider the privacy and security implications of
-their features, particularly as their design changes over time.
+their spec's features, particularly as their design changes over time.
 
 <h3 id=reviews>TAG, PING, and security reviews and this questionnaire</h3>
 
@@ -96,7 +98,7 @@ we have prepared [a list of these questions in Markdown](https://raw.githubuserc
 <h3 id=resources>Additional resources</h3>
 
 This document is only one of the tools you should use to inform your
-consideration of privacy and security issues in your specifications.
+consideration of privacy and security issues in your specs.
 
 The Mitigating Browser Fingerprinting in Web Specifications
 [[FINGERPRINTING-GUIDANCE]] document published by PING goes into
@@ -117,7 +119,7 @@ of RFC6973.
 
 User Agents should only expose information to the web
 when doing so is necessary to serve a clear user need.
-Does your feature expose information to origins?
+Does your features expose information to origins?
 If so, how does exposing this information serve user needs?
 Are the risks to the user outweighed by the benefits to the user?
 If so, how?
@@ -127,13 +129,13 @@ See also
 * [[DESIGN-PRINCIPLES#priority-of-constituencies]]
 
 <h3 class=question id="minimum-data">
-  Is this specification exposing the minimum amount of information necessary
-  to power its features?
+  DO features in your specification expose the minimum amount of information
+  necessary to enable those features?
 </h3>
 
 Features should only expose information
-when it's absolutely necessary to satisfy its use cases.
-If your feature exposes more information than is necessary,
+when it's absolutely necessary to satisfy use cases.
+If a feature exposes more information than is necessary,
 why does it do so?
 
 See also
@@ -141,7 +143,7 @@ See also
 * [[#data-minimization]]
 
 <h3 class=question id="personal-data">
-  How does this specification deal with personal information,
+  How do the features in your specification deal with personal information,
   personally-identifiable information (PII), or information derived from
   them?
 </h3>
@@ -212,7 +214,7 @@ See also
 * [[DESIGN-PRINCIPLES#consent]]
 
 <h3 class=question id="sensitive-data">
-  How does this specification deal with sensitive information?
+  To the features in your specification deal with sensitive information?
 </h3>
 
 Personal information is not the only kind of sensitive information.
@@ -292,8 +294,8 @@ See also
 * [[DESIGN-PRINCIPLES#do-not-expose-use-of-assistive-tech]]
 
 <h3 class=question id="persistent-origin-specific-state">
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions?
+  Does the features in your specification introduce new state for an origin
+  that persists across browsing sessions?
 </h3>
 
 There are many existing mechanisms
@@ -382,8 +384,8 @@ is vital.
 </p>
 
 <h3 class=question id="underlying-platform-data">
-  Does this specification expose information about the underlying
-  platform to origins?
+  Does the features in your specification expose information about the
+  underlying platform to origins?
 </h3>
 
 
@@ -403,7 +405,7 @@ or indirect
 (because the data may be combined with other data to form a fingerprint). [[FINGERPRINTING-GUIDANCE]]
 
 When considering whether or not to expose such information,
-specifications and user agents
+spec and user agents
 should not consider the information in isolation,
 but should evaluate the risk of adding it
 to the existing fingerprinting surface of the platform.
@@ -427,7 +429,7 @@ by ordering a list of available resources—but sometimes,
 more complex mitigations may be necessary.
 See [[#mitigations]] for more.
 
-If your specification exposes such data
+If features in your spec expose such data
 and does not define adequate mitigations,
 you should ensure that such information
 is not revealed to origins
@@ -456,7 +458,7 @@ See also:
 * [[DESIGN-PRINCIPLES#device-enumeration|Use care when exposing APIs for selecting or enumerating devices]]
 
 <h3 class=question id="sensor-data">
-  Does this specification allow an origin access to sensors on a user’s
+  Do features in this specification allow an origin access to sensors on a user’s
   device
 </h3>
 
@@ -489,14 +491,14 @@ serve as an identifier [[OLEJNIK-BATTERY]].
 </p>
 
 <h3 class=question id="other-data">
-  What data does this specification expose to an origin?  Please also
-  document what data is identical to data exposed by other features, in the
+  What data do the features in this specification expose to an origin?  Please
+  also document what data is identical to data exposed by other features, in the
   same or different contexts.
 </h3>
 
 As noted above in [[#sop-violations]], the [=same-origin policy=] is an
 important security barrier that new features need to carefully consider.
-If a specification exposes details about another origin's state, or allows
+If a feature exposes details about another origin's state, or allows
 POST or GET requests to be made to another origin, the consequences can be
 severe.
 
@@ -514,7 +516,8 @@ what normal form submission entails, so no extra mitigation was
 necessary.  </p>
 
 <h3 class=question id="string-to-script">
-  Does this specification enable new script execution/loading mechanisms?
+  Do feautres in this specification enable new script execution/loading
+  mechanisms?
 </h3>
 
 * HTML Imports [[HTML-IMPORTS]] create a new script-loading mechanism, using
@@ -528,10 +531,11 @@ necessary.  </p>
 * What about style?
 
 <h3 class=question id="remote-device">
-  Does this specification allow an origin to access other devices?
+  Do features in this specification allow an origin to access other devices?
 </h3>
 
-If so, what devices does this specification allow an origin to access?
+If so, what devices do the features in this specification allow an origin to
+access?
 
 Accessing other devices, both via network connections and via
 direct connection to the user's machine (e.g. via Bluetooth,
@@ -548,7 +552,7 @@ risk:
     location.
 * Enumerating the devices on a user’s local network provides significant
     entropy that an attacker may use to fingerprint the user agent.
-* If the specification exposes persistent or long lived identifiers of
+* If features in this spec expose persistent or long lived identifiers of
     local network devices, that provides attackers with a way to track a user
     over time even if a user takes steps to prevent such tracking (e.g.
     clearing cookies and other stateful tracking mechanisms).
@@ -576,8 +580,8 @@ See [[WEBUSB#security-and-privacy]] for more.
 </p>
 
 <h3 class=question id="native-ui">
-  Does this specification allow an origin some measure of control over a user
-  agent's native UI?
+  Do features in this specification allow an origin some measure of control over
+  a user agent's native UI?
 </h3>
 
 Features that allow for control over a user agent’s UI (e.g. full screen
@@ -588,8 +592,8 @@ user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?
 
 <h3 class=question id="temporary-id">
-  What temporary identifiers might this specification create or expose
-  to the web?
+  What temporary identifiers do the feautures in this specification create or
+  expose to the web?
 </h3>
 
 If a standard exposes a temporary identifier to the web, the identifier
@@ -598,9 +602,9 @@ the risk of this identifier being used to track a user over time.  When a
 user clears state in their user agent, these temporary identifiers should be
 cleared to prevent re-correlation of state using a temporary identifier.
 
-If this specification does create or expose a temporary identifier to the
-web, how is it exposed, when, to what entities, and, how frequently is it
-rotated?
+If features in this spec create or expose temporary identifiers to the
+web, how are they exposed, when, to what entities, and, how frequently are
+those temporary identifiers rotated?
 
 Example temporary identifiers include TLS Channel ID, Session Tickets, and
 IPv6 addresses.
@@ -630,8 +634,8 @@ availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.
 
 <h3 class=question id="private-browsing">
-  How does this specification work in the context of a browser’s Private
-  Browsing or Incognito mode?
+  How do the features in this specification work in the context of a browser’s
+  Private Browsing or Incognito mode?
 </h3>
 
 Most browsers implement a private browsing or incognito mode,
@@ -641,9 +645,9 @@ how that protection is described to users [[WU-PRIVATE-BROWSING]].
 One commonality is that they provide a different set of state
 than the browser's 'normal' state.
 
-Does the specification provide information that would allow for the
+Do features in this spec provide information that would allow for the
 correlation of a single user's activity across normal and private
-browsing / incognito modes?  Does the specification result in
+browsing / incognito modes?  Do features in the spec result in
 information being written to a user’s host that would persist
 following a private browsing / incognito mode session ending?
 
@@ -674,28 +678,29 @@ RFC6983.  [[RFC3552]] provides general advice as to writing Security
 Consideration sections.
 
 Generally, these sections should contain clear descriptions of the
-privacy and security risks the specification introduces.  It is also
+privacy and security risks the features in this spec introduce.  It is also
 appropriate to document risks that are mitigated elsewhere in the
 specification and to call out details that, if implemented
 other-than-according-to-spec, are likely to lead to vulnerabilities.
 
-If it seems like a feature does not have security or privacy impacts,
-say so in-line, e.g.:
+If it seems like none of the features in your specification have security or
+privacy impacts, say so in-line, e.g.:
 
-> There are no known security impacts of this feature.
+> There are no known security impacts of the features in this specificaiton.
 
-Be aware, though, that most specifications will have at least some
+Be aware, though, that most specifications include features that have at least some
 impact on the fingerprinting surface of the browser.  If you believe
 your specification in an outlier, justifying that claim is in
 order.
 
 <h3 class=question id="relaxed-sop">
-  Does this specification allow downgrading default security characteristics?
+  Do features in your specification enable downgrading default security
+  characteristics?
 </h3>
 
-Does this feature allow for a site to opt-out of security settings to
-accomplish some piece of functionality?  If so, in what situations does your
-specification allow such security setting downgrading and what mitigations
+Does features in your spec allow a site to opt-out of security settings to
+accomplish some piece of functionality?  If so, in what situations do those
+features allow such security setting downgrading and what mitigations
 are in place to make sure optional downgrading doesn't dramatically increase
 risks?
 
@@ -860,7 +865,7 @@ Even when powerful features are made available to developers, it does not
 mean that all the uses should always be a good idea, or justified; in fact,
 data privacy regulations around the world may even put limits on certain uses
 of data. In the context of first party, a legitimate website is potentially
-able to interact with powerful features to learn about the user behavior or
+able to interact with powerful features to learn about user behavior or
 habits. For example:
 
 * Tracking the user while browsing the website via mechanisms such as mouse
@@ -868,14 +873,14 @@ habits. For example:
 
 * Behavioral profiling of the user based on the usage patterns
 
-* Accessing powerful features enabling to reason about the user system,
-    himself or the user surrounding, such as a webcam, Web Bluetooth or
-    sensors
+* Accessing powerful features to enabling the first-party to learn about
+    user's system, the user themselves, or the user's susurroundings, such
+    such could be done through a webcam or sensors
 
 This point is admittedly different from others - and underlines that even if
 something may be possible, it does not mean it should always be done,
 including the need for considering a privacy impact assessment or even an
-ethical assessment. When designing a specification with security and privacy
+ethical assessment. When designing features with security and privacy
 in mind, all both use and misuse cases should be in scope.
 
 <h2 id="mitigations">
@@ -883,9 +888,8 @@ in mind, all both use and misuse cases should be in scope.
 </h2>
 
 To mitigate the security and privacy risks you’ve identified in your
-specification as you’ve filled out the questionnaire,
-you may want to apply one or more of the mitigations described below to your
-feature.
+specification,
+you may want to apply one or more of the mitigations described below.
 
 <h3 id="data-minimization">
   Data Minimization
@@ -933,7 +937,8 @@ only providing information on the mouse's behaviour when certain events take
 place. The approach is therefore to expose event handling (e.g., triggering
 on click, move, button press) as the sole interface to the device.
 
-Two features that have minimized the data they make available are:
+Two specfificaitons that have minimized the data their features make
+are:
 
 * [[BATTERY-STATUS]] <q>The user agent should not expose high precision readouts</q>
 * [[GENERIC-SENSOR]] <q>Limit maximum sampling frequency</q>,
@@ -999,12 +1004,12 @@ parties?
   Explicitly restrict the feature to first party origins
 </h3>
 
-As described in the "Third-Party Tracking" section, a significant feature of
-the web is the mixing of first and third party content in a single page, but,
-this introduces risk where the third party content can use the same set of web
-features as the first party content.
+As described in the "Third-Party Tracking" section, web pages mix
+first and third party content into a single application, which
+introduces the risk that third party content can misuse the same set of web
+features as first party content.
 
-Authors should explicit specify the feature's scope of availability:
+Authors should explicit specify a feature's scope of availability:
 
 * When a feature should be made available to embedded third parties -- and
     often first parties should be able to explicitly control that (using
@@ -1014,7 +1019,7 @@ Authors should explicit specify the feature's scope of availability:
 * Whether a feature should be available to offline service workers.
 * Whether events will be fired simultaneously
 
-Third party’s access to a feature should be an optional implementation for
+Third party access to a feature should be an optional implementation for
 conformance.
 
 <h3 id="secure-contexts">
@@ -1048,7 +1053,7 @@ is to drop the feature,
 though you should keep in mind that some security or privacy risks
 may be removed or mitigated
 by adding features to the platform.
-Every feature in a spec
+Every feature in a specification
 should be seen as
 potentially adding security and/or privacy risk
 until proven otherwise.
@@ -1091,18 +1096,17 @@ Examples
   Making a privacy impact assessment
 </h3>
 
-Some features are potentially supplying very sensitive data, and it is
+Some features potentially supply sensitive data, and it is
 the responsibility of the end-developer, system owner, or manager to realize
-this and act accordingly in the design of his/her system. Some use may
+this and act accordingly in the design of their system. Some use may
 warrant conducting a privacy impact assessment, especially when data
 relating to individuals may be processed.
 
-Specifications that expose such sensitive data should include a
-recommendation that websites and applications adopting the API — but not
-necessarily the implementing user agent — conduct a privacy impact assessment
-of the data that they collect.
+Specifications that include features that expose sensitive data should include
+recommendations that websites and applications adopting the API conduct a
+privacy impact assessment of the data that they collect.
 
-A features that recommends such is:
+A feature that recommends such is:
 
 * [[GENERIC-SENSOR]] advises to consider performing of a privacy impact
     assessment
