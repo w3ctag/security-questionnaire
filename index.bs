@@ -98,7 +98,8 @@ we have prepared [a list of these questions in Markdown](https://raw.githubuserc
 <h3 id=resources>Additional resources</h3>
 
 This document is only one of the tools you should use to inform your
-consideration of privacy and security issues in your specs.
+consideration of privacy and security issues in your
+<abbr title="specification">spec</abbr>.
 
 The Mitigating Browser Fingerprinting in Web Specifications
 [[FINGERPRINTING-GUIDANCE]] document published by PING goes into
@@ -119,7 +120,7 @@ of RFC6973.
 
 User Agents should only expose information to the web
 when doing so is necessary to serve a clear user need.
-Does your features expose information to origins?
+Does your feature expose information to origins?
 If so, how does exposing this information serve user needs?
 Are the risks to the user outweighed by the benefits to the user?
 If so, how?
@@ -129,8 +130,8 @@ See also
 * [[DESIGN-PRINCIPLES#priority-of-constituencies]]
 
 <h3 class=question id="minimum-data">
-  DO features in your specification expose the minimum amount of information
-  necessary to enable those features?
+  Do features in your specification expose the minimum amount of information
+  necessary to enable their intended uses?
 </h3>
 
 Features should only expose information
@@ -214,7 +215,7 @@ See also
 * [[DESIGN-PRINCIPLES#consent]]
 
 <h3 class=question id="sensitive-data">
-  To the features in your specification deal with sensitive information?
+  How do the features in your specification deal with sensitive information?
 </h3>
 
 Personal information is not the only kind of sensitive information.
@@ -294,7 +295,7 @@ See also
 * [[DESIGN-PRINCIPLES#do-not-expose-use-of-assistive-tech]]
 
 <h3 class=question id="persistent-origin-specific-state">
-  Does the features in your specification introduce new state for an origin
+  Do the features in your specification introduce new state for an origin
   that persists across browsing sessions?
 </h3>
 
@@ -384,7 +385,7 @@ is vital.
 </p>
 
 <h3 class=question id="underlying-platform-data">
-  Does the features in your specification expose information about the
+  Do the features in your specification expose information about the
   underlying platform to origins?
 </h3>
 
@@ -405,7 +406,7 @@ or indirect
 (because the data may be combined with other data to form a fingerprint). [[FINGERPRINTING-GUIDANCE]]
 
 When considering whether or not to expose such information,
-spec and user agents
+specs and user agents
 should not consider the information in isolation,
 but should evaluate the risk of adding it
 to the existing fingerprinting surface of the platform.
@@ -698,7 +699,7 @@ order.
   characteristics?
 </h3>
 
-Does features in your spec allow a site to opt-out of security settings to
+Do features in your spec allow a site to opt-out of security settings to
 accomplish some piece of functionality?  If so, in what situations do those
 features allow such security setting downgrading and what mitigations
 are in place to make sure optional downgrading doesn't dramatically increase
@@ -873,9 +874,9 @@ habits. For example:
 
 * Behavioral profiling of the user based on the usage patterns
 
-* Accessing powerful features to enabling the first-party to learn about
-    user's system, the user themselves, or the user's susurroundings, such
-    such could be done through a webcam or sensors
+* Accessing powerful features that enable the first-party to learn about
+    the user's system, the user themselves, or the user's susurroundings, such
+    as could be done through a webcam or sensors
 
 This point is admittedly different from others - and underlines that even if
 something may be possible, it does not mean it should always be done,
@@ -937,7 +938,7 @@ only providing information on the mouse's behaviour when certain events take
 place. The approach is therefore to expose event handling (e.g., triggering
 on click, move, button press) as the sole interface to the device.
 
-Two specfificaitons that have minimized the data their features make
+Two specfificaitons that have minimized the data their features expose
 are:
 
 * [[BATTERY-STATUS]] <q>The user agent should not expose high precision readouts</q>
@@ -1009,7 +1010,7 @@ first and third party content into a single application, which
 introduces the risk that third party content can misuse the same set of web
 features as first party content.
 
-Authors should explicit specify a feature's scope of availability:
+Authors should explicitly specify a feature's scope of availability:
 
 * When a feature should be made available to embedded third parties -- and
     often first parties should be able to explicitly control that (using
@@ -1106,7 +1107,7 @@ Specifications that include features that expose sensitive data should include
 recommendations that websites and applications adopting the API conduct a
 privacy impact assessment of the data that they collect.
 
-A feature that recommends such is:
+A feature that does this is:
 
 * [[GENERIC-SENSOR]] advises to consider performing of a privacy impact
     assessment
