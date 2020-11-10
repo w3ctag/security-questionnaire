@@ -670,8 +670,8 @@ implementers and web developers.
 
 [[RFC6973]] is an excellent resource to consult when considering
 privacy impacts of your specification, particularly Section 7 of
-RFC6983.  [[RFC3552]] provides general advice as to writing Security
-Consideration sections.
+RFC6973.  [[RFC3552]] provides general advice as to writing Security
+Consideration sections, and Section 5 of RFC3552 has specific requirements.
 
 Generally, these sections should contain clear descriptions of the
 privacy and security risks the specification introduces.  It is also
