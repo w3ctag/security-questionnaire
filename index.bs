@@ -938,7 +938,7 @@ only providing information on the mouse's behaviour when certain events take
 place. The approach is therefore to expose event handling (e.g., triggering
 on click, move, button press) as the sole interface to the device.
 
-Two specfificaitons that have minimized the data their features expose
+Two specifications that have minimized the data their features expose
 are:
 
 * [[BATTERY-STATUS]] <q>The user agent should not expose high precision readouts</q>
