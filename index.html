@@ -26,6 +26,7 @@
  *   - .figure and .caption (HTML4) and figure and figcaption (HTML5)
  *     -> .sidefigure for right-floated figures
  *   - ins/del
+ *     -> ins/del.c### for candidate and proposed changes (amendments)
  *
  * Code
  *   - pre and code
@@ -34,9 +35,12 @@
  *   - .note       for informative notes             (div, p, span, aside, details)
  *   - .example    for informative examples          (div, p, pre, span)
  *   - .issue      for issues                        (div, p, span)
- *   - .assertion  for assertions                    (div, p, span)
  *   - .advisement for loud normative statements     (div, p, strong)
  *   - .annoying-warning for spec obsoletion notices (div, aside, details)
+ *   - .correction for "candidate corrections"       (div, aside, details, section)
+ *   - .addition   for "candidate additions"         (div, aside, details, section)
+ *   - .correction.proposed for "proposed corrections" (div, aside, details, section)
+ *   - .addition.proposed   for "proposed additions"   (div, aside, details, section)
  *
  * Definition Boxes
  *   - pre.def   for WebIDL definitions
@@ -57,6 +61,8 @@
  *   - .head for the header
  *   - .copyright for the copyright
  *
+ * Outdated warning for old specs
+ *
  * Miscellaneous
  *   - .overlarge for things that should be as wide as possible, even if
  *     that overflows the body text area. This can be used on an item or
@@ -64,6 +70,7 @@
  *     Note that this styling basically doesn't help at all when printing,
  *     since A4 paper isn't much wider than the max-width here.
  *     It's better to design things to fit into a narrower measure if possible.
+ *
  *   - js-added ToC jump links (see fixup.js)
  *
  ******************************************************************************/
@@ -71,24 +78,20 @@
 /* color variables included separately for reliability */
 
 /******************************************************************************/
-/*                                   Body                                     */
+/*                                    Body                                    */
 /******************************************************************************/
 
 	html {
-		color: black;
-		color: var(--text);
-		background-color: white;
-		background-color: var(--bg);
 	}
 
 	body {
 		counter-reset: example figure issue;
 
 		/* Layout */
-		max-width: 50em;               /* limit line length to 50em for readability   */
-		margin: 0 auto;                /* center text within page                     */
+		max-width: 50em;			  /* limit line length to 50em for readability   */
+		margin: 0 auto;				/* center text within page                    */
 		padding: 1.6em 1.5em 2em 50px; /* assume 16px font size for downlevel clients */
-		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag     */
+		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag    */
 
 		/* Typography */
 		line-height: 1.5;
@@ -99,7 +102,10 @@
 		overflow-wrap: break-word;
 		hyphens: auto;
 
-		background: transparent top left fixed no-repeat;
+		color: black;
+		color: var(--text);
+		background: white top left fixed no-repeat;
+		background: var(--bg) top left fixed no-repeat;
 		background-size: 25px auto;
 	}
 
@@ -110,7 +116,7 @@
 
 /** Header ********************************************************************/
 
-	div.head { margin-bottom: 1em }
+	div.head { margin-bottom: 1em; }
 	div.head hr { border-style: solid; }
 
 	div.head h1 {
@@ -158,7 +164,7 @@
 /** Copyright *****************************************************************/
 
 	p.copyright,
-	p.copyright small { font-size: small }
+	p.copyright small { font-size: small; }
 
 /** Back to Top / ToC Toggle **************************************************/
 
@@ -170,7 +176,7 @@
 	@media not print {
 		#toc-nav {
 			position: fixed;
-			z-index: 2;
+			z-index: 3;
 			bottom: 0; left: 0;
 			margin: 0;
 			min-width: 1.33em;
@@ -337,9 +343,9 @@
 		page-break-after: avoid;
 		page-break-inside: avoid;
 		font: 100% sans-serif;   /* Reset all font styling to clear out UA styles */
-		font-family: inherit;    /* Inherit the font family. */
-		line-height: 1.2;        /* Keep wrapped headings compact */
-		hyphens: manual;         /* Hyphenated headings look weird */
+		font-family: inherit;	/* Inherit the font family. */
+		line-height: 1.2;		/* Keep wrapped headings compact */
+		hyphens: manual;		/* Hyphenated headings look weird */
 	}
 
 	h2, h3, h4, h5, h6 {
@@ -423,51 +429,51 @@
 	/* Style for algorithms */
 	ol.algorithm ol:not(.algorithm),
 	.algorithm > ol ol:not(.algorithm) {
-	 border-left: 0.5em solid #DEF;
-	 border-left: 0.5em solid var(--algo-border);
+	border-left: 0.5em solid #DEF;
+	border-left: 0.5em solid var(--algo-border);
 	}
 
 	/* Put nice boxes around each algorithm. */
 	[data-algorithm]:not(.heading) {
-	  padding: .5em;
-	  border: thin solid #ddd;
-	  border: thin solid var(--algo-border);
-	  border-radius: .5em;
-	  margin: .5em calc(-0.5em - 1px);
+	 padding: .5em;
+	 border: thin solid #ddd;
+	 border: thin solid var(--algo-border);
+	 border-radius: .5em;
+	 margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
-	  margin-top: 0;
+	 margin-top: 0;
 	}
 	[data-algorithm]:not(.heading) > :last-child {
-	  margin-bottom: 0;
+	 margin-bottom: 0;
 	}
 
 	/* Style for switch/case <dl>s */
 	dl.switch > dd > ol.only,
 	dl.switch > dd > .only > ol {
-	 margin-left: 0;
+	margin-left: 0;
 	}
 	dl.switch > dd > ol.algorithm,
 	dl.switch > dd > .algorithm > ol {
-	 margin-left: -2em;
+	margin-left: -2em;
 	}
 	dl.switch {
-	 padding-left: 2em;
+	padding-left: 2em;
 	}
 	dl.switch > dt {
-	 text-indent: -1.5em;
-	 margin-top: 1em;
+	text-indent: -1.5em;
+	margin-top: 1em;
 	}
 	dl.switch > dt + dt {
-	 margin-top: 0;
+	margin-top: 0;
 	}
 	dl.switch > dt::before {
-	 content: '\21AA';
-	 padding: 0 0.5em 0 0;
-	 display: inline-block;
-	 width: 1em;
-	 text-align: right;
-	 line-height: 0.5em;
+	content: '\21AA';
+	padding: 0 0.5em 0 0;
+	display: inline-block;
+	width: 1em;
+	text-align: right;
+	line-height: 0.5em;
 	}
 
 /** Terminology Markup ********************************************************/
@@ -485,7 +491,7 @@
 		font-style: normal;
 	}
 	dt dfn code, code.idl {
-		font-size: medium;
+		font-size: inherit;
 	}
 	dfn var {
 		font-style: normal;
@@ -494,18 +500,37 @@
 /** Change Marking ************************************************************/
 
 	del {
-		color: red;
+		color: #aa0000;
 		color: var(--del-text);
 		background: transparent;
 		background: var(--del-bg);
 		text-decoration: line-through;
 	}
 	ins {
-		color: #080;
+		color: #006100;
 		color: var(--ins-text);
 		background: transparent;
 		background: var(--ins-bg);
 		text-decoration: underline;
+	}
+
+	/* for amendments (candidate/proposed changes) */
+
+	.amendment ins, .correction ins, .addition ins,
+	ins[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment del, .correction del, .addition del,
+	del[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment.proposed ins, .correction.proposed ins, .addition.proposed ins,
+	ins[class^=c].proposed {
+		text-decoration-style: double;
+	}
+	.amendment.proposed del, .correction.proposed del, .addition.proposed del,
+	del[class^=c].proposed {
+		text-decoration-style: double;
 	}
 
 /** Miscellaneous improvements to inline formatting ***************************/
@@ -546,7 +571,7 @@
 
 /** Inline Code fragments *****************************************************/
 
-  /* Do something nice. */
+	/* Do something nice. */
 
 /******************************************************************************/
 /*                                    Links                                   */
@@ -610,7 +635,7 @@
 	}
 
 	/* For autogen numbers, add
-	   .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
+	  .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
 	*/
 
 	figure, .figure, .sidefigure {
@@ -618,7 +643,7 @@
 		text-align: center;
 		margin: 2.5em 0;
 	}
-	.figure img,    .sidefigure img,    figure img,
+	.figure img,	.sidefigure img,	figure img,
 	.figure object, .sidefigure object, figure object {
 		max-width: 100%;
 		margin: auto;
@@ -636,7 +661,7 @@
 		.sidefigure {
 			float: right;
 			width: 50%;
-			margin: 0 0 0.5em 0.5em
+			margin: 0 0 0.5em 0.5em;
 		}
 	}
 	.caption, figcaption, caption {
@@ -651,13 +676,15 @@
 	}
 
 	/* DL list is indented 2em, but figure inside it is not */
-	dd > .figure, dd > figure { margin-left: -2em }
+	dd > .figure, dd > figure { margin-left: -2em; }
 
 /******************************************************************************/
 /*                             Colored Boxes                                  */
 /******************************************************************************/
 
-	.issue, .note, .example, .assertion, .advisement, blockquote {
+	.issue, .note, .example, .assertion, .advisement, blockquote,
+	.amendment, .correction, .addition {
+		margin: 1em auto;
 		padding: .5em;
 		border: .5em;
 		border-left-style: solid;
@@ -668,20 +695,20 @@
 		border-right-style: solid;
 	}
 
-	.issue,
-	.note,
-	.example,
-	.advisement,
-	.assertion,
-	blockquote {
-		margin: 1em auto;
-	}
+	blockquote > :first-child,
 	.note  > p:first-child,
 	.issue > p:first-child,
-	blockquote > :first-child {
+	.amendment > p:first-child,
+	.correction > p:first-child,
+	.addition > p:first-child {
 		margin-top: 0;
 	}
-	blockquote > :last-child {
+	blockquote > :last-child,
+	.note  > p:last-child,
+	.issue > p:last-child,
+	.amendment > p:last-child,
+	.correction > p:last-child,
+	.addition > p:last-child {
 		margin-bottom: 0;
 	}
 
@@ -689,7 +716,14 @@
 	.issue::before, .issue > .marker,
 	.example::before, .example > .marker,
 	.note::before, .note > .marker,
-	details.note > summary > .marker {
+	details.note > summary > .marker,
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary > .marker,
+	.addition::before, .addition > .marker,
+	addition.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	correction.amendment > summary > .marker
+	{
 		text-transform: uppercase;
 		padding-right: 1em;
 	}
@@ -727,7 +761,7 @@
 		color: var(--issueheading-text);
 	}
 	/* Add .issue::before { content: "Issue " counter(issue) " "; } for autogen numbers,
-	   or use class="marker" to mark up the issue number in source. */
+	  or use class="marker" to mark up the issue number in source. */
 
 /** Example *******************************************************************/
 
@@ -747,7 +781,7 @@
 		color: var(--exampleheading-text);
 	}
 	/* Add .example::before { content: "Example " counter(example) " "; } for autogen numbers,
-	   or use class="marker" to mark up the example number in source. */
+	  or use class="marker" to mark up the example number in source. */
 
 /** Non-normative Note ********************************************************/
 
@@ -767,7 +801,7 @@
 		color: var(--noteheading-text);
 	}
 	/* Add .note::before { content: "Note "; } for autogen label,
-	   or use class="marker" to mark up the label in source. */
+	  or use class="marker" to mark up the label in source. */
 
 	details.note[open] > summary {
 		border-bottom: 1px silver solid;
@@ -807,6 +841,38 @@
 		color: var(--advisementheading-text);
 	}
 
+/** Amendment Box *************************************************************/
+
+	.amendment, .correction, .addition {
+		border-color: #330099;
+		border-color: var(--amendment-border);
+		background: #F5F0FF;
+		background: var(--amendment-bg);
+		color: black;
+		color: var(--amendment-text);
+	}
+	.amendment.proposed, .correction.proposed, .addition.proposed {
+		border-style: solid;
+		border-block-width: 0.25em;
+	}
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary::before, details.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	details.correction > summary::before, details.correction > summary > .marker,
+	.addition::before, .addition > .marker,
+	details.addition > summary::before, details.addition > summary > .marker {
+		color: #220066;
+		color: var(--amendmentheading-text);
+	}
+	.amendment.proposed::before, .amendment.proposed > .marker,
+	details.amendment.proposed > summary::before, details.amendment.proposed > summary > .marker,
+	.correction.proposed::before, .correction.proposed > .marker,
+	details.correction.proposed > summary::before, details.correction.proposed > summary > .marker,
+	.addition.proposed::before, .addition.proposed > .marker,
+	details.addition.proposed > summary::before, details.addition.proposed > summary > .marker {
+		font-weight: bold;
+	}
+
 /** Spec Obsoletion Notice ****************************************************/
 	/* obnoxious obsoletion notice for older/abandoned specs. */
 
@@ -835,15 +901,15 @@
 		margin-bottom: 0;
 	}
 
-	@media not print {
-		details.annoying-warning[open] {
-			position: fixed;
-			left: 0;
-			right: 0;
-			bottom: 2em;
-			z-index: 1000;
-		}
+@media not print {
+	details.annoying-warning[open] {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 2em;
+		z-index: 1000;
 	}
+}
 
 	details.annoying-warning:not([open]) > summary {
 		text-align: center;
@@ -918,15 +984,15 @@
 
 /** Data tables (and properly marked-up index tables) *************************/
 	/*
-		 <table class="data"> highlights structural relationships in a table
-		 when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
+		<table class="data"> highlights structural relationships in a table
+		when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
 
-		 Use class="complex data" for particularly complicated tables --
-		 (This will draw more lines: busier, but clearer.)
+		Use class="complex data" for particularly complicated tables --
+		(This will draw more lines: busier, but clearer.)
 
-		 Use class="long" on table cells with paragraph-like contents
-		 (This will adjust text alignment accordingly.)
-		 Alternately use class="longlastcol" on tables, to have the last column assume "long".
+		Use class="long" on table cells with paragraph-like contents
+		(This will adjust text alignment accordingly.)
+		Alternately use class="longlastcol" on tables, to have the last column assume "long".
 	*/
 
 	table {
@@ -1075,22 +1141,22 @@ Possible extra rowspan handling
 		/* because generated content isn't search/selectable and markers can't do multilevel yet */
 		margin:  0;
 		padding: 0;
-		line-height: 1.1rem; /* consistent spacing */
+	}
+	.toc {
+		line-height: 1.1em;
 	}
 
 	/* ToC not indented until third level, but font style & margins show hierarchy */
-	.toc > li             { font-weight: bold;   }
-	.toc > li li          { font-weight: normal; }
-	.toc > li li li       { font-size:   95%;    }
-	.toc > li li li li    { font-size:   90%;    }
-	.toc > li li li li .secno { font-size: 85%; }
-	.toc > li li li li li { font-size:   85%;    }
-	.toc > li li li li li .secno { font-size: 100%; }
+	.toc > li			{ font-weight: bold;   }
+	.toc > li li		 { font-weight: normal; }
+	.toc > li li li	  { font-size:   95%;	}
+	.toc > li li li li	{ font-size:   90%;	}
+	.toc > li li li li li { font-size:   85%;	}
 
 	/* @supports not (display:grid) { */
-		.toc > li             { margin: 1.5rem 0;    }
-		.toc > li li          { margin: 0.3rem 0;    }
-		.toc > li li li       { margin-left: 2rem;   }
+		.toc > li			{ margin: 1.5rem 0;	}
+		.toc > li li		 { margin: 0.3rem 0;	}
+		.toc > li li li	  { margin-left: 2rem;   }
 
 		/* Section numbers in a column of their own */
 		.toc .secno {
@@ -1098,33 +1164,35 @@ Possible extra rowspan handling
 			width: 4rem;
 			white-space: nowrap;
 		}
+		.toc > li li li li .secno { font-size: 85%; }
+		.toc > li li li li li .secno { font-size: 100%; }
 
 		.toc li {
 			clear: both;
 		}
 
-		:not(li) > .toc              { margin-left:  5rem; }
-		.toc .secno                  { margin-left: -5rem; }
-		.toc > li li li .secno       { margin-left: -7rem; }
-		.toc > li li li li .secno    { margin-left: -9rem; }
+		:not(li) > .toc			 { margin-left:  5rem; }
+		.toc .secno				 { margin-left: -5rem; }
+		.toc > li li li .secno	  { margin-left: -7rem; }
+		.toc > li li li li .secno	{ margin-left: -9rem; }
 		.toc > li li li li li .secno { margin-left: -11rem; }
 
 		/* Tighten up indentation in narrow ToCs */
 		@media (max-width: 30em) {
-			:not(li) > .toc              { margin-left:  4rem; }
-			.toc .secno                  { margin-left: -4rem; }
-			.toc > li li li              { margin-left:  1rem; }
-			.toc > li li li .secno       { margin-left: -5rem; }
-			.toc > li li li li .secno    { margin-left: -6rem; }
+			:not(li) > .toc			 { margin-left:  4rem; }
+			.toc .secno				 { margin-left: -4rem; }
+			.toc > li li li			 { margin-left:  1rem; }
+			.toc > li li li .secno	  { margin-left: -5rem; }
+			.toc > li li li li .secno	{ margin-left: -6rem; }
 			.toc > li li li li li .secno { margin-left: -7rem; }
 		}
 		/* Loosen it on wide screens */
 		@media screen and (min-width: 78em) {
-			body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
-			body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
-			body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
-			body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
-			body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
+			body:not(.toc-inline) :not(li) > .toc			 { margin-left:  4rem; }
+			body:not(.toc-inline) .toc .secno				 { margin-left: -4rem; }
+			body:not(.toc-inline) .toc > li li li			 { margin-left:  1rem; }
+			body:not(.toc-inline) .toc > li li li .secno	  { margin-left: -5rem; }
+			body:not(.toc-inline) .toc > li li li li .secno	{ margin-left: -6rem; }
 			body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
 	}
 	/* } */
@@ -1155,7 +1223,7 @@ Possible extra rowspan handling
 		}
 		#toc > .toc > li > a > span {
 			/* The spans of the top-level list,
-			   comprising the first items of each top-level section. */
+			  comprising the first items of each top-level section. */
 			margin-top: 1.1rem;
 		}
 		#toc#toc .secno { /* Ugh, need more specificity to override base.css */
@@ -1188,17 +1256,17 @@ Possible extra rowspan handling
 /** Index *********************************************************************/
 
 	/* Index Lists: Layout */
-	ul.index       { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
-	ul.index li    { margin-left: 0; list-style: none; break-inside: avoid; }
-	ul.index li li { margin-left: 1em }
-	ul.index dl    { margin-top: 0; }
-	ul.index dt    { margin: .2em 0 .2em 20px;}
-	ul.index dd    { margin: .2em 0 .2em 40px;}
+	ul.index	  { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
+	ul.index li	{ margin-left: 0; list-style: none; break-inside: avoid; }
+	ul.index li li { margin-left: 1em; }
+	ul.index dl	{ margin-top: 0; }
+	ul.index dt	{ margin: .2em 0 .2em 20px;}
+	ul.index dd	{ margin: .2em 0 .2em 40px;}
 	/* Index Lists: Typography */
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1237,6 +1305,91 @@ Possible extra rowspan handling
 		font-weight: bold;
 	}
 
+/** Outdated warning **********************************************************/
+
+.outdated-spec {
+	color: black;
+	color: var(--outdatedspec-text);
+	background-color: rgba(0,0,0,0.5);
+	background-color: var(--outdatedspec-bg);
+}
+
+.outdated-warning {
+	position: fixed;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 50%;
+	background: maroon;
+	background: var(--outdated-bg);
+	color: white;
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	position: absolute;
+	top: 0;
+	right:0;
+	margin: 0;
+	border: 0;
+	padding: 0.25em 0.5em;
+	background: transparent;
+	color: white;
+	color: var(--outdated-text);
+	font:1em sans-serif;
+	text-align:center;
+}
+
+.outdated-warning span {
+	display: block;
+}
+
+.outdated-collapsed {
+	bottom: 0;
+	border-radius: 0;
+	width: 100%;
+	padding: 0;
+}
+
 /******************************************************************************/
 /*                                    Print                                   */
 /******************************************************************************/
@@ -1249,6 +1402,16 @@ Possible extra rowspan handling
 		/* Serif for print. */
 		body {
 			font-family: serif;
+		}
+
+		.outdated-warning {
+			position: absolute;
+			border-style: solid;
+			border-color: red;
+		}
+
+		.outdated-warning input {
+			display: none;
 		}
 	}
 	@page {
@@ -1268,13 +1431,13 @@ Possible extra rowspan handling
 		margin-right: auto;
 	}
 	.overlarge {
-		/* Magic to create good table positioning:
-		   "content column" is 50ems wide at max; less on smaller screens.
-		   Extra space (after ToC + content) is empty on the right.
+		/* Magic to create good item positioning:
+		  "content column" is 50ems wide at max; less on smaller screens.
+		  Extra space (after ToC + content) is empty on the right.
 
-		   1. When table < content column, centers table in column.
-		   2. When content < table < available, left-aligns.
-		   3. When table > available, fills available + scroll bar.
+		  1. When item < content column, centers item in column.
+		  2. When content < item < available, left-aligns.
+		  3. When item > available, fills available + scroll bar.
 		*/
 		display: grid;
 		grid-template-columns: minmax(0, 50em);
@@ -1309,21 +1472,21 @@ Possible extra rowspan handling
 		.overlarge {
 			overflow-x: auto;
 			/* See Lea Verou's explanation background-attachment:
-			 * http://lea.verou.me/2012/04/background-attachment-local/
-			 *
+			* http://lea.verou.me/2012/04/background-attachment-local/
+			*
 			background: top left  / 4em 100% linear-gradient(to right,  #ffffff, rgba(255, 255, 255, 0)) local,
-			            top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
-			            top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            white;
+						top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
+						top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						white;
 			background-repeat: no-repeat;
 			*/
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="afd23341db48e11ed209d22eb6d2c4c1b3e5d5aa" name="document-revision">
+  <meta content="48c8ce7c6e3b76d39807b30cde1483e84c2f711d" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1389,17 +1552,13 @@ pre .property::before, pre .property::after {
 <style>/* style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
-html {
-    color: black;
-    color: var(--text);
-    background-color: white;
-    background-color: var(--bg);
-}
 :root {
     color-scheme: light dark;
 
     --text: black;
     --bg: white;
+
+    --unofficial-watermark: url(https://www.w3.org/StyleSheets/TR/2016/logos/UD-watermark);
 
     --logo-bg: #1a5e9a;
     --logo-active-bg: #c00;
@@ -1474,6 +1633,11 @@ html {
     --warning-bg: hsla(40,100%,50%,0.95);
     --warning-text: var(--text);
 
+    --amendment-border: #330099;
+    --amendment-bg: #F5F0FF;
+    --amendment-text: var(--text);
+    --amendmentheading-text: #220066;
+
     --def-border: #8ccbf2;
     --def-bg: #def;
     --def-text: var(--text);
@@ -1547,7 +1711,7 @@ figcaption:not(.no-marker)::before {
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
+.dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0; }
@@ -1633,6 +1797,8 @@ dfn > a.self-link::before      { content: "#"; }
         --text: #ddd;
         --bg: black;
 
+        --unofficial-watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cg fill='%23100808' transform='translate(200 200) rotate(-45) translate(-200 -200)' stroke='%23100808' stroke-width='3'%3E%3Ctext x='50%25' y='220' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EUNOFFICIAL%3C/text%3E%3Ctext x='50%25' y='305' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EDRAFT%3C/text%3E%3C/g%3E%3C/svg%3E");
+
         --logo-bg: #1a5e9a;
         --logo-active-bg: #c00;
         --logo-text: white;
@@ -1708,6 +1874,11 @@ dfn > a.self-link::before      { content: "#"; }
         --warning-bg: hsla(40,100%,20%,0.95);
         --warning-text: var(--text);
 
+        --amendment-border: #330099;
+        --amendment-bg: #080010;
+        --amendment-text: var(--text);
+        --amendmentheading-text: #cc00ff;
+
         --def-border: #8ccbf2;
         --def-bg: #080818;
         --def-text: var(--text);
@@ -1748,9 +1919,9 @@ dfn > a.self-link::before      { content: "#"; }
 }</style>
  <body class="h-entry">
   <div class="head">
-   <p data-fill-with="logo"></p>
+   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-10-01">1 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-11-30">30 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1819,34 +1990,36 @@ dfn > a.self-link::before      { content: "#"; }
      <ol class="toc">
       <li><a href="#purpose"><span class="secno">2.1</span> <span class="content"> What information might this feature expose to Web sites or other parties,
   and for what purposes is that exposure necessary? </span></a>
-      <li><a href="#minimum-data"><span class="secno">2.2</span> <span class="content"> Is this specification exposing the minimum amount of information necessary
-  to power its features? </span></a>
-      <li><a href="#personal-data"><span class="secno">2.3</span> <span class="content"> How does this specification deal with personal information,
+      <li><a href="#minimum-data"><span class="secno">2.2</span> <span class="content"> Do features in your specification expose the minimum amount of information
+  necessary to enable their intended uses? </span></a>
+      <li><a href="#personal-data"><span class="secno">2.3</span> <span class="content"> How do the features in your specification deal with personal information,
   personally-identifiable information (PII), or information derived from
   them? </span></a>
-      <li><a href="#sensitive-data"><span class="secno">2.4</span> <span class="content"> How does this specification deal with sensitive information? </span></a>
-      <li><a href="#persistent-origin-specific-state"><span class="secno">2.5</span> <span class="content"> Does this specification introduce new state for an origin that persists
-  across browsing sessions? </span></a>
-      <li><a href="#underlying-platform-data"><span class="secno">2.6</span> <span class="content"> Does this specification expose information about the underlying
-  platform to origins? </span></a>
-      <li><a href="#sensor-data"><span class="secno">2.7</span> <span class="content"> Does this specification allow an origin access to sensors on a user’s
+      <li><a href="#sensitive-data"><span class="secno">2.4</span> <span class="content"> How do the features in your specification deal with sensitive information? </span></a>
+      <li><a href="#persistent-origin-specific-state"><span class="secno">2.5</span> <span class="content"> Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </span></a>
+      <li><a href="#underlying-platform-data"><span class="secno">2.6</span> <span class="content"> Do the features in your specification expose information about the
+  underlying platform to origins? </span></a>
+      <li><a href="#sensor-data"><span class="secno">2.7</span> <span class="content"> Do features in this specification allow an origin access to sensors on a user’s
   device </span></a>
-      <li><a href="#other-data"><span class="secno">2.8</span> <span class="content"> What data does this specification expose to an origin?  Please also
-  document what data is identical to data exposed by other features, in the
+      <li><a href="#other-data"><span class="secno">2.8</span> <span class="content"> What data do the features in this specification expose to an origin?  Please
+  also document what data is identical to data exposed by other features, in the
   same or different contexts. </span></a>
-      <li><a href="#string-to-script"><span class="secno">2.9</span> <span class="content"> Does this specification enable new script execution/loading mechanisms? </span></a>
-      <li><a href="#remote-device"><span class="secno">2.10</span> <span class="content"> Does this specification allow an origin to access other devices? </span></a>
-      <li><a href="#native-ui"><span class="secno">2.11</span> <span class="content"> Does this specification allow an origin some measure of control over a user
-  agent’s native UI? </span></a>
-      <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers might this specification create or expose
-  to the web? </span></a>
+      <li><a href="#string-to-script"><span class="secno">2.9</span> <span class="content"> Do feautres in this specification enable new script execution/loading
+  mechanisms? </span></a>
+      <li><a href="#remote-device"><span class="secno">2.10</span> <span class="content"> Do features in this specification allow an origin to access other devices? </span></a>
+      <li><a href="#native-ui"><span class="secno">2.11</span> <span class="content"> Do features in this specification allow an origin some measure of control over
+  a user agent’s native UI? </span></a>
+      <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers do the feautures in this specification create or
+  expose to the web? </span></a>
       <li><a href="#first-third-party"><span class="secno">2.13</span> <span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span></a>
-      <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How does this specification work in the context of a browser’s Private
-  Browsing or Incognito mode? </span></a>
+      <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How do the features in this specification work in the context of a browser’s
+  Private Browsing or Incognito mode? </span></a>
       <li><a href="#considerations"><span class="secno">2.15</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span></a>
-      <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Does this specification allow downgrading default security characteristics? </span></a>
+      <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Do features in your specification enable downgrading default security
+  characteristics? </span></a>
       <li><a href="#missing-questions"><span class="secno">2.17</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
     <li>
@@ -1869,7 +2042,12 @@ dfn > a.self-link::before      { content: "#"; }
       <li><a href="#drop-feature"><span class="secno">4.6</span> <span class="content"> Drop the feature </span></a>
       <li><a href="#privacy-impact-assessment"><span class="secno">4.7</span> <span class="content"> Making a privacy impact assessment </span></a>
      </ol>
-    <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
+    <li>
+     <a href="#w3c-conformance"><span class="secno"></span> <span class="content">Conformance</span></a>
+     <ol class="toc">
+      <li><a href="#w3c-conventions"><span class="secno"></span> <span class="content">Document conventions</span></a>
+      <li><a href="#w3c-conformant-algorithms"><span class="secno"></span> <span class="content">Conformant Algorithms</span></a>
+     </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
@@ -1895,7 +2073,9 @@ the overall security and privacy of the Web.</p>
 intended to help <abbr title="specification">spec</abbr> authors
 as they think through
 the security and privacy implications
-of their work and write the narrative Security Considerations and Privacy Considerations sections for inclusion in-line in their specifications, as described below in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+of their work and write the narrative Security Considerations and Privacy
+Considerations sections for inclusion in-line in their specifications,
+as described below in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections?</a>.
 It also documents mitigation strategies
 that spec authors can use to address
@@ -1918,7 +2098,7 @@ to protect their users' privacy and security.</p>
    <p>These questions should be kept in mind throughout work on any specification.
 Spec authors should periodically revisit this questionnaire
 to continue to consider the privacy and security implications of
-their features, particularly as their design changes over time.</p>
+their spec’s features, particularly as their design changes over time.</p>
    <h3 class="heading settled" data-level="1.2" id="reviews"><span class="secno">1.2. </span><span class="content">TAG, PING, and security reviews and this questionnaire</span><a class="self-link" href="#reviews"></a></h3>
    <p>Before requesting
 privacy and
@@ -1946,7 +2126,7 @@ to provide their answers to these questions to the TAG,
 we have prepared <a href="https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown">a list of these questions in Markdown</a>.</p>
    <h3 class="heading settled" data-level="1.3" id="resources"><span class="secno">1.3. </span><span class="content">Additional resources</span><a class="self-link" href="#resources"></a></h3>
    <p>This document is only one of the tools you should use to inform your
-consideration of privacy and security issues in your specifications.</p>
+consideration of privacy and security issues in your <abbr title="specification">spec</abbr>.</p>
    <p>The Mitigating Browser Fingerprinting in Web Specifications <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a> document published by PING goes into
 further depth about browser fingerprinting and should be considered in
 parallel with this document.</p>
@@ -1967,18 +2147,18 @@ If so, how?</p>
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#priority-of-constituencies">Web Platform Design Principles §priority-of-constituencies</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Is this specification exposing the minimum amount of information necessary
-  to power its features? </span><a class="self-link" href="#minimum-data"></a></h3>
+   <h3 class="question heading settled" data-level="2.2" id="minimum-data"><span class="secno">2.2. </span><span class="content"> Do features in your specification expose the minimum amount of information
+  necessary to enable their intended uses? </span><a class="self-link" href="#minimum-data"></a></h3>
    <p>Features should only expose information
-when it’s absolutely necessary to satisfy its use cases.
-If your feature exposes more information than is necessary,
+when it’s absolutely necessary to satisfy use cases.
+If a feature exposes more information than is necessary,
 why does it do so?</p>
    <p>See also</p>
    <ul>
     <li data-md>
      <p><a href="#data-minimization">§ 4.1 Data Minimization</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How does this specification deal with personal information,
+   <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> How do the features in your specification deal with personal information,
   personally-identifiable information (PII), or information derived from
   them? </span><a class="self-link" href="#personal-data"></a></h3>
    <p>Personal information is any data about a user
@@ -2035,7 +2215,7 @@ without a separate permissions prompt. </p>
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#consent">Web Platform Design Principles §consent</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How does this specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
+   <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How do the features in your specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
    <p>Personal information is not the only kind of sensitive information.
 Many other kinds of information may also be sensitive.
 What is or isn’t sensitive information can vary
@@ -2104,8 +2284,8 @@ instead of exposing the user’s precise location.</p>
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#do-not-expose-use-of-assistive-tech">Web Platform Design Principles §do-not-expose-use-of-assistive-tech</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Does this specification introduce new state for an origin that persists
-  across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
+   <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
    <p>There are many existing mechanisms
 origins can use to
 store information about a user.
@@ -2174,8 +2354,8 @@ identifiers which a user cannot easily change
 are very valuable from a tracking perspective,
 and protecting such identifiers
 from an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker①">active network attacker</a> is vital. </p>
-   <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> Does this specification expose information about the underlying
-  platform to origins? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
+   <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> Do the features in your specification expose information about the
+  underlying platform to origins? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
    <p>(Underlying platform information includes
 user configuration data,
 the presence and attributes of hardware I/O devices such as sensors,
@@ -2190,7 +2370,7 @@ This may be direct
 or indirect
 (because the data may be combined with other data to form a fingerprint). <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a></p>
    <p>When considering whether or not to expose such information,
-specifications and user agents
+specs and user agents
 should not consider the information in isolation,
 but should evaluate the risk of adding it
 to the existing fingerprinting surface of the platform.</p>
@@ -2210,7 +2390,7 @@ ensuring consistency—for instance,
 by ordering a list of available resources—but sometimes,
 more complex mitigations may be necessary.
 See <a href="#mitigations">§ 4 Mitigation Strategies</a> for more.</p>
-   <p>If your specification exposes such data
+   <p>If features in your spec expose such data
 and does not define adequate mitigations,
 you should ensure that such information
 is not revealed to origins
@@ -2232,7 +2412,7 @@ Some user agents have <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=7577
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#device-enumeration">Use care when exposing APIs for selecting or enumerating devices</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin access to sensors on a user’s
+   <h3 class="question heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Do features in this specification allow an origin access to sensors on a user’s
   device </span><a class="self-link" href="#sensor-data"></a></h3>
    <p>If so, what kind of sensors and information derived from those sensors does
 this standard expose to origins?</p>
@@ -2252,12 +2432,12 @@ their sample rates. </p>
 user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
    <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
 serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
-   <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data does this specification expose to an origin?  Please also
-  document what data is identical to data exposed by other features, in the
+   <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data do the features in this specification expose to an origin?  Please
+  also document what data is identical to data exposed by other features, in the
   same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
    <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
 important security barrier that new features need to carefully consider.
-If a specification exposes details about another origin’s state, or allows
+If a feature exposes details about another origin’s state, or allows
 POST or GET requests to be made to another origin, the consequences can be
 severe.</p>
    <p class="example" id="example-33412641"><a class="self-link" href="#example-33412641"></a> Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> unintentionally exposed redirect targets
@@ -2269,7 +2449,8 @@ requests to an endpoint on another origin. The working group concluded
 that this feature did not add any new attack surface above and beyond
 what normal form submission entails, so no extra mitigation was
 necessary. </p>
-   <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Does this specification enable new script execution/loading mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
+   <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Do feautres in this specification enable new script execution/loading
+  mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
    <ul>
     <li data-md>
      <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script" id="ref-for-script">script</a></code>, which might be easy to overlook when
@@ -2281,8 +2462,9 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
     <li data-md>
      <p>What about style?</p>
    </ul>
-   <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Does this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
-   <p>If so, what devices does this specification allow an origin to access?</p>
+   <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Do features in this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
+   <p>If so, what devices do the features in this specification allow an origin to
+access?</p>
    <p>Accessing other devices, both via network connections and via
 direct connection to the user’s machine (e.g. via Bluetooth,
 NFC, or USB), could expose vulnerabilities - some of
@@ -2300,7 +2482,7 @@ location.</p>
      <p>Enumerating the devices on a user’s local network provides significant
 entropy that an attacker may use to fingerprint the user agent.</p>
     <li data-md>
-     <p>If the specification exposes persistent or long lived identifiers of
+     <p>If features in this spec expose persistent or long lived identifiers of
 local network devices, that provides attackers with a way to track a user
 over time even if a user takes steps to prevent such tracking (e.g.
 clearing cookies and other stateful tracking mechanisms).</p>
@@ -2319,24 +2501,24 @@ reading as an example for similar work. </p>
    <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb">[WEBUSB]</a> addresses these risks through a combination of user mediation /
 prompting, secure origins, and feature policy.
 See <a href="https://wicg.github.io/webusb/#security-and-privacy">WebUSB §3 Security and Privacy Considerations</a> for more. </p>
-   <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Does this specification allow an origin some measure of control over a user
-  agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
+   <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin some measure of control over
+  a user agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
    <p>Features that allow for control over a user agent’s UI (e.g. full screen
 mode) or changes to the underlying system (e.g. installing an ‘app’ on a
 smartphone home screen) may surprise users or obscure security / privacy
 controls.  To the extent that your feature does allow for the changing of a
 user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?</p>
-   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers might this specification create or expose
-  to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
+   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers do the feautures in this specification create or
+  expose to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
    <p>If a standard exposes a temporary identifier to the web, the identifier
 should be short lived and should rotate on some regular duration to mitigate
 the risk of this identifier being used to track a user over time.  When a
 user clears state in their user agent, these temporary identifiers should be
 cleared to prevent re-correlation of state using a temporary identifier.</p>
-   <p>If this specification does create or expose a temporary identifier to the
-web, how is it exposed, when, to what entities, and, how frequently is it
-rotated?</p>
+   <p>If features in this spec create or expose temporary identifiers to the
+web, how are they exposed, when, to what entities, and, how frequently are
+those temporary identifiers rotated?</p>
    <p>Example temporary identifiers include TLS Channel ID, Session Tickets, and
 IPv6 addresses.</p>
    <p class="example" id="example-86ed6495"><a class="self-link" href="#example-86ed6495"></a> The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
@@ -2355,16 +2537,16 @@ conformance, please explain why and what privacy mitigations are in place.
 This is particularly important as user agents may take steps to reduce the
 availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.</p>
-   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How does this specification work in the context of a browser’s Private
-  Browsing or Incognito mode? </span><a class="self-link" href="#private-browsing"></a></h3>
+   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How do the features in this specification work in the context of a browser’s
+  Private Browsing or Incognito mode? </span><a class="self-link" href="#private-browsing"></a></h3>
    <p>Most browsers implement a private browsing or incognito mode,
 though they vary significantly in what functionality they provide and
 how that protection is described to users <a data-link-type="biblio" href="#biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]</a>.</p>
    <p>One commonality is that they provide a different set of state
 than the browser’s 'normal' state.</p>
-   <p>Does the specification provide information that would allow for the
+   <p>Do features in this spec provide information that would allow for the
 correlation of a single user’s activity across normal and private
-browsing / incognito modes?  Does the specification result in
+browsing / incognito modes?  Do features in the spec result in
 information being written to a user’s host that would persist
 following a private browsing / incognito mode session ending?</p>
    <p>There has been research into both:</p>
@@ -2387,26 +2569,27 @@ craft language specific to your specification that will be helpful to
 implementers and web developers.</p>
    <p><a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a> is an excellent resource to consult when considering
 privacy impacts of your specification, particularly Section 7 of
-RFC6983. <a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security
-Consideration sections.</p>
+RFC6973. <a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security
+Consideration sections, and Section 5 of RFC3552 has specific requirements.</p>
    <p>Generally, these sections should contain clear descriptions of the
-privacy and security risks the specification introduces.  It is also
+privacy and security risks the features in this spec introduce.  It is also
 appropriate to document risks that are mitigated elsewhere in the
 specification and to call out details that, if implemented
 other-than-according-to-spec, are likely to lead to vulnerabilities.</p>
-   <p>If it seems like a feature does not have security or privacy impacts,
-say so in-line, e.g.:</p>
+   <p>If it seems like none of the features in your specification have security or
+privacy impacts, say so in-line, e.g.:</p>
    <blockquote>
-    <p>There are no known security impacts of this feature.</p>
+    <p>There are no known security impacts of the features in this specificaiton.</p>
    </blockquote>
-   <p>Be aware, though, that most specifications will have at least some
+   <p>Be aware, though, that most specifications include features that have at least some
 impact on the fingerprinting surface of the browser.  If you believe
 your specification in an outlier, justifying that claim is in
 order.</p>
-   <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Does this specification allow downgrading default security characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
-   <p>Does this feature allow for a site to opt-out of security settings to
-accomplish some piece of functionality?  If so, in what situations does your
-specification allow such security setting downgrading and what mitigations
+   <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Do features in your specification enable downgrading default security
+  characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
+   <p>Do features in your spec allow a site to opt-out of security settings to
+accomplish some piece of functionality?  If so, in what situations do those
+features allow such security setting downgrading and what mitigations
 are in place to make sure optional downgrading doesn’t dramatically increase
 risks?</p>
    <ul>
@@ -2557,7 +2740,7 @@ logged to the site. This may reveal that the user has an account on a site.</p>
 mean that all the uses should always be a good idea, or justified; in fact,
 data privacy regulations around the world may even put limits on certain uses
 of data. In the context of first party, a legitimate website is potentially
-able to interact with powerful features to learn about the user behavior or
+able to interact with powerful features to learn about user behavior or
 habits. For example:</p>
    <ul>
     <li data-md>
@@ -2566,20 +2749,19 @@ move tracking</p>
     <li data-md>
      <p>Behavioral profiling of the user based on the usage patterns</p>
     <li data-md>
-     <p>Accessing powerful features enabling to reason about the user system,
-himself or the user surrounding, such as a webcam, Web Bluetooth or
-sensors</p>
+     <p>Accessing powerful features that enable the first-party to learn about
+the user’s system, the user themselves, or the user’s susurroundings, such
+as could be done through a webcam or sensors</p>
    </ul>
    <p>This point is admittedly different from others - and underlines that even if
 something may be possible, it does not mean it should always be done,
 including the need for considering a privacy impact assessment or even an
-ethical assessment. When designing a specification with security and privacy
+ethical assessment. When designing features with security and privacy
 in mind, all both use and misuse cases should be in scope.</p>
    <h2 class="heading settled" data-level="4" id="mitigations"><span class="secno">4. </span><span class="content"> Mitigation Strategies </span><a class="self-link" href="#mitigations"></a></h2>
    <p>To mitigate the security and privacy risks you’ve identified in your
-specification as you’ve filled out the questionnaire,
-you may want to apply one or more of the mitigations described below to your
-feature.</p>
+specification,
+you may want to apply one or more of the mitigations described below.</p>
    <h3 class="heading settled" data-level="4.1" id="data-minimization"><span class="secno">4.1. </span><span class="content"> Data Minimization </span><a class="self-link" href="#data-minimization"></a></h3>
    <p>Minimization is a strategy that involves exposing as little information to
 other communication partners as is required for a given operation to
@@ -2616,7 +2798,8 @@ that it needs to operate (but no more than that).</p>
 only providing information on the mouse’s behaviour when certain events take
 place. The approach is therefore to expose event handling (e.g., triggering
 on click, move, button press) as the sole interface to the device.</p>
-   <p>Two features that have minimized the data they make available are:</p>
+   <p>Two specifications that have minimized the data their features expose
+are:</p>
    <ul>
     <li data-md>
      <p><a data-link-type="biblio" href="#biblio-battery-status">[BATTERY-STATUS]</a> <q>The user agent should not expose high precision readouts</q></p>
@@ -2672,11 +2855,11 @@ user has over their data after it has been shared with other parties.  For
 example, are users able to determine what information was shared with other
 parties?</p>
    <h3 class="heading settled" data-level="4.4" id="restrict-to-first-party"><span class="secno">4.4. </span><span class="content"> Explicitly restrict the feature to first party origins </span><a class="self-link" href="#restrict-to-first-party"></a></h3>
-   <p>As described in the "Third-Party Tracking" section, a significant feature of
-the web is the mixing of first and third party content in a single page, but,
-this introduces risk where the third party content can use the same set of web
-features as the first party content.</p>
-   <p>Authors should explicit specify the feature’s scope of availability:</p>
+   <p>As described in the "Third-Party Tracking" section, web pages mix
+first and third party content into a single application, which
+introduces the risk that third party content can misuse the same set of web
+features as first party content.</p>
+   <p>Authors should explicitly specify a feature’s scope of availability:</p>
    <ul>
     <li data-md>
      <p>When a feature should be made available to embedded third parties -- and
@@ -2690,7 +2873,7 @@ top-most, visible tab.</p>
     <li data-md>
      <p>Whether events will be fired simultaneously</p>
    </ul>
-   <p>Third party’s access to a feature should be an optional implementation for
+   <p>Third party access to a feature should be an optional implementation for
 conformance.</p>
    <h3 class="heading settled" data-level="4.5" id="secure-contexts"><span class="secno">4.5. </span><span class="content"> Secure Contexts </span><a class="self-link" href="#secure-contexts"></a></h3>
    <p>If the primary risk that you’ve identified in your specification is the
@@ -2714,7 +2897,7 @@ is to drop the feature,
 though you should keep in mind that some security or privacy risks
 may be removed or mitigated
 by adding features to the platform.
-Every feature in a spec
+Every feature in a specification
 should be seen as
 potentially adding security and/or privacy risk
 until proven otherwise.
@@ -2750,16 +2933,15 @@ features), a specification, and the overall web platform.</p>
      <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1359076">Mozilla dropped</a> devicelight, deviceproximity and userproximity events</p>
    </ul>
    <h3 class="heading settled" data-level="4.7" id="privacy-impact-assessment"><span class="secno">4.7. </span><span class="content"> Making a privacy impact assessment </span><a class="self-link" href="#privacy-impact-assessment"></a></h3>
-   <p>Some features are potentially supplying very sensitive data, and it is
+   <p>Some features potentially supply sensitive data, and it is
 the responsibility of the end-developer, system owner, or manager to realize
-this and act accordingly in the design of his/her system. Some use may
+this and act accordingly in the design of their system. Some use may
 warrant conducting a privacy impact assessment, especially when data
 relating to individuals may be processed.</p>
-   <p>Specifications that expose such sensitive data should include a
-recommendation that websites and applications adopting the API — but not
-necessarily the implementing user agent — conduct a privacy impact assessment
-of the data that they collect.</p>
-   <p>A features that recommends such is:</p>
+   <p>Specifications that include features that expose sensitive data should include
+recommendations that websites and applications adopting the API conduct a
+privacy impact assessment of the data that they collect.</p>
+   <p>A feature that does this is:</p>
    <ul>
     <li data-md>
      <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> advises to consider performing of a privacy impact
@@ -2773,151 +2955,47 @@ found that none of the studied websites informed users of their privacy
 practices before the site prompted for location.</p>
   </main>
   <div data-fill-with="conformance">
-   <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
-   <p> Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
-            The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
-            in the normative parts of this document
-            are to be interpreted as described in RFC 2119.
-            However, for readability,
-            these words do not appear in all uppercase letters in this specification. </p>
-   <p> All of the text of this specification is normative
-            except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
-   <p> Examples in this specification are introduced with the words “for example”
-            or are set apart from the normative text with <code>class="example"</code>, like this: </p>
-   <div class="example" id="example-example"><a class="self-link" href="#example-example"></a> This is an example of an informative example. </div>
-   <p> Informative notes begin with the word “Note”
-            and are set apart from the normative text with <code>class="note"</code>, like this: </p>
-   <p class="note" role="note"> Note, this is an informative note. </p>
+   <h2 class="no-ref no-num heading settled" id="w3c-conformance"><span class="content">Conformance</span><a class="self-link" href="#w3c-conformance"></a></h2>
+   <h3 class="no-ref no-num heading settled" id="w3c-conventions"><span class="content">Document conventions</span><a class="self-link" href="#w3c-conventions"></a></h3>
+   <p>Conformance requirements are expressed
+    with a combination of descriptive assertions
+    and RFC 2119 terminology.
+    The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
+    in the normative parts of this document
+    are to be interpreted as described in RFC 2119.
+    However, for readability,
+    these words do not appear in all uppercase letters in this specification. </p>
+   <p>All of the text of this specification is normative
+    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+   <p>Examples in this specification are introduced with the words “for example”
+    or are set apart from the normative text
+    with <code>class="example"</code>,
+    like this: </p>
+   <div class="example" id="w3c-example">
+    <a class="self-link" href="#w3c-example"></a> 
+    <p>This is an example of an informative example. </p>
+   </div>
+   <p>Informative notes begin with the word “Note”
+    and are set apart from the normative text
+    with <code>class="note"</code>,
+    like this: </p>
+   <p class="note" role="note">Note, this is an informative note. </p>
+   <h3 class="no-ref no-num heading settled" id="w3c-conformant-algorithms"><span class="content">Conformant Algorithms</span><a class="self-link" href="#w3c-conformant-algorithms"></a></h3>
+   <p>Requirements phrased in the imperative as part of algorithms
+    (such as "strip any leading space characters"
+    or "return false and abort these steps")
+    are to be interpreted with the meaning of the key word
+    ("must", "should", "may", etc)
+    used in introducing the algorithm. </p>
+   <p>Conformance requirements phrased as algorithms or specific steps
+    can be implemented in any manner,
+    so long as the end result is equivalent.
+    In particular, the algorithms defined in this specification
+    are intended to be easy to understand
+    and are not intended to be performant.
+    Implementers are encouraged to optimize. </p>
   </div>
-<script>
-(function() {
-  "use strict";
-  var collapseSidebarText = '<span aria-hidden="true">←</span> '
-                          + '<span>Collapse Sidebar</span>';
-  var expandSidebarText   = '<span aria-hidden="true">→</span> '
-                          + '<span>Pop Out Sidebar</span>';
-  var tocJumpText         = '<span aria-hidden="true">↑</span> '
-                          + '<span>Jump to Table of Contents</span>';
-
-  var sidebarMedia = window.matchMedia('screen and (min-width: 78em)');
-  var autoToggle   = function(e){ toggleSidebar(e.matches) };
-  if(sidebarMedia.addListener) {
-    sidebarMedia.addListener(autoToggle);
-  }
-
-  function toggleSidebar(on) {
-    if (on == undefined) {
-      on = !document.body.classList.contains('toc-sidebar');
-    }
-
-    /* Don’t scroll to compensate for the ToC if we’re above it already. */
-    var headY = 0;
-    var head = document.querySelector('.head');
-    if (head) {
-      // terrible approx of "top of ToC"
-      headY += head.offsetTop + head.offsetHeight;
-    }
-    var skipScroll = window.scrollY < headY;
-
-    var toggle = document.getElementById('toc-toggle');
-    var tocNav = document.getElementById('toc');
-    if (on) {
-      var tocHeight = tocNav.offsetHeight;
-      document.body.classList.add('toc-sidebar');
-      document.body.classList.remove('toc-inline');
-      toggle.innerHTML = collapseSidebarText;
-      if (!skipScroll) {
-        window.scrollBy(0, 0 - tocHeight);
-      }
-      tocNav.focus();
-      sidebarMedia.addListener(autoToggle); // auto-collapse when out of room
-    }
-    else {
-      document.body.classList.add('toc-inline');
-      document.body.classList.remove('toc-sidebar');
-      toggle.innerHTML = expandSidebarText;
-      if (!skipScroll) {
-        window.scrollBy(0, tocNav.offsetHeight);
-      }
-      if (toggle.matches(':hover')) {
-        /* Unfocus button when not using keyboard navigation,
-           because I don’t know where else to send the focus. */
-        toggle.blur();
-      }
-    }
-  }
-
-  function createSidebarToggle() {
-    /* Create the sidebar toggle in JS; it shouldn’t exist when JS is off. */
-    var toggle = document.createElement('a');
-      /* This should probably be a button, but appearance isn’t standards-track.*/
-    toggle.id = 'toc-toggle';
-    toggle.class = 'toc-toggle';
-    toggle.href = '#toc';
-    toggle.innerHTML = collapseSidebarText;
-
-    sidebarMedia.addListener(autoToggle);
-    var toggler = function(e) {
-      e.preventDefault();
-      sidebarMedia.removeListener(autoToggle); // persist explicit off states
-      toggleSidebar();
-      return false;
-    }
-    toggle.addEventListener('click', toggler, false);
-
-
-    /* Get <nav id=toc-nav>, or make it if we don’t have one. */
-    var tocNav = document.getElementById('toc-nav');
-    if (!tocNav) {
-      tocNav = document.createElement('p');
-      tocNav.id = 'toc-nav';
-      /* Prepend for better keyboard navigation */
-      document.body.insertBefore(tocNav, document.body.firstChild);
-    }
-    /* While we’re at it, make sure we have a Jump to Toc link. */
-    var tocJump = document.getElementById('toc-jump');
-    if (!tocJump) {
-      tocJump = document.createElement('a');
-      tocJump.id = 'toc-jump';
-      tocJump.href = '#toc';
-      tocJump.innerHTML = tocJumpText;
-      tocNav.appendChild(tocJump);
-    }
-
-    tocNav.appendChild(toggle);
-  }
-
-  var toc = document.getElementById('toc');
-  if (toc) {
-    createSidebarToggle();
-    toggleSidebar(sidebarMedia.matches);
-
-    /* If the sidebar has been manually opened and is currently overlaying the text
-       (window too small for the MQ to add the margin to body),
-       then auto-close the sidebar once you click on something in there. */
-    toc.addEventListener('click', function(e) {
-      if(e.target.tagName.toLowerCase() == "a" && document.body.classList.contains('toc-sidebar') && !sidebarMedia.matches) {
-        toggleSidebar(false);
-      }
-    }, false);
-  }
-  else {
-    console.warn("Can’t find Table of Contents. Please use <nav id='toc'> around the ToC.");
-  }
-
-  /* Wrap tables in case they overflow */
-  var tables = document.querySelectorAll(':not(.overlarge) > table.data, :not(.overlarge) > table.index');
-  var numTables = tables.length;
-  for (var i = 0; i < numTables; i++) {
-    var table = tables[i];
-    var wrapper = document.createElement('div');
-    wrapper.className = 'overlarge';
-    table.parentNode.insertBefore(wrapper, table);
-    wrapper.appendChild(table);
-  }
-
-})();
-</script>
+<script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
@@ -2931,126 +3009,133 @@ practices before the site prompted for location.</p>
    <a href="https://w3c.github.io/webappsec-csp/#connect-src">https://w3c.github.io/webappsec-csp/#connect-src</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-connect-src">2.4. 
-  How does this specification deal with sensitive information? </a>
+  How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-form-action">
    <a href="https://w3c.github.io/webappsec-csp/#form-action">https://w3c.github.io/webappsec-csp/#form-action</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-form-action">2.4. 
-  How does this specification deal with sensitive information? </a>
+  How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-script-src">
    <a href="https://w3c.github.io/webappsec-csp/#script-src">https://w3c.github.io/webappsec-csp/#script-src</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-script-src">2.9. 
-  Does this specification enable new script execution/loading mechanisms? </a>
+  Do feautres in this specification enable new script execution/loading
+  mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-sec-eval-x">
    <a href="https://tc39.github.io/ecma262/#sec-eval-x">https://tc39.github.io/ecma262/#sec-eval-x</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-sec-eval-x">2.9. 
-  Does this specification enable new script execution/loading mechanisms? </a>
+  Do feautres in this specification enable new script execution/loading
+  mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-cdm">
    <a href="https://www.w3.org/TR/encrypted-media/#cdm">https://www.w3.org/TR/encrypted-media/#cdm</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cdm">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-navigatorplugins">
    <a href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins">https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-navigatorplugins">2.6. 
-  Does this specification expose information about the underlying
-  platform to origins? </a>
+  Do the features in your specification expose information about the
+  underlying platform to origins? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-document-domain">
    <a href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain">https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-document-domain">2.16. 
-  Does this specification allow downgrading default security characteristics? </a>
+  Do features in your specification enable downgrading default security
+  characteristics? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-link-element">
    <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-the-link-element">2.9. 
-  Does this specification enable new script execution/loading mechanisms? </a>
+  Do feautres in this specification enable new script execution/loading
+  mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-localstorage">
    <a href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage">https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-localstorage">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-script">
    <a href="https://html.spec.whatwg.org/multipage/scripting.html#script">https://html.spec.whatwg.org/multipage/scripting.html#script</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-script">2.9. 
-  Does this specification enable new script execution/loading mechanisms? </a>
+  Do feautres in this specification enable new script execution/loading
+  mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-settimeout">
    <a href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout">https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-settimeout">2.9. 
-  Does this specification enable new script execution/loading mechanisms? </a>
+  Do feautres in this specification enable new script execution/loading
+  mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-windoworworkerglobalscope-indexeddb">
    <a href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb">https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-windoworworkerglobalscope-indexeddb">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-referrer-policy-unsafe-url">
    <a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url">https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-referrer-policy-unsafe-url">2.16. 
-  Does this specification allow downgrading default security characteristics? </a>
+  Do features in your specification enable downgrading default security
+  characteristics? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-secure-contexts">
    <a href="https://w3c.github.io/webappsec-secure-contexts/#secure-contexts">https://w3c.github.io/webappsec-secure-contexts/#secure-contexts</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-secure-contexts">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-first-party-site-context">
    <a href="https://privacycg.github.io/storage-access/#first-party-site-context">https://privacycg.github.io/storage-access/#first-party-site-context</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-first-party-site-context">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-third-party-context">
    <a href="https://privacycg.github.io/storage-access/#third-party-context">https://privacycg.github.io/storage-access/#third-party-context</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-third-party-context">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-formdata">
    <a href="https://xhr.spec.whatwg.org/#formdata">https://xhr.spec.whatwg.org/#formdata</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-formdata">2.4. 
-  How does this specification deal with sensitive information? </a>
+  How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
@@ -3058,55 +3143,55 @@ practices before the site prompted for location.</p>
    <li>
     <a data-link-type="biblio">[CSP]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-connect-src" style="color:initial">connect-src</span>
-     <li><span class="dfn-paneled" id="term-for-form-action" style="color:initial">form-action</span>
-     <li><span class="dfn-paneled" id="term-for-script-src" style="color:initial">script-src</span>
+     <li><span class="dfn-paneled" id="term-for-connect-src">connect-src</span>
+     <li><span class="dfn-paneled" id="term-for-form-action">form-action</span>
+     <li><span class="dfn-paneled" id="term-for-script-src">script-src</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-sec-eval-x" style="color:initial">eval()</span>
+     <li><span class="dfn-paneled" id="term-for-sec-eval-x">eval()</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ENCRYPTED-MEDIA]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-cdm" style="color:initial">content decryption module</span>
+     <li><span class="dfn-paneled" id="term-for-cdm">content decryption module</span>
     </ul>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-navigatorplugins" style="color:initial">NavigatorPlugins</span>
-     <li><span class="dfn-paneled" id="term-for-dom-document-domain" style="color:initial">domain</span>
-     <li><span class="dfn-paneled" id="term-for-the-link-element" style="color:initial">link</span>
-     <li><span class="dfn-paneled" id="term-for-dom-localstorage" style="color:initial">localStorage</span>
-     <li><span class="dfn-paneled" id="term-for-script" style="color:initial">script</span>
-     <li><span class="dfn-paneled" id="term-for-dom-settimeout" style="color:initial">setTimeout()</span>
+     <li><span class="dfn-paneled" id="term-for-navigatorplugins">NavigatorPlugins</span>
+     <li><span class="dfn-paneled" id="term-for-dom-document-domain">domain</span>
+     <li><span class="dfn-paneled" id="term-for-the-link-element">link</span>
+     <li><span class="dfn-paneled" id="term-for-dom-localstorage">localStorage</span>
+     <li><span class="dfn-paneled" id="term-for-script">script</span>
+     <li><span class="dfn-paneled" id="term-for-dom-settimeout">setTimeout()</span>
     </ul>
    <li>
     <a data-link-type="biblio">[IndexedDB-2]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-dom-windoworworkerglobalscope-indexeddb" style="color:initial">indexedDB</span>
+     <li><span class="dfn-paneled" id="term-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</span>
     </ul>
    <li>
     <a data-link-type="biblio">[REFERRER-POLICY]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-referrer-policy-unsafe-url" style="color:initial">"unsafe-url"</span>
+     <li><span class="dfn-paneled" id="term-for-referrer-policy-unsafe-url">"unsafe-url"</span>
     </ul>
    <li>
     <a data-link-type="biblio">[secure-contexts]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-secure-contexts" style="color:initial">secure contexts</span>
+     <li><span class="dfn-paneled" id="term-for-secure-contexts">secure contexts</span>
     </ul>
    <li>
     <a data-link-type="biblio">[storage-access]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-first-party-site-context" style="color:initial">first-party-site context</span>
-     <li><span class="dfn-paneled" id="term-for-third-party-context" style="color:initial">third-party context</span>
+     <li><span class="dfn-paneled" id="term-for-first-party-site-context">first-party-site context</span>
+     <li><span class="dfn-paneled" id="term-for-third-party-context">third-party context</span>
     </ul>
    <li>
     <a data-link-type="biblio">[XHR]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-formdata" style="color:initial">FormData</span>
+     <li><span class="dfn-paneled" id="term-for-formdata">FormData</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -3150,7 +3235,7 @@ practices before the site prompted for location.</p>
    <dt id="biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]
    <dd>Nick Doty. <a href="https://www.w3.org/TR/fingerprinting-guidance/">Mitigating Browser Fingerprinting in Web Specifications</a>. 28 March 2019. NOTE. URL: <a href="https://www.w3.org/TR/fingerprinting-guidance/">https://www.w3.org/TR/fingerprinting-guidance/</a>
    <dt id="biblio-gamepad">[GAMEPAD]
-   <dd>James Hollyer; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 17 September 2020. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
+   <dd>James Hollyer; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 29 October 2020. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
    <dt id="biblio-geolocation-api">[GEOLOCATION-API]
@@ -3213,8 +3298,8 @@ practices before the site prompted for location.</p>
    <b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-active-network-attacker">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a> <a href="#ref-for-active-network-attacker①">(2)</a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a> <a href="#ref-for-active-network-attacker①">(2)</a>
     <li><a href="#ref-for-active-network-attacker②">4.5. 
   Secure Contexts </a>
    </ul>
@@ -3223,8 +3308,8 @@ practices before the site prompted for location.</p>
    <b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-same-origin-policy">2.8. 
-  What data does this specification expose to an origin?  Please also
-  document what data is identical to data exposed by other features, in the
+  What data do the features in this specification expose to an origin?  Please
+  also document what data is identical to data exposed by other features, in the
   same or different contexts. </a>
    </ul>
   </aside>
@@ -3232,10 +3317,10 @@ practices before the site prompted for location.</p>
    <b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cross-site-scripting-attacks">2.4. 
-  How does this specification deal with sensitive information? </a>
+  How do the features in your specification deal with sensitive information? </a>
     <li><a href="#ref-for-cross-site-scripting-attacks①">2.5. 
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions? </a>
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions? </a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
