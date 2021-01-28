@@ -459,27 +459,28 @@ See also:
 * [[DESIGN-PRINCIPLES#device-enumeration|Use care when exposing APIs for selecting or enumerating devices]]
 
 <h3 class=question id="sensor-data">
-  Do features in this specification allow an origin access to sensors on a user’s
-  device
+  Do features in this specification enable access to device sensors?
 </h3>
 
-If so, what kind of sensors and information derived from those sensors does
-this standard expose to origins?
+If so, what kinds of information from or about the sensors are exposed to origins?
 
 Information from sensors may serve as a fingerprinting vector across origins.
-In addition, sensor also reveals something about my device or environment and
-that fact might be what is sensitive.  In addition, as technology advances,
-mitigations in place at the time a specification is written may have to be
-reconsidered as the threat landscape changes.
+Additionally,
+sensors may reveal something sensitive about the device or its environment.
 
-Sensor data might even become a cross-origin identifier when the sensor reading
-is relatively stable, for example for short time periods (seconds, minutes, even days), and
-is consistent across-origins.  In fact, if two user-agents expose the same
-sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.
+If sensor data is relatively stable
+and consistent across origins,
+it could be used as a cross-origin identifier.
+If two User Agents expose such stable data from the same sensors,
+the data could even be used as a cross-browser, or potentially even a cross-device, identifier.
 
-<p class=example> As gyroscopes advanced, they could be used as
-microphones [[GYROSPEECHRECOGNITION]].  This was mitigated by lowering
-their sample rates.  </p>
+<p class=example>
+Researchers discovered that
+it's possible to use
+a sufficiently fine-grained gyroscope
+as a microphone [[GYROSPEECHRECOGNITION]].
+This can be mitigated by lowering the gyroscope's sample rates.
+</p>
 
 <p class=example>
 Ambient light sensors could allow an attacker to learn whether or not a
