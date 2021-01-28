@@ -695,20 +695,50 @@ your specification in an outlier, justifying that claim is in
 order.
 
 <h3 class=question id="relaxed-sop">
-  Do features in your specification enable downgrading default security
-  characteristics?
+  Do features in your specification enable sites to downgrade default security
+  protections?
 </h3>
 
-Do features in your spec allow a site to opt-out of security settings to
-accomplish some piece of functionality?  If so, in what situations do those
-features allow such security setting downgrading and what mitigations
-are in place to make sure optional downgrading doesn't dramatically increase
-risks?
+Do features in your spec
+enable sites to opt-out of security settings
+in order to accomplish something?
+If so,
+in what situations do these features allow such downgrading, and why?
 
-* {{Document/domain|document.domain}}
-* [[CORS]]
-* [[WEBMESSAGING]]
-* [[REFERRER-POLICY]]'s <a>"unsafe-url"</a>
+Can this be avoided in the first place?
+If not, are mitigations in place
+to make sure this downgrading doesn’t dramatically increase risk to users?
+For instance,
+[[PERMISSIONS-POLICY]] defines a mechanism
+that can be used by sites to prevent untrusted <{iframe}>s from using such a feature.
+
+<div class=example>
+The {{Document/domain|document.domain}} setter can be used to relax the [=same-origin policy=].
+The most effective mitigation
+would be to simply remove it from the platform altogether (see [[#drop-feature]]),
+though its widespread usage
+suggests an [iterative approach to removal](https://github.com/mikewest/deprecating-document-domain/)
+may be more prudent.
+</div>
+
+<div class=example>
+The Fullscreen API enables
+a (portion of a) web page
+to expand to fill the display. [[FULLSCREEN]]
+This can hide
+several User Agent user interface elements
+which help users to understand
+what web page they are visiting
+and whether or not the User Agent believes they are [safe](https://w3ctag.github.io/design-principles/#safe-to-browse).
+
+Several mitigations are defined in the specification
+and are widely deployed in implementations.
+For instance, the Fullscreen API is a [=policy-controlled feature=],
+which enables sites to disable the API in <{iframe}>s.
+[[FULLSCREEN#security-and-privacy-considerations]] encourages implementations
+to display an overlay which informs the user that they have entered fullscreen,
+and to advertise a simple mechanism to exit fullscreen (typically the `Esc` key).
+</div>
 
 <h3 class=question id="missing-questions">
   What should this questionnaire have asked?
