@@ -407,6 +407,9 @@ If so, what kind of data can be sent?
 Platforms differ in how they process data passed into them,
 which may present different risks to users.
 
+Don't assume the underlying platform will safely handle the data that is passed. 
+Where possible, mitigate attacks by limiting or structuring the kind of data is passed to the platform.    
+
 <p class=example>
 URLs may or may not be dereferenced by a platform API,
 and if they are dereferenced,
