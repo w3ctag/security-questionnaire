@@ -418,7 +418,8 @@ the behavior of the various underlying platform APIs it's built upon.
 What happens when `file:`, `data:`, or `blob:` URLs
 are passed to the underlying platform API?
 Keep in mind that, even if your API only allows `http:` and `https:` URLs,
-servers can redirect these to  `file:`, `data:`, or `blob:` URLs.
+servers can redirect these to  `file:`, `data:`, or `blob:` URLs,
+which can potentially read sensitive data directly form the user's hard disk or from memory.
 </p>
 
 <h3 class=question id="sensor-data">
