@@ -695,12 +695,12 @@ your specification in an outlier, justifying that claim is in
 order.
 
 <h3 class=question id="relaxed-sop">
-  Do features in your specification enable sites to downgrade default security
-  protections?
+  Do features in your specification enable origins to downgrade default
+  security protections?
 </h3>
 
 Do features in your spec
-enable sites to opt-out of security settings
+enable an origin to opt-out of security settings
 in order to accomplish something?
 If so,
 in what situations do these features allow such downgrading, and why?
@@ -715,10 +715,10 @@ that can be used by sites to prevent untrusted <{iframe}>s from using such a fea
 <div class=example>
 The {{Document/domain|document.domain}} setter can be used to relax the [=same-origin policy=].
 The most effective mitigation
-would be to simply remove it from the platform altogether (see [[#drop-feature]]),
-though its widespread usage
-suggests an [iterative approach to removal](https://github.com/mikewest/deprecating-document-domain/)
-may be more prudent.
+would be to remove it from the platform (see [[#drop-feature]]),
+though that
+[may be challenging](https://github.com/mikewest/deprecating-document-domain/)
+for compatibility reasons.
 </div>
 
 <div class=example>
