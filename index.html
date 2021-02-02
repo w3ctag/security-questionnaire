@@ -1486,7 +1486,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="48c8ce7c6e3b76d39807b30cde1483e84c2f711d" name="document-revision">
+  <meta content="60ca508e46ebab5ca6b01724b4f805ed35fbccb5" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1921,7 +1921,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2020-11-30">30 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-02-02">2 February 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1940,7 +1940,7 @@ dfn > a.self-link::before      { content: "#"; }
     </dl>
    </div>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2020 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). <abbr title="World Wide Web Consortium">W3C</abbr> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2021 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). <abbr title="World Wide Web Consortium">W3C</abbr> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -2000,27 +2000,29 @@ dfn > a.self-link::before      { content: "#"; }
   that persists across browsing sessions? </span></a>
       <li><a href="#underlying-platform-data"><span class="secno">2.6</span> <span class="content"> Do the features in your specification expose information about the
   underlying platform to origins? </span></a>
-      <li><a href="#sensor-data"><span class="secno">2.7</span> <span class="content"> Do features in this specification allow an origin access to sensors on a user’s
+      <li><a href="#send-to-platform"><span class="secno">2.7</span> <span class="content"> Does this specification allow an origin to send data to the underlying
+  platform? </span></a>
+      <li><a href="#sensor-data"><span class="secno">2.8</span> <span class="content"> Do features in this specification allow an origin access to sensors on a user’s
   device </span></a>
-      <li><a href="#other-data"><span class="secno">2.8</span> <span class="content"> What data do the features in this specification expose to an origin?  Please
+      <li><a href="#other-data"><span class="secno">2.9</span> <span class="content"> What data do the features in this specification expose to an origin?  Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </span></a>
-      <li><a href="#string-to-script"><span class="secno">2.9</span> <span class="content"> Do feautres in this specification enable new script execution/loading
+      <li><a href="#string-to-script"><span class="secno">2.10</span> <span class="content"> Do feautres in this specification enable new script execution/loading
   mechanisms? </span></a>
-      <li><a href="#remote-device"><span class="secno">2.10</span> <span class="content"> Do features in this specification allow an origin to access other devices? </span></a>
-      <li><a href="#native-ui"><span class="secno">2.11</span> <span class="content"> Do features in this specification allow an origin some measure of control over
+      <li><a href="#remote-device"><span class="secno">2.11</span> <span class="content"> Do features in this specification allow an origin to access other devices? </span></a>
+      <li><a href="#native-ui"><span class="secno">2.12</span> <span class="content"> Do features in this specification allow an origin some measure of control over
   a user agent’s native UI? </span></a>
-      <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers do the feautures in this specification create or
+      <li><a href="#temporary-id"><span class="secno">2.13</span> <span class="content"> What temporary identifiers do the feautures in this specification create or
   expose to the web? </span></a>
-      <li><a href="#first-third-party"><span class="secno">2.13</span> <span class="content"> How does this specification distinguish between behavior in first-party and
+      <li><a href="#first-third-party"><span class="secno">2.14</span> <span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span></a>
-      <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How do the features in this specification work in the context of a browser’s
+      <li><a href="#private-browsing"><span class="secno">2.15</span> <span class="content"> How do the features in this specification work in the context of a browser’s
   Private Browsing or Incognito mode? </span></a>
-      <li><a href="#considerations"><span class="secno">2.15</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
+      <li><a href="#considerations"><span class="secno">2.16</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span></a>
-      <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Do features in your specification enable downgrading default security
+      <li><a href="#relaxed-sop"><span class="secno">2.17</span> <span class="content"> Do features in your specification enable downgrading default security
   characteristics? </span></a>
-      <li><a href="#missing-questions"><span class="secno">2.17</span> <span class="content"> What should this questionnaire have asked? </span></a>
+      <li><a href="#missing-questions"><span class="secno">2.18</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
     <li>
      <a href="#threats"><span class="secno">3</span> <span class="content">Threat Models</span></a>
@@ -2075,7 +2077,7 @@ as they think through
 the security and privacy implications
 of their work and write the narrative Security Considerations and Privacy
 Considerations sections for inclusion in-line in their specifications,
-as described below in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+as described below in <a href="#considerations">§ 2.16 Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections?</a>.
 It also documents mitigation strategies
 that spec authors can use to address
@@ -2105,7 +2107,7 @@ privacy and
 security reviews from the <a href="https://www.w3.org/Privacy/IG/">Privacy Interest Group
 (PING)</a> and security reviewers,
 respectively, authors must write both "Security Considerations" and
-"Privacy Considerations" sections for their documents, as described in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+"Privacy Considerations" sections for their documents, as described in <a href="#considerations">§ 2.16 Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections?</a>.  While your answers to the questions in this
 document will inform your writing of those sections, it is not
 appropriate to merely copy this questionnaire into those sections.
@@ -2412,7 +2414,30 @@ Some user agents have <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=7577
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#device-enumeration">Use care when exposing APIs for selecting or enumerating devices</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.7" id="sensor-data"><span class="secno">2.7. </span><span class="content"> Do features in this specification allow an origin access to sensors on a user’s
+   <h3 class="question heading settled" data-level="2.7" id="send-to-platform"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin to send data to the underlying
+  platform? </span><a class="self-link" href="#send-to-platform"></a></h3>
+   <p>If so, what kind of data can be sent?</p>
+   <p>Platforms differ in how they process data passed into them,
+which may present different risks to users.</p>
+   <p>Don’t assume the underlying platform will safely handle the data that is passed.
+Where possible, mitigate attacks by limiting or structuring the kind of data is passed to the platform.</p>
+   <div class="example" id="example-e01cd738">
+    <a class="self-link" href="#example-e01cd738"></a> URLs may or may not be dereferenced by a platform API,
+and if they are dereferenced,
+redirects may or may not be followed.
+If your specification sends URLs to underlying platform APIs,
+the potential harm of <em>your</em> API
+may vary depending on
+the behavior of the various underlying platform APIs it’s built upon. 
+    <p>What happens when <code>file:</code>, <code>data:</code>, or <code>blob:</code> URLs
+are passed to the underlying platform API?
+These can potentially read sensitive data
+directly form the user’s hard disk or from memory.</p>
+    <p>Even if your API only allows <code>http:</code> and <code>https:</code> URLs,
+such URLs may be vulnerable to <a data-link-type="dfn" href="#cross-site-request-forgery-attacks" id="ref-for-cross-site-request-forgery-attacks">CSRF</a> attacks,
+or be redirected to <code>file:</code>, <code>data:</code>, or <code>blob:</code> URLs.</p>
+   </div>
+   <h3 class="question heading settled" data-level="2.8" id="sensor-data"><span class="secno">2.8. </span><span class="content"> Do features in this specification allow an origin access to sensors on a user’s
   device </span><a class="self-link" href="#sensor-data"></a></h3>
    <p>If so, what kind of sensors and information derived from those sensors does
 this standard expose to origins?</p>
@@ -2432,7 +2457,7 @@ their sample rates. </p>
 user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
    <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
 serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
-   <h3 class="question heading settled" data-level="2.8" id="other-data"><span class="secno">2.8. </span><span class="content"> What data do the features in this specification expose to an origin?  Please
+   <h3 class="question heading settled" data-level="2.9" id="other-data"><span class="secno">2.9. </span><span class="content"> What data do the features in this specification expose to an origin?  Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
    <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
@@ -2449,7 +2474,7 @@ requests to an endpoint on another origin. The working group concluded
 that this feature did not add any new attack surface above and beyond
 what normal form submission entails, so no extra mitigation was
 necessary. </p>
-   <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Do feautres in this specification enable new script execution/loading
+   <h3 class="question heading settled" data-level="2.10" id="string-to-script"><span class="secno">2.10. </span><span class="content"> Do feautres in this specification enable new script execution/loading
   mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
    <ul>
     <li data-md>
@@ -2462,7 +2487,7 @@ Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappse
     <li data-md>
      <p>What about style?</p>
    </ul>
-   <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Do features in this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
+   <h3 class="question heading settled" data-level="2.11" id="remote-device"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
    <p>If so, what devices do the features in this specification allow an origin to
 access?</p>
    <p>Accessing other devices, both via network connections and via
@@ -2501,7 +2526,7 @@ reading as an example for similar work. </p>
    <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb">[WEBUSB]</a> addresses these risks through a combination of user mediation /
 prompting, secure origins, and feature policy.
 See <a href="https://wicg.github.io/webusb/#security-and-privacy">WebUSB §3 Security and Privacy Considerations</a> for more. </p>
-   <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin some measure of control over
+   <h3 class="question heading settled" data-level="2.12" id="native-ui"><span class="secno">2.12. </span><span class="content"> Do features in this specification allow an origin some measure of control over
   a user agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
    <p>Features that allow for control over a user agent’s UI (e.g. full screen
 mode) or changes to the underlying system (e.g. installing an ‘app’ on a
@@ -2509,7 +2534,7 @@ smartphone home screen) may surprise users or obscure security / privacy
 controls.  To the extent that your feature does allow for the changing of a
 user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?</p>
-   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers do the feautures in this specification create or
+   <h3 class="question heading settled" data-level="2.13" id="temporary-id"><span class="secno">2.13. </span><span class="content"> What temporary identifiers do the feautures in this specification create or
   expose to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
    <p>If a standard exposes a temporary identifier to the web, the identifier
 should be short lived and should rotate on some regular duration to mitigate
@@ -2524,7 +2549,7 @@ IPv6 addresses.</p>
    <p class="example" id="example-86ed6495"><a class="self-link" href="#example-86ed6495"></a> The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
 at zero, increments, and is reset — is a good example of a privacy friendly
 temporary identifier. </p>
-   <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
+   <h3 class="question heading settled" data-level="2.14" id="first-third-party"><span class="secno">2.14. </span><span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span><a class="self-link" href="#first-third-party"></a></h3>
    <p>The behavior of a feature should be considered not just in the context of its
 being used by a first party origin that a user is visiting but also the
@@ -2537,7 +2562,7 @@ conformance, please explain why and what privacy mitigations are in place.
 This is particularly important as user agents may take steps to reduce the
 availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.</p>
-   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How do the features in this specification work in the context of a browser’s
+   <h3 class="question heading settled" data-level="2.15" id="private-browsing"><span class="secno">2.15. </span><span class="content"> How do the features in this specification work in the context of a browser’s
   Private Browsing or Incognito mode? </span><a class="self-link" href="#private-browsing"></a></h3>
    <p>Most browsers implement a private browsing or incognito mode,
 though they vary significantly in what functionality they provide and
@@ -2557,7 +2582,7 @@ following a private browsing / incognito mode session ending?</p>
      <p>Using features to fingerprint a browser and correlate private and
 non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments">[OLEJNIK-PAYMENTS]</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have both "Security Considerations" and "Privacy
+   <h3 class="question heading settled" data-level="2.16" id="considerations"><span class="secno">2.16. </span><span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span><a class="self-link" href="#considerations"></a></h3>
    <p>Specifications should have both "Security Considerations" and "Privacy
 Considerations" sections to help implementers and web developers
@@ -2585,7 +2610,7 @@ privacy impacts, say so in-line, e.g.:</p>
 impact on the fingerprinting surface of the browser.  If you believe
 your specification in an outlier, justifying that claim is in
 order.</p>
-   <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Do features in your specification enable downgrading default security
+   <h3 class="question heading settled" data-level="2.17" id="relaxed-sop"><span class="secno">2.17. </span><span class="content"> Do features in your specification enable downgrading default security
   characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
    <p>Do features in your spec allow a site to opt-out of security settings to
 accomplish some piece of functionality?  If so, in what situations do those
@@ -2602,7 +2627,7 @@ risks?</p>
     <li data-md>
      <p><a data-link-type="biblio" href="#biblio-referrer-policy">[REFERRER-POLICY]</a>'s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url" id="ref-for-referrer-policy-unsafe-url">"unsafe-url"</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.17" id="missing-questions"><span class="secno">2.17. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
+   <h3 class="question heading settled" data-level="2.18" id="missing-questions"><span class="secno">2.18. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
    <p>This questionnaire is not exhaustive.
 After completing a privacy review,
 it may be that
@@ -2710,9 +2735,9 @@ another. For example:</p>
 attacker tricking an origin into executing attacker-controlled code in
 the context of a target origin.</p>
     <li data-md>
-     <p>Cross-site request forgery attacks trick user agents into exerting a
-user’s ambient authority on sites where they’ve logged in by submitting
-requests on their behalf.</p>
+     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-local-lt="CSRF" data-noexport id="cross-site-request-forgery-attacks">Cross-site request forgery attacks</dfn> trick user
+agents into exerting a user’s ambient authority on sites where they’ve
+logged in by submitting requests on their behalf.</p>
     <li data-md>
      <p>Data leakage occurs when bits of information are inadvertently made
 available cross-origin, either explicitly via CORS headers <a data-link-type="biblio" href="#biblio-cors">[CORS]</a>,
@@ -3000,7 +3025,9 @@ practices before the site prompted for location.</p>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
    <li><a href="#active-network-attacker">active network attacker</a><span>, in §3.2</span>
+   <li><a href="#cross-site-request-forgery-attacks">Cross-site request forgery attacks</a><span>, in §3.3</span>
    <li><a href="#cross-site-scripting-attacks">Cross-site scripting attacks</a><span>, in §3.3</span>
+   <li><a href="#cross-site-request-forgery-attacks">CSRF</a><span>, in §3.3</span>
    <li><a href="#passive-network-attacker">passive network attacker</a><span>, in §3.1</span>
    <li><a href="#same-origin-policy">same-origin policy</a><span>, in §3.3</span>
    <li><a href="#cross-site-scripting-attacks">XSS</a><span>, in §3.3</span>
@@ -3022,7 +3049,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-script-src">
    <a href="https://w3c.github.io/webappsec-csp/#script-src">https://w3c.github.io/webappsec-csp/#script-src</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-script-src">2.9. 
+    <li><a href="#ref-for-script-src">2.10. 
   Do feautres in this specification enable new script execution/loading
   mechanisms? </a>
    </ul>
@@ -3030,7 +3057,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-sec-eval-x">
    <a href="https://tc39.github.io/ecma262/#sec-eval-x">https://tc39.github.io/ecma262/#sec-eval-x</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-sec-eval-x">2.9. 
+    <li><a href="#ref-for-sec-eval-x">2.10. 
   Do feautres in this specification enable new script execution/loading
   mechanisms? </a>
    </ul>
@@ -3054,7 +3081,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-dom-document-domain">
    <a href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain">https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-document-domain">2.16. 
+    <li><a href="#ref-for-dom-document-domain">2.17. 
   Do features in your specification enable downgrading default security
   characteristics? </a>
    </ul>
@@ -3062,7 +3089,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-the-link-element">
    <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-the-link-element">2.9. 
+    <li><a href="#ref-for-the-link-element">2.10. 
   Do feautres in this specification enable new script execution/loading
   mechanisms? </a>
    </ul>
@@ -3078,7 +3105,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-script">
    <a href="https://html.spec.whatwg.org/multipage/scripting.html#script">https://html.spec.whatwg.org/multipage/scripting.html#script</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-script">2.9. 
+    <li><a href="#ref-for-script">2.10. 
   Do feautres in this specification enable new script execution/loading
   mechanisms? </a>
    </ul>
@@ -3086,7 +3113,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-dom-settimeout">
    <a href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout">https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-settimeout">2.9. 
+    <li><a href="#ref-for-dom-settimeout">2.10. 
   Do feautres in this specification enable new script execution/loading
   mechanisms? </a>
    </ul>
@@ -3102,7 +3129,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="term-for-referrer-policy-unsafe-url">
    <a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url">https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-referrer-policy-unsafe-url">2.16. 
+    <li><a href="#ref-for-referrer-policy-unsafe-url">2.17. 
   Do features in your specification enable downgrading default security
   characteristics? </a>
    </ul>
@@ -3307,7 +3334,7 @@ practices before the site prompted for location.</p>
   <aside class="dfn-panel" data-for="same-origin-policy">
    <b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-same-origin-policy">2.8. 
+    <li><a href="#ref-for-same-origin-policy">2.9. 
   What data do the features in this specification expose to an origin?  Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </a>
@@ -3321,6 +3348,14 @@ practices before the site prompted for location.</p>
     <li><a href="#ref-for-cross-site-scripting-attacks①">2.5. 
   Do the features in your specification introduce new state for an origin
   that persists across browsing sessions? </a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="cross-site-request-forgery-attacks">
+   <b><a href="#cross-site-request-forgery-attacks">#cross-site-request-forgery-attacks</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-cross-site-request-forgery-attacks">2.7. 
+  Does this specification allow an origin to send data to the underlying
+  platform? </a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
