@@ -1486,7 +1486,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="60ca508e46ebab5ca6b01724b4f805ed35fbccb5" name="document-revision">
+  <meta content="3028ffddd496551faf3498d00ce3616709d213e0" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -2020,8 +2020,8 @@ dfn > a.self-link::before      { content: "#"; }
   Private Browsing or Incognito mode? </span></a>
       <li><a href="#considerations"><span class="secno">2.16</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span></a>
-      <li><a href="#relaxed-sop"><span class="secno">2.17</span> <span class="content"> Do features in your specification enable downgrading default security
-  characteristics? </span></a>
+      <li><a href="#relaxed-sop"><span class="secno">2.17</span> <span class="content"> Do features in your specification enable origins to downgrade default
+  security protections? </span></a>
       <li><a href="#missing-questions"><span class="secno">2.18</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
     <li>
@@ -2610,23 +2610,37 @@ privacy impacts, say so in-line, e.g.:</p>
 impact on the fingerprinting surface of the browser.  If you believe
 your specification in an outlier, justifying that claim is in
 order.</p>
-   <h3 class="question heading settled" data-level="2.17" id="relaxed-sop"><span class="secno">2.17. </span><span class="content"> Do features in your specification enable downgrading default security
-  characteristics? </span><a class="self-link" href="#relaxed-sop"></a></h3>
-   <p>Do features in your spec allow a site to opt-out of security settings to
-accomplish some piece of functionality?  If so, in what situations do those
-features allow such security setting downgrading and what mitigations
-are in place to make sure optional downgrading doesn’t dramatically increase
-risks?</p>
-   <ul>
-    <li data-md>
-     <p><code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code></p>
-    <li data-md>
-     <p><a data-link-type="biblio" href="#biblio-cors">[CORS]</a></p>
-    <li data-md>
-     <p><a data-link-type="biblio" href="#biblio-webmessaging">[WEBMESSAGING]</a></p>
-    <li data-md>
-     <p><a data-link-type="biblio" href="#biblio-referrer-policy">[REFERRER-POLICY]</a>'s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url" id="ref-for-referrer-policy-unsafe-url">"unsafe-url"</a></p>
-   </ul>
+   <h3 class="question heading settled" data-level="2.17" id="relaxed-sop"><span class="secno">2.17. </span><span class="content"> Do features in your specification enable origins to downgrade default
+  security protections? </span><a class="self-link" href="#relaxed-sop"></a></h3>
+   <p>Do features in your spec
+enable an origin to opt-out of security settings
+in order to accomplish something?
+If so,
+in what situations do these features allow such downgrading, and why?</p>
+   <p>Can this be avoided in the first place?
+If not, are mitigations in place
+to make sure this downgrading doesn’t dramatically increase risk to users?
+For instance, <a data-link-type="biblio" href="#biblio-permissions-policy">[PERMISSIONS-POLICY]</a> defines a mechanism
+that can be used by sites to prevent untrusted <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element" id="ref-for-the-iframe-element">iframe</a></code>s from using such a feature.</p>
+   <div class="example" id="example-8a7bc492"><a class="self-link" href="#example-8a7bc492"></a> The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code> setter can be used to relax the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy①">same-origin policy</a>.
+The most effective mitigation
+would be to remove it from the platform (see <a href="#drop-feature">§ 4.6 Drop the feature</a>),
+though that <a href="https://github.com/mikewest/deprecating-document-domain/">may be challenging</a> for compatibility reasons. </div>
+   <div class="example" id="example-3181d7d3">
+    <a class="self-link" href="#example-3181d7d3"></a> The Fullscreen API enables
+a (portion of a) web page
+to expand to fill the display. <a data-link-type="biblio" href="#biblio-fullscreen">[FULLSCREEN]</a> This can hide
+several User Agent user interface elements
+which help users to understand
+what web page they are visiting
+and whether or not the User Agent believes they are <a href="https://w3ctag.github.io/design-principles/#safe-to-browse">safe</a>. 
+    <p>Several mitigations are defined in the specification
+and are widely deployed in implementations.
+For instance, the Fullscreen API is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a>,
+which enables sites to disable the API in <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element" id="ref-for-the-iframe-element①">iframe</a></code>s. <a href="https://fullscreen.spec.whatwg.org/#security-and-privacy-considerations">Fullscreen API §7 Security and Privacy Considerations</a> encourages implementations
+to display an overlay which informs the user that they have entered fullscreen,
+and to advertise a simple mechanism to exit fullscreen (typically the <code>Esc</code> key).</p>
+   </div>
    <h3 class="question heading settled" data-level="2.18" id="missing-questions"><span class="secno">2.18. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
    <p>This questionnaire is not exhaustive.
 After completing a privacy review,
@@ -3082,8 +3096,16 @@ practices before the site prompted for location.</p>
    <a href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain">https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-document-domain">2.17. 
-  Do features in your specification enable downgrading default security
-  characteristics? </a>
+  Do features in your specification enable origins to downgrade default
+  security protections? </a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-the-iframe-element">
+   <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-the-iframe-element">2.17. 
+  Do features in your specification enable origins to downgrade default
+  security protections? </a> <a href="#ref-for-the-iframe-element①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-link-element">
@@ -3126,12 +3148,12 @@ practices before the site prompted for location.</p>
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-referrer-policy-unsafe-url">
-   <a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url">https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-unsafe-url</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-policy-controlled-feature">
+   <a href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature">https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-referrer-policy-unsafe-url">2.17. 
-  Do features in your specification enable downgrading default security
-  characteristics? </a>
+    <li><a href="#ref-for-policy-controlled-feature">2.17. 
+  Do features in your specification enable origins to downgrade default
+  security protections? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-secure-contexts">
@@ -3189,6 +3211,7 @@ practices before the site prompted for location.</p>
     <ul>
      <li><span class="dfn-paneled" id="term-for-navigatorplugins">NavigatorPlugins</span>
      <li><span class="dfn-paneled" id="term-for-dom-document-domain">domain</span>
+     <li><span class="dfn-paneled" id="term-for-the-iframe-element">iframe</span>
      <li><span class="dfn-paneled" id="term-for-the-link-element">link</span>
      <li><span class="dfn-paneled" id="term-for-dom-localstorage">localStorage</span>
      <li><span class="dfn-paneled" id="term-for-script">script</span>
@@ -3200,9 +3223,9 @@ practices before the site prompted for location.</p>
      <li><span class="dfn-paneled" id="term-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[REFERRER-POLICY]</a> defines the following terms:
+    <a data-link-type="biblio">[PERMISSIONS-POLICY]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-referrer-policy-unsafe-url">"unsafe-url"</span>
+     <li><span class="dfn-paneled" id="term-for-policy-controlled-feature">policy-controlled feature</span>
     </ul>
    <li>
     <a data-link-type="biblio">[secure-contexts]</a> defines the following terms:
@@ -3232,8 +3255,6 @@ practices before the site prompted for location.</p>
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-indexeddb-2">[IndexedDB-2]
    <dd>Ali Alabbas; Joshua Bell. <a href="https://www.w3.org/TR/IndexedDB-2/">Indexed Database API 2.0</a>. 30 January 2018. REC. URL: <a href="https://www.w3.org/TR/IndexedDB-2/">https://www.w3.org/TR/IndexedDB-2/</a>
-   <dt id="biblio-referrer-policy">[REFERRER-POLICY]
-   <dd>Jochen Eisinger; Emily Stark. <a href="https://www.w3.org/TR/referrer-policy/">Referrer Policy</a>. 26 January 2017. CR. URL: <a href="https://www.w3.org/TR/referrer-policy/">https://www.w3.org/TR/referrer-policy/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
@@ -3261,6 +3282,8 @@ practices before the site prompted for location.</p>
    <dd>David Dorwin; et al. <a href="https://www.w3.org/TR/encrypted-media/">Encrypted Media Extensions</a>. 18 September 2017. REC. URL: <a href="https://www.w3.org/TR/encrypted-media/">https://www.w3.org/TR/encrypted-media/</a>
    <dt id="biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]
    <dd>Nick Doty. <a href="https://www.w3.org/TR/fingerprinting-guidance/">Mitigating Browser Fingerprinting in Web Specifications</a>. 28 March 2019. NOTE. URL: <a href="https://www.w3.org/TR/fingerprinting-guidance/">https://www.w3.org/TR/fingerprinting-guidance/</a>
+   <dt id="biblio-fullscreen">[FULLSCREEN]
+   <dd>Philip Jägenstedt. <a href="https://fullscreen.spec.whatwg.org/">Fullscreen API Standard</a>. Living Standard. URL: <a href="https://fullscreen.spec.whatwg.org/">https://fullscreen.spec.whatwg.org/</a>
    <dt id="biblio-gamepad">[GAMEPAD]
    <dd>James Hollyer; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 29 October 2020. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
@@ -3281,6 +3304,8 @@ practices before the site prompted for location.</p>
    <dd>Lukasz Olejnik. <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">Privacy of Web Request API</a>. URL: <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">https://blog.lukaszolejnik.com/privacy-of-web-request-api/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
    <dd>Mounir Lamouri; Marcos Caceres; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/">Permissions</a>. 20 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dt id="biblio-permissions-policy">[PERMISSIONS-POLICY]
+   <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/">Permissions Policy</a>. 16 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
    <dt id="biblio-rfc3552">[RFC3552]
    <dd>E. Rescorla; B. Korver. <a href="https://tools.ietf.org/html/rfc3552">Guidelines for Writing RFC Text on Security Considerations</a>. July 2003. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc3552">https://tools.ietf.org/html/rfc3552</a>
    <dt id="biblio-rfc6454">[RFC6454]
@@ -3303,8 +3328,6 @@ practices before the site prompted for location.</p>
    <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/">Web Bluetooth</a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webauthn">[WEBAUTHN]
    <dd>Dirk Balfanz; et al. <a href="https://www.w3.org/TR/webauthn-1/">Web Authentication:An API for accessing Public Key Credentials Level 1</a>. 4 March 2019. REC. URL: <a href="https://www.w3.org/TR/webauthn-1/">https://www.w3.org/TR/webauthn-1/</a>
-   <dt id="biblio-webmessaging">[WEBMESSAGING]
-   <dd>Ian Hickson. <a href="https://www.w3.org/TR/webmessaging/">HTML5 Web Messaging</a>. 19 May 2015. REC. URL: <a href="https://www.w3.org/TR/webmessaging/">https://www.w3.org/TR/webmessaging/</a>
    <dt id="biblio-webusb">[WEBUSB]
    <dd><a href="https://wicg.github.io/webusb/">WebUSB API</a>. cg-draft. URL: <a href="https://wicg.github.io/webusb/">https://wicg.github.io/webusb/</a>
    <dt id="biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]
@@ -3338,6 +3361,9 @@ practices before the site prompted for location.</p>
   What data do the features in this specification expose to an origin?  Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </a>
+    <li><a href="#ref-for-same-origin-policy①">2.17. 
+  Do features in your specification enable origins to downgrade default
+  security protections? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="cross-site-scripting-attacks">
