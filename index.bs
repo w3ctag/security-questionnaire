@@ -458,6 +458,38 @@ See also:
 * [[DESIGN-PRINCIPLES#device-ids|Use care when exposing identifying information about devices]]
 * [[DESIGN-PRINCIPLES#device-enumeration|Use care when exposing APIs for selecting or enumerating devices]]
 
+<h3 class=question id=send-to-platform>
+  Does this specification allow an origin to send data to the underlying
+  platform?
+</h3>
+
+If so, what kind of data can be sent?
+
+Platforms differ in how they process data passed into them,
+which may present different risks to users.
+
+Don't assume the underlying platform will safely handle the data that is passed.
+Where possible, mitigate attacks by limiting or structuring the kind of data is passed to the platform.
+
+<div class=example>
+URLs may or may not be dereferenced by a platform API,
+and if they are dereferenced,
+redirects may or may not be followed.
+If your specification sends URLs to underlying platform APIs,
+the potential harm of *your* API
+may vary depending on
+the behavior of the various underlying platform APIs it's built upon.
+
+What happens when `file:`, `data:`, or `blob:` URLs
+are passed to the underlying platform API?
+These can potentially read sensitive data
+directly form the user's hard disk or from memory.
+
+Even if your API only allows `http:` and `https:` URLs,
+such URLs may be vulnerable to [=CSRF=] attacks,
+or be redirected to `file:`, `data:`, or `blob:` URLs.
+</div>
+
 <h3 class=question id="sensor-data">
   Do features in this specification allow an origin access to sensors on a user’s
   device
@@ -828,9 +860,9 @@ another. For example:
     attacker tricking an origin into executing attacker-controlled code in
     the context of a target origin.
 
-* Cross-site request forgery attacks trick user agents into exerting a
-    user's ambient authority on sites where they've logged in by submitting
-    requests on their behalf.
+* <dfn local-lt="CSRF">Cross-site request forgery attacks</dfn> trick user
+    agents into exerting a user's ambient authority on sites where they've
+    logged in by submitting requests on their behalf.
 
 * Data leakage occurs when bits of information are inadvertently made
     available cross-origin, either explicitly via CORS headers [[CORS]],
