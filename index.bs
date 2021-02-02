@@ -92,7 +92,7 @@ a lot of time.
 
 To make it easier for anyone requesting a review
 to provide their answers to these questions to the TAG,
-we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
+we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown).
 
 
 <h3 id=resources>Additional resources</h3>
