@@ -437,7 +437,7 @@ is not revealed to origins
 without [[DESIGN-PRINCIPLES#consent|meaningful user consent]],
 and
 you should clearly describe this
-in your specificaiton's Security and Privacy Considerations sections.
+in your specification's Security and Privacy Considerations sections.
 
 <p class=example>
 WebGL's `RENDERER` string
@@ -711,7 +711,7 @@ RFC6973.  [[RFC3552]] provides general advice as to writing Security
 Consideration sections, and Section 5 of RFC3552 has specific requirements.
 
 Generally, these sections should contain clear descriptions of the
-privacy and security risks the features in this spec introduce.  It is also
+privacy and security risks for the features your spec introduces.  It is also
 appropriate to document risks that are mitigated elsewhere in the
 specification and to call out details that, if implemented
 other-than-according-to-spec, are likely to lead to vulnerabilities.
@@ -719,7 +719,7 @@ other-than-according-to-spec, are likely to lead to vulnerabilities.
 If it seems like none of the features in your specification have security or
 privacy impacts, say so in-line, e.g.:
 
-> There are no known security impacts of the features in this specificaiton.
+> There are no known security impacts of the features in this specification.
 
 Be aware, though, that most specifications include features that have at least some
 impact on the fingerprinting surface of the browser.  If you believe
