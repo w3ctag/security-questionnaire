@@ -625,7 +625,7 @@ user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?
 
 <h3 class=question id="temporary-id">
-  What temporary identifiers do the feautures in this specification create or
+  What temporary identifiers do the features in this specification create or
   expose to the web?
 </h3>
 
