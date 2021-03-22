@@ -2,7 +2,7 @@
 
 This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
 
-For your convenience, a copy of the questionnaire's questions is quoted here in Markdwon, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+For your convenience, a copy of the questionnaire's questions is quoted here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
 
 > 01. What information might this feature expose to Web sites or other parties,
 >     and for what purposes is that exposure necessary?
@@ -17,8 +17,8 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 06. Do the features in your specification expose information about the
 >     underlying platform to origins?
 > 07. Do features in this specification allow an origin access to sensors on a user’s
->     device
-> 08. What data do the features in this specification expose to an origin?  Please
+>     device?
+> 08. What data do the features in this specification expose to an origin? Please
 >     also document what data is identical to data exposed by other features, in the
 >     same or different contexts.
 > 09. Do feautres in this specification enable new script execution/loading
