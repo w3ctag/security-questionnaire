@@ -2,7 +2,7 @@
 
 This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
 
-For your convenience, a copy of the questionnaire's questions is quoted here in Markdwon, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+For your convenience, a copy of the questionnaire's questions is quoted here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
 
 > 01. What information might this feature expose to Web sites or other parties,
 >     and for what purposes is that exposure necessary?
@@ -16,24 +16,26 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 >     that persists across browsing sessions?
 > 06. Do the features in your specification expose information about the
 >     underlying platform to origins?
-> 07. Do features in this specification allow an origin access to sensors on a user’s
->     device
-> 08. What data do the features in this specification expose to an origin?  Please
+> 07. Does this specification allow an origin to send data to the underlying
+>     platform?
+> 08. Do features in this specification allow an origin access to sensors on a user’s
+>     device?
+> 09. What data do the features in this specification expose to an origin? Please
 >     also document what data is identical to data exposed by other features, in the
 >     same or different contexts.
-> 09. Do feautres in this specification enable new script execution/loading
+> 10. Do feautres in this specification enable new script execution/loading
 >     mechanisms?
-> 10. Do features in this specification allow an origin to access other devices?
-> 11. Do features in this specification allow an origin some measure of control over
+> 11. Do features in this specification allow an origin to access other devices?
+> 12. Do features in this specification allow an origin some measure of control over
 >     a user agent's native UI?
-> 12. What temporary identifiers do the feautures in this specification create or
+> 13. What temporary identifiers do the feautures in this specification create or
 >     expose to the web?
-> 13. How does this specification distinguish between behavior in first-party and
+> 14. How does this specification distinguish between behavior in first-party and
 >     third-party contexts?
-> 14. How do the features in this specification work in the context of a browser’s
+> 15. How do the features in this specification work in the context of a browser’s
 >     Private Browsing or Incognito mode?
-> 15. Does this specification have both "Security Considerations" and "Privacy
+> 16. Does this specification have both "Security Considerations" and "Privacy
 >     Considerations" sections?
-> 16. Do features in your specification enable origins to downgrade default
+> 17. Do features in your specification enable origins to downgrade default
 >     security protections?
-> 17. What should this questionnaire have asked?
+> 18. What should this questionnaire have asked?
