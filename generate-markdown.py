@@ -17,7 +17,7 @@ class MarkdownGenerator:
                     self.qnum += 1
                     self.prefix = "> %02d. " % self.qnum
                     self.first_line_in_question = False
-                print("%s%s" % (self.prefix, line), end='', file=outfile)
+                print(self.prefix, line, end='', file=outfile)
                 self.prefix = ">     "
             else:
                 self.in_question = False
