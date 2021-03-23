@@ -1486,7 +1486,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version b94c7e755, updated Fri Feb 19 16:28:59 2021 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="3656be294e5d9249c82839ae916ec656d1d02531" name="document-revision">
+  <meta content="6bf54c003edadd7b544be8170d6d5fe925908cca" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1921,7 +1921,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-03-16">16 March 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-03-23">23 March 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2005,8 +2005,8 @@ This document is also made available under the <a href="http://www.w3.org/Consor
       <li><a href="#send-to-platform"><span class="secno">2.7</span> <span class="content"> Does this specification allow an origin to send data to the underlying
   platform? </span></a>
       <li><a href="#sensor-data"><span class="secno">2.8</span> <span class="content"> Do features in this specification allow an origin access to sensors on a user’s
-  device </span></a>
-      <li><a href="#other-data"><span class="secno">2.9</span> <span class="content"> What data do the features in this specification expose to an origin?  Please
+  device? </span></a>
+      <li><a href="#other-data"><span class="secno">2.9</span> <span class="content"> What data do the features in this specification expose to an origin? Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </span></a>
       <li><a href="#string-to-script"><span class="secno">2.10</span> <span class="content"> Do feautres in this specification enable new script execution/loading
@@ -2440,7 +2440,7 @@ such URLs may be vulnerable to <a data-link-type="dfn" href="#cross-site-request
 or be redirected to <code>file:</code>, <code>data:</code>, or <code>blob:</code> URLs.</p>
    </div>
    <h3 class="question heading settled" data-level="2.8" id="sensor-data"><span class="secno">2.8. </span><span class="content"> Do features in this specification allow an origin access to sensors on a user’s
-  device </span><a class="self-link" href="#sensor-data"></a></h3>
+  device? </span><a class="self-link" href="#sensor-data"></a></h3>
    <p>If so, what kind of sensors and information derived from those sensors does
 this standard expose to origins?</p>
    <p>Information from sensors may serve as a fingerprinting vector across origins.
@@ -2459,7 +2459,7 @@ their sample rates. </p>
 user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
    <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
 serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
-   <h3 class="question heading settled" data-level="2.9" id="other-data"><span class="secno">2.9. </span><span class="content"> What data do the features in this specification expose to an origin?  Please
+   <h3 class="question heading settled" data-level="2.9" id="other-data"><span class="secno">2.9. </span><span class="content"> What data do the features in this specification expose to an origin? Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </span><a class="self-link" href="#other-data"></a></h3>
    <p>As noted above in <a href="#sop-violations">§ 3.3 Same-Origin Policy Violations</a>, the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a> is an
@@ -3246,7 +3246,7 @@ practices before the site prompted for location.</p>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-csp">[CSP]
-   <dd>Mike West. <a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3</a>. 13 March 2021. WD. URL: <a href="https://www.w3.org/TR/CSP3/">https://www.w3.org/TR/CSP3/</a>
+   <dd>Mike West. <a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3</a>. 19 March 2021. WD. URL: <a href="https://www.w3.org/TR/CSP3/">https://www.w3.org/TR/CSP3/</a>
    <dt id="biblio-ecmascript">[ECMASCRIPT]
    <dd><a href="https://tc39.es/ecma262/">ECMAScript Language Specification</a>. URL: <a href="https://tc39.es/ecma262/">https://tc39.es/ecma262/</a>
    <dt id="biblio-html">[HTML]
@@ -3283,7 +3283,7 @@ practices before the site prompted for location.</p>
    <dt id="biblio-fullscreen">[FULLSCREEN]
    <dd>Philip Jägenstedt. <a href="https://fullscreen.spec.whatwg.org/">Fullscreen API Standard</a>. Living Standard. URL: <a href="https://fullscreen.spec.whatwg.org/">https://fullscreen.spec.whatwg.org/</a>
    <dt id="biblio-gamepad">[GAMEPAD]
-   <dd>James Hollyer; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 29 October 2020. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
+   <dd>Steve Agoston; et al. <a href="https://www.w3.org/TR/gamepad/">Gamepad</a>. 17 March 2021. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
    <dt id="biblio-geolocation-api">[GEOLOCATION-API]
@@ -3354,7 +3354,7 @@ practices before the site prompted for location.</p>
    <b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-same-origin-policy">2.9. 
-  What data do the features in this specification expose to an origin?  Please
+  What data do the features in this specification expose to an origin? Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </a>
     <li><a href="#ref-for-same-origin-policy①">2.17. 
