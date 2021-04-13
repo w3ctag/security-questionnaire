@@ -550,7 +550,7 @@ what normal form submission entails, so no extra mitigation was
 necessary.  </p>
 
 <h3 class=question id="string-to-script">
-  Do feautres in this specification enable new script execution/loading
+  Do features in this specification enable new script execution/loading
   mechanisms?
 </h3>
 
@@ -626,7 +626,7 @@ user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?
 
 <h3 class=question id="temporary-id">
-  What temporary identifiers do the feautures in this specification create or
+  What temporary identifiers do the features in this specification create or
   expose to the web?
 </h3>
 
