@@ -28,7 +28,7 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 11. Do features in this specification allow an origin to access other devices?
 > 12. Do features in this specification allow an origin some measure of control over
 >     a user agent's native UI?
-> 13. What temporary identifiers do the feautures in this specification create or
+> 13. What temporary identifiers do the features in this specification create or
 >     expose to the web?
 > 14. How does this specification distinguish between behavior in first-party and
 >     third-party contexts?
