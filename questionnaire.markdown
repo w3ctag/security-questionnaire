@@ -18,12 +18,11 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 >     underlying platform to origins?
 > 07. Does this specification allow an origin to send data to the underlying
 >     platform?
-> 08. Do features in this specification allow an origin access to sensors on a user’s
->     device?
+> 08. Do features in this specification enable access to device sensors?
 > 09. What data do the features in this specification expose to an origin? Please
 >     also document what data is identical to data exposed by other features, in the
 >     same or different contexts.
-> 10. Do feautres in this specification enable new script execution/loading
+> 10. Do features in this specification enable new script execution/loading
 >     mechanisms?
 > 11. Do features in this specification allow an origin to access other devices?
 > 12. Do features in this specification allow an origin some measure of control over
