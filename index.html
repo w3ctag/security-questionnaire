@@ -368,8 +368,8 @@
 /** Subheadings ***************************************************************/
 
 	h1 + h2,
-	#subtitle {
-		/* #subtitle is a subtitle in an H2 under the H1 */
+	#profile-and-date {
+		/* #profile-and-date is a subtitle in an H2 under the H1 */
 		margin-top: 0;
 	}
 	h2 + h3,
@@ -583,34 +583,28 @@
 	a[href] {
 		color: #034575;
 		color: var(--a-normal-text);
-		text-decoration: none;
-		border-bottom: 1px solid #707070;
-		border-bottom: 1px solid var(--a-normal-underline);
-		/* Need a bit of extending for it to look okay */
-		padding: 0 1px 0;
-		margin: 0 -1px 0;
+		text-decoration: underline #707070;
+		text-decoration: underline var(--a-normal-underline);
+		text-decoration-skip-ink: none;
 	}
 	a:visited {
 		color: #034575;
 		color: var(--a-visited-text);
-		border-bottom-color: #bbb;
-		border-bottom-color: var(--a-visited-underline);
+		text-decoration-color: #bbb;
+		text-decoration-color: var(--a-visited-underline);
 	}
 
-	/* Use distinguishing colors when user is interacting with the link */
+	/* Indicate interaction with the link */
 	a[href]:focus,
 	a[href]:hover {
-		background: #f8f8f8;
-		background: rgba(75%, 75%, 75%, .25);
-		background: var(--a-hover-bg);
-		border-bottom-width: 3px;
-		margin-bottom: -2px;
+		text-decoration-thickness: 2px;
+		text-decoratin
 	}
 	a[href]:active {
 		color: #c00;
 		color: var(--a-active-text);
-		border-color: #c00;
-		border-color: var(--a-active-underline);
+		text-decoration-color: #c00;
+		text-decoration-color: var(--a-active-underline);
 	}
 
 	/* Backout above styling for W3C logo */
@@ -1116,9 +1110,12 @@ Possible extra rowspan handling
 
 	.toc a {
 		/* More spacing; use padding to make it part of the click target. */
-		padding-top: 0.1rem;
+		padding: 0.1rem 1px 0;
 		/* Larger, more consistently-sized click target */
 		display: block;
+		/* Switch to using border-bottom for underlines */
+		text-decoration: none;
+		border-bottom: 1px solid;
 		/* Reverse color scheme */
 		color: black;
 		color: var(--toclink-text);
@@ -1130,6 +1127,13 @@ Possible extra rowspan handling
 		color: var(--toclink-visited-text);
 		border-color: #054572;
 		border-color: var(--toclink-visited-underline);
+	}
+	.toc a:focus,
+	.toc a:hover {
+		background: rgba(75%, 75%, 75%, .25);
+		background: var(--a-hover-bg);
+		border-bottom-width: 3px;
+		margin-bottom: -2px;
 	}
 	.toc a:not(:focus):not(:hover) {
 		/* Allow colors to cascade through from link styling */
@@ -1484,9 +1488,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version c5fd42b86, updated Mon Apr 5 16:27:33 2021 -0700" name="generator">
+  <meta content="Bikeshed version c6f50773a, updated Fri Apr 16 16:45:47 2021 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="d83770bcbdf6007fc409e86fb47dbe3e80028e7a" name="document-revision">
+  <meta content="dcf934a898b4ac2faf92581f59b9a09c776b5495" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1593,9 +1597,9 @@ pre .property::before, pre .property::after {
     --ins-bg: transparent;
 
     --a-normal-text: #034575;
-    --a-normal-underline: #707070;
+    --a-normal-underline: #bbb;
     --a-visited-text: var(--a-normal-text);
-    --a-visited-underline: #bbb;
+    --a-visited-underline: #707070;
     --a-hover-bg: rgba(75%, 75%, 75%, .25);
     --a-active-text: #c00;
     --a-active-underline: #c00;
@@ -1921,7 +1925,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-04-14">14 April 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-05-13">13 May 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1973,8 +1977,8 @@ This document is also made available under the <a href="http://www.w3.org/Consor
     Consortium">W3C</abbr> maintains a <a href="https://www.w3.org/2004/01/pp-impl/52497/status" rel="disclosure">public list of any patent disclosures</a> made in
     connection with PING deliverables; that page also includes
     instructions for disclosing a patent. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2020/Process-20200915/" id="w3c_process_revision">15 September 2020 W3C Process
-    Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2020/Process-20200915/" id="w3c_process_revision">15 September 2020 W3C
+    Process Document</a>. </p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -2004,8 +2008,7 @@ This document is also made available under the <a href="http://www.w3.org/Consor
   underlying platform to origins? </span></a>
       <li><a href="#send-to-platform"><span class="secno">2.7</span> <span class="content"> Does this specification allow an origin to send data to the underlying
   platform? </span></a>
-      <li><a href="#sensor-data"><span class="secno">2.8</span> <span class="content"> Do features in this specification allow an origin access to sensors on a user’s
-  device? </span></a>
+      <li><a href="#sensor-data"><span class="secno">2.8</span> <span class="content"> Do features in this specification enable access to device sensors? </span></a>
       <li><a href="#other-data"><span class="secno">2.9</span> <span class="content"> What data do the features in this specification expose to an origin? Please
   also document what data is identical to data exposed by other features, in the
   same or different contexts. </span></a>
@@ -2401,7 +2404,7 @@ is not revealed to origins
 without <a href="https://www.w3.org/TR/design-principles/#consent">meaningful user consent</a>,
 and
 you should clearly describe this
-in your specificaiton’s Security and Privacy Considerations sections.</p>
+in your specification’s Security and Privacy Considerations sections.</p>
    <p class="example" id="example-19fb6999"><a class="self-link" href="#example-19fb6999"></a> WebGL’s <code>RENDERER</code> string
 enables some applications to improve performance.
 It’s also valuable fingerprinting data.
@@ -2439,22 +2442,21 @@ directly form the user’s hard disk or from memory.</p>
 such URLs may be vulnerable to <a data-link-type="dfn" href="#cross-site-request-forgery-attacks" id="ref-for-cross-site-request-forgery-attacks">CSRF</a> attacks,
 or be redirected to <code>file:</code>, <code>data:</code>, or <code>blob:</code> URLs.</p>
    </div>
-   <h3 class="question heading settled" data-level="2.8" id="sensor-data"><span class="secno">2.8. </span><span class="content"> Do features in this specification allow an origin access to sensors on a user’s
-  device? </span><a class="self-link" href="#sensor-data"></a></h3>
-   <p>If so, what kind of sensors and information derived from those sensors does
-this standard expose to origins?</p>
+   <h3 class="question heading settled" data-level="2.8" id="sensor-data"><span class="secno">2.8. </span><span class="content"> Do features in this specification enable access to device sensors? </span><a class="self-link" href="#sensor-data"></a></h3>
+   <p>If so, what kinds of information from or about the sensors are exposed to origins?</p>
    <p>Information from sensors may serve as a fingerprinting vector across origins.
-In addition, sensor also reveals something about my device or environment and
-that fact might be what is sensitive.  In addition, as technology advances,
-mitigations in place at the time a specification is written may have to be
-reconsidered as the threat landscape changes.</p>
-   <p>Sensor data might even become a cross-origin identifier when the sensor reading
-is relatively stable, for example for short time periods (seconds, minutes, even days), and
-is consistent across-origins.  In fact, if two user-agents expose the same
-sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.</p>
-   <p class="example" id="example-c955cd35"><a class="self-link" href="#example-c955cd35"></a> As gyroscopes advanced, they could be used as
-microphones <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>.  This was mitigated by lowering
-their sample rates. </p>
+Additionally,
+sensors may reveal something sensitive about the device or its environment.</p>
+   <p>If sensor data is relatively stable
+and consistent across origins,
+it could be used as a cross-origin identifier.
+If two User Agents expose such stable data from the same sensors,
+the data could even be used as a cross-browser, or potentially even a cross-device, identifier.</p>
+   <p class="example" id="example-e79c5eae"><a class="self-link" href="#example-e79c5eae"></a> Researchers discovered that
+it’s possible to use
+a sufficiently fine-grained gyroscope
+as a microphone <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>.
+This can be mitigated by lowering the gyroscope’s sample rates. </p>
    <p class="example" id="example-b7a8d534"><a class="self-link" href="#example-b7a8d534"></a> Ambient light sensors could allow an attacker to learn whether or not a
 user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
    <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
@@ -2478,17 +2480,13 @@ what normal form submission entails, so no extra mitigation was
 necessary. </p>
    <h3 class="question heading settled" data-level="2.10" id="string-to-script"><span class="secno">2.10. </span><span class="content"> Do features in this specification enable new script execution/loading
   mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
-   <ul>
-    <li data-md>
-     <p>HTML Imports <a data-link-type="biblio" href="#biblio-html-imports">[HTML-IMPORTS]</a> create a new script-loading mechanism, using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element" id="ref-for-the-link-element">link</a></code> rather than <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/scripting.html#script" id="ref-for-script">script</a></code>, which might be easy to overlook when
-evaluating an application’s attack surface. The working group notes this
-risk, and ensured that they required reasonable interactions with Content
-Security Policy’s <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#script-src" id="ref-for-script-src">script-src</a> directive.</p>
-    <li data-md>
-     <p>New string-to-script mechanism? (e.g. <code class="idl"><a data-link-type="idl" href="https://tc39.github.io/ecma262/#sec-eval-x" id="ref-for-sec-eval-x">eval()</a></code> or <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout" id="ref-for-dom-settimeout">setTimeout()</a></code>)</p>
-    <li data-md>
-     <p>What about style?</p>
-   </ul>
+   <p>New mechanisms for executing or loading scripts have a risk of enabling novel attack surfaces.
+Generally, if a new feature needs this you should consult with a wider audience,
+and think about whether or not an existing mechanism can be used
+or the feature is really necessary.</p>
+   <p class="example" id="example-3a9ceedc"><a class="self-link" href="#example-3a9ceedc"></a> <a href="https://github.com/whatwg/html/issues/4315">JSON modules</a> are expected to be treated only as data,
+but the initial proposal allowed an adversary to swap it out with code without the user knowing. <a href="https://github.com/tc39/proposal-import-assertions">Import assertions</a> were implemented
+as a mitigation for this vulnerability. </p>
    <h3 class="question heading settled" data-level="2.11" id="remote-device"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
    <p>If so, what devices do the features in this specification allow an origin to
 access?</p>
@@ -2599,14 +2597,14 @@ privacy impacts of your specification, particularly Section 7 of
 RFC6973. <a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security
 Consideration sections, and Section 5 of RFC3552 has specific requirements.</p>
    <p>Generally, these sections should contain clear descriptions of the
-privacy and security risks the features in this spec introduce.  It is also
+privacy and security risks for the features your spec introduces.  It is also
 appropriate to document risks that are mitigated elsewhere in the
 specification and to call out details that, if implemented
 other-than-according-to-spec, are likely to lead to vulnerabilities.</p>
    <p>If it seems like none of the features in your specification have security or
 privacy impacts, say so in-line, e.g.:</p>
    <blockquote>
-    <p>There are no known security impacts of the features in this specificaiton.</p>
+    <p>There are no known security impacts of the features in this specification.</p>
    </blockquote>
    <p>Be aware, though, that most specifications include features that have at least some
 impact on the fingerprinting surface of the browser.  If you believe
@@ -3062,22 +3060,6 @@ practices before the site prompted for location.</p>
   How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-script-src">
-   <a href="https://w3c.github.io/webappsec-csp/#script-src">https://w3c.github.io/webappsec-csp/#script-src</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-script-src">2.10. 
-  Do features in this specification enable new script execution/loading
-  mechanisms? </a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-sec-eval-x">
-   <a href="https://tc39.github.io/ecma262/#sec-eval-x">https://tc39.github.io/ecma262/#sec-eval-x</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-sec-eval-x">2.10. 
-  Do features in this specification enable new script execution/loading
-  mechanisms? </a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="term-for-cdm">
    <a href="https://www.w3.org/TR/encrypted-media/#cdm">https://www.w3.org/TR/encrypted-media/#cdm</a><b>Referenced in:</b>
    <ul>
@@ -3110,14 +3092,6 @@ practices before the site prompted for location.</p>
   security protections? </a> <a href="#ref-for-the-iframe-element①">(2)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-the-link-element">
-   <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-link-element">https://html.spec.whatwg.org/multipage/semantics.html#the-link-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-link-element">2.10. 
-  Do features in this specification enable new script execution/loading
-  mechanisms? </a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="term-for-dom-localstorage">
    <a href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage">https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage</a><b>Referenced in:</b>
    <ul>
@@ -3126,28 +3100,12 @@ practices before the site prompted for location.</p>
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-script">
-   <a href="https://html.spec.whatwg.org/multipage/scripting.html#script">https://html.spec.whatwg.org/multipage/scripting.html#script</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-script">2.10. 
-  Do features in this specification enable new script execution/loading
-  mechanisms? </a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="term-for-secure-context">
    <a href="https://html.spec.whatwg.org/multipage/webappapis.html#secure-context">https://html.spec.whatwg.org/multipage/webappapis.html#secure-context</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-secure-context">2.5. 
   Do the features in your specification introduce new state for an origin
   that persists across browsing sessions? </a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-dom-settimeout">
-   <a href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout">https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-settimeout</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-settimeout">2.10. 
-  Do features in this specification enable new script execution/loading
-  mechanisms? </a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-windoworworkerglobalscope-indexeddb">
@@ -3196,12 +3154,6 @@ practices before the site prompted for location.</p>
     <ul>
      <li><span class="dfn-paneled" id="term-for-connect-src">connect-src</span>
      <li><span class="dfn-paneled" id="term-for-form-action">form-action</span>
-     <li><span class="dfn-paneled" id="term-for-script-src">script-src</span>
-    </ul>
-   <li>
-    <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
-    <ul>
-     <li><span class="dfn-paneled" id="term-for-sec-eval-x">eval()</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ENCRYPTED-MEDIA]</a> defines the following terms:
@@ -3214,11 +3166,8 @@ practices before the site prompted for location.</p>
      <li><span class="dfn-paneled" id="term-for-navigatorplugins">NavigatorPlugins</span>
      <li><span class="dfn-paneled" id="term-for-dom-document-domain">domain</span>
      <li><span class="dfn-paneled" id="term-for-the-iframe-element">iframe</span>
-     <li><span class="dfn-paneled" id="term-for-the-link-element">link</span>
      <li><span class="dfn-paneled" id="term-for-dom-localstorage">localStorage</span>
-     <li><span class="dfn-paneled" id="term-for-script">script</span>
      <li><span class="dfn-paneled" id="term-for-secure-context">secure context</span>
-     <li><span class="dfn-paneled" id="term-for-dom-settimeout">setTimeout()</span>
     </ul>
    <li>
     <a data-link-type="biblio">[IndexedDB-2]</a> defines the following terms:
@@ -3245,10 +3194,6 @@ practices before the site prompted for location.</p>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
-   <dt id="biblio-csp">[CSP]
-   <dd>Mike West. <a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3</a>. 24 March 2021. WD. URL: <a href="https://www.w3.org/TR/CSP3/">https://www.w3.org/TR/CSP3/</a>
-   <dt id="biblio-ecmascript">[ECMASCRIPT]
-   <dd><a href="https://tc39.es/ecma262/">ECMAScript Language Specification</a>. URL: <a href="https://tc39.es/ecma262/">https://tc39.es/ecma262/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-indexeddb-2">[IndexedDB-2]
@@ -3270,6 +3215,8 @@ practices before the site prompted for location.</p>
    <dd>Anne van Kesteren. <a href="https://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>. 2 June 2020. REC. URL: <a href="https://www.w3.org/TR/cors/">https://www.w3.org/TR/cors/</a>
    <dt id="biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]
    <dd>Mike West. <a href="https://www.w3.org/TR/credential-management-1/">Credential Management Level 1</a>. 17 January 2019. WD. URL: <a href="https://www.w3.org/TR/credential-management-1/">https://www.w3.org/TR/credential-management-1/</a>
+   <dt id="biblio-csp">[CSP]
+   <dd>Mike West. <a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3</a>. 12 May 2021. WD. URL: <a href="https://www.w3.org/TR/CSP3/">https://www.w3.org/TR/CSP3/</a>
    <dt id="biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]
    <dd>Alissa Cooper; Frederick Hirsch; John Morris. <a href="https://www.w3.org/TR/dap-privacy-reqs/">Device API Privacy Requirements</a>. 29 June 2010. NOTE. URL: <a href="https://www.w3.org/TR/dap-privacy-reqs/">https://www.w3.org/TR/dap-privacy-reqs/</a>
    <dt id="biblio-discovery-api">[DISCOVERY-API]
@@ -3292,8 +3239,6 @@ practices before the site prompted for location.</p>
    <dd>Yan Michalevsky; Dan Boneh; Gabi Nakibly. <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">Gyrophone: Recognizing Speech from Gyroscope Signals</a>. URL: <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf</a>
    <dt id="biblio-homakov">[HOMAKOV]
    <dd>Egor Homakov. <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">Using Content-Security-Policy for Evil</a>. URL: <a href="http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html">http://homakov.blogspot.de/2014/01/using-content-security-policy-for-evil.html</a>
-   <dt id="biblio-html-imports">[HTML-IMPORTS]
-   <dd>Dimitri Glazkov; Hajime Morita. <a href="https://www.w3.org/TR/html-imports/">HTML Imports</a>. 25 February 2016. WD. URL: <a href="https://www.w3.org/TR/html-imports/">https://www.w3.org/TR/html-imports/</a>
    <dt id="biblio-olejnik-als">[OLEJNIK-ALS]
    <dd>Lukasz Olejnik. <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">Privacy analysis of Ambient Light Sensors</a>. URL: <a href="https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/">https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/</a>
    <dt id="biblio-olejnik-battery">[OLEJNIK-BATTERY]
