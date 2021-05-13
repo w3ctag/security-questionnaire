@@ -554,15 +554,19 @@ necessary.  </p>
   mechanisms?
 </h3>
 
-* HTML Imports [[HTML-IMPORTS]] create a new script-loading mechanism, using
-    <{link}> rather than <{script}>, which might be easy to overlook when
-    evaluating an application's attack surface. The working group notes this
-    risk, and ensured that they required reasonable interactions with Content
-    Security Policy's [=script-src=] directive.
+New mechanisms for executing or loading scripts have a risk of enabling novel attack surfaces.
+Generally, if a new feature needs this you should consult with a wider audience,
+and think about whether or not an existing mechanism can be used
+or the feature is really necessary.
 
-* New string-to-script mechanism? (e.g. {{eval()}} or {{setTimeout()}})
+<!-- NOTE: This is still experimental technology, and we might have to provide a different example if this experiment fails. -->
 
-* What about style?
+<p class=example>
+<a href="https://github.com/whatwg/html/issues/4315">JSON modules</a> are expected to be treated only as data,
+but the initial proposal allowed an adversary to swap it out with code without the user knowing.
+<a href="https://github.com/tc39/proposal-import-assertions">Import assertions</a> were implemented
+as a mitigation for this vulnerability.
+</p>
 
 <h3 class=question id="remote-device">
   Do features in this specification allow an origin to access other devices?
