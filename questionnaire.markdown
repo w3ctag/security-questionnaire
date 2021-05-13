@@ -2,7 +2,7 @@
 
 This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
 
-For your convenience, a copy of the questionnaire's questions is quoted here in Markdwon, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+For your convenience, a copy of the questionnaire's questions is quoted here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
 
 > 01.  What information might this feature expose to Web sites or other parties,
 >      and for what purposes is that exposure necessary?
