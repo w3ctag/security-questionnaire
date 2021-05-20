@@ -779,24 +779,24 @@ and to advertise a simple mechanism to exit fullscreen (typically the `Esc` key)
 </div>
 
 <h3 class=question id="non-fully-active">
-  How does your feature handle non-"[=Document/fully active=]" documents?
+  How does your feature handle non-"fully active" documents?
 </h3>
 
 After a user navigated away from a document,
 the document might stay around in a non-"[=Document/fully active=]" state,
 and might be reused when the user navigates back to the entry holding the document.
 From the user’s perspective,
-the non-"[=Document/fully active=]" document is already discarded
+the non-[=Document/fully active=] document is already discarded
 and thus should not get updates/events that happen after they navigated away from it,
 especially privacy-sensitive information (e.g. geolocation).
 Also, as a document might be reused even after navigation,
 be aware that tying something to a document’s lifetime
 also means reusing it after navigations.
 If this is not desirable,
-consider listening to changes to the "[=Document/fully active=]" state
+consider listening to changes to the [=Document/fully active=] state
 and doing cleanup as necessary.
 
-For more detailed guidance on how to handle non-"[=Document/fully active=]" documents,
+For more detailed guidance on how to handle non-[=Document/fully active=] documents,
 see [[DESIGN-PRINCIPLES#non-fully-active]].
 
 <div class=example>
