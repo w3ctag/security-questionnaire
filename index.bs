@@ -782,9 +782,9 @@ and to advertise a simple mechanism to exit fullscreen (typically the `Esc` key)
   How does your feature handle non-"fully active" documents?
 </h3>
 
-After a user navigated away from a document,
+After a user navigates away from a document,
 the document might stay around in a non-"[=Document/fully active=]" state,
-and might be reused when the user navigates back to the entry holding the document.
+and might be reused when the user navigates back to the document.
 From the user’s perspective,
 the non-[=Document/fully active=] document is already discarded
 and thus should not get updates/events that happen after they navigated away from it,
