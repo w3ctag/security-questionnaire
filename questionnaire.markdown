@@ -37,4 +37,5 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 >      Considerations" sections?
 > 17.  Do features in your specification enable origins to downgrade default
 >      security protections?
-> 18.  What should this questionnaire have asked?
+> 18.  How does your feature handle non-"fully active" documents?
+> 19.  What should this questionnaire have asked?
