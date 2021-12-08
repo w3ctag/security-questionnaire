@@ -14,6 +14,7 @@ Former Editor: Mike West, Google Inc., mkwst@google.com
 Group: tag
 Markup Shorthands: css no, markdown yes
 Local Boilerplate: status yes
+Local Boilerplate: copyright yes
 Abstract: This document contains a set of questions to be used when
     evaluating the security and privacy implications of web platform
     technologies.
@@ -31,7 +32,9 @@ This document contains a set of questions
 intended to help <abbr title="specification">spec</abbr> authors
 as they think through
 the security and privacy implications
-of their work and write the narrative Security Considerations and Privacy Considerations sections for inclusion in-line in their specifications, as described below in [[#considerations]].
+of their work and write the narrative Security Considerations and Privacy
+Considerations sections for inclusion in-line in their specifications,
+as described below in [[#considerations]].
 It also documents mitigation strategies
 that spec authors can use to address
 security and privacy concerns they encounter as they work on their spec.
@@ -45,58 +48,21 @@ this questionnaire should ask about.
 
 <h3 id="howtouse">How To Use The Questionnaire</h3>
 
-Spec authors should work through these questions
+Work through these questions
 early on in the design process,
 when things are easier to change.
 When privacy and security issues are only found later,
-after the feature has shipped,
+after a feature has shipped,
 it's much harder to change the design.
 If security or privacy issues are found late,
 user agents may need to adopt breaking changes
-to protect their users' privacy and security.
+to fix the issues.
 
-These questions should be kept in mind throughout work on any specification.
-Spec authors should periodically revisit this questionnaire
-to continue to consider the privacy and security implications of
-their features, particularly as their design changes over time.
-
-<h3 id=reviews>TAG, PING, and security reviews and this questionnaire</h3>
-
-Before requesting
-privacy and
-security reviews from the [Privacy Interest Group
-(PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
-respectively, authors must write both "Security Considerations" and
-"Privacy Considerations" sections for their documents, as described in
-[[#considerations]].  While your answers to the questions in this
-document will inform your writing of those sections, it is not
-appropriate to merely copy this questionnaire into those sections.
-Instructions for requesting security and privacy reviews can be
-found in the
-[Guide](https://w3c.github.io/documentreview/#how_to_get_horizontal_review).
-
-When authors request
-a [review](https://github.com/w3ctag/design-reviews)
-from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
-the TAG asks that authors provide answers
-to the questions in this document.
-
-The TAG may use this document
-to record security and privacy questions
-which come up during their reviews.
-Working through these questions can save
-both spec authors and the people performing design reviews
-a lot of time.
-
-To make it easier for anyone requesting a review
-to provide their answers to these questions to the TAG,
-we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/master/questionnaire.markdown).
-
+Keep these questions in mind while working on specifications.
+Periodically revisit this questionnaire and continue to consider the questions,
+particularly as a design changes over time.
 
 <h3 id=resources>Additional resources</h3>
-
-This document is only one of the tools you should use to inform your
-consideration of privacy and security issues in your specifications.
 
 The Mitigating Browser Fingerprinting in Web Specifications
 [[FINGERPRINTING-GUIDANCE]] document published by PING goes into
@@ -104,8 +70,31 @@ further depth about browser fingerprinting and should be considered in
 parallel with this document.
 
 The IETF's RFC about privacy considerations, [[RFC6973]], is a
-wonderful resource.  We recommend that all spec authors read section 7
-of RFC6973.
+wonderful resource, particularly section 7.
+
+<h3 id=reviews>TAG, PING, security reviews and this questionnaire</h3>
+
+Before requesting
+privacy and
+security reviews from the [Privacy Interest Group
+(PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
+write "Security Considerations" and
+"Privacy Considerations" sections in your document, as described in
+[[#considerations]].  Answering the questions in this
+document will, we hope, inform your writing of those sections. It is not
+appropriate, however, to merely copy this questionnaire into those sections.
+Instructions for requesting security and privacy reviews can be
+found in the document
+<cite>[How to do Wide Review](https://w3c.github.io/documentreview/#how_to_get_horizontal_review)</cite>.
+
+When requesting
+a [review](https://github.com/w3ctag/design-reviews)
+from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
+please provide the TAG with answers
+to the questions in this document.
+[This Markdown
+template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown)
+may be useful when doing so.
 
 
 <h2 id="questions">Questions to Consider</h2>
@@ -150,13 +139,13 @@ characteristics).
     **third parties** that **third parties** can already access.
 
 <h3 class=question id="minimum-data">
-  Is this specification exposing the minimum amount of information necessary
-  to power its features?
+  Do features in your specification expose the minimum amount of information
+  necessary to enable their intended uses?
 </h3>
 
 Features should only expose information
-when it's absolutely necessary to satisfy its use cases.
-If your feature exposes more information than is necessary,
+when it's absolutely necessary to satisfy use cases.
+If a feature exposes more information than is necessary,
 why does it do so?
 
 See also
@@ -171,7 +160,7 @@ mitigated the risk by reducing a policy's granularity after a redirect.
 </p>
 
 <h3 class=question id="personal-data">
-  How does this specification deal with personal information,
+  How do the features in your specification deal with personal information,
   personally-identifiable information (PII), or information derived from
   them?
 </h3>
@@ -242,7 +231,7 @@ See also
 * [[DESIGN-PRINCIPLES#consent]]
 
 <h3 class=question id="sensitive-data">
-  How does this specification deal with sensitive information?
+  How do the features in your specification deal with sensitive information?
 </h3>
 
 Personal information is not the only kind of sensitive information.
@@ -322,8 +311,8 @@ See also
 * [[DESIGN-PRINCIPLES#do-not-expose-use-of-assistive-tech]]
 
 <h3 class=question id="persistent-origin-specific-state">
-  Does this specification introduce new state for an origin that persists
-  across browsing sessions?
+  Do the features in your specification introduce new state for an origin
+  that persists across browsing sessions?
 </h3>
 
 There are many existing mechanisms
@@ -412,8 +401,8 @@ is vital.
 </p>
 
 <h3 class=question id="underlying-platform-data">
-  Does this specification expose information about the underlying
-  platform to origins?
+  Do the features in your specification expose information about the
+  underlying platform to origins?
 </h3>
 
 
@@ -433,7 +422,7 @@ or indirect
 (because the data may be combined with other data to form a fingerprint). [[FINGERPRINTING-GUIDANCE]]
 
 When considering whether or not to expose such information,
-specifications and user agents
+specs and user agents
 should not consider the information in isolation,
 but should evaluate the risk of adding it
 to the existing fingerprinting surface of the platform.
@@ -457,14 +446,14 @@ by ordering a list of available resources—but sometimes,
 more complex mitigations may be necessary.
 See [[#mitigations]] for more.
 
-If your specification exposes such data
+If features in your spec expose such data
 and does not define adequate mitigations,
 you should ensure that such information
 is not revealed to origins
 without [[DESIGN-PRINCIPLES#consent|meaningful user consent]],
 and
 you should clearly describe this
-in your specificaiton's Security and Privacy Considerations sections.
+in your specification's Security and Privacy Considerations sections.
 
 <p class=example>
 WebGL's `RENDERER` string
@@ -485,28 +474,61 @@ See also:
 * [[DESIGN-PRINCIPLES#device-ids|Use care when exposing identifying information about devices]]
 * [[DESIGN-PRINCIPLES#device-enumeration|Use care when exposing APIs for selecting or enumerating devices]]
 
-<h3 class=question id="sensor-data">
-  Does this specification allow an origin access to sensors on a user’s
-  device
+<h3 class=question id=send-to-platform>
+  Does this specification allow an origin to send data to the underlying
+  platform?
 </h3>
 
-If so, what kind of sensors and information derived from those sensors does
-this standard expose to origins?
+If so, what kind of data can be sent?
+
+Platforms differ in how they process data passed into them,
+which may present different risks to users.
+
+Don't assume the underlying platform will safely handle the data that is passed.
+Where possible, mitigate attacks by limiting or structuring the kind of data is passed to the platform.
+
+<div class=example>
+URLs may or may not be dereferenced by a platform API,
+and if they are dereferenced,
+redirects may or may not be followed.
+If your specification sends URLs to underlying platform APIs,
+the potential harm of *your* API
+may vary depending on
+the behavior of the various underlying platform APIs it's built upon.
+
+What happens when `file:`, `data:`, or `blob:` URLs
+are passed to the underlying platform API?
+These can potentially read sensitive data
+directly form the user's hard disk or from memory.
+
+Even if your API only allows `http:` and `https:` URLs,
+such URLs may be vulnerable to [=CSRF=] attacks,
+or be redirected to `file:`, `data:`, or `blob:` URLs.
+</div>
+
+<h3 class=question id="sensor-data">
+  Do features in this specification enable access to device sensors?
+</h3>
+
+If so, what kinds of information from or about the sensors are exposed to origins?
 
 Information from sensors may serve as a fingerprinting vector across origins.
-In addition, sensor also reveals something about my device or environment and
-that fact might be what is sensitive.  In addition, as technology advances,
-mitigations in place at the time a specification is written may have to be
-reconsidered as the threat landscape changes.
+Additionally,
+sensors may reveal something sensitive about the device or its environment.
 
-Sensor data might even become a cross-origin identifier when the sensor reading
-is relatively stable, for example for short time periods (seconds, minutes, even days), and
-is consistent across-origins.  In fact, if two user-agents expose the same
-sensor data the same way, it may become a cross-browser, possibly even a cross-device identifier.
+If sensor data is relatively stable
+and consistent across origins,
+it could be used as a cross-origin identifier.
+If two User Agents expose such stable data from the same sensors,
+the data could even be used as a cross-browser, or potentially even a cross-device, identifier.
 
-<p class=example> As gyroscopes advanced, they could be used as
-microphones [[GYROSPEECHRECOGNITION]].  This was mitigated by lowering
-their sample rates.  </p>
+<p class=example>
+Researchers discovered that
+it's possible to use
+a sufficiently fine-grained gyroscope
+as a microphone [[GYROSPEECHRECOGNITION]].
+This can be mitigated by lowering the gyroscope's sample rates.
+</p>
 
 <p class=example>
 Ambient light sensors could allow an attacker to learn whether or not a
@@ -519,24 +541,30 @@ serve as an identifier [[OLEJNIK-BATTERY]].
 </p>
 
 <h3 class=question id="string-to-script">
-  Does this specification enable new script execution/loading mechanisms?
+  Do features in this specification enable new script execution/loading
+  mechanisms?
 </h3>
 
-* HTML Imports [[HTML-IMPORTS]] create a new script-loading mechanism, using
-    <{link}> rather than <{script}>, which might be easy to overlook when
-    evaluating an application's attack surface. The working group notes this
-    risk, and ensured that they required reasonable interactions with Content
-    Security Policy's [=script-src=] directive.
+New mechanisms for executing or loading scripts have a risk of enabling novel attack surfaces.
+Generally, if a new feature needs this you should consult with a wider audience,
+and think about whether or not an existing mechanism can be used
+or the feature is really necessary.
 
-* New string-to-script mechanism? (e.g. {{eval()}} or {{setTimeout()}})
+<!-- NOTE: This is still experimental technology, and we might have to provide a different example if this experiment fails. -->
 
-* What about style?
+<p class=example>
+<a href="https://github.com/whatwg/html/issues/4315">JSON modules</a> are expected to be treated only as data,
+but the initial proposal allowed an adversary to swap it out with code without the user knowing.
+<a href="https://github.com/tc39/proposal-import-assertions">Import assertions</a> were implemented
+as a mitigation for this vulnerability.
+</p>
 
 <h3 class=question id="remote-device">
-  Does this specification allow an origin to access other devices?
+  Do features in this specification allow an origin to access other devices?
 </h3>
 
-If so, what devices does this specification allow an origin to access?
+If so, what devices do the features in this specification allow an origin to
+access?
 
 Accessing other devices, both via network connections and via
 direct connection to the user's machine (e.g. via Bluetooth,
@@ -553,7 +581,7 @@ risk:
     location.
 * Enumerating the devices on a user’s local network provides significant
     entropy that an attacker may use to fingerprint the user agent.
-* If the specification exposes persistent or long lived identifiers of
+* If features in this spec expose persistent or long lived identifiers of
     local network devices, that provides attackers with a way to track a user
     over time even if a user takes steps to prevent such tracking (e.g.
     clearing cookies and other stateful tracking mechanisms).
@@ -581,8 +609,8 @@ See [[WEBUSB#security-and-privacy]] for more.
 </p>
 
 <h3 class=question id="native-ui">
-  Does this specification allow an origin some measure of control over a user
-  agent's native UI?
+  Do features in this specification allow an origin some measure of control over
+  a user agent's native UI?
 </h3>
 
 Features that allow for control over a user agent’s UI (e.g. full screen
@@ -593,8 +621,8 @@ user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?
 
 <h3 class=question id="temporary-id">
-  What temporary identifiers might this specification create or expose
-  to the web?
+  What temporary identifiers do the features in this specification create or
+  expose to the web?
 </h3>
 
 If a standard exposes a temporary identifier to the web, the identifier
@@ -603,9 +631,9 @@ the risk of this identifier being used to track a user over time.  When a
 user clears state in their user agent, these temporary identifiers should be
 cleared to prevent re-correlation of state using a temporary identifier.
 
-If this specification does create or expose a temporary identifier to the
-web, how is it exposed, when, to what entities, and, how frequently is it
-rotated?
+If features in this spec create or expose temporary identifiers to the
+web, how are they exposed, when, to what entities, and, how frequently are
+those temporary identifiers rotated?
 
 Example temporary identifiers include TLS Channel ID, Session Tickets, and
 IPv6 addresses.
@@ -635,8 +663,8 @@ availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.
 
 <h3 class=question id="private-browsing">
-  How does this specification work in the context of a browser’s Private
-  Browsing or Incognito mode?
+  How do the features in this specification work in the context of a browser’s
+  Private Browsing or Incognito mode?
 </h3>
 
 Most browsers implement a private browsing or incognito mode,
@@ -646,9 +674,9 @@ how that protection is described to users [[WU-PRIVATE-BROWSING]].
 One commonality is that they provide a different set of state
 than the browser's 'normal' state.
 
-Does the specification provide information that would allow for the
+Do features in this spec provide information that would allow for the
 correlation of a single user's activity across normal and private
-browsing / incognito modes?  Does the specification result in
+browsing / incognito modes?  Do features in the spec result in
 information being written to a user’s host that would persist
 following a private browsing / incognito mode session ending?
 
@@ -675,39 +703,105 @@ implementers and web developers.
 
 [[RFC6973]] is an excellent resource to consult when considering
 privacy impacts of your specification, particularly Section 7 of
-RFC6983.  [[RFC3552]] provides general advice as to writing Security
-Consideration sections.
+RFC6973.  [[RFC3552]] provides general advice as to writing Security
+Consideration sections, and Section 5 of RFC3552 has specific requirements.
 
 Generally, these sections should contain clear descriptions of the
-privacy and security risks the specification introduces.  It is also
+privacy and security risks for the features your spec introduces.  It is also
 appropriate to document risks that are mitigated elsewhere in the
 specification and to call out details that, if implemented
 other-than-according-to-spec, are likely to lead to vulnerabilities.
 
-If it seems like a feature does not have security or privacy impacts,
-say so in-line, e.g.:
+If it seems like none of the features in your specification have security or
+privacy impacts, say so in-line, e.g.:
 
-> There are no known security impacts of this feature.
+> There are no known security impacts of the features in this specification.
 
-Be aware, though, that most specifications will have at least some
+Be aware, though, that most specifications include features that have at least some
 impact on the fingerprinting surface of the browser.  If you believe
 your specification in an outlier, justifying that claim is in
 order.
 
 <h3 class=question id="relaxed-sop">
-  Does this specification allow downgrading default security characteristics?
+  Do features in your specification enable origins to downgrade default
+  security protections?
 </h3>
 
-Does this feature allow for a site to opt-out of security settings to
-accomplish some piece of functionality?  If so, in what situations does your
-specification allow such security setting downgrading and what mitigations
-are in place to make sure optional downgrading doesn't dramatically increase
-risks?
+Do features in your spec
+enable an origin to opt-out of security settings
+in order to accomplish something?
+If so,
+in what situations do these features allow such downgrading, and why?
 
-* {{Document/domain|document.domain}}
-* [[CORS]]
-* [[WEBMESSAGING]]
-* [[REFERRER-POLICY]]'s <a>"unsafe-url"</a>
+Can this be avoided in the first place?
+If not, are mitigations in place
+to make sure this downgrading doesn’t dramatically increase risk to users?
+For instance,
+[[PERMISSIONS-POLICY]] defines a mechanism
+that can be used by sites to prevent untrusted <{iframe}>s from using such a feature.
+
+<div class=example>
+The {{Document/domain|document.domain}} setter can be used to relax the [=same-origin policy=].
+The most effective mitigation
+would be to remove it from the platform (see [[#drop-feature]]),
+though that
+[may be challenging](https://github.com/mikewest/deprecating-document-domain/)
+for compatibility reasons.
+</div>
+
+<div class=example>
+The Fullscreen API enables
+a (portion of a) web page
+to expand to fill the display. [[FULLSCREEN]]
+This can hide
+several User Agent user interface elements
+which help users to understand
+what web page they are visiting
+and whether or not the User Agent believes they are [safe](https://w3ctag.github.io/design-principles/#safe-to-browse).
+
+Several mitigations are defined in the specification
+and are widely deployed in implementations.
+For instance, the Fullscreen API is a [=policy-controlled feature=],
+which enables sites to disable the API in <{iframe}>s.
+[[FULLSCREEN#security-and-privacy-considerations]] encourages implementations
+to display an overlay which informs the user that they have entered fullscreen,
+and to advertise a simple mechanism to exit fullscreen (typically the `Esc` key).
+</div>
+
+<h3 class=question id="non-fully-active">
+  How does your feature handle non-"fully active" documents?
+</h3>
+
+After a user navigates away from a document,
+the document might stay around in a non-"[=Document/fully active=]" state,
+and might be reused when the user navigates back to the document.
+From the user’s perspective,
+the non-[=Document/fully active=] document is already discarded
+and thus should not get updates/events that happen after they navigated away from it,
+especially privacy-sensitive information (e.g. geolocation).
+Also, as a document might be reused even after navigation,
+be aware that tying something to a document’s lifetime
+also means reusing it after navigations.
+If this is not desirable,
+consider listening to changes to the [=Document/fully active=] state
+and doing cleanup as necessary.
+
+For more detailed guidance on how to handle non-[=Document/fully active=] documents,
+see [[DESIGN-PRINCIPLES#non-fully-active]].
+
+<div class=example>
+Screen WakeLock API [releases the wake lock](https://w3c.github.io/screen-wake-lock/#handling-document-loss-of-full-activity)
+when a document becomes no longer fully active.
+</div>
+<div class=example>
+[=Sticky activation=] is determined by the "last activation timestamp",
+which is tied to a document.
+This means after a user triggers activation once on a document,
+the document will have sticky activation forever,
+even after the user navigated away and back to it again.
+Whether this should actually be reset when full activity is lost or not
+is still [under discussion](https://github.com/whatwg/html/issues/6588).
+</div>
 
 <h3 class=question id="missing-questions">
   What should this questionnaire have asked?
@@ -827,9 +921,9 @@ another. For example:
     attacker tricking an origin into executing attacker-controlled code in
     the context of a target origin.
 
-* Cross-site request forgery attacks trick user agents into exerting a
-    user's ambient authority on sites where they've logged in by submitting
-    requests on their behalf.
+* <dfn local-lt="CSRF">Cross-site request forgery attacks</dfn> trick user
+    agents into exerting a user's ambient authority on sites where they've
+    logged in by submitting requests on their behalf.
 
 * Data leakage occurs when bits of information are inadvertently made
     available cross-origin, either explicitly via CORS headers [[CORS]],
@@ -865,7 +959,7 @@ Even when powerful features are made available to developers, it does not
 mean that all the uses should always be a good idea, or justified; in fact,
 data privacy regulations around the world may even put limits on certain uses
 of data. In the context of first party, a legitimate website is potentially
-able to interact with powerful features to learn about the user behavior or
+able to interact with powerful features to learn about user behavior or
 habits. For example:
 
 * Tracking the user while browsing the website via mechanisms such as mouse
@@ -873,14 +967,14 @@ habits. For example:
 
 * Behavioral profiling of the user based on the usage patterns
 
-* Accessing powerful features enabling to reason about the user system,
-    himself or the user surrounding, such as a webcam, Web Bluetooth or
-    sensors
+* Accessing powerful features that enable the first-party to learn about
+    the user's system, the user themselves, or the user's susurroundings, such
+    as could be done through a webcam or sensors
 
 This point is admittedly different from others - and underlines that even if
 something may be possible, it does not mean it should always be done,
 including the need for considering a privacy impact assessment or even an
-ethical assessment. When designing a specification with security and privacy
+ethical assessment. When designing features with security and privacy
 in mind, all both use and misuse cases should be in scope.
 
 <h2 id="mitigations">
@@ -888,9 +982,8 @@ in mind, all both use and misuse cases should be in scope.
 </h2>
 
 To mitigate the security and privacy risks you’ve identified in your
-specification as you’ve filled out the questionnaire,
-you may want to apply one or more of the mitigations described below to your
-feature.
+specification,
+you may want to apply one or more of the mitigations described below.
 
 <h3 id="data-minimization">
   Data Minimization
@@ -938,7 +1031,8 @@ only providing information on the mouse's behaviour when certain events take
 place. The approach is therefore to expose event handling (e.g., triggering
 on click, move, button press) as the sole interface to the device.
 
-Two features that have minimized the data they make available are:
+Two specifications that have minimized the data their features expose
+are:
 
 * [[BATTERY-STATUS]] <q>The user agent should not expose high precision readouts</q>
 * [[GENERIC-SENSOR]] <q>Limit maximum sampling frequency</q>,
@@ -1004,12 +1098,12 @@ parties?
   Explicitly restrict the feature to first party origins
 </h3>
 
-As described in the "Third-Party Tracking" section, a significant feature of
-the web is the mixing of first and third party content in a single page, but,
-this introduces risk where the third party content can use the same set of web
-features as the first party content.
+As described in the "Third-Party Tracking" section, web pages mix
+first and third party content into a single application, which
+introduces the risk that third party content can misuse the same set of web
+features as first party content.
 
-Authors should explicit specify the feature's scope of availability:
+Authors should explicitly specify a feature's scope of availability:
 
 * When a feature should be made available to embedded third parties -- and
     often first parties should be able to explicitly control that (using
@@ -1019,7 +1113,7 @@ Authors should explicit specify the feature's scope of availability:
 * Whether a feature should be available to offline service workers.
 * Whether events will be fired simultaneously
 
-Third party’s access to a feature should be an optional implementation for
+Third party access to a feature should be an optional implementation for
 conformance.
 
 <h3 id="secure-contexts">
@@ -1053,7 +1147,7 @@ is to drop the feature,
 though you should keep in mind that some security or privacy risks
 may be removed or mitigated
 by adding features to the platform.
-Every feature in a spec
+Every feature in a specification
 should be seen as
 potentially adding security and/or privacy risk
 until proven otherwise.
@@ -1096,18 +1190,17 @@ Examples
   Making a privacy impact assessment
 </h3>
 
-Some features are potentially supplying very sensitive data, and it is
+Some features potentially supply sensitive data, and it is
 the responsibility of the end-developer, system owner, or manager to realize
-this and act accordingly in the design of his/her system. Some use may
+this and act accordingly in the design of their system. Some use may
 warrant conducting a privacy impact assessment, especially when data
 relating to individuals may be processed.
 
-Specifications that expose such sensitive data should include a
-recommendation that websites and applications adopting the API — but not
-necessarily the implementing user agent — conduct a privacy impact assessment
-of the data that they collect.
+Specifications that include features that expose sensitive data should include
+recommendations that websites and applications adopting the API conduct a
+privacy impact assessment of the data that they collect.
 
-A features that recommends such is:
+A feature that does this is:
 
 * [[GENERIC-SENSOR]] advises to consider performing of a privacy impact
     assessment

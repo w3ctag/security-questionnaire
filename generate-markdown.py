@@ -17,7 +17,7 @@ class MarkdownGenerator:
                     self.qnum += 1
                     self.prefix = "> %02d. " % self.qnum
                     self.first_line_in_question = False
-                print("%s%s" % (self.prefix, line), end='', file=outfile)
+                print(self.prefix, line, end='', file=outfile)
                 self.prefix = ">     "
             else:
                 self.in_question = False
@@ -30,7 +30,7 @@ class MarkdownGenerator:
 
 This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
 
-For your convenience, a copy of the questionnaire's questions is quoted here in Markdwon, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+For your convenience, a copy of the questionnaire's questions is quoted here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
 """, file=outfile)
         [self.process_line(line, outfile) for line in infile]
 
