@@ -909,7 +909,7 @@ purposes:
   Same-Origin Policy Violations
 </h3>
 
-The **same-origin policy** is the cornerstone of security on the web;
+The <dfn>same-origin policy</dfn> is the cornerstone of security on the web;
 one origin should not have direct access to another origin's data (the policy
 is more formally defined in Section 3 of [[RFC6454]]). A corollary to this
 policy is that an origin should not have direct access to data that isn't
