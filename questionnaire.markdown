@@ -18,20 +18,17 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 >     platform to origins?
 > 07. Does this specification allow an origin access to sensors on a user’s
 >     device
-> 08. What data does this specification expose to an origin?  Please also
->     document what data is identical to data exposed by other features, in the
->     same or different contexts.
-> 09. Does this specification enable new script execution/loading mechanisms?
-> 10. Does this specification allow an origin to access other devices?
-> 11. Does this specification allow an origin some measure of control over a user
+> 08. Does this specification enable new script execution/loading mechanisms?
+> 09. Does this specification allow an origin to access other devices?
+> 10. Does this specification allow an origin some measure of control over a user
 >     agent's native UI?
-> 12. What temporary identifiers might this specification create or expose
+> 11. What temporary identifiers might this specification create or expose
 >     to the web?
-> 13. How does this specification distinguish between behavior in first-party and
+> 12. How does this specification distinguish between behavior in first-party and
 >     third-party contexts?
-> 14. How does this specification work in the context of a user agent’s Private
+> 13. How does this specification work in the context of a user agent’s Private
 >     Browsing or "incognito" mode?
-> 15. Does this specification have both "Security Considerations" and "Privacy
->     Considerations" sections?
-> 16. Does this specification allow downgrading default security characteristics?
-> 17. What should this questionnaire have asked?
+> 14. Does this specification have a "Security Considerations" and "Privacy
+>     Considerations" section?
+> 15. Does this specification allow downgrading default security characteristics?
+> 16. What should this questionnaire have asked?
