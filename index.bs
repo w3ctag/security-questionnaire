@@ -11,6 +11,7 @@ Editor: Pete Snyder, w3cid 109401, Brave https://brave.com, psnyder@brave.com
 Former Editor: Jason Novak, Apple Inc., https://apple.com
 Former Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
+Former Editor: Yan Zhu, Yahoo Inc., yzhu@yahoo-inc.com
 Group: tag
 Markup Shorthands: css no, markdown yes
 Local Boilerplate: status yes
@@ -1239,7 +1240,6 @@ Piotr Bialecki,
 Samuel Weiler,
 <!-- Sangwhan Moon, -->
 Tantek Çelik,
-Yan Zhu,
 <!-- Yves Lafon, -->
 Wendy Seltzer,
 and
@@ -1249,8 +1249,9 @@ for their contributions to this document.
 Special thanks to its former editors,
 Jason Novak,
 Lukasz Olejnik,
+Mike West,
 and
-Mike West.
+Yan Zhu.
 Without their hard work, this document would be much worse off.
 
 <pre class="anchors">
