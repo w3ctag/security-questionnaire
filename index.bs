@@ -58,7 +58,7 @@ If security or privacy issues are found late,
 user agents may need to adopt breaking changes
 to fix the issues.
 
-Keep these questions in mind throughout work on specifications.
+Keep these questions in mind while working on specifications.
 Periodically revisit this questionnaire and continue to consider the questions,
 particularly as a design changes over time.
 
