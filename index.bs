@@ -56,7 +56,7 @@ after a feature has shipped,
 it's much harder to change the design.
 If security or privacy issues are found late,
 user agents may need to adopt breaking changes
-to remediate the issues.
+to fix the issues.
 
 Keep these questions in mind throughout work on specifications.
 Periodically revisit this questionnaire and continue to consider the questions,
@@ -72,27 +72,29 @@ parallel with this document.
 The IETF's RFC about privacy considerations, [[RFC6973]], is a
 wonderful resource, particularly section 7.
 
-<h3 id=reviews>TAG, PING, and security reviews and this questionnaire</h3>
+<h3 id=reviews>TAG, PING, security reviews and this questionnaire</h3>
 
 Before requesting
 privacy and
 security reviews from the [Privacy Interest Group
 (PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
-respectively, write both "Security Considerations" and
-"Privacy Considerations" sections for your document, as described in
-[[#considerations]].  Whlle answering the questions in this
-document will inform your writing of those sections, it is not
-appropriate to merely copy this questionnaire into those sections.
+write "Security Considerations" and
+"Privacy Considerations" sections in your document, as described in
+[[#considerations]].  Answering the questions in this
+document will, we hope, inform your writing of those sections. It is not
+appropriate, however, to merely copy this questionnaire into those sections.
 Instructions for requesting security and privacy reviews can be
-found in the
-[Guide](https://w3c.github.io/documentreview/#how_to_get_horizontal_review).
+found in the document
+<cite>[How to do Wide Review](https://w3c.github.io/documentreview/#how_to_get_horizontal_review)</cite>.
 
 When requesting
 a [review](https://github.com/w3ctag/design-reviews)
 from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
-provide the TAG with direct answers
-to the questions in this document.  You may use
-[this Markdown template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown).
+please provide the TAG with answers
+to the questions in this document.
+[This Markdown
+template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown)
+may be useful when doing so.
 
 
 <h2 id="questions">Questions to Consider</h2>
