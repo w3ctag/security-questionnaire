@@ -115,6 +115,29 @@ See also
 
 * [[DESIGN-PRINCIPLES#priority-of-constituencies]]
 
+When answering this question, please consider each of these four possible
+areas of information disclosure / sharing.
+
+For the below sub-questions,
+please take the term *potentially identifying information*
+to mean information that describes the browser user,
+distinct from others who use the same browser version.
+Examples of such *potentially identifying information* include information
+about the browser user's environment (e.g., operating system configuration,
+browser configuration, hardware capabilities), and the user's prior activities
+and interests (e.g., browsing history, purchasing preferences, personal
+characteristics).
+
+1.  What information does your spec expose to the **first party** that
+    the **first party** cannot currently easily determine.
+2.  What information does your spec expose to **third parties** that
+    **third parties** cannot currently easily determine.
+3.  What *potentially identifying information* does your spec expose to the
+    **first party** that the **first party** can already access (i.e., what
+    identifying information does your spec duplicate or mirror).
+4.  What *potentially identifying information* does your spec expose to
+    **third parties** that **third parties** can already access.
+
 <h3 class=question id="minimum-data">
   Do features in your specification expose the minimum amount of information
   necessary to enable their intended uses?
@@ -128,6 +151,13 @@ why does it do so?
 See also
 
 * [[#data-minimization]]
+
+<p class=example>
+Content Security Policy [[CSP]] unintentionally exposed redirect targets
+cross-origin by allowing one origin to infer details about another origin
+through violation reports (see [[HOMAKOV]]). The working group eventually
+mitigated the risk by reducing a policy's granularity after a redirect.
+</p>
 
 <h3 class=question id="personal-data">
   How do the features in your specification deal with personal information,
@@ -510,31 +540,6 @@ Even relatively short lived data, like the battery status, may be able to
 serve as an identifier [[OLEJNIK-BATTERY]].
 </p>
 
-<h3 class=question id="other-data">
-  What data do the features in this specification expose to an origin? Please
-  also document what data is identical to data exposed by other features, in the
-  same or different contexts.
-</h3>
-
-As noted above in [[#sop-violations]], the [=same-origin policy=] is an
-important security barrier that new features need to carefully consider.
-If a feature exposes details about another origin's state, or allows
-POST or GET requests to be made to another origin, the consequences can be
-severe.
-
-<p class=example>
-Content Security Policy [[CSP]] unintentionally exposed redirect targets
-cross-origin by allowing one origin to infer details about another origin
-through violation reports (see [[HOMAKOV]]). The working group
-mitigated the risk by reducing a policy's granularity after a redirect.
-</p>
-
-<p class=example> Beacon [[BEACON]] allows an origin to send POST
-requests to an endpoint on another origin. The working group concluded
-that this feature did not add any new attack surface above and beyond
-what normal form submission entails, so no extra mitigation was
-necessary.  </p>
-
 <h3 class=question id="string-to-script">
   Do features in this specification enable new script execution/loading
   mechanisms?
@@ -904,7 +909,7 @@ purposes:
   Same-Origin Policy Violations
 </h3>
 
-The <dfn>same-origin policy</dfn> is the cornerstone of security on the web;
+The **same-origin policy** is the cornerstone of security on the web;
 one origin should not have direct access to another origin's data (the policy
 is more formally defined in Section 3 of [[RFC6454]]). A corollary to this
 policy is that an origin should not have direct access to data that isn't
