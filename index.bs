@@ -1225,21 +1225,27 @@ Chris Cunningham,
 Corentin Wallez,
 <!-- Daniel Appelquist, -->
 David Baron,
+Domenic Denicola,
 Dominic Battre,
 <!-- Hadley Beeman, -->
 Jeffrey Yasskin,
 Jeremy Roman,
 Jonathan Kingston,
+<!-- Kenneth Rohde Christiansen, -->
 Marcos Caceres,
 Marijn Kruisselbrink,
 Mark Nottingham,
+Martin Thomson,
 Michael(tm) Smith,
+Nick Doty,
 Rakina Zata Amni,
 Robert Linder,
 Piotr Bialecki,
+<!-- Rossen Atanassov, -->
 Samuel Weiler,
 <!-- Sangwhan Moon, -->
 Tantek Çelik,
+Thomas Steiner,
 <!-- Yves Lafon, -->
 Wendy Seltzer,
 and
