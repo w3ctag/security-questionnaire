@@ -1212,6 +1212,47 @@ requirements in specifications.  For example, in [[DOTY-GEOLOCATION]], it was
 found that none of the studied websites informed users of their privacy
 practices before the site prompted for location.
 
+<h2 id="acknowledgements" class="no-num">Acknowledgements</h2>
+
+<!-- Current TAG participants who would otherwise be ackked are
+     commented out. Please uncomment them when their term on the TAG
+     ends! -->
+Many thanks to
+Alice Boxhall,
+Anne van Kesteren,
+Chris Cunningham,
+Corentin Wallez,
+<!-- Daniel Appelquist, -->
+David Baron,
+Dominic Battre,
+<!-- Hadley Beeman, -->
+Jeffrey Yasskin,
+Jeremy Roman,
+Jonathan Kingston,
+Marcos Caceres,
+Marijn Kruisselbrink,
+Mark Nottingham,
+Michael(tm) Smith,
+Rakina Zata Amni,
+Robert Linder,
+Piotr Bialecki,
+Samuel Weiler,
+<!-- Sangwhan Moon, -->
+Tantek Çelik,
+Yan Zhu,
+<!-- Yves Lafon, -->
+Wendy Seltzer,
+and
+the many current and former participants in PING and the TAG
+for their contributions to this document.
+
+Special thanks to its former editors,
+Jason Novak,
+Lukasz Olejnik,
+and
+Mike West.
+Without their hard work, this document would be much worse off.
+
 <pre class="anchors">
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMASCRIPT
     text: eval(); url: #sec-eval-x; type: method
