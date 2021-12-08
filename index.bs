@@ -48,59 +48,21 @@ this questionnaire should ask about.
 
 <h3 id="howtouse">How To Use The Questionnaire</h3>
 
-Spec authors should work through these questions
+Work through these questions
 early on in the design process,
 when things are easier to change.
 When privacy and security issues are only found later,
-after the feature has shipped,
+after a feature has shipped,
 it's much harder to change the design.
 If security or privacy issues are found late,
 user agents may need to adopt breaking changes
-to protect their users' privacy and security.
+to fix the issues.
 
-These questions should be kept in mind throughout work on any specification.
-Spec authors should periodically revisit this questionnaire
-to continue to consider the privacy and security implications of
-their spec's features, particularly as their design changes over time.
-
-<h3 id=reviews>TAG, PING, and security reviews and this questionnaire</h3>
-
-Before requesting
-privacy and
-security reviews from the [Privacy Interest Group
-(PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
-respectively, authors must write both "Security Considerations" and
-"Privacy Considerations" sections for their documents, as described in
-[[#considerations]].  While your answers to the questions in this
-document will inform your writing of those sections, it is not
-appropriate to merely copy this questionnaire into those sections.
-Instructions for requesting security and privacy reviews can be
-found in the
-[Guide](https://w3c.github.io/documentreview/#how_to_get_horizontal_review).
-
-When authors request
-a [review](https://github.com/w3ctag/design-reviews)
-from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
-the TAG asks that authors provide answers
-to the questions in this document.
-
-The TAG may use this document
-to record security and privacy questions
-which come up during their reviews.
-Working through these questions can save
-both spec authors and the people performing design reviews
-a lot of time.
-
-To make it easier for anyone requesting a review
-to provide their answers to these questions to the TAG,
-we have prepared [a list of these questions in Markdown](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown).
-
+Keep these questions in mind while working on specifications.
+Periodically revisit this questionnaire and continue to consider the questions,
+particularly as a design changes over time.
 
 <h3 id=resources>Additional resources</h3>
-
-This document is only one of the tools you should use to inform your
-consideration of privacy and security issues in your
-<abbr title="specification">spec</abbr>.
 
 The Mitigating Browser Fingerprinting in Web Specifications
 [[FINGERPRINTING-GUIDANCE]] document published by PING goes into
@@ -108,8 +70,31 @@ further depth about browser fingerprinting and should be considered in
 parallel with this document.
 
 The IETF's RFC about privacy considerations, [[RFC6973]], is a
-wonderful resource.  We recommend that all spec authors read section 7
-of RFC6973.
+wonderful resource, particularly section 7.
+
+<h3 id=reviews>TAG, PING, security reviews and this questionnaire</h3>
+
+Before requesting
+privacy and
+security reviews from the [Privacy Interest Group
+(PING)](https://www.w3.org/Privacy/IG/) and security reviewers,
+write "Security Considerations" and
+"Privacy Considerations" sections in your document, as described in
+[[#considerations]].  Answering the questions in this
+document will, we hope, inform your writing of those sections. It is not
+appropriate, however, to merely copy this questionnaire into those sections.
+Instructions for requesting security and privacy reviews can be
+found in the document
+<cite>[How to do Wide Review](https://w3c.github.io/documentreview/#how_to_get_horizontal_review)</cite>.
+
+When requesting
+a [review](https://github.com/w3ctag/design-reviews)
+from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
+please provide the TAG with answers
+to the questions in this document.
+[This Markdown
+template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown)
+may be useful when doing so.
 
 
 <h2 id="questions">Questions to Consider</h2>
