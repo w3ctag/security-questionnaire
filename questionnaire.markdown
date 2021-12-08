@@ -19,23 +19,20 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 07.  Does this specification allow an origin to send data to the underlying
 >      platform?
 > 08.  Do features in this specification enable access to device sensors?
-> 09.  What data do the features in this specification expose to an origin? Please
->      also document what data is identical to data exposed by other features, in the
->      same or different contexts.
-> 10.  Do features in this specification enable new script execution/loading
+> 09.  Do features in this specification enable new script execution/loading
 >      mechanisms?
-> 11.  Do features in this specification allow an origin to access other devices?
-> 12.  Do features in this specification allow an origin some measure of control over
+> 10.  Do features in this specification allow an origin to access other devices?
+> 11.  Do features in this specification allow an origin some measure of control over
 >      a user agent's native UI?
-> 13.  What temporary identifiers do the features in this specification create or
+> 12.  What temporary identifiers do the features in this specification create or
 >      expose to the web?
-> 14.  How does this specification distinguish between behavior in first-party and
+> 13.  How does this specification distinguish between behavior in first-party and
 >      third-party contexts?
-> 15.  How do the features in this specification work in the context of a browser’s
+> 14.  How do the features in this specification work in the context of a browser’s
 >      Private Browsing or Incognito mode?
-> 16.  Does this specification have both "Security Considerations" and "Privacy
+> 15.  Does this specification have both "Security Considerations" and "Privacy
 >      Considerations" sections?
-> 17.  Do features in your specification enable origins to downgrade default
+> 16.  Do features in your specification enable origins to downgrade default
 >      security protections?
-> 18.  How does your feature handle non-"fully active" documents?
-> 19.  What should this questionnaire have asked?
+> 17.  How does your feature handle non-"fully active" documents?
+> 18.  What should this questionnaire have asked?
