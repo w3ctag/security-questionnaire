@@ -1220,8 +1220,10 @@ practices before the site prompted for location.
      ends! -->
 Many thanks to
 Alice Boxhall,
+Alex Russell,
 Anne van Kesteren,
 Chris Cunningham,
+Coralie Mercier,
 Corentin Wallez,
 <!-- Daniel Appelquist, -->
 David Baron,
@@ -1237,8 +1239,8 @@ Marijn Kruisselbrink,
 Mark Nottingham,
 Martin Thomson,
 Michael(tm) Smith,
+Mike Perry,
 Nick Doty,
-Rakina Zata Amni,
 Robert Linder,
 Piotr Bialecki,
 <!-- Rossen Atanassov, -->
@@ -1252,13 +1254,22 @@ and
 the many current and former participants in PING and the TAG
 for their contributions to this document.
 
-Special thanks to its former editors,
-Jason Novak,
-Lukasz Olejnik,
-Mike West,
+Special thanks to
+Rakina Zata Amni
+for her edits which help spec authors take the <abbr
+title="back/forward cache">bfcache</abbr> into account.
+
+Mike West
+wrote the initial version of this document
+and edited it for a number of years.
+Yan Zhu
+took over from Mike and, in turn,
+Jason Novak
 and
-Yan Zhu.
-Without their hard work, this document would be much worse off.
+Lukasz Olejnik
+took it over from her.
+The current editors are indebted to all of their hard work.
+We hope we haven't made it (much) worse.
 
 <pre class="anchors">
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMASCRIPT
