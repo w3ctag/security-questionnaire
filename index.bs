@@ -17,27 +17,26 @@ Markup Shorthands: css no, markdown yes
 Version History: https://github.com/w3ctag/security-questionnaire/commits/master/index.bs
 !Bug Reports: <a href="https://github.com/w3ctag/security-questionnaire/issues/new">via the w3ctag/security-questionnaire repository on GitHub</a>
 Abstract:
-  This document provides help in considering the privacy impact of
-  a new feature or specification as well as common mitigation strategies for
-  common privacy impacts. The questions are meant to be useful when considering
-  the security and privacy aspects of a new feature or specification and the
-  mitigation strategies are meant to assist in the design of the feature or
-  specification. Authors of a new proposal or feature should implement the
-  mitigations as appropriate; doing so will assist in addressing the respective
-  points in the questionnaire. Given the variety and nature of specifications,
-  it is likely that the listed questions will not be comprehensive in a way
-  enabling to reason about the full privacy impact, and some mitigations may
-  not be appropriate or other mitigations may be necessary. It is nonetheless
-  the aim to present the questions and mitigations as a starting point, helping
-  to consider security and privacy at the start of work on a new feature, and
-  throughout the lifecycle of a feature.
+  This document is intended to help specification authors consider and improve
+  the security and privacy impacts of newly proposed features.
+  Authors of a new proposal or feature should implement the
+  mitigations as appropriate.
+  Given the variety of specifications,
+  the listed questions will not be comprehensive.
+  Some suggested mitigations may not be appropriate,and
+  additional mitigations may be necessary.
+  This document is intended as a starting point to helping authors
+  consider security and privacy throughout a standard's lifecycle.
 
-  It is not meant as a "security checklist", nor does an editor or group’s use
-  of this questionnaire obviate the editor or group’s responsibility to obtain
-  "wide review" of a specification security and privacy properties before
-  publication. Furthermore, the filled questionnaire should not be understood
-  as security and privacy considerations, although part of the answers may be
-  relevant in drafting the considerations.
+  This document is not a "checklist,"
+  and completing this questionnaire does not remove
+  or satisfy a working group’s responsibility to obtain "wide review" of
+  their specification before publication.
+  Furthermore, this questionnaire should not be understood
+  or submitted as the "Security and Privacy Considerations" section of
+  a specification, although the answers to the questions in this document
+  may be relevant when drafting the "Security and Privacy Considerations"
+  section of your specification.
 </pre>
 
 <!-- Big Text: Intro -->
