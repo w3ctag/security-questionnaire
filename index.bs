@@ -100,14 +100,14 @@ may be useful when doing so.
 <h2 id="questions">Questions to Consider</h2>
 
 <h3 class=question id="purpose">
-  What information might this feature expose to Web sites or other parties,
-  and for what purposes is that exposure necessary?
+  What information does this feature expose,
+  and for what purposes?
 </h3>
 
-User Agents should only expose information to the web
+User agents should only expose information to the Web
 when doing so is necessary to serve a clear user need.
-Does your feature expose information to origins?
-If so, how does exposing this information serve user needs?
+Does your feature expose information to wbe sites?
+If so, how does exposing this information benefit the user?
 Are the risks to the user outweighed by the benefits to the user?
 If so, how?
 
@@ -140,13 +140,14 @@ characteristics).
 
 <h3 class=question id="minimum-data">
   Do features in your specification expose the minimum amount of information
-  necessary to enable their intended uses?
+  necessary to implement the intended functionality?
 </h3>
 
 Features should only expose information
-when it's absolutely necessary to satisfy use cases.
+when it's absolutely necessary.
 If a feature exposes more information than is necessary,
-why does it do so?
+why does it do so, and can that the same functionality be achieved by
+exposing less information?
 
 See also
 
@@ -160,9 +161,9 @@ mitigated the risk by reducing a policy's granularity after a redirect.
 </p>
 
 <h3 class=question id="personal-data">
-  How do the features in your specification deal with personal information,
+  Do the features in your specification expose personal information,
   personally-identifiable information (PII), or information derived from
-  them?
+  either?
 </h3>
 
 Personal information is any data about a user
@@ -170,7 +171,7 @@ Personal information is any data about a user
 or information that could be used to identify a user,
 such as an alias, email address, or identification number.
 
-Note: Personal information is
+Personal information is
 distinct from personally identifiable information
 (<abbr title="personally identifiable information">PII</abbr>).
 PII is a legal concept,
@@ -182,7 +183,8 @@ that could be used to identify a user.
 
 When exposing
 personal information, PII, or derivative information,
-spec authors must take steps to minimize the potential harm to users.
+specification authors must prevent or, when prevention is not possible, minimize
+potential harm to users.
 
 <p class=example>
 A feature
@@ -311,22 +313,22 @@ See also
 * [[DESIGN-PRINCIPLES#do-not-expose-use-of-assistive-tech]]
 
 <h3 class=question id="persistent-origin-specific-state">
-  Do the features in your specification introduce new state for an origin
+  Do the features in your specification introduce state
   that persists across browsing sessions?
 </h3>
 
-There are many existing mechanisms
+The Web platform already includes many mechanisms
 origins can use to
-store information about a user.
+store information.
 Cookies,
 `ETag`,
 `Last Modified`,
 {{localStorage}},
 and
-{{indexedDB}}
+{{indexedDB}},
 are just a few examples.
 
-Allowing an origin
+Allowing a website
 to store data
 on a user’s device
 in a way that persists across browsing sessions
@@ -336,24 +338,20 @@ to track a user
 without their knowledge or control,
 either in [=first-party-site context|first-=] or [=third-party context|third-party=] contexts.
 
-One of the ways
-user agents mitigate the risk
-that client-side storage mechanisms
-will form a persistent identifier
+One way
+user agents prevent origins from
+abusing client-side storage mechanisms
 is by providing users with the ability
-to clear out the data stored by origins.
-New state persistence mechanisms
-should not be introduced
-without mitigations
-to prevent them
-from being used
-to track users
-across domains
-or without control
-over clearing this state.
-That said,
-manually clearing storage
-is something users do only rarely.
+to clear data stored by origins.
+Specification authors should include similar
+protections to make sure that new
+client-side storage mechanisms
+cannot be misused to track users across domains
+without their control.
+However, just giving users the ability
+to delete origin-set state is usually
+not sufficient. since users rarely
+manually clear browser state.
 Spec authors should consider ways
 to make new features more privacy-preserving without full storage clearing,
 such as
@@ -361,27 +359,13 @@ reducing the uniqueness of values,
 rotating values,
 or otherwise making features no more identifying than is needed.
 <!-- https://github.com/w3ctag/design-principles/issues/215 -->
-Also, keep in mind that
-user agents make use of several different caching mechanisms.
-Which, if any, caches will store this new state?
-Are additional mitigations necessary?
 
-<div class=example>
-
-Service Workers
-intercept all requests made by an origin,
-which enables sites
-to continue to function when the browser goes offline.
-Because of this,
-a maliciously-injected service worker
-could compromise the user (as documented in [[SERVICE-WORKERS#security-considerations]]).
-
-The spec mitigates the risks
-an [=active network attacker=] or [=XSS=] vulnerability present
-by limiting service worker registration to [=secure contexts=].
-[[SERVICE-WORKERS]]
-
-</div>
+Additionally, specification authors
+should carefully consider and specify, when possible,
+how their features should interact with browser caching
+features. Additional mitigations may be necessary to
+prevent origins from abusing caches to
+identify and track users across sites or sessions without user consent.
 
 <p class=example>
 Platform-specific DRM implementations
