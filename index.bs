@@ -106,7 +106,7 @@ may be useful when doing so.
 
 User agents should only expose information to the Web
 when doing so is necessary to serve a clear user need.
-Does your feature expose information to wbe sites?
+Does your feature expose information to websites?
 If so, how does exposing this information benefit the user?
 Are the risks to the user outweighed by the benefits to the user?
 If so, how?
@@ -171,7 +171,7 @@ Personal information is any data about a user
 or information that could be used to identify a user,
 such as an alias, email address, or identification number.
 
-Personal information is
+Note: Personal information is
 distinct from personally identifiable information
 (<abbr title="personally identifiable information">PII</abbr>).
 PII is a legal concept,
