@@ -11,7 +11,7 @@ Editor: Peter Snyder, w3cid 109401, Brave Software https://brave.com, pes@brave.
 Former Editor: Jason Novak, Apple Inc., https://apple.com
 Former Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
-Former Editor: Yan Zhu, Yahoo Inc., yzhu@yahoo-inc.com
+Former Editor: Yan Zhu, Yahoo Inc., yan@brave.com
 Group: tag
 Markup Shorthands: css no, markdown yes
 Local Boilerplate: status yes
