@@ -6,9 +6,9 @@
   <meta content="ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="Bikeshed version cace53f8c, updated Tue Dec 7 12:12:54 2021 -0800" name="generator">
+  <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="c54ad08c20a102869c384b46a367ff7a9026556c" name="document-revision">
+  <meta content="db1ac20f58e6a00592974829cdac2a2ee175f480" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -453,7 +453,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2022-01-06">6 January 2022</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2022-03-23">23 March 2022</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -466,11 +466,12 @@ dfn > a.self-link::before      { content: "#"; }
       <dd><a href="https://github.com/w3ctag/security-questionnaire/issues/">GitHub</a>
       <dt class="editor">Editors:
       <dd class="editor p-author h-card vcard" data-editor-id="40614"><a class="p-name fn u-email email" href="mailto:hober@apple.com">Theresa O’Connor</a> (<a class="p-org org" href="https://apple.com">Apple Inc.</a>)
-      <dd class="editor p-author h-card vcard" data-editor-id="109401"><a class="p-name fn u-email email" href="mailto:psnyder@brave.com">Pete Snyder</a> (<a class="p-org org" href="https://brave.com">Brave</a>)
+      <dd class="editor p-author h-card vcard" data-editor-id="109401"><a class="p-name fn u-email email" href="mailto:pes@brave.com">Peter Snyder</a> (<a class="p-org org" href="https://brave.com">Brave Software</a>)
       <dt class="editor">Former Editors:
       <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://apple.com">Jason Novak</a> (<span class="p-org org">Apple Inc.</span>)
       <dd class="editor p-author h-card vcard"><a class="p-name fn u-url url" href="https://lukaszolejnik.com">Lukasz Olejnik</a> (<span class="p-org org">Independent researcher</span>)
       <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:mkwst@google.com">Mike West</a> (<span class="p-org org">Google Inc.</span>)
+      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:yan@brave.com">Yan Zhu</a> (<span class="p-org org">Yahoo Inc.</span>)
      </dl>
     </div>
    </details>
@@ -578,6 +579,7 @@ This document is also made available under the <a href="http://www.w3.org/Consor
       <li><a href="#drop-feature"><span class="secno">4.6</span> <span class="content"> Drop the feature </span></a>
       <li><a href="#privacy-impact-assessment"><span class="secno">4.7</span> <span class="content"> Making a privacy impact assessment </span></a>
      </ol>
+    <li><a href="#acknowledgements"><span class="secno"></span> <span class="content">Acknowledgements</span></a>
     <li>
      <a href="#w3c-conformance"><span class="secno"></span> <span class="content">Conformance</span></a>
      <ol class="toc">
@@ -1035,7 +1037,7 @@ same-origin checks in an early U2F API. <a data-link-type="biblio" href="#biblio
 preflights before granting access to a device, and requires user agents to
 involve the user with a permission request of some kind. </p>
    <p class="example" id="example-01b5b20a"><a class="self-link" href="#example-01b5b20a"></a> Likewise, the Web Bluetooth <a data-link-type="biblio" href="#biblio-web-bluetooth">[WEB-BLUETOOTH]</a> has an extensive discussion of
-such issues in <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy"><cite>Web Bluetooth</cite> § 2 Security and privacy considerations</a>, which is worth
+such issues in <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy"><cite>Web Bluetooth</cite> § 2 Security considerations</a>, which is worth
 reading as an example for similar work. </p>
    <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb">[WEBUSB]</a> addresses these risks through a combination of user mediation /
 prompting, secure origins, and feature policy.
@@ -1530,6 +1532,50 @@ Research has shown that sites often do not comply with security/privacy
 requirements in specifications.  For example, in <a data-link-type="biblio" href="#biblio-doty-geolocation">[DOTY-GEOLOCATION]</a>, it was
 found that none of the studied websites informed users of their privacy
 practices before the site prompted for location.</p>
+   <h2 class="no-num heading settled" id="acknowledgements"><span class="content">Acknowledgements</span><a class="self-link" href="#acknowledgements"></a></h2>
+   <p>Many thanks to
+Alice Boxhall,
+Alex Russell,
+Anne van Kesteren,
+Chris Cunningham,
+Coralie Mercier,
+Corentin Wallez,
+David Baron,
+Domenic Denicola,
+Dominic Battre,
+Jeffrey Yasskin,
+Jeremy Roman,
+Jonathan Kingston,
+Marcos Caceres,
+Marijn Kruisselbrink,
+Mark Nottingham,
+Martin Thomson,
+Michael(tm) Smith,
+Mike Perry,
+Nick Doty,
+Robert Linder,
+Piotr Bialecki,
+Samuel Weiler,
+Tantek Çelik,
+Thomas Steiner,
+Wendy Seltzer,
+and
+the many current and former participants in PING and the TAG
+for their contributions to this document.</p>
+   <p>Special thanks to
+Rakina Zata Amni
+for her edits which help spec authors take the <abbr title="back/forward cache">bfcache</abbr> into account.</p>
+   <p>Mike West
+wrote the initial version of this document
+and edited it for a number of years.
+Yan Zhu
+took over from Mike and, in turn,
+Jason Novak
+and
+Lukasz Olejnik
+took it over from her.
+The current editors are indebted to all of their hard work.
+We hope we haven’t made it (much) worse.</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="w3c-conformance"><span class="content">Conformance</span><a class="self-link" href="#w3c-conformance"></a></h2>
@@ -1751,7 +1797,7 @@ practices before the site prompted for location.</p>
    <dt id="biblio-adding-permission">[ADDING-PERMISSION]
    <dd>Nick Doty. <a href="https://github.com/w3cping/adding-permissions"><cite>Adding another permission? A guide</cite></a>. URL: <a href="https://github.com/w3cping/adding-permissions">https://github.com/w3cping/adding-permissions</a>
    <dt id="biblio-battery-status">[BATTERY-STATUS]
-   <dd>Anssi Kostiainen; Mounir Lamouri. <a href="https://www.w3.org/TR/battery-status/"><cite>Battery Status API</cite></a>. 9 November 2021. WD. URL: <a href="https://www.w3.org/TR/battery-status/">https://www.w3.org/TR/battery-status/</a>
+   <dd>Anssi Kostiainen; Mounir Lamouri; Raphael Kubo da Costa. <a href="https://www.w3.org/TR/battery-status/"><cite>Battery Status API</cite></a>. 3 February 2022. WD. URL: <a href="https://www.w3.org/TR/battery-status/">https://www.w3.org/TR/battery-status/</a>
    <dt id="biblio-comcast">[COMCAST]
    <dd>David Kravets. <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/"><cite>Comcast Wi-Fi serving self-promotional ads via JavaScript injection</cite></a>. URL: <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/</a>
    <dt id="biblio-cors">[CORS]
@@ -1773,7 +1819,7 @@ practices before the site prompted for location.</p>
    <dt id="biblio-fullscreen">[FULLSCREEN]
    <dd>Philip Jägenstedt. <a href="https://fullscreen.spec.whatwg.org/"><cite>Fullscreen API Standard</cite></a>. Living Standard. URL: <a href="https://fullscreen.spec.whatwg.org/">https://fullscreen.spec.whatwg.org/</a>
    <dt id="biblio-gamepad">[GAMEPAD]
-   <dd>Steve Agoston; et al. <a href="https://www.w3.org/TR/gamepad/"><cite>Gamepad</cite></a>. 5 August 2021. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
+   <dd>Steve Agoston; James Hollyer; Matthew Reynolds. <a href="https://www.w3.org/TR/gamepad/"><cite>Gamepad</cite></a>. 11 February 2022. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/"><cite>Generic Sensor API</cite></a>. 15 December 2021. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
    <dt id="biblio-geolocation-api">[GEOLOCATION-API]
@@ -1789,7 +1835,7 @@ practices before the site prompted for location.</p>
    <dt id="biblio-olejnik-payments">[OLEJNIK-PAYMENTS]
    <dd>Lukasz Olejnik. <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/"><cite>Privacy of Web Request API</cite></a>. URL: <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">https://blog.lukaszolejnik.com/privacy-of-web-request-api/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Marcos Caceres; Mike Taylor. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 7 December 2021. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dd>Marcos Caceres; Mike Taylor. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 11 March 2022. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
    <dt id="biblio-permissions-policy">[PERMISSIONS-POLICY]
    <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/"><cite>Permissions Policy</cite></a>. 16 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
    <dt id="biblio-rfc3552">[RFC3552]
