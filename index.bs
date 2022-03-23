@@ -7,10 +7,11 @@ Shortname: security-privacy-questionnaire
 Repository: w3ctag/security-questionnaire
 Level: None
 Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
-Editor: Pete Snyder, w3cid 109401, Brave https://brave.com, psnyder@brave.com
+Editor: Peter Snyder, w3cid 109401, Brave Software https://brave.com, pes@brave.com
 Former Editor: Jason Novak, Apple Inc., https://apple.com
 Former Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
+Former Editor: Yan Zhu, Yahoo Inc., yan@brave.com
 Group: tag
 Markup Shorthands: css no, markdown yes
 Local Boilerplate: status yes
@@ -1195,6 +1196,64 @@ Research has shown that sites often do not comply with security/privacy
 requirements in specifications.  For example, in [[DOTY-GEOLOCATION]], it was
 found that none of the studied websites informed users of their privacy
 practices before the site prompted for location.
+
+<h2 id="acknowledgements" class="no-num">Acknowledgements</h2>
+
+<!-- Current TAG participants who would otherwise be ackked are
+     commented out. Please uncomment them when their term on the TAG
+     ends! -->
+Many thanks to
+Alice Boxhall,
+Alex Russell,
+Anne van Kesteren,
+Chris Cunningham,
+Coralie Mercier,
+Corentin Wallez,
+<!-- Daniel Appelquist, -->
+David Baron,
+Domenic Denicola,
+Dominic Battre,
+<!-- Hadley Beeman, -->
+Jeffrey Yasskin,
+Jeremy Roman,
+Jonathan Kingston,
+<!-- Kenneth Rohde Christiansen, -->
+Marcos Caceres,
+Marijn Kruisselbrink,
+Mark Nottingham,
+Martin Thomson,
+Michael(tm) Smith,
+Mike Perry,
+Nick Doty,
+Robert Linder,
+Piotr Bialecki,
+<!-- Rossen Atanassov, -->
+Samuel Weiler,
+<!-- Sangwhan Moon, -->
+Tantek Çelik,
+Thomas Steiner,
+<!-- Yves Lafon, -->
+Wendy Seltzer,
+and
+the many current and former participants in PING and the TAG
+for their contributions to this document.
+
+Special thanks to
+Rakina Zata Amni
+for her edits which help spec authors take the <abbr
+title="back/forward cache">bfcache</abbr> into account.
+
+Mike West
+wrote the initial version of this document
+and edited it for a number of years.
+Yan Zhu
+took over from Mike and, in turn,
+Jason Novak
+and
+Lukasz Olejnik
+took it over from her.
+The current editors are indebted to all of their hard work.
+We hope we haven't made it (much) worse.
 
 <pre class="anchors">
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMASCRIPT
