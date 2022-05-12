@@ -94,7 +94,7 @@ from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
 please provide the TAG with answers
 to the questions in this document.
 [This Markdown
-template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown)
+template](https://github.com/w3ctag/security-questionnaire/blob/main/questionnaire.markdown)
 may be useful when doing so.
 
 
