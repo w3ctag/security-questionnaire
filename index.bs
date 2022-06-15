@@ -86,7 +86,7 @@ document will, we hope, inform your writing of those sections. It is not
 appropriate, however, to merely copy this questionnaire into those sections.
 Instructions for requesting security and privacy reviews can be
 found in the document
-<cite>[How to do Wide Review](https://w3c.github.io/documentreview/#how_to_get_horizontal_review)</cite>.
+<cite>[How to do Wide Review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review)</cite>.
 
 When requesting
 a [review](https://github.com/w3ctag/design-reviews)
