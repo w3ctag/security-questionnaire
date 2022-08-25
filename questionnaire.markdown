@@ -34,5 +34,7 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 >      Considerations" sections?
 > 16.  Do features in your specification enable origins to downgrade default
 >      security protections?
-> 17.  How does your feature handle non-"fully active" documents?
+> 17.  What happens when a document that uses your feature is kept alive in BFCache
+>      (instead of getting destroyed) after navigation, and potentially gets reused
+>      on future navigations back to the document?
 > 18.  What should this questionnaire have asked?
