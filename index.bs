@@ -760,7 +760,8 @@ and to advertise a simple mechanism to exit fullscreen (typically the `Esc` key)
 </h3>
 
 After a user navigates away from a document,
-the document might stay around in a non-"[=Document/fully active=]" (~BFCached) state,
+the document might stay around in a non-"[=Document/fully active=]" state
+and kept in the "back/forward cache (BFCache)",
 and might be reused when the user navigates back to the document.
 From the user’s perspective,
 the non-[=Document/fully active=] document is already discarded
@@ -776,6 +777,11 @@ and doing cleanup as necessary.
 
 For more detailed guidance on how to handle non-[=Document/fully active=] documents,
 see [[DESIGN-PRINCIPLES#non-fully-active]] and the [Supporting BFCached Documents](TODO) guide.
+
+Note: It is possible for a document to become non-[=Document/fully active=] for other reasons not related to BFcaching,
+such as when the iframe holding the document gets detached.
+This guideline only focuses on the case where BFCache is involved,
+and not other cases that might cause a document to become non-[=Document/fully active=].
 
 <div class=example>
 Screen WakeLock API [releases the wake lock](https://w3c.github.io/screen-wake-lock/#handling-document-loss-of-full-activity)

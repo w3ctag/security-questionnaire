@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 5c7bc9381, updated Wed May 12 18:18:08 2021 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="c95af8c8e5ead43ac936cc65a80f76d7dfd9db6d" name="document-revision">
+  <meta content="d9cc8e2a3322be4fa124afb9ae4323bf9ee53d46" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1925,7 +1925,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2022-08-25">25 August 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2022-09-06">6 September 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2626,7 +2626,8 @@ and to advertise a simple mechanism to exit fullscreen (typically the <code>Esc<
   (instead of getting destroyed) after navigation, and potentially gets reused
   on future navigations back to the document? </span><a class="self-link" href="#bfcache"></a></h3>
    <p>After a user navigates away from a document,
-the document might stay around in a non-"<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active">fully active</a>" (~BFCached) state,
+the document might stay around in a non-"<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active">fully active</a>" state
+and kept in the "back/forward cache (BFCache)",
 and might be reused when the user navigates back to the document.
 From the user’s perspective,
 the non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active①">fully active</a> document is already discarded
@@ -2640,6 +2641,10 @@ consider listening to changes to the <a data-link-type="dfn" href="https://html.
 and doing cleanup as necessary.</p>
    <p>For more detailed guidance on how to handle non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active③">fully active</a> documents,
 see <a href="https://www.w3.org/TR/design-principles/#non-fully-active">Web Platform Design Principles §non-fully-active</a> and the <a href="TODO">Supporting BFCached Documents</a> guide.</p>
+   <p class="note" role="note"><span>Note:</span> It is possible for a document to become non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active④">fully active</a> for other reasons not related to BFcaching,
+such as when the iframe holding the document gets detached.
+This guideline only focuses on the case where BFCache is involved,
+and not other cases that might cause a document to become non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active⑤">fully active</a>.</p>
    <div class="example" id="example-2c40fd60"><a class="self-link" href="#example-2c40fd60"></a> Screen WakeLock API <a href="https://w3c.github.io/screen-wake-lock/#handling-document-loss-of-full-activity">releases the wake lock</a> when a document becomes no longer fully active. </div>
    <div class="example" id="example-774c010a"><a class="self-link" href="#example-774c010a"></a> <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation" id="ref-for-sticky-activation">Sticky activation</a> is determined by the "last activation timestamp",
 which is tied to a document.
@@ -3139,7 +3144,7 @@ We hope we haven’t made it (much) worse.</p>
     <li><a href="#ref-for-fully-active">2.17. 
   What happens when a document that uses your feature is kept alive in BFCache
   (instead of getting destroyed) after navigation, and potentially gets reused
-  on future navigations back to the document? </a> <a href="#ref-for-fully-active①">(2)</a> <a href="#ref-for-fully-active②">(3)</a> <a href="#ref-for-fully-active③">(4)</a>
+  on future navigations back to the document? </a> <a href="#ref-for-fully-active①">(2)</a> <a href="#ref-for-fully-active②">(3)</a> <a href="#ref-for-fully-active③">(4)</a> <a href="#ref-for-fully-active④">(5)</a> <a href="#ref-for-fully-active⑤">(6)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-the-iframe-element">
