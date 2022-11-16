@@ -37,5 +37,5 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 > 17.  What happens when a document that uses your feature is kept alive in BFCache
 >      (instead of getting destroyed) after navigation, and potentially gets reused
 >      on future navigations back to the document?
-> 18.  What happens when a document that uses your feature gets detached?
+> 18.  What happens when a document that uses your feature gets disconnected?
 > 19.  What should this questionnaire have asked?
