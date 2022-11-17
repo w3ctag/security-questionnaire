@@ -4,15 +4,15 @@ This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/)
 
 For your convenience, a copy of the questionnaire's questions is quoted here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
 
-> 01.  What information might this feature expose to Web sites or other parties,
->      and for what purposes is that exposure necessary?
+> 01.  What information does this feature expose,
+>      and for what purposes?
 > 02.  Do features in your specification expose the minimum amount of information
->      necessary to enable their intended uses?
-> 03.  How do the features in your specification deal with personal information,
+>      necessary to implement the intended functionality?
+> 03.  Do the features in your specification expose personal information,
 >      personally-identifiable information (PII), or information derived from
->      them?
+>      either?
 > 04.  How do the features in your specification deal with sensitive information?
-> 05.  Do the features in your specification introduce new state for an origin
+> 05.  Do the features in your specification introduce state
 >      that persists across browsing sessions?
 > 06.  Do the features in your specification expose information about the
 >      underlying platform to origins?
