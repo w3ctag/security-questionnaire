@@ -776,7 +776,7 @@ consider listening to changes to the [=Document/fully active=] state
 and doing cleanup as necessary.
 
 For more detailed guidance on how to handle BFCached documents,
-see [[DESIGN-PRINCIPLES#non-fully-active]] and the [Supporting BFCached Documents](TODO) guide.
+see [[DESIGN-PRINCIPLES#non-fully-active]] and the [Supporting BFCached Documents](https://w3ctag.github.io/bfcache-guide/) guide.
 
 Note: It is possible for a document to become non-[=Document/fully active=] for other reasons not related to BFcaching,
 such as when the iframe holding the document gets disconnected.
