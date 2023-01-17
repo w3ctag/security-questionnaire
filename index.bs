@@ -656,8 +656,8 @@ Most browsers implement a private browsing or incognito mode,
 though they vary significantly in what functionality they provide and
 how that protection is described to users [[WU-PRIVATE-BROWSING]].
 
-One commonality is that they provide a different set of state
-than the browser's 'normal' state.
+One commonality is that they provide a different set of mode
+than the browser's 'normal' mode.
 
 Do features in this spec provide information that would allow for the
 correlation of a single user's activity across normal and private
