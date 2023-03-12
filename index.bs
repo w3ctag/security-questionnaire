@@ -449,7 +449,7 @@ when considering exposing such data to origins.
 </p>
 
 <p class=example>
-The {{NavigatorPlugins}} list almost never changes.
+The [=PDF viewer plugin objects=] list almost never changes.
 Some user agents have [disabled direct enumeration of the plugin list](https://bugzilla.mozilla.org/show_bug.cgi?id=757726)
 to reduce the fingerprinting harm of this interface.
 </p>
@@ -1278,14 +1278,11 @@ The current editors are indebted to all of their hard work.
 We hope we haven't made it (much) worse.
 
 <pre class="anchors">
-urlPrefix: https://tc39.github.io/ecma262/; spec: ECMASCRIPT
-    text: eval(); url: #sec-eval-x; type: method
-urlPrefix: https://privacycg.github.io/storage-access/; spec: STORAGE-ACCESS
-    text: first-party-site context; url: #first-party-site-context; type: dfn
-urlPrefix: https://privacycg.github.io/storage-access/; spec: STORAGE-ACCESS
-    text: third-party context; url: #third-party-context; type: dfn
 urlPrefix: https://www.w3.org/TR/encrypted-media/; spec: ENCRYPTED-MEDIA
     text: content decryption module; url: #cdm; type: dfn
+urlPrefix: https://privacycg.github.io/storage-access/; spec: STORAGE-ACCESS
+    text: first-party-site context; url: #first-party-site-context; type: dfn
+    text: third-party context; url: #third-party-context; type: dfn
 </pre>
 
 <pre class="link-defaults">
