@@ -6,11 +6,9 @@
   <meta content="ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
+  <meta content="Bikeshed version d9f9c3533, updated Fri Mar 10 11:31:29 2023 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="dc1a7f47aa7cd686e1583c145f846b9cbd514188" name="document-revision">
 <style>/* style-autolinks */
-
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
     font-size: inherit;
@@ -70,7 +68,8 @@ pre .property::before, pre .property::after {
 
 [data-link-type=biblio] {
     white-space: pre;
-}</style>
+}
+</style>
 <style>/* style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
@@ -179,9 +178,9 @@ pre .property::before, pre .property::after {
     --outdated-shadow: red;
 
     --editedrec-bg: darkorange;
-}</style>
+}
+</style>
 <style>/* style-counters */
-
 body {
     counter-reset: example figure issue;
 }
@@ -208,9 +207,9 @@ figcaption {
 }
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
-}</style>
+}
+</style>
 <style>/* style-dfn-panel */
-
 :root {
     --dfnpanel-bg: #ddd;
     --dfnpanel-text: var(--text);
@@ -218,10 +217,10 @@ figcaption:not(.no-marker)::before {
 .dfn-panel {
     position: absolute;
     z-index: 35;
-    height: auto;
-    width: -webkit-fit-content;
-    width: fit-content;
+    width: 20em;
+    min-width: min-content;
     max-width: 300px;
+    height: auto;
     max-height: 500px;
     overflow: auto;
     padding: 0.5em 0.75em;
@@ -229,6 +228,7 @@ figcaption:not(.no-marker)::before {
     background: var(--dfnpanel-bg);
     color: var(--dfnpanel-text);
     border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
 }
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
@@ -251,7 +251,6 @@ figcaption:not(.no-marker)::before {
 .dfn-paneled { cursor: pointer; }
 </style>
 <style>/* style-issues */
-
 a[href].issue-return {
     float: right;
     float: inline-end;
@@ -261,7 +260,6 @@ a[href].issue-return {
 }
 </style>
 <style>/* style-md-lists */
-
 /* This is a weird hack for me not yet following the commonmark spec
    regarding paragraph and lists. */
 [data-md] > :first-child {
@@ -269,7 +267,8 @@ a[href].issue-return {
 }
 [data-md] > :last-child {
     margin-bottom: 0;
-}</style>
+}
+</style>
 <style>/* style-selflinks */
 
 :root {
@@ -296,6 +295,14 @@ a.self-link:hover {
 }
 .heading > a.self-link {
     font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
 }
 li > a.self-link {
     left: calc(-1 * (3.5rem - 26px) - 2em);
@@ -448,12 +455,13 @@ dfn > a.self-link::before      { content: "#"; }
         --dfnpanel-bg: #222;
         --dfnpanel-text: var(--text);
     }
-}</style>
+}
+</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2022-04-11">11 April 2022</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-03-15">15 March 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -476,9 +484,7 @@ dfn > a.self-link::before      { content: "#"; }
     </div>
    </details>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="cc0-80x15.png" title="CC0"></a> To the extent
-possible under law, the editors have waived all copyright and related or neighboring rights to this work.
-This document is also made available under the <a href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">W3C Software and Document License</a>. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -490,21 +496,20 @@ This document is also made available under the <a href="http://www.w3.org/Consor
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
-   <p><em>This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/">W3C technical reports index</a> at https://www.w3.org/TR/.</em></p>
-   <p>This document was published by the <a href="https://www.w3.org/groups/other/tag">Technical Architecture Group</a> and the <a href="https://www.w3.org/groups/ig/privacy">Privacy Interest Group</a> as a Group Note using the <a href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">Note track</a>.</p>
-   <p>Group Notes are not endorsed by <abbr title="World Wide Web Consortium">W3C</abbr> nor its Members. </p>
-   <p> This is a draft document and may be updated, replaced or obsoleted
-    by other documents at any time. It is inappropriate to cite
-    this document as other than work in progress. </p>
+   <p> <em>This section describes the status of this document at the time of its
+    publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the
+    latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web
+    Consortium">W3C</abbr> technical reports index</a>.</em> </p>
+   <p> This document was published by the <a href="https://www.w3.org/2001/tag/">W3C Technical Architecture Group
+    (TAG)</a> as an Editor’s Draft.
+    Publication as an Editor’s Draft does not imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. This is a
+    draft document and may be updated, replaced or obsoleted by other documents
+    at any time. It is inappropriate to cite this document as other than work in
+    progress. </p>
    <p></p>
    <p> Feedback and comments on this document are welcome. Please <a href="https://github.com/w3ctag/security-questionnaire/issues">file an issue</a> in this document’s <a href="https://github.com/w3ctag/security-questionnaire/">GitHub repository</a>. </p>
-   <p data-deliverer="34270,52497"> This document was produced by groups operating under the <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide
-    Web Consortium">W3C</abbr> Patent Policy</a>. The <abbr title="World Wide Web
-    Consortium">W3C</abbr> maintains a <a href="https://www.w3.org/2004/01/pp-impl/52497/status" rel="disclosure">public list of any patent disclosures</a> made in
-    connection with PING deliverables; that page also includes
-    instructions for disclosing a patent. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2021/Process-20211102/" id="w3c_process_revision">2 November 2021 W3C
-    Process Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2019/Process-20190301/" id="w3c_process_revision">1 March 2019 W3C Process
+    Document</a>. </p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -550,8 +555,11 @@ This document is also made available under the <a href="http://www.w3.org/Consor
   Considerations" sections? </span></a>
       <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Do features in your specification enable origins to downgrade default
   security protections? </span></a>
-      <li><a href="#non-fully-active"><span class="secno">2.17</span> <span class="content"> How does your feature handle non-"fully active" documents? </span></a>
-      <li><a href="#missing-questions"><span class="secno">2.18</span> <span class="content"> What should this questionnaire have asked? </span></a>
+      <li><a href="#bfcache"><span class="secno">2.17</span> <span class="content"> What happens when a document that uses your feature is kept alive in BFCache
+  (instead of getting destroyed) after navigation, and potentially gets reused
+  on future navigations back to the document? </span></a>
+      <li><a href="#non-fully-active"><span class="secno">2.18</span> <span class="content"> What happens when a document that uses your feature gets disconnected? </span></a>
+      <li><a href="#missing-questions"><span class="secno">2.19</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
     <li>
      <a href="#threats"><span class="secno">3</span> <span class="content">Threat Models</span></a>
@@ -631,10 +639,10 @@ to fix the issues.</p>
 Periodically revisit this questionnaire and continue to consider the questions,
 particularly as a design changes over time.</p>
    <h3 class="heading settled" data-level="1.2" id="resources"><span class="secno">1.2. </span><span class="content">Additional resources</span><a class="self-link" href="#resources"></a></h3>
-   <p>The Mitigating Browser Fingerprinting in Web Specifications <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a> document published by PING goes into
+   <p>The Mitigating Browser Fingerprinting in Web Specifications <a data-link-type="biblio" href="#biblio-fingerprinting-guidance" title="Mitigating Browser Fingerprinting in Web Specifications">[FINGERPRINTING-GUIDANCE]</a> document published by PING goes into
 further depth about browser fingerprinting and should be considered in
 parallel with this document.</p>
-   <p>The IETF’s RFC about privacy considerations, <a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a>, is a
+   <p>The IETF’s RFC about privacy considerations, <a data-link-type="biblio" href="#biblio-rfc6973" title="Privacy Considerations for Internet Protocols">[RFC6973]</a>, is a
 wonderful resource, particularly section 7.</p>
    <h3 class="heading settled" data-level="1.3" id="reviews"><span class="secno">1.3. </span><span class="content">TAG, PING, security reviews and this questionnaire</span><a class="self-link" href="#reviews"></a></h3>
    <p>Before requesting
@@ -665,7 +673,7 @@ If so, how?</p>
    <p>See also</p>
    <ul>
     <li data-md>
-     <p><a href="https://www.w3.org/TR/design-principles/#priority-of-constituencies">Web Platform Design Principles § priority-of-constituencies</a></p>
+     <p><a href="https://w3ctag.github.io/design-principles/#priority-of-constituencies">Web Platform Design Principles § priority-of-constituencies</a></p>
    </ul>
    <p>When answering this question, please consider each of these four possible
 areas of information disclosure / sharing.</p>
@@ -701,9 +709,9 @@ exposing less information?</p>
     <li data-md>
      <p><a href="#data-minimization">§ 4.1 Data Minimization</a></p>
    </ul>
-   <p class="example" id="example-416d4171"><a class="self-link" href="#example-416d4171"></a> Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> unintentionally exposed redirect targets
+   <p class="example" id="example-416d4171"><a class="self-link" href="#example-416d4171"></a> Content Security Policy <a data-link-type="biblio" href="#biblio-csp" title="Content Security Policy Level 3">[CSP]</a> unintentionally exposed redirect targets
 cross-origin by allowing one origin to infer details about another origin
-through violation reports (see <a data-link-type="biblio" href="#biblio-homakov">[HOMAKOV]</a>). The working group eventually
+through violation reports (see <a data-link-type="biblio" href="#biblio-homakov" title="Using Content-Security-Policy for Evil">[HOMAKOV]</a>). The working group eventually
 mitigated the risk by reducing a policy’s granularity after a redirect. </p>
    <h3 class="question heading settled" data-level="2.3" id="personal-data"><span class="secno">2.3. </span><span class="content"> Do the features in your specification expose personal information,
   personally-identifiable information (PII), or information derived from
@@ -712,7 +720,7 @@ mitigated the risk by reducing a policy’s granularity after a redirect. </p>
 (for example, their home address),
 or information that could be used to identify a user,
 such as an alias, email address, or identification number.</p>
-   <p class="note" role="note"><span>Note:</span> Personal information is
+   <p class="note" role="note"><span class="marker">Note:</span> Personal information is
 distinct from personally identifiable information
 (<abbr title="personally identifiable information">PII</abbr>).
 PII is a legal concept,
@@ -733,12 +741,12 @@ should not directly expose this biometric data to the web.
 Instead,
 it can use the biometric data
 to look up or generate some temporary key which is not shared across origins
-which can then be safely exposed to the origin. <a data-link-type="biblio" href="#biblio-webauthn">[WEBAUTHN]</a> </p>
+which can then be safely exposed to the origin. <a data-link-type="biblio" href="#biblio-webauthn" title="Web Authentication:An API for accessing Public Key Credentials Level 1">[WEBAUTHN]</a> </p>
    <p>Personal information, PII, or their derivatives
 should not be exposed to origins
 without <a href="https://w3ctag.github.io/design-principles/#consent">meaningful user consent</a>.
 Many APIs
-use the Permissions API to acquire meaningful user consent. <a data-link-type="biblio" href="#biblio-permissions">[PERMISSIONS]</a></p>
+use the Permissions API to acquire meaningful user consent. <a data-link-type="biblio" href="#biblio-permissions" title="Permissions">[PERMISSIONS]</a></p>
    <p>Keep in mind
 that each permission prompt
 added to the web platform
@@ -746,7 +754,7 @@ increases the risk
 that users will ignore
 the contents of all permission prompts.
 Before adding a permission prompt, consider your options for using
-a less obtrusive way to gain meaningful user consent. <a data-link-type="biblio" href="#biblio-adding-permission">[ADDING-PERMISSION]</a></p>
+a less obtrusive way to gain meaningful user consent. <a data-link-type="biblio" href="#biblio-adding-permission" title="Adding another permission? A guide">[ADDING-PERMISSION]</a></p>
    <p class="example" id="example-e2335d65"><a class="self-link" href="#example-e2335d65"></a> <code>&lt;input type=file></code> can be used to upload
 documents containing personal information
 to websites.
@@ -761,7 +769,7 @@ without a separate permissions prompt. </p>
     <li data-md>
      <p><a href="#user-mediation">§ 4.3 Explicit user mediation</a></p>
     <li data-md>
-     <p><a href="https://www.w3.org/TR/design-principles/#consent">Web Platform Design Principles § consent</a></p>
+     <p><a href="https://w3ctag.github.io/design-principles/#consent">Web Platform Design Principles § consent</a></p>
    </ul>
    <h3 class="question heading settled" data-level="2.4" id="sensitive-data"><span class="secno">2.4. </span><span class="content"> How do the features in your specification deal with sensitive information? </span><a class="self-link" href="#sensitive-data"></a></h3>
    <p>Personal information is not the only kind of sensitive information.
@@ -805,7 +813,7 @@ to mitigate the risk of exposing the information.</p>
     <a class="self-link" href="#example-faf2460c"></a> 
     <p>The Credential Management API allows sites
 to request a user’s credentials
-from a password manager. <a data-link-type="biblio" href="#biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]</a> If it exposed the user’s credentials to JavaScript,
+from a password manager. <a data-link-type="biblio" href="#biblio-credential-management-1" title="Credential Management Level 1">[CREDENTIAL-MANAGEMENT-1]</a> If it exposed the user’s credentials to JavaScript,
 and if the page using the API were vulnerable to <a data-link-type="dfn" href="#cross-site-scripting-attacks" id="ref-for-cross-site-scripting-attacks">XSS</a> attacks,
 the user’s credentials could be leaked to attackers.</p>
     <p>The Credential Management API
@@ -815,7 +823,7 @@ Instead, it exposes
 an opaque <code class="idl"><a data-link-type="idl" href="https://xhr.spec.whatwg.org/#formdata" id="ref-for-formdata">FormData</a></code> object
 which cannot be read by JavaScript.
 The spec also recommends
-that sites configure Content Security Policy <a data-link-type="biblio" href="#biblio-csp">[CSP]</a> with reasonable <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#connect-src" id="ref-for-connect-src">connect-src</a> and <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#form-action" id="ref-for-form-action">form-action</a> values
+that sites configure Content Security Policy <a data-link-type="biblio" href="#biblio-csp" title="Content Security Policy Level 3">[CSP]</a> with reasonable <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#connect-src" id="ref-for-connect-src">connect-src</a> and <a data-link-type="dfn" href="https://w3c.github.io/webappsec-csp/#form-action" id="ref-for-form-action">form-action</a> values
 to further mitigate the risk of exfiltration.</p>
    </div>
    <p>Many use cases
@@ -830,7 +838,7 @@ instead of exposing the user’s precise location.</p>
    <p>See also</p>
    <ul>
     <li data-md>
-     <p><a href="https://www.w3.org/TR/design-principles/#do-not-expose-use-of-assistive-tech">Web Platform Design Principles § do-not-expose-use-of-assistive-tech</a></p>
+     <p><a href="https://w3ctag.github.io/design-principles/#do-not-expose-use-of-assistive-tech">Web Platform Design Principles § do-not-expose-use-of-assistive-tech</a></p>
    </ul>
    <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Do the features in your specification introduce state
   that persists across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
@@ -876,7 +884,7 @@ features. Additional mitigations may be necessary to
 prevent origins from abusing caches to
 identify and track users across sites or sessions without user consent.</p>
    <p class="example" id="example-32a45432"><a class="self-link" href="#example-32a45432"></a> Platform-specific DRM implementations
-(such as <a data-link-type="dfn" href="https://www.w3.org/TR/encrypted-media/#cdm" id="ref-for-cdm">content decryption modules</a> in <a data-link-type="biblio" href="#biblio-encrypted-media">[ENCRYPTED-MEDIA]</a>)
+(such as <a data-link-type="dfn" href="https://www.w3.org/TR/encrypted-media/#cdm" id="ref-for-cdm">content decryption modules</a> in <a data-link-type="biblio" href="#biblio-encrypted-media" title="Encrypted Media Extensions">[ENCRYPTED-MEDIA]</a>)
 might expose origin-specific information
 in order to help identify users
 and determine whether they ought to be granted access
@@ -902,7 +910,7 @@ can be used to uniquely identify a user across those origins.
 This may be direct
 (when the piece of information is unique)
 or indirect
-(because the data may be combined with other data to form a fingerprint). <a data-link-type="biblio" href="#biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]</a></p>
+(because the data may be combined with other data to form a fingerprint). <a data-link-type="biblio" href="#biblio-fingerprinting-guidance" title="Mitigating Browser Fingerprinting in Web Specifications">[FINGERPRINTING-GUIDANCE]</a></p>
    <p>When considering whether or not to expose such information,
 specs and user agents
 should not consider the information in isolation,
@@ -928,7 +936,7 @@ See <a href="#mitigations">§ 4 Mitigation Strategies</a> for more.</p>
 and does not define adequate mitigations,
 you should ensure that such information
 is not revealed to origins
-without <a href="https://www.w3.org/TR/design-principles/#consent">meaningful user consent</a>,
+without <a href="https://w3ctag.github.io/design-principles/#consent">meaningful user consent</a>,
 and
 you should clearly describe this
 in your specification’s Security and Privacy Considerations sections.</p>
@@ -937,14 +945,14 @@ enables some applications to improve performance.
 It’s also valuable fingerprinting data.
 This privacy risk must be carefully weighed
 when considering exposing such data to origins. </p>
-   <p class="example" id="example-5a75fd5f"><a class="self-link" href="#example-5a75fd5f"></a> The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins" id="ref-for-navigatorplugins">NavigatorPlugins</a></code> list almost never changes.
+   <p class="example" id="example-ac20a854"><a class="self-link" href="#example-ac20a854"></a> The <a data-link-type="dfn">PDF viewer plugin objects</a> list almost never changes.
 Some user agents have <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=757726">disabled direct enumeration of the plugin list</a> to reduce the fingerprinting harm of this interface. </p>
    <p>See also:</p>
    <ul>
     <li data-md>
-     <p><a href="https://www.w3.org/TR/design-principles/#device-ids">Use care when exposing identifying information about devices</a></p>
+     <p><a href="https://w3ctag.github.io/design-principles/#device-ids">Use care when exposing identifying information about devices</a></p>
     <li data-md>
-     <p><a href="https://www.w3.org/TR/design-principles/#device-enumeration">Use care when exposing APIs for selecting or enumerating devices</a></p>
+     <p><a href="https://w3ctag.github.io/design-principles/#device-enumeration">Use care when exposing APIs for selecting or enumerating devices</a></p>
    </ul>
    <h3 class="question heading settled" data-level="2.7" id="send-to-platform"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin to send data to the underlying
   platform? </span><a class="self-link" href="#send-to-platform"></a></h3>
@@ -982,12 +990,12 @@ the data could even be used as a cross-browser, or potentially even a cross-devi
    <p class="example" id="example-e79c5eae"><a class="self-link" href="#example-e79c5eae"></a> Researchers discovered that
 it’s possible to use
 a sufficiently fine-grained gyroscope
-as a microphone <a data-link-type="biblio" href="#biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]</a>.
+as a microphone <a data-link-type="biblio" href="#biblio-gyrospeechrecognition" title="Gyrophone: Recognizing Speech from Gyroscope Signals">[GYROSPEECHRECOGNITION]</a>.
 This can be mitigated by lowering the gyroscope’s sample rates. </p>
    <p class="example" id="example-b7a8d534"><a class="self-link" href="#example-b7a8d534"></a> Ambient light sensors could allow an attacker to learn whether or not a
-user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als">[OLEJNIK-ALS]</a>. </p>
+user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als" title="Privacy analysis of Ambient Light Sensors">[OLEJNIK-ALS]</a>. </p>
    <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
-serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery">[OLEJNIK-BATTERY]</a>. </p>
+serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery" title="The leaking battery: A privacy analysis of the HTML5 Battery Status API">[OLEJNIK-BATTERY]</a>. </p>
    <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Do features in this specification enable new script execution/loading
   mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
    <p>New mechanisms for executing or loading scripts have a risk of enabling novel attack surfaces.
@@ -1025,17 +1033,17 @@ clearing cookies and other stateful tracking mechanisms).</p>
      <p>Direct connections might be also be used to bypass security checks that
 other APIs would provide. For example, attackers used the WebUSB API to
 access others sites' credentials on a hardware security, bypassing
-same-origin checks in an early U2F API. <a data-link-type="biblio" href="#biblio-yubikey-attack">[YUBIKEY-ATTACK]</a></p>
+same-origin checks in an early U2F API. <a data-link-type="biblio" href="#biblio-yubikey-attack" title="Chrome Lets Hackers Phish Even &apos;Unphishable&apos; YubiKey Users">[YUBIKEY-ATTACK]</a></p>
    </ul>
-   <p class="example" id="example-779b6f03"><a class="self-link" href="#example-779b6f03"></a> The Network Service Discovery API <a data-link-type="biblio" href="#biblio-discovery-api">[DISCOVERY-API]</a> recommended CORS
+   <p class="example" id="example-779b6f03"><a class="self-link" href="#example-779b6f03"></a> The Network Service Discovery API <a data-link-type="biblio" href="#biblio-discovery-api" title="Network Service Discovery">[DISCOVERY-API]</a> recommended CORS
 preflights before granting access to a device, and requires user agents to
 involve the user with a permission request of some kind. </p>
-   <p class="example" id="example-01b5b20a"><a class="self-link" href="#example-01b5b20a"></a> Likewise, the Web Bluetooth <a data-link-type="biblio" href="#biblio-web-bluetooth">[WEB-BLUETOOTH]</a> has an extensive discussion of
+   <p class="example" id="example-01b5b20a"><a class="self-link" href="#example-01b5b20a"></a> Likewise, the Web Bluetooth <a data-link-type="biblio" href="#biblio-web-bluetooth" title="Web Bluetooth">[WEB-BLUETOOTH]</a> has an extensive discussion of
 such issues in <a href="https://webbluetoothcg.github.io/web-bluetooth/#security-and-privacy"><cite>Web Bluetooth</cite> § 2 Security considerations</a>, which is worth
 reading as an example for similar work. </p>
-   <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb">[WEBUSB]</a> addresses these risks through a combination of user mediation /
+   <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb" title="WebUSB API">[WEBUSB]</a> addresses these risks through a combination of user mediation /
 prompting, secure origins, and feature policy.
-See <a href="https://wicg.github.io/webusb/#security-and-privacy"><cite>WebUSB</cite> § 3 Security and Privacy Considerations</a> for more. </p>
+See <a href="https://wicg.github.io/webusb/#security-and-privacy"><cite>WebUSB API</cite> § 3 Security and Privacy Considerations</a> for more. </p>
    <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin some measure of control over
   a user agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
    <p>Features that allow for control over a user agent’s UI (e.g. full screen
@@ -1056,7 +1064,7 @@ web, how are they exposed, when, to what entities, and, how frequently are
 those temporary identifiers rotated?</p>
    <p>Example temporary identifiers include TLS Channel ID, Session Tickets, and
 IPv6 addresses.</p>
-   <p class="example" id="example-86ed6495"><a class="self-link" href="#example-86ed6495"></a> The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad">[GAMEPAD]</a> — an integer that starts
+   <p class="example" id="example-86ed6495"><a class="self-link" href="#example-86ed6495"></a> The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad" title="Gamepad">[GAMEPAD]</a> — an integer that starts
 at zero, increments, and is reset — is a good example of a privacy friendly
 temporary identifier. </p>
    <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
@@ -1076,7 +1084,7 @@ third parties are found to be abusing the functionality.</p>
   Private Browsing or Incognito mode? </span><a class="self-link" href="#private-browsing"></a></h3>
    <p>Most browsers implement a private browsing or incognito mode,
 though they vary significantly in what functionality they provide and
-how that protection is described to users <a data-link-type="biblio" href="#biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]</a>.</p>
+how that protection is described to users <a data-link-type="biblio" href="#biblio-wu-private-browsing" title="Your Secrets Are Safe: How Browsers&apos; Explanations Impact Misconceptions About Private Browsing Mode">[WU-PRIVATE-BROWSING]</a>.</p>
    <p>One commonality is that they provide a different set of state
 than the browser’s 'normal' state.</p>
    <p>Do features in this spec provide information that would allow for the
@@ -1087,10 +1095,10 @@ following a private browsing / incognito mode session ending?</p>
    <p>There has been research into both:</p>
    <ul>
     <li data-md>
-     <p>Detecting whether a user agent is in private browsing mode <a data-link-type="biblio" href="#biblio-rivera">[RIVERA]</a> using non-standardized methods such as <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">window.requestFileSystem()</a></code>.</p>
+     <p>Detecting whether a user agent is in private browsing mode <a data-link-type="biblio" href="#biblio-rivera" title="Detect if a browser is in Private Browsing mode">[RIVERA]</a> using non-standardized methods such as <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestFileSystem">window.requestFileSystem()</a></code>.</p>
     <li data-md>
      <p>Using features to fingerprint a browser and correlate private and
-non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments">[OLEJNIK-PAYMENTS]</a></p>
+non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments" title="Privacy of Web Request API">[OLEJNIK-PAYMENTS]</a></p>
    </ul>
    <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span><a class="self-link" href="#considerations"></a></h3>
@@ -1102,9 +1110,9 @@ questions in this document will inform your writing of those sections,
 do not merely copy this questionnaire into those sections.  Instead,
 craft language specific to your specification that will be helpful to
 implementers and web developers.</p>
-   <p><a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a> is an excellent resource to consult when considering
+   <p><a data-link-type="biblio" href="#biblio-rfc6973" title="Privacy Considerations for Internet Protocols">[RFC6973]</a> is an excellent resource to consult when considering
 privacy impacts of your specification, particularly Section 7 of
-RFC6973. <a data-link-type="biblio" href="#biblio-rfc3552">[RFC3552]</a> provides general advice as to writing Security
+RFC6973. <a data-link-type="biblio" href="#biblio-rfc3552" title="Guidelines for Writing RFC Text on Security Considerations">[RFC3552]</a> provides general advice as to writing Security
 Consideration sections, and Section 5 of RFC3552 has specific requirements.</p>
    <p>Generally, these sections should contain clear descriptions of the
 privacy and security risks for the features your spec introduces.  It is also
@@ -1130,16 +1138,16 @@ in what situations do these features allow such downgrading, and why?</p>
    <p>Can this be avoided in the first place?
 If not, are mitigations in place
 to make sure this downgrading doesn’t dramatically increase risk to users?
-For instance, <a data-link-type="biblio" href="#biblio-permissions-policy">[PERMISSIONS-POLICY]</a> defines a mechanism
+For instance, <a data-link-type="biblio" href="#biblio-permissions-policy" title="Permissions Policy">[PERMISSIONS-POLICY]</a> defines a mechanism
 that can be used by sites to prevent untrusted <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element" id="ref-for-the-iframe-element">iframe</a></code>s from using such a feature.</p>
-   <div class="example" id="example-8a7bc492"><a class="self-link" href="#example-8a7bc492"></a> The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code> setter can be used to relax the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a>.
+   <div class="example" id="example-8a7bc492"><a class="self-link" href="#example-8a7bc492"></a> The <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain" id="ref-for-dom-document-domain">document.domain</a></code> setter can be used to relax the <a data-link-type="dfn" href="#same-origin-policy" id="ref-for-same-origin-policy">same-origin policy</a>.
 The most effective mitigation
 would be to remove it from the platform (see <a href="#drop-feature">§ 4.6 Drop the feature</a>),
 though that <a href="https://github.com/mikewest/deprecating-document-domain/">may be challenging</a> for compatibility reasons. </div>
    <div class="example" id="example-3181d7d3">
     <a class="self-link" href="#example-3181d7d3"></a> The Fullscreen API enables
 a (portion of a) web page
-to expand to fill the display. <a data-link-type="biblio" href="#biblio-fullscreen">[FULLSCREEN]</a> This can hide
+to expand to fill the display. <a data-link-type="biblio" href="#biblio-fullscreen" title="Fullscreen API Standard">[FULLSCREEN]</a> This can hide
 several User Agent user interface elements
 which help users to understand
 what web page they are visiting
@@ -1151,31 +1159,48 @@ which enables sites to disable the API in <code><a data-link-type="element" href
 to display an overlay which informs the user that they have entered fullscreen,
 and to advertise a simple mechanism to exit fullscreen (typically the <code>Esc</code> key).</p>
    </div>
-   <h3 class="question heading settled" data-level="2.17" id="non-fully-active"><span class="secno">2.17. </span><span class="content"> How does your feature handle non-"fully active" documents? </span><a class="self-link" href="#non-fully-active"></a></h3>
+   <h3 class="question heading settled" data-level="2.17" id="bfcache"><span class="secno">2.17. </span><span class="content"> What happens when a document that uses your feature is kept alive in BFCache
+  (instead of getting destroyed) after navigation, and potentially gets reused
+  on future navigations back to the document? </span><a class="self-link" href="#bfcache"></a></h3>
    <p>After a user navigates away from a document,
-the document might stay around in a non-"<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active">fully active</a>" state,
+the document might stay around in a non-"<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active">fully active</a>" state
+and kept in the "back/forward cache (BFCache)",
 and might be reused when the user navigates back to the document.
 From the user’s perspective,
-the non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active①">fully active</a> document is already discarded
+the non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active①">fully active</a> document is already discarded
 and thus should not get updates/events that happen after they navigated away from it,
-especially privacy-sensitive information (e.g. geolocation).
-Also, as a document might be reused even after navigation,
+especially privacy-sensitive information (e.g. geolocation).</p>
+   <p>Also, as a document might be reused even after navigation,
 be aware that tying something to a document’s lifetime
 also means reusing it after navigations.
 If this is not desirable,
-consider listening to changes to the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active②">fully active</a> state
+consider listening to changes to the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active②">fully active</a> state
 and doing cleanup as necessary.</p>
-   <p>For more detailed guidance on how to handle non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active" id="ref-for-fully-active③">fully active</a> documents,
-see <a href="https://www.w3.org/TR/design-principles/#non-fully-active">Web Platform Design Principles § non-fully-active</a>.</p>
+   <p>For more detailed guidance on how to handle BFCached documents,
+see <a href="https://w3ctag.github.io/design-principles/#non-fully-active">Web Platform Design Principles § non-fully-active</a> and the <a href="https://w3ctag.github.io/bfcache-guide/">Supporting BFCached Documents</a> guide.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> It is possible for a document to become non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active③">fully active</a> for other reasons not related to BFcaching,
+such as when the iframe holding the document gets disconnected.
+Our advice is that all non-<a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active④">fully active</a> documents should be treated the same way.
+The only difference is that BFCached documents might become <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑤">fully active</a> again,
+whereas documents in detached iframes will stay inactive forever.
+Thus, we suggest paying extra attention to the BFCache case.</p>
    <div class="example" id="example-2c40fd60"><a class="self-link" href="#example-2c40fd60"></a> Screen WakeLock API <a href="https://w3c.github.io/screen-wake-lock/#handling-document-loss-of-full-activity">releases the wake lock</a> when a document becomes no longer fully active. </div>
-   <div class="example" id="example-9be02aaf"><a class="self-link" href="#example-9be02aaf"></a> <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation" id="ref-for-sticky-activation">Sticky activation</a> is determined by the "last activation timestamp",
+   <div class="example" id="example-774c010a"><a class="self-link" href="#example-774c010a"></a> <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation" id="ref-for-sticky-activation">Sticky activation</a> is determined by the "last activation timestamp",
 which is tied to a document.
 This means after a user triggers activation once on a document,
 the document will have sticky activation forever,
-even after the user navigated away and back to it again.
-Whether this should actually be reset when full activity is lost or not
-is still <a href="https://github.com/whatwg/html/issues/6588">under discussion</a>. </div>
-   <h3 class="question heading settled" data-level="2.18" id="missing-questions"><span class="secno">2.18. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
+even after the user navigated away and back to it again. </div>
+   <h3 class="question heading settled" data-level="2.18" id="non-fully-active"><span class="secno">2.18. </span><span class="content"> What happens when a document that uses your feature gets disconnected? </span><a class="self-link" href="#non-fully-active"></a></h3>
+    If the iframe element containing a document gets disconnected,
+the document will no longer be <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑥">fully active</a>.
+The document will never become fully active again,
+because if the iframe element gets disconnected, it will load a new document.
+The document is gone from the user’s perspective,
+and should be treated as such by your feature as well.
+You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
+as we expect BFCached and detached documents to be treated the same way,
+with the only difference being that BFCached documents can become <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑦">fully active</a> again. 
+   <h3 class="question heading settled" data-level="2.19" id="missing-questions"><span class="secno">2.19. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
    <p>This questionnaire is not exhaustive.
 After completing a privacy review,
 it may be that
@@ -1191,7 +1216,7 @@ that would have covered this aspect.</p>
    <p>To consider security and privacy it is convenient to think in terms of threat
 models, a way to illuminate the possible risks.</p>
    <p>There are some concrete privacy concerns that should be considered when
-developing a feature for the web platform <a data-link-type="biblio" href="#biblio-rfc6973">[RFC6973]</a>:</p>
+developing a feature for the web platform <a data-link-type="biblio" href="#biblio-rfc6973" title="Privacy Considerations for Internet Protocols">[RFC6973]</a>:</p>
    <ul>
     <li data-md>
      <p>Surveillance: Surveillance is the observation or monitoring of an
@@ -1241,7 +1266,7 @@ bits as well, including storing encrypted communications for later
 cryptanalysis (though that requires significantly more effort).</p>
    <ul>
     <li data-md>
-     <p>The IETF’s "Pervasive Monitoring Is an Attack" document <a data-link-type="biblio" href="#biblio-rfc7258">[RFC7258]</a> is
+     <p>The IETF’s "Pervasive Monitoring Is an Attack" document <a data-link-type="biblio" href="#biblio-rfc7258" title="Pervasive Monitoring Is an Attack">[RFC7258]</a> is
 useful reading, outlining some of the impacts on privacy that this
 assumption entails.</p>
     <li data-md>
@@ -1263,7 +1288,7 @@ delivering them to users in an effort to reduce data usage. This can be
 especially useful for users on low-bandwidth, high-latency devices like
 phones.</p>
     <li data-md>
-     <p>ISPs also regularly inject JavaScript <a data-link-type="biblio" href="#biblio-comcast">[COMCAST]</a> and other identifiers <a data-link-type="biblio" href="#biblio-verizon">[VERIZON]</a> for less benign purposes.</p>
+     <p>ISPs also regularly inject JavaScript <a data-link-type="biblio" href="#biblio-comcast" title="Comcast Wi-Fi serving self-promotional ads via JavaScript injection">[COMCAST]</a> and other identifiers <a data-link-type="biblio" href="#biblio-verizon" title="Verizon looks to target its mobile subscribers with ads">[VERIZON]</a> for less benign purposes.</p>
     <li data-md>
      <p>If your ISP is willing to modify substantial amounts of traffic flowing
 through it for profit, it’s difficult to believe that state-level
@@ -1272,7 +1297,7 @@ attackers will remain passive.</p>
    <h3 class="heading settled" data-level="3.3" id="sop-violations"><span class="secno">3.3. </span><span class="content"> Same-Origin Policy Violations </span><a class="self-link" href="#sop-violations"></a></h3>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="same-origin-policy">same-origin policy</dfn> is the cornerstone of security on the web;
 one origin should not have direct access to another origin’s data (the policy
-is more formally defined in Section 3 of <a data-link-type="biblio" href="#biblio-rfc6454">[RFC6454]</a>). A corollary to this
+is more formally defined in Section 3 of <a data-link-type="biblio" href="#biblio-rfc6454" title="The Web Origin Concept">[RFC6454]</a>). A corollary to this
 policy is that an origin should not have direct access to data that isn’t
 associated with <em>any</em> origin: the contents of a user’s hard drive,
 for instance. Various kinds of attacks bypass this protection in one way or
@@ -1288,8 +1313,8 @@ agents into exerting a user’s ambient authority on sites where they’ve
 logged in by submitting requests on their behalf.</p>
     <li data-md>
      <p>Data leakage occurs when bits of information are inadvertently made
-available cross-origin, either explicitly via CORS headers <a data-link-type="biblio" href="#biblio-cors">[CORS]</a>,
-or implicitly, via side-channel attacks like <a data-link-type="biblio" href="#biblio-timing">[TIMING]</a>.</p>
+available cross-origin, either explicitly via CORS headers <a data-link-type="biblio" href="#biblio-cors" title="Cross-Origin Resource Sharing">[CORS]</a>,
+or implicitly, via side-channel attacks like <a data-link-type="biblio" href="#biblio-timing" title="Pixel Perfect Timing Attacks with HTML5">[TIMING]</a>.</p>
    </ul>
    <h3 class="heading settled" data-level="3.4" id="third-party-tracking"><span class="secno">3.4. </span><span class="content"> Third-Party Tracking </span><a class="self-link" href="#third-party-tracking"></a></h3>
    <p>Part of the power of the web is its ability for a page to pull in content
@@ -1350,7 +1375,7 @@ around between the different parties, how persistent the data items and
 identifiers are, and whether there are correlation possibilities between
 different protocol runs.</p>
    <p>For example, the W3C Device APIs Working Group has defined a number of
-requirements in their Privacy Requirements document. <a data-link-type="biblio" href="#biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]</a></p>
+requirements in their Privacy Requirements document. <a data-link-type="biblio" href="#biblio-dap-privacy-reqs" title="Device API Privacy Requirements">[DAP-PRIVACY-REQS]</a></p>
    <p>Data minimization is applicable to specification authors and implementers, as
 well as to those deploying the final service.</p>
    <p>As an example, consider mouse events. When a page is loaded, the application
@@ -1375,9 +1400,9 @@ on click, move, button press) as the sole interface to the device.</p>
 are:</p>
    <ul>
     <li data-md>
-     <p><a data-link-type="biblio" href="#biblio-battery-status">[BATTERY-STATUS]</a> <q>The user agent should not expose high precision readouts</q></p>
+     <p><a data-link-type="biblio" href="#biblio-battery-status" title="Battery Status API">[BATTERY-STATUS]</a> <q>The user agent should not expose high precision readouts</q></p>
     <li data-md>
-     <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> <q>Limit maximum sampling frequency</q>, <q>Reduce accuracy</q></p>
+     <p><a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a> <q>Limit maximum sampling frequency</q>, <q>Reduce accuracy</q></p>
    </ul>
    <h3 class="heading settled" data-level="4.2" id="privacy-friendly-defaults"><span class="secno">4.2. </span><span class="content"> Default Privacy Settings </span><a class="self-link" href="#privacy-friendly-defaults"></a></h3>
    <p>Users often do not change defaults, as a result, it is important that the
@@ -1393,7 +1418,7 @@ the privacy risk.  If the specification does not allow for the implementer to
 prompt, it may result in divergence implementations by different user agents
 as some user agents choose to implement more privacy-friendly version.</p>
    <p>It is possible that the risk of a feature cannot be mitigated because the
-risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api">[GEOLOCATION-API]</a> reveals a user’s location intentionally; user agents generally gate access to
+risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api" title="Geolocation API Specification 2nd Edition">[GEOLOCATION-API]</a> reveals a user’s location intentionally; user agents generally gate access to
 the feature on a permission prompt which the user may choose to accept.  This
 risk is also present and should be accounted for in features that expose
 personal data or identifiers.</p>
@@ -1517,13 +1542,13 @@ privacy impact assessment of the data that they collect.</p>
    <p>A feature that does this is:</p>
    <ul>
     <li data-md>
-     <p><a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> advises to consider performing of a privacy impact
+     <p><a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a> advises to consider performing of a privacy impact
 assessment</p>
    </ul>
    <p>Documenting these impacts is important for organizations although it should
 be noted that there are limitations to putting this onus on organizations.
 Research has shown that sites often do not comply with security/privacy
-requirements in specifications.  For example, in <a data-link-type="biblio" href="#biblio-doty-geolocation">[DOTY-GEOLOCATION]</a>, it was
+requirements in specifications.  For example, in <a data-link-type="biblio" href="#biblio-doty-geolocation" title="Privacy Issues of the W3C Geolocation API">[DOTY-GEOLOCATION]</a>, it was
 found that none of the studied websites informed users of their privacy
 practices before the site prompted for location.</p>
    <h2 class="no-num heading settled" id="acknowledgements"><span class="content">Acknowledgements</span><a class="self-link" href="#acknowledgements"></a></h2>
@@ -1583,7 +1608,7 @@ We hope we haven’t made it (much) worse.</p>
     However, for readability,
     these words do not appear in all uppercase letters in this specification. </p>
    <p>All of the text of this specification is normative
-    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a> </p>
    <p>Examples in this specification are introduced with the words “for example”
     or are set apart from the normative text
     with <code>class="example"</code>,
@@ -1596,7 +1621,7 @@ We hope we haven’t made it (much) worse.</p>
     and are set apart from the normative text
     with <code>class="note"</code>,
     like this: </p>
-   <p class="note" role="note">Note, this is an informative note. </p>
+   <p class="note" role="note">Note, this is an informative note.</p>
    <h3 class="no-ref no-num heading settled" id="w3c-conformant-algorithms"><span class="content">Conformant Algorithms</span><a class="self-link" href="#w3c-conformant-algorithms"></a></h3>
    <p>Requirements phrased in the imperative as part of algorithms
     (such as "strip any leading space characters"
@@ -1624,108 +1649,106 @@ We hope we haven’t made it (much) worse.</p>
    <li><a href="#same-origin-policy">same-origin policy</a><span>, in § 3.3</span>
    <li><a href="#cross-site-scripting-attacks">XSS</a><span>, in § 3.3</span>
   </ul>
-  <aside class="dfn-panel" data-for="term-for-connect-src">
-   <a href="https://w3c.github.io/webappsec-csp/#connect-src">https://w3c.github.io/webappsec-csp/#connect-src</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-597fbf2d1db034644a8eba4bdab3f3c5" class="dfn-panel" data-for="597fbf2d1db034644a8eba4bdab3f3c5" id="infopanel-for-597fbf2d1db034644a8eba4bdab3f3c5">
+   <span id="infopaneltitle-for-597fbf2d1db034644a8eba4bdab3f3c5" style="display:none">Info about the 'connect-src' external reference.</span><a href="https://w3c.github.io/webappsec-csp/#connect-src">https://w3c.github.io/webappsec-csp/#connect-src</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-connect-src">2.4. 
   How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-form-action">
-   <a href="https://w3c.github.io/webappsec-csp/#form-action">https://w3c.github.io/webappsec-csp/#form-action</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-ec00b547df04f667cdb627e8e2a53a64" class="dfn-panel" data-for="ec00b547df04f667cdb627e8e2a53a64" id="infopanel-for-ec00b547df04f667cdb627e8e2a53a64">
+   <span id="infopaneltitle-for-ec00b547df04f667cdb627e8e2a53a64" style="display:none">Info about the 'form-action' external reference.</span><a href="https://w3c.github.io/webappsec-csp/#form-action">https://w3c.github.io/webappsec-csp/#form-action</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-form-action">2.4. 
   How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-cdm">
-   <a href="https://www.w3.org/TR/encrypted-media/#cdm">https://www.w3.org/TR/encrypted-media/#cdm</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-6b7c041881850ac601a6628239e845de" class="dfn-panel" data-for="6b7c041881850ac601a6628239e845de" id="infopanel-for-6b7c041881850ac601a6628239e845de">
+   <span id="infopaneltitle-for-6b7c041881850ac601a6628239e845de" style="display:none">Info about the 'content decryption module' external reference.</span><a href="https://www.w3.org/TR/encrypted-media/#cdm">https://www.w3.org/TR/encrypted-media/#cdm</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cdm">2.5. 
   Do the features in your specification introduce state
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-navigatorplugins">
-   <a href="https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins">https://html.spec.whatwg.org/multipage/system-state.html#navigatorplugins</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-navigatorplugins">2.6. 
-  Do the features in your specification expose information about the
-  underlying platform to origins? </a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-dom-document-domain">
-   <a href="https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain">https://html.spec.whatwg.org/multipage/origin.html#dom-document-domain</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-3b597d41857f5e9275bb5cdecc55e21e" class="dfn-panel" data-for="3b597d41857f5e9275bb5cdecc55e21e" id="infopanel-for-3b597d41857f5e9275bb5cdecc55e21e">
+   <span id="infopaneltitle-for-3b597d41857f5e9275bb5cdecc55e21e" style="display:none">Info about the 'domain' external reference.</span><a href="https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain">https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-document-domain">2.16. 
   Do features in your specification enable origins to downgrade default
   security protections? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-fully-active">
-   <a href="https://html.spec.whatwg.org/multipage/browsers.html#fully-active">https://html.spec.whatwg.org/multipage/browsers.html#fully-active</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-7594a09aa0c77c9e24726559a3a6da9d" class="dfn-panel" data-for="7594a09aa0c77c9e24726559a3a6da9d" id="infopanel-for-7594a09aa0c77c9e24726559a3a6da9d">
+   <span id="infopaneltitle-for-7594a09aa0c77c9e24726559a3a6da9d" style="display:none">Info about the 'fully active' external reference.</span><a href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active">https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-fully-active">2.17. 
-  How does your feature handle non-"fully active" documents? </a> <a href="#ref-for-fully-active①">(2)</a> <a href="#ref-for-fully-active②">(3)</a> <a href="#ref-for-fully-active③">(4)</a>
+  What happens when a document that uses your feature is kept alive in BFCache
+  (instead of getting destroyed) after navigation, and potentially gets reused
+  on future navigations back to the document? </a> <a href="#ref-for-fully-active①">(2)</a> <a href="#ref-for-fully-active②">(3)</a> <a href="#ref-for-fully-active③">(4)</a> <a href="#ref-for-fully-active④">(5)</a> <a href="#ref-for-fully-active⑤">(6)</a>
+    <li><a href="#ref-for-fully-active⑥">2.18. 
+  What happens when a document that uses your feature gets disconnected? </a> <a href="#ref-for-fully-active⑦">(2)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-the-iframe-element">
-   <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-baf95ce8d0404079723db392663d355e" class="dfn-panel" data-for="baf95ce8d0404079723db392663d355e" id="infopanel-for-baf95ce8d0404079723db392663d355e">
+   <span id="infopaneltitle-for-baf95ce8d0404079723db392663d355e" style="display:none">Info about the 'iframe' external reference.</span><a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-the-iframe-element">2.16. 
   Do features in your specification enable origins to downgrade default
   security protections? </a> <a href="#ref-for-the-iframe-element①">(2)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-dom-localstorage">
-   <a href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage">https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-33f2faf55eb7920da6b293d065d66fa7" class="dfn-panel" data-for="33f2faf55eb7920da6b293d065d66fa7" id="infopanel-for-33f2faf55eb7920da6b293d065d66fa7">
+   <span id="infopaneltitle-for-33f2faf55eb7920da6b293d065d66fa7" style="display:none">Info about the 'localStorage' external reference.</span><a href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage">https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-localstorage">2.5. 
   Do the features in your specification introduce state
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-sticky-activation">
-   <a href="https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation">https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-83418513ea93980e95697432d0d33474" class="dfn-panel" data-for="83418513ea93980e95697432d0d33474" id="infopanel-for-83418513ea93980e95697432d0d33474">
+   <span id="infopaneltitle-for-83418513ea93980e95697432d0d33474" style="display:none">Info about the 'sticky activation' external reference.</span><a href="https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation">https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-sticky-activation">2.17. 
-  How does your feature handle non-"fully active" documents? </a>
+  What happens when a document that uses your feature is kept alive in BFCache
+  (instead of getting destroyed) after navigation, and potentially gets reused
+  on future navigations back to the document? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-dom-windoworworkerglobalscope-indexeddb">
-   <a href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb">https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-e5d8d6fbba6c04e60636479a9af05ac2" class="dfn-panel" data-for="e5d8d6fbba6c04e60636479a9af05ac2" id="infopanel-for-e5d8d6fbba6c04e60636479a9af05ac2">
+   <span id="infopaneltitle-for-e5d8d6fbba6c04e60636479a9af05ac2" style="display:none">Info about the 'indexedDB' external reference.</span><a href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb">https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-dom-windoworworkerglobalscope-indexeddb">2.5. 
   Do the features in your specification introduce state
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-policy-controlled-feature">
-   <a href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature">https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-cbc4165961071efad91900c4c7b2fe8b" class="dfn-panel" data-for="cbc4165961071efad91900c4c7b2fe8b" id="infopanel-for-cbc4165961071efad91900c4c7b2fe8b">
+   <span id="infopaneltitle-for-cbc4165961071efad91900c4c7b2fe8b" style="display:none">Info about the 'policy-controlled feature' external reference.</span><a href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature">https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-policy-controlled-feature">2.16. 
   Do features in your specification enable origins to downgrade default
   security protections? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-first-party-site-context">
-   <a href="https://privacycg.github.io/storage-access/#first-party-site-context">https://privacycg.github.io/storage-access/#first-party-site-context</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-19344f9159e0945adf920cdfe29eb2c9" class="dfn-panel" data-for="19344f9159e0945adf920cdfe29eb2c9" id="infopanel-for-19344f9159e0945adf920cdfe29eb2c9">
+   <span id="infopaneltitle-for-19344f9159e0945adf920cdfe29eb2c9" style="display:none">Info about the 'first-party-site context' external reference.</span><a href="https://privacycg.github.io/storage-access/#first-party-site-context">https://privacycg.github.io/storage-access/#first-party-site-context</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-first-party-site-context">2.5. 
   Do the features in your specification introduce state
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-third-party-context">
-   <a href="https://privacycg.github.io/storage-access/#third-party-context">https://privacycg.github.io/storage-access/#third-party-context</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-6b918fd27ff6e66ed1b959dc36f12001" class="dfn-panel" data-for="6b918fd27ff6e66ed1b959dc36f12001" id="infopanel-for-6b918fd27ff6e66ed1b959dc36f12001">
+   <span id="infopaneltitle-for-6b918fd27ff6e66ed1b959dc36f12001" style="display:none">Info about the 'third-party context' external reference.</span><a href="https://privacycg.github.io/storage-access/#third-party-context">https://privacycg.github.io/storage-access/#third-party-context</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-third-party-context">2.5. 
   Do the features in your specification introduce state
   that persists across browsing sessions? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-formdata">
-   <a href="https://xhr.spec.whatwg.org/#formdata">https://xhr.spec.whatwg.org/#formdata</a><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-79675135c82b3000d5f63171d9a4da81" class="dfn-panel" data-for="79675135c82b3000d5f63171d9a4da81" id="infopanel-for-79675135c82b3000d5f63171d9a4da81">
+   <span id="infopaneltitle-for-79675135c82b3000d5f63171d9a4da81" style="display:none">Info about the 'FormData' external reference.</span><a href="https://xhr.spec.whatwg.org/#formdata">https://xhr.spec.whatwg.org/#formdata</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-formdata">2.4. 
   How do the features in your specification deal with sensitive information? </a>
@@ -1736,88 +1759,91 @@ We hope we haven’t made it (much) worse.</p>
    <li>
     <a data-link-type="biblio">[CSP]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-connect-src">connect-src</span>
-     <li><span class="dfn-paneled" id="term-for-form-action">form-action</span>
+     <li><span class="dfn-paneled" id="597fbf2d1db034644a8eba4bdab3f3c5">connect-src</span>
+     <li><span class="dfn-paneled" id="ec00b547df04f667cdb627e8e2a53a64">form-action</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ENCRYPTED-MEDIA]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-cdm">content decryption module</span>
+     <li><span class="dfn-paneled" id="6b7c041881850ac601a6628239e845de">content decryption module</span>
     </ul>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-navigatorplugins">NavigatorPlugins</span>
-     <li><span class="dfn-paneled" id="term-for-dom-document-domain">domain</span>
-     <li><span class="dfn-paneled" id="term-for-fully-active">fully active</span>
-     <li><span class="dfn-paneled" id="term-for-the-iframe-element">iframe</span>
-     <li><span class="dfn-paneled" id="term-for-dom-localstorage">localStorage</span>
-     <li><span class="dfn-paneled" id="term-for-sticky-activation">sticky activation</span>
+     <li><span class="dfn-paneled" id="3b597d41857f5e9275bb5cdecc55e21e">domain</span>
+     <li><span class="dfn-paneled" id="7594a09aa0c77c9e24726559a3a6da9d">fully active</span>
+     <li><span class="dfn-paneled" id="baf95ce8d0404079723db392663d355e">iframe</span>
+     <li><span class="dfn-paneled" id="33f2faf55eb7920da6b293d065d66fa7">localStorage</span>
+     <li><span class="dfn-paneled" id="83418513ea93980e95697432d0d33474">sticky activation</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[IndexedDB-2]</a> defines the following terms:
+    <a data-link-type="biblio">[IndexedDB-3]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-dom-windoworworkerglobalscope-indexeddb">indexedDB</span>
+     <li><span class="dfn-paneled" id="e5d8d6fbba6c04e60636479a9af05ac2">indexedDB</span>
     </ul>
    <li>
     <a data-link-type="biblio">[PERMISSIONS-POLICY]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-policy-controlled-feature">policy-controlled feature</span>
+     <li><span class="dfn-paneled" id="cbc4165961071efad91900c4c7b2fe8b">policy-controlled feature</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[storage-access]</a> defines the following terms:
+    <a data-link-type="biblio">[STORAGE-ACCESS]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-first-party-site-context">first-party-site context</span>
-     <li><span class="dfn-paneled" id="term-for-third-party-context">third-party context</span>
+     <li><span class="dfn-paneled" id="19344f9159e0945adf920cdfe29eb2c9">first-party-site context</span>
+     <li><span class="dfn-paneled" id="6b918fd27ff6e66ed1b959dc36f12001">third-party context</span>
     </ul>
    <li>
     <a data-link-type="biblio">[XHR]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-formdata">FormData</span>
+     <li><span class="dfn-paneled" id="79675135c82b3000d5f63171d9a4da81">FormData</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
+   <dt id="biblio-design-principles">[DESIGN-PRINCIPLES]
+   <dd>Sangwhan Moon. <a href="https://w3ctag.github.io/design-principles/"><cite>Web Platform Design Principles</cite></a>. URL: <a href="https://w3ctag.github.io/design-principles/">https://w3ctag.github.io/design-principles/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
-   <dt id="biblio-indexeddb-2">[IndexedDB-2]
-   <dd>Ali Alabbas; Joshua Bell. <a href="https://www.w3.org/TR/IndexedDB-2/"><cite>Indexed Database API 2.0</cite></a>. 30 January 2018. REC. URL: <a href="https://www.w3.org/TR/IndexedDB-2/">https://www.w3.org/TR/IndexedDB-2/</a>
+   <dt id="biblio-indexeddb-3">[IndexedDB-3]
+   <dd>Ali Alabbas; Joshua Bell. <a href="https://w3c.github.io/IndexedDB/"><cite>Indexed Database API 3.0</cite></a>. URL: <a href="https://w3c.github.io/IndexedDB/">https://w3c.github.io/IndexedDB/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
+   <dt id="biblio-storage-access">[STORAGE-ACCESS]
+   <dd>The Storage Access API URL: <a href="https://privacycg.github.io/storage-access/">https://privacycg.github.io/storage-access/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-adding-permission">[ADDING-PERMISSION]
    <dd>Nick Doty. <a href="https://github.com/w3cping/adding-permissions"><cite>Adding another permission? A guide</cite></a>. URL: <a href="https://github.com/w3cping/adding-permissions">https://github.com/w3cping/adding-permissions</a>
    <dt id="biblio-battery-status">[BATTERY-STATUS]
-   <dd>Anssi Kostiainen; Mounir Lamouri; Raphael Kubo da Costa. <a href="https://www.w3.org/TR/battery-status/"><cite>Battery Status API</cite></a>. 3 February 2022. WD. URL: <a href="https://www.w3.org/TR/battery-status/">https://www.w3.org/TR/battery-status/</a>
+   <dd>Anssi Kostiainen; Mounir Lamouri; Raphael Kubo da Costa. <a href="https://w3c.github.io/battery/"><cite>Battery Status API</cite></a>. URL: <a href="https://w3c.github.io/battery/">https://w3c.github.io/battery/</a>
    <dt id="biblio-comcast">[COMCAST]
    <dd>David Kravets. <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/"><cite>Comcast Wi-Fi serving self-promotional ads via JavaScript injection</cite></a>. URL: <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/</a>
    <dt id="biblio-cors">[CORS]
    <dd>Anne van Kesteren. <a href="https://www.w3.org/TR/cors/"><cite>Cross-Origin Resource Sharing</cite></a>. 2 June 2020. REC. URL: <a href="https://www.w3.org/TR/cors/">https://www.w3.org/TR/cors/</a>
    <dt id="biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]
-   <dd>Mike West. <a href="https://www.w3.org/TR/credential-management-1/"><cite>Credential Management Level 1</cite></a>. 17 January 2019. WD. URL: <a href="https://www.w3.org/TR/credential-management-1/">https://www.w3.org/TR/credential-management-1/</a>
+   <dd>Mike West. <a href="https://w3c.github.io/webappsec-credential-management/"><cite>Credential Management Level 1</cite></a>. URL: <a href="https://w3c.github.io/webappsec-credential-management/">https://w3c.github.io/webappsec-credential-management/</a>
    <dt id="biblio-csp">[CSP]
-   <dd>Mike West. <a href="https://www.w3.org/TR/CSP3/"><cite>Content Security Policy Level 3</cite></a>. 29 June 2021. WD. URL: <a href="https://www.w3.org/TR/CSP3/">https://www.w3.org/TR/CSP3/</a>
+   <dd>Mike West; Antonio Sartori. <a href="https://w3c.github.io/webappsec-csp/"><cite>Content Security Policy Level 3</cite></a>. URL: <a href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a>
    <dt id="biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]
    <dd>Alissa Cooper; Frederick Hirsch; John Morris. <a href="https://www.w3.org/TR/dap-privacy-reqs/"><cite>Device API Privacy Requirements</cite></a>. 29 June 2010. NOTE. URL: <a href="https://www.w3.org/TR/dap-privacy-reqs/">https://www.w3.org/TR/dap-privacy-reqs/</a>
    <dt id="biblio-discovery-api">[DISCOVERY-API]
-   <dd>Rich Tibbett. <a href="https://www.w3.org/TR/discovery-api/"><cite>Network Service Discovery</cite></a>. 12 January 2017. NOTE. URL: <a href="https://www.w3.org/TR/discovery-api/">https://www.w3.org/TR/discovery-api/</a>
+   <dd>Rich Tibbett. <a href="https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html"><cite>Network Service Discovery</cite></a>. URL: <a href="https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html">https://dvcs.w3.org/hg/dap/raw-file/tip/discovery-api/Overview.html</a>
    <dt id="biblio-doty-geolocation">[DOTY-GEOLOCATION]
    <dd>Nick Doty, Deirdre K. Mulligan, Erik Wilde. <a href="https://escholarship.org/uc/item/0rp834wf"><cite>Privacy Issues of the W3C Geolocation API</cite></a>. URL: <a href="https://escholarship.org/uc/item/0rp834wf">https://escholarship.org/uc/item/0rp834wf</a>
    <dt id="biblio-encrypted-media">[ENCRYPTED-MEDIA]
-   <dd>David Dorwin; et al. <a href="https://www.w3.org/TR/encrypted-media/"><cite>Encrypted Media Extensions</cite></a>. 18 September 2017. REC. URL: <a href="https://www.w3.org/TR/encrypted-media/">https://www.w3.org/TR/encrypted-media/</a>
+   <dd>David Dorwin; et al. <a href="https://w3c.github.io/encrypted-media/"><cite>Encrypted Media Extensions</cite></a>. URL: <a href="https://w3c.github.io/encrypted-media/">https://w3c.github.io/encrypted-media/</a>
    <dt id="biblio-fingerprinting-guidance">[FINGERPRINTING-GUIDANCE]
-   <dd>Nick Doty. <a href="https://www.w3.org/TR/fingerprinting-guidance/"><cite>Mitigating Browser Fingerprinting in Web Specifications</cite></a>. 28 March 2019. NOTE. URL: <a href="https://www.w3.org/TR/fingerprinting-guidance/">https://www.w3.org/TR/fingerprinting-guidance/</a>
+   <dd>Nick Doty. <a href="https://w3c.github.io/fingerprinting-guidance/"><cite>Mitigating Browser Fingerprinting in Web Specifications</cite></a>. URL: <a href="https://w3c.github.io/fingerprinting-guidance/">https://w3c.github.io/fingerprinting-guidance/</a>
    <dt id="biblio-fullscreen">[FULLSCREEN]
    <dd>Philip Jägenstedt. <a href="https://fullscreen.spec.whatwg.org/"><cite>Fullscreen API Standard</cite></a>. Living Standard. URL: <a href="https://fullscreen.spec.whatwg.org/">https://fullscreen.spec.whatwg.org/</a>
    <dt id="biblio-gamepad">[GAMEPAD]
-   <dd>Steve Agoston; James Hollyer; Matthew Reynolds. <a href="https://www.w3.org/TR/gamepad/"><cite>Gamepad</cite></a>. 11 February 2022. WD. URL: <a href="https://www.w3.org/TR/gamepad/">https://www.w3.org/TR/gamepad/</a>
+   <dd>Steve Agoston; Matthew Reynolds. <a href="https://w3c.github.io/gamepad/"><cite>Gamepad</cite></a>. URL: <a href="https://w3c.github.io/gamepad/">https://w3c.github.io/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
-   <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/"><cite>Generic Sensor API</cite></a>. 24 March 2022. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
+   <dd>Rick Waldron. <a href="https://w3c.github.io/sensors/"><cite>Generic Sensor API</cite></a>. URL: <a href="https://w3c.github.io/sensors/">https://w3c.github.io/sensors/</a>
    <dt id="biblio-geolocation-api">[GEOLOCATION-API]
-   <dd>Andrei Popescu. <a href="https://www.w3.org/TR/geolocation-API/"><cite>Geolocation API Specification 2nd Edition</cite></a>. 8 November 2016. REC. URL: <a href="https://www.w3.org/TR/geolocation-API/">https://www.w3.org/TR/geolocation-API/</a>
+   <dd>Andrei Popescu. <a href="https://w3c.github.io/geolocation-api/"><cite>Geolocation API Specification 2nd Edition</cite></a>. URL: <a href="https://w3c.github.io/geolocation-api/">https://w3c.github.io/geolocation-api/</a>
    <dt id="biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]
    <dd>Yan Michalevsky; Dan Boneh; Gabi Nakibly. <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf"><cite>Gyrophone: Recognizing Speech from Gyroscope Signals</cite></a>. URL: <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf</a>
    <dt id="biblio-homakov">[HOMAKOV]
@@ -1829,9 +1855,9 @@ We hope we haven’t made it (much) worse.</p>
    <dt id="biblio-olejnik-payments">[OLEJNIK-PAYMENTS]
    <dd>Lukasz Olejnik. <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/"><cite>Privacy of Web Request API</cite></a>. URL: <a href="https://blog.lukaszolejnik.com/privacy-of-web-request-api/">https://blog.lukaszolejnik.com/privacy-of-web-request-api/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Marcos Caceres; Mike Taylor. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 11 March 2022. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dd>Marcos Caceres; Mike Taylor. <a href="https://w3c.github.io/permissions/"><cite>Permissions</cite></a>. URL: <a href="https://w3c.github.io/permissions/">https://w3c.github.io/permissions/</a>
    <dt id="biblio-permissions-policy">[PERMISSIONS-POLICY]
-   <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/"><cite>Permissions Policy</cite></a>. 16 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
+   <dd>Ian Clelland. <a href="https://w3c.github.io/webappsec-permissions-policy/"><cite>Permissions Policy</cite></a>. URL: <a href="https://w3c.github.io/webappsec-permissions-policy/">https://w3c.github.io/webappsec-permissions-policy/</a>
    <dt id="biblio-rfc3552">[RFC3552]
    <dd>E. Rescorla; B. Korver. <a href="https://www.rfc-editor.org/rfc/rfc3552"><cite>Guidelines for Writing RFC Text on Security Considerations</cite></a>. July 2003. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc3552">https://www.rfc-editor.org/rfc/rfc3552</a>
    <dt id="biblio-rfc6454">[RFC6454]
@@ -1847,9 +1873,9 @@ We hope we haven’t made it (much) worse.</p>
    <dt id="biblio-verizon">[VERIZON]
    <dd>Mark Bergen; Alex Kantrowitz. <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/"><cite>Verizon looks to target its mobile subscribers with ads</cite></a>. URL: <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/</a>
    <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
-   <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/"><cite>Web Bluetooth</cite></a>. Draft Community Group Report. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
+   <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/"><cite>Web Bluetooth</cite></a>. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webauthn">[WEBAUTHN]
-   <dd>Dirk Balfanz; et al. <a href="https://www.w3.org/TR/webauthn-1/"><cite>Web Authentication:An API for accessing Public Key Credentials Level 1</cite></a>. 4 March 2019. REC. URL: <a href="https://www.w3.org/TR/webauthn-1/">https://www.w3.org/TR/webauthn-1/</a>
+   <dd>Dirk Balfanz; et al. <a href="https://w3c.github.io/webauthn/"><cite>Web Authentication:An API for accessing Public Key Credentials Level 1</cite></a>. URL: <a href="https://w3c.github.io/webauthn/">https://w3c.github.io/webauthn/</a>
    <dt id="biblio-webusb">[WEBUSB]
    <dd><a href="https://wicg.github.io/webusb/"><cite>WebUSB API</cite></a>. cg-draft. URL: <a href="https://wicg.github.io/webusb/">https://wicg.github.io/webusb/</a>
    <dt id="biblio-wu-private-browsing">[WU-PRIVATE-BROWSING]
@@ -1859,15 +1885,15 @@ We hope we haven’t made it (much) worse.</p>
    <dt id="biblio-yubikey-attack">[YUBIKEY-ATTACK]
    <dd>Andy Greenberg. <a href="https://www.wired.com/story/chrome-yubikey-phishing-webusb/"><cite>Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users</cite></a>. URL: <a href="https://www.wired.com/story/chrome-yubikey-phishing-webusb/">https://www.wired.com/story/chrome-yubikey-phishing-webusb/</a>
   </dl>
-  <aside class="dfn-panel" data-for="passive-network-attacker">
-   <b><a href="#passive-network-attacker">#passive-network-attacker</a></b><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-passive-network-attacker" class="dfn-panel" data-for="passive-network-attacker" id="infopanel-for-passive-network-attacker">
+   <span id="infopaneltitle-for-passive-network-attacker" style="display:none">Info about the 'passive network attacker' definition.</span><b><a href="#passive-network-attacker">#passive-network-attacker</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-passive-network-attacker">4.5. 
   Secure Contexts </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="active-network-attacker">
-   <b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-active-network-attacker" class="dfn-panel" data-for="active-network-attacker" id="infopanel-for-active-network-attacker">
+   <span id="infopaneltitle-for-active-network-attacker" style="display:none">Info about the 'active network attacker' definition.</span><b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-active-network-attacker">2.5. 
   Do the features in your specification introduce state
@@ -1876,23 +1902,23 @@ We hope we haven’t made it (much) worse.</p>
   Secure Contexts </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="same-origin-policy">
-   <b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-same-origin-policy" class="dfn-panel" data-for="same-origin-policy" id="infopanel-for-same-origin-policy">
+   <span id="infopaneltitle-for-same-origin-policy" style="display:none">Info about the 'same-origin policy' definition.</span><b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-same-origin-policy">2.16. 
   Do features in your specification enable origins to downgrade default
   security protections? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="cross-site-scripting-attacks">
-   <b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-cross-site-scripting-attacks" class="dfn-panel" data-for="cross-site-scripting-attacks" id="infopanel-for-cross-site-scripting-attacks">
+   <span id="infopaneltitle-for-cross-site-scripting-attacks" style="display:none">Info about the 'Cross-site scripting attacks' definition.</span><b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cross-site-scripting-attacks">2.4. 
   How do the features in your specification deal with sensitive information? </a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="cross-site-request-forgery-attacks">
-   <b><a href="#cross-site-request-forgery-attacks">#cross-site-request-forgery-attacks</a></b><b>Referenced in:</b>
+  <aside aria-labelledby="infopaneltitle-for-cross-site-request-forgery-attacks" class="dfn-panel" data-for="cross-site-request-forgery-attacks" id="infopanel-for-cross-site-request-forgery-attacks">
+   <span id="infopaneltitle-for-cross-site-request-forgery-attacks" style="display:none">Info about the 'Cross-site request forgery attacks' definition.</span><b><a href="#cross-site-request-forgery-attacks">#cross-site-request-forgery-attacks</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-cross-site-request-forgery-attacks">2.7. 
   Does this specification allow an origin to send data to the underlying
@@ -1900,58 +1926,112 @@ We hope we haven’t made it (much) worse.</p>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
-
-document.body.addEventListener("click", function(e) {
-    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
-    // Find the dfn element or panel, if any, that was clicked on.
-    var el = e.target;
-    var target;
-    var hitALink = false;
-    while(el.parentElement) {
-        if(el.tagName == "A") {
-            // Clicking on a link in a <dfn> shouldn't summon the panel
-            hitALink = true;
-        }
-        if(el.classList.contains("dfn-paneled")) {
-            target = "dfn";
-            break;
-        }
-        if(el.classList.contains("dfn-panel")) {
-            target = "dfn-panel";
-            break;
-        }
-        el = el.parentElement;
+"use strict";
+{
+    function queryAll(sel) {
+        return [].slice.call(document.querySelectorAll(sel));
     }
-    if(target != "dfn-panel") {
+
+    // Add popup behavior to all dfns to show the corresponding dfn-panel.
+    var dfns = document.querySelectorAll('.dfn-paneled');
+    for (let dfn of dfns) { insertDfnPopupAction(dfn); }
+
+    document.body.addEventListener("click", (e) => {
+        // If not handled already, just hide all dfn panels.
+        hideAllDfnPanels();
+    });
+
+    function hideAllDfnPanels() {
         // Turn off any currently "on" or "activated" panels.
-        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
-            el.classList.remove("on");
-            el.classList.remove("activated");
-        });
-    }
-    if(target == "dfn" && !hitALink) {
-        // open the panel
-        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
-        if(dfnPanel) {
-            dfnPanel.classList.add("on");
-            var rect = el.getBoundingClientRect();
-            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
-            dfnPanel.style.top = window.scrollY + rect.top + "px";
-            var panelRect = dfnPanel.getBoundingClientRect();
-            var panelWidth = panelRect.right - panelRect.left;
-            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
-                // Reposition, because the panel is overflowing
-                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
-            }
-        } else {
-            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
-        }
-    } else if(target == "dfn-panel") {
-        // Switch it to "activated" state, which pins it.
-        el.classList.add("activated");
-        el.style.left = null;
-        el.style.top = null;
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
     }
 
-});
+    function showDfnPanel(dfnPanel, dfn) {
+        hideAllDfnPanels(); // Only display one at this time.
+        dfn.setAttribute("aria-expanded", "true");
+        dfnPanel.classList.add("on");
+        dfnPanel.style.left = "5px";
+        dfnPanel.style.top = "0px";
+        const panelRect = dfnPanel.getBoundingClientRect();
+        const panelWidth = panelRect.right - panelRect.left;
+        if (panelRect.right > document.body.scrollWidth) {
+            // Panel's overflowing the screen.
+            // Just drop it below the dfn and flip it rightward instead.
+            // This still wont' fix things if the screen is *really* wide,
+            // but fixing that's a lot harder without 'anchor()'.
+            dfnPanel.style.top = "1.5em";
+            dfnPanel.style.left = "auto";
+            dfnPanel.style.right = "0px";
+        }
+    }
+
+    function pinDfnPanel(dfnPanel) {
+        // Switch it to "activated" state, which pins it.
+        dfnPanel.classList.add("activated");
+        dfnPanel.style.left = null;
+        dfnPanel.style.top = null;
+    }
+
+    function hideDfnPanel(dfnPanel, dfn) {
+        if(!dfn) {
+            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+        }
+        dfn.setAttribute("aria-expanded", "false")
+        dfnPanel.classList.remove("on");
+        dfnPanel.classList.remove("activated");
+    }
+
+    function toggleDfnPanel(dfnPanel, dfn) {
+        if(dfnPanel.classList.contains("on")) {
+            hideDfnPanel(dfnPanel, dfn);
+        } else {
+            showDfnPanel(dfnPanel, dfn);
+        }
+    }
+
+    function insertDfnPopupAction(dfn) {
+        // Find dfn panel
+        const dfnPanel = document.querySelector(`.dfn-panel[data-for='${dfn.id}']`);
+        if (dfnPanel) {
+            const panelWrapper = document.createElement('span');
+            panelWrapper.appendChild(dfnPanel);
+            panelWrapper.style.position = "relative";
+            panelWrapper.style.height = "0px";
+            dfn.insertAdjacentElement("afterend", panelWrapper);
+            dfn.setAttribute('role', 'button');
+            dfn.setAttribute('aria-expanded', 'false')
+            dfn.tabIndex = 0;
+            dfn.classList.add('has-dfn-panel');
+            dfn.addEventListener('click', (event) => {
+                showDfnPanel(dfnPanel, dfn);
+                event.stopPropagation();
+            });
+            dfn.addEventListener('keypress', (event) => {
+                const kc = event.keyCode;
+                // 32->Space, 13->Enter
+                if(kc == 32 || kc == 13) {
+                    toggleDfnPanel(dfnPanel, dfn);
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+            });
+
+            dfnPanel.addEventListener('click', (event) => {
+                pinDfnPanel(dfnPanel);
+                event.stopPropagation();
+            });
+
+            dfnPanel.addEventListener('keydown', (event) => {
+                if(event.keyCode == 27) { // Escape key
+                    hideDfnPanel(dfnPanel, dfn);
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+            })
+
+        } else {
+            console.log("Couldn't find .dfn-panel[data-for='" + dfn.id + "']");
+        }
+    }
+}
 </script>
