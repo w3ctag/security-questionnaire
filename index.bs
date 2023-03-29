@@ -1283,6 +1283,8 @@ urlPrefix: https://www.w3.org/TR/encrypted-media/; spec: ENCRYPTED-MEDIA
 urlPrefix: https://privacycg.github.io/storage-access/; spec: STORAGE-ACCESS
     text: first-party-site context; url: #first-party-site-context; type: dfn
     text: third-party context; url: #third-party-context; type: dfn
+urlPrefix: https://html.spec.whatwg.org/multipage/; spec: HTML
+    text: PDF viewer plugin objects; url: system-state.html#pdf-viewer-plugin-objects; type: dfn
 </pre>
 
 <pre class="link-defaults">
