@@ -38,4 +38,5 @@ For your convenience, a copy of the questionnaire's questions is quoted here in 
 >      (instead of getting destroyed) after navigation, and potentially gets reused
 >      on future navigations back to the document?
 > 18.  What happens when a document that uses your feature gets disconnected?
-> 19.  What should this questionnaire have asked?
+> 19.  Does your feature allow sites to learn about the users use of accessibility devices?
+> 20.  What should this questionnaire have asked?
