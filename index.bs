@@ -1290,6 +1290,7 @@ urlPrefix: https://html.spec.whatwg.org/multipage/; spec: HTML
 <pre class="link-defaults">
 spec:html; type:element; text:script
 spec:html; type:element; text:link
+spec:indexeddb-3; type:attribute; text:indexedDB
 </pre>
 
 <pre class="biblio">
