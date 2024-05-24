@@ -5,11 +5,12 @@
   <title>Self-Review Questionnaire: Security and Privacy</title>
   <meta content="ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
-  <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="Bikeshed version d9bd89757, updated Thu Mar 23 10:06:53 2023 -0700" name="generator">
+  <meta content="Bikeshed version d765c696b, updated Fri Mar 8 15:58:52 2024 -0800" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="164b624894664275b43909b31375791bd8bc19d4" name="document-revision">
-<style>/* style-autolinks */
+  <meta content="bf95472ea235acca2661650983c26d1b2a8f9ae3" name="revision">
+  <meta content="dark light" name="color-scheme">
+  <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
+<style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
     font-size: inherit;
@@ -70,9 +71,16 @@ pre .property::before, pre .property::after {
 [data-link-type=biblio] {
     white-space: pre;
 }
-</style>
-<style>/* style-colors */
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --selflink-text: black;
+        --selflink-bg: silver;
+        --selflink-hover-text: white;
+    }
+}
+</style>
+<style>/* Boilerplate: style-colors */
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
 :root {
     color-scheme: light dark;
@@ -180,157 +188,6 @@ pre .property::before, pre .property::after {
 
     --editedrec-bg: darkorange;
 }
-</style>
-<style>/* style-counters */
-body {
-    counter-reset: example figure issue;
-}
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}
-</style>
-<style>/* style-dfn-panel */
-:root {
-    --dfnpanel-bg: #ddd;
-    --dfnpanel-text: var(--text);
-}
-.dfn-panel {
-    position: absolute;
-    z-index: 35;
-    width: 20em;
-    min-width: min-content;
-    max-width: 300px;
-    height: auto;
-    max-height: 500px;
-    overflow: auto;
-    padding: 0.5em 0.75em;
-    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
-    background: var(--dfnpanel-bg);
-    color: var(--dfnpanel-text);
-    border: outset 0.2em;
-    white-space: normal; /* in case it's moved into a pre */
-}
-.dfn-panel:not(.on) { display: none; }
-.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
-.dfn-panel > b { display: block; }
-.dfn-panel a { color: var(--dfnpanel-text); }
-.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
-.dfn-panel > b + b { margin-top: 0.25em; }
-.dfn-panel ul { padding: 0; }
-.dfn-panel li { list-style: inside; }
-.dfn-panel.activated {
-    display: inline-block;
-    position: fixed;
-    left: .5em;
-    bottom: 2em;
-    margin: 0 auto;
-    max-width: calc(100vw - 1.5em - .4em - .5em);
-    max-height: 30vh;
-}
-
-.dfn-paneled { cursor: pointer; }
-</style>
-<style>/* style-issues */
-a[href].issue-return {
-    float: right;
-    float: inline-end;
-    color: var(--issueheading-text);
-    font-weight: bold;
-    text-decoration: none;
-}
-</style>
-<style>/* style-md-lists */
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
-}
-[data-md] > :last-child {
-    margin-bottom: 0;
-}
-</style>
-<style>/* style-selflinks */
-
-:root {
-    --selflink-text: white;
-    --selflink-bg: gray;
-    --selflink-hover-text: black;
-}
-.heading, .issue, .note, .example, li, dt {
-    position: relative;
-}
-a.self-link {
-    position: absolute;
-    top: 0;
-    left: calc(-1 * (3.5rem - 26px));
-    width: calc(3.5rem - 26px);
-    height: 2em;
-    text-align: center;
-    border: none;
-    transition: opacity .2s;
-    opacity: .5;
-}
-a.self-link:hover {
-    opacity: 1;
-}
-.heading > a.self-link {
-    font-size: 83%;
-}
-.example > a.self-link,
-.note > a.self-link,
-.issue > a.self-link {
-    /* These blocks are overflow:auto, so positioning outside
-       doesn't work. */
-    left: auto;
-    right: 0;
-}
-li > a.self-link {
-    left: calc(-1 * (3.5rem - 26px) - 2em);
-}
-dfn > a.self-link {
-    top: auto;
-    left: auto;
-    opacity: 0;
-    width: 1.5em;
-    height: 1.5em;
-    background: var(--selflink-bg);
-    color: var(--selflink-text);
-    font-style: normal;
-    transition: opacity .2s, background-color .2s, color .2s;
-}
-dfn:hover > a.self-link {
-    opacity: 1;
-}
-dfn > a.self-link:hover {
-    color: var(--selflink-hover-text);
-}
-
-a.self-link::before            { content: "¶"; }
-.heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }
-</style>
-<style>/* style-darkmode */
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -443,27 +300,276 @@ dfn > a.self-link::before      { content: "#"; }
        which is quite common in practice... */
     img { background: white; }
 }
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --selflink-text: black;
-        --selflink-bg: silver;
-        --selflink-hover-text: white;
-    }
+</style>
+<style>/* Boilerplate: style-counters */
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
 }
 
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}
+</style>
+<style>/* Boilerplate: style-dfn-panel */
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+    --dfnpanel-target-bg: #ffc;
+    --dfnpanel-target-outline: orange;
+}
 @media (prefers-color-scheme: dark) {
     :root {
         --dfnpanel-bg: #222;
         --dfnpanel-text: var(--text);
+        --dfnpanel-target-bg: #333;
+        --dfnpanel-target-outline: silver;
     }
 }
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel a:focus {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
+.dfn-panel li a {
+    max-width: calc(300px - 1.5em - 1em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: 8px;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+    transition: left 1s ease-out, bottom 1s ease-out;
+}
+
+.dfn-panel .link-item:hover {
+    text-decoration: underline;
+}
+.dfn-panel .link-item .copy-icon {
+    opacity: 0;
+}
+.dfn-panel .link-item:hover .copy-icon,
+.dfn-panel .link-item .copy-icon:focus {
+    opacity: 1;
+}
+
+.dfn-panel .copy-icon {
+    display: inline-block;
+    margin-right: 0.5em;
+    width: 0.85em;
+    height: 1em;
+    border-radius: 3px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.dfn-panel .copy-icon .icon {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dfn-panel .copy-icon .icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: #ccc;
+    opacity: 0.25;
+    transform: translate(3px, -3px);
+}
+
+.dfn-panel .copy-icon:active .icon::before {
+    opacity: 1;
+}
+
+.dfn-paneled[role="button"] { cursor: help; }
+
+.highlighted {
+    animation: target-fade 3s;
+}
+
+@keyframes target-fade {
+    from {
+        background-color: var(--dfnpanel-target-bg);
+        outline: 5px solid var(--dfnpanel-target-outline);
+    }
+    to {
+        color: var(--a-normal-text);
+        background-color: transparent;
+        outline: transparent;
+    }
+}
+</style>
+<style>/* Boilerplate: style-issues */
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+<style>/* Boilerplate: style-md-lists */
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}
+</style>
+<style>/* Boilerplate: style-ref-hints */
+:root {
+    --ref-hint-bg: #ddd;
+    --ref-hint-text: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ref-hint-bg: #222;
+        --ref-hint-text: var(--text);
+    }
+}
+
+.ref-hint {
+    display: inline-block;
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.5em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--ref-hint-bg);
+    color: var(--ref-hint-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+
+.ref-hint * { margin: 0; padding: 0; text-indent: 0; }
+
+.ref-hint ul { padding: 0 0 0 1em; list-style: none; }
+</style>
+<style>/* Boilerplate: style-selflinks */
+:root {
+    --selflink-text: white;
+    --selflink-bg: gray;
+    --selflink-hover-text: black;
+}
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--selflink-bg);
+    color: var(--selflink-text);
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: var(--selflink-hover-text);
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }
 </style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-03-29">29 March 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-05-24">24 May 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -494,9 +600,8 @@ This document is also made available under the <a href="http://www.w3.org/Consor
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This document contains a set of questions to be used when
-
-    evaluating the security and privacy implications of web platform
-    technologies.</p>
+evaluating the security and privacy implications of web platform
+technologies.</p>
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
@@ -660,7 +765,7 @@ write "Security Considerations" and
 document will, we hope, inform your writing of those sections. It is not
 appropriate, however, to merely copy this questionnaire into those sections.
 Instructions for requesting security and privacy reviews can be
-found in the document <cite><a href="https://w3c.github.io/documentreview/#how_to_get_horizontal_review">How to do Wide Review</a></cite>.</p>
+found in the document <cite><a href="https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review">How to do Wide Review</a></cite>.</p>
    <p>When requesting
 a <a href="https://github.com/w3ctag/design-reviews">review</a> from the <a href="https://www.w3.org/2001/tag/">Technical Architecture Group (TAG)</a>,
 please provide the TAG with answers
@@ -1627,22 +1732,24 @@ We hope we haven’t made it (much) worse.</p>
     with <code>class="note"</code>,
     like this: </p>
    <p class="note" role="note">Note, this is an informative note.</p>
-   <h3 class="no-ref no-num heading settled" id="w3c-conformant-algorithms"><span class="content">Conformant Algorithms</span><a class="self-link" href="#w3c-conformant-algorithms"></a></h3>
-   <p>Requirements phrased in the imperative as part of algorithms
+   <section>
+    <h3 class="no-ref no-num heading settled" id="w3c-conformant-algorithms"><span class="content">Conformant Algorithms</span><a class="self-link" href="#w3c-conformant-algorithms"></a></h3>
+    <p>Requirements phrased in the imperative as part of algorithms
     (such as "strip any leading space characters"
     or "return false and abort these steps")
     are to be interpreted with the meaning of the key word
     ("must", "should", "may", etc)
     used in introducing the algorithm. </p>
-   <p>Conformance requirements phrased as algorithms or specific steps
+    <p>Conformance requirements phrased as algorithms or specific steps
     can be implemented in any manner,
     so long as the end result is equivalent.
     In particular, the algorithms defined in this specification
     are intended to be easy to understand
     and are not intended to be performant.
     Implementers are encouraged to optimize. </p>
+   </section>
   </div>
-<script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
+  <script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
@@ -1654,190 +1761,77 @@ We hope we haven’t made it (much) worse.</p>
    <li><a href="#same-origin-policy">same-origin policy</a><span>, in § 3.3</span>
    <li><a href="#cross-site-scripting-attacks">XSS</a><span>, in § 3.3</span>
   </ul>
-  <aside aria-labelledby="infopaneltitle-for-597fbf2d1db034644a8eba4bdab3f3c5" class="dfn-panel" data-for="597fbf2d1db034644a8eba4bdab3f3c5" id="infopanel-for-597fbf2d1db034644a8eba4bdab3f3c5">
-   <span id="infopaneltitle-for-597fbf2d1db034644a8eba4bdab3f3c5" style="display:none">Info about the 'connect-src' external reference.</span><a href="https://w3c.github.io/webappsec-csp/#connect-src">https://w3c.github.io/webappsec-csp/#connect-src</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-connect-src">2.4. 
-  How do the features in your specification deal with sensitive information? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-ec00b547df04f667cdb627e8e2a53a64" class="dfn-panel" data-for="ec00b547df04f667cdb627e8e2a53a64" id="infopanel-for-ec00b547df04f667cdb627e8e2a53a64">
-   <span id="infopaneltitle-for-ec00b547df04f667cdb627e8e2a53a64" style="display:none">Info about the 'form-action' external reference.</span><a href="https://w3c.github.io/webappsec-csp/#form-action">https://w3c.github.io/webappsec-csp/#form-action</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-form-action">2.4. 
-  How do the features in your specification deal with sensitive information? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-6b7c041881850ac601a6628239e845de" class="dfn-panel" data-for="6b7c041881850ac601a6628239e845de" id="infopanel-for-6b7c041881850ac601a6628239e845de">
-   <span id="infopaneltitle-for-6b7c041881850ac601a6628239e845de" style="display:none">Info about the 'content decryption module' external reference.</span><a href="https://www.w3.org/TR/encrypted-media/#cdm">https://www.w3.org/TR/encrypted-media/#cdm</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-cdm">2.5. 
-  Do the features in your specification introduce state
-  that persists across browsing sessions? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-3b597d41857f5e9275bb5cdecc55e21e" class="dfn-panel" data-for="3b597d41857f5e9275bb5cdecc55e21e" id="infopanel-for-3b597d41857f5e9275bb5cdecc55e21e">
-   <span id="infopaneltitle-for-3b597d41857f5e9275bb5cdecc55e21e" style="display:none">Info about the 'domain' external reference.</span><a href="https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain">https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-document-domain">2.16. 
-  Do features in your specification enable origins to downgrade default
-  security protections? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-7594a09aa0c77c9e24726559a3a6da9d" class="dfn-panel" data-for="7594a09aa0c77c9e24726559a3a6da9d" id="infopanel-for-7594a09aa0c77c9e24726559a3a6da9d">
-   <span id="infopaneltitle-for-7594a09aa0c77c9e24726559a3a6da9d" style="display:none">Info about the 'fully active' external reference.</span><a href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active">https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-fully-active">2.17. 
-  What happens when a document that uses your feature is kept alive in BFCache
-  (instead of getting destroyed) after navigation, and potentially gets reused
-  on future navigations back to the document? </a> <a href="#ref-for-fully-active①">(2)</a> <a href="#ref-for-fully-active②">(3)</a> <a href="#ref-for-fully-active③">(4)</a> <a href="#ref-for-fully-active④">(5)</a> <a href="#ref-for-fully-active⑤">(6)</a>
-    <li><a href="#ref-for-fully-active⑥">2.18. 
-  What happens when a document that uses your feature gets disconnected? </a> <a href="#ref-for-fully-active⑦">(2)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-baf95ce8d0404079723db392663d355e" class="dfn-panel" data-for="baf95ce8d0404079723db392663d355e" id="infopanel-for-baf95ce8d0404079723db392663d355e">
-   <span id="infopaneltitle-for-baf95ce8d0404079723db392663d355e" style="display:none">Info about the 'iframe' external reference.</span><a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-the-iframe-element">2.16. 
-  Do features in your specification enable origins to downgrade default
-  security protections? </a> <a href="#ref-for-the-iframe-element①">(2)</a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-33f2faf55eb7920da6b293d065d66fa7" class="dfn-panel" data-for="33f2faf55eb7920da6b293d065d66fa7" id="infopanel-for-33f2faf55eb7920da6b293d065d66fa7">
-   <span id="infopaneltitle-for-33f2faf55eb7920da6b293d065d66fa7" style="display:none">Info about the 'localStorage' external reference.</span><a href="https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage">https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-localstorage">2.5. 
-  Do the features in your specification introduce state
-  that persists across browsing sessions? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-e6b611c4348e9e5a47cf22ba80fafdc8" class="dfn-panel" data-for="e6b611c4348e9e5a47cf22ba80fafdc8" id="infopanel-for-e6b611c4348e9e5a47cf22ba80fafdc8">
-   <span id="infopaneltitle-for-e6b611c4348e9e5a47cf22ba80fafdc8" style="display:none">Info about the 'pdf viewer plugin objects' external reference.</span><a href="https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects">https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-pdf-viewer-plugin-objects">2.6. 
-  Do the features in your specification expose information about the
-  underlying platform to origins? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-83418513ea93980e95697432d0d33474" class="dfn-panel" data-for="83418513ea93980e95697432d0d33474" id="infopanel-for-83418513ea93980e95697432d0d33474">
-   <span id="infopaneltitle-for-83418513ea93980e95697432d0d33474" style="display:none">Info about the 'sticky activation' external reference.</span><a href="https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation">https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-sticky-activation">2.17. 
-  What happens when a document that uses your feature is kept alive in BFCache
-  (instead of getting destroyed) after navigation, and potentially gets reused
-  on future navigations back to the document? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-e5d8d6fbba6c04e60636479a9af05ac2" class="dfn-panel" data-for="e5d8d6fbba6c04e60636479a9af05ac2" id="infopanel-for-e5d8d6fbba6c04e60636479a9af05ac2">
-   <span id="infopaneltitle-for-e5d8d6fbba6c04e60636479a9af05ac2" style="display:none">Info about the 'indexedDB' external reference.</span><a href="https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb">https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-windoworworkerglobalscope-indexeddb">2.5. 
-  Do the features in your specification introduce state
-  that persists across browsing sessions? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-cbc4165961071efad91900c4c7b2fe8b" class="dfn-panel" data-for="cbc4165961071efad91900c4c7b2fe8b" id="infopanel-for-cbc4165961071efad91900c4c7b2fe8b">
-   <span id="infopaneltitle-for-cbc4165961071efad91900c4c7b2fe8b" style="display:none">Info about the 'policy-controlled feature' external reference.</span><a href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature">https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-policy-controlled-feature">2.16. 
-  Do features in your specification enable origins to downgrade default
-  security protections? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-19344f9159e0945adf920cdfe29eb2c9" class="dfn-panel" data-for="19344f9159e0945adf920cdfe29eb2c9" id="infopanel-for-19344f9159e0945adf920cdfe29eb2c9">
-   <span id="infopaneltitle-for-19344f9159e0945adf920cdfe29eb2c9" style="display:none">Info about the 'first-party-site context' external reference.</span><a href="https://privacycg.github.io/storage-access/#first-party-site-context">https://privacycg.github.io/storage-access/#first-party-site-context</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-first-party-site-context">2.5. 
-  Do the features in your specification introduce state
-  that persists across browsing sessions? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-6b918fd27ff6e66ed1b959dc36f12001" class="dfn-panel" data-for="6b918fd27ff6e66ed1b959dc36f12001" id="infopanel-for-6b918fd27ff6e66ed1b959dc36f12001">
-   <span id="infopaneltitle-for-6b918fd27ff6e66ed1b959dc36f12001" style="display:none">Info about the 'third-party context' external reference.</span><a href="https://privacycg.github.io/storage-access/#third-party-context">https://privacycg.github.io/storage-access/#third-party-context</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-third-party-context">2.5. 
-  Do the features in your specification introduce state
-  that persists across browsing sessions? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-79675135c82b3000d5f63171d9a4da81" class="dfn-panel" data-for="79675135c82b3000d5f63171d9a4da81" id="infopanel-for-79675135c82b3000d5f63171d9a4da81">
-   <span id="infopaneltitle-for-79675135c82b3000d5f63171d9a4da81" style="display:none">Info about the 'FormData' external reference.</span><a href="https://xhr.spec.whatwg.org/#formdata">https://xhr.spec.whatwg.org/#formdata</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-formdata">2.4. 
-  How do the features in your specification deal with sensitive information? </a>
-   </ul>
-  </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
     <a data-link-type="biblio">[CSP]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="597fbf2d1db034644a8eba4bdab3f3c5">connect-src</span>
-     <li><span class="dfn-paneled" id="ec00b547df04f667cdb627e8e2a53a64">form-action</span>
+     <li><span class="dfn-paneled" id="6e4a4b23">connect-src</span>
+     <li><span class="dfn-paneled" id="0e0909b7">form-action</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ENCRYPTED-MEDIA]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="6b7c041881850ac601a6628239e845de">content decryption module</span>
+     <li><span class="dfn-paneled" id="6a1335c3">content decryption module</span>
     </ul>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="3b597d41857f5e9275bb5cdecc55e21e">domain</span>
-     <li><span class="dfn-paneled" id="7594a09aa0c77c9e24726559a3a6da9d">fully active</span>
-     <li><span class="dfn-paneled" id="baf95ce8d0404079723db392663d355e">iframe</span>
-     <li><span class="dfn-paneled" id="33f2faf55eb7920da6b293d065d66fa7">localStorage</span>
-     <li><span class="dfn-paneled" id="e6b611c4348e9e5a47cf22ba80fafdc8">pdf viewer plugin objects</span>
-     <li><span class="dfn-paneled" id="83418513ea93980e95697432d0d33474">sticky activation</span>
+     <li><span class="dfn-paneled" id="cc2ecc32">domain</span>
+     <li><span class="dfn-paneled" id="0e3ba9f8">fully active</span>
+     <li><span class="dfn-paneled" id="87fcd40c">iframe</span>
+     <li><span class="dfn-paneled" id="3a2db83f">localStorage</span>
+     <li><span class="dfn-paneled" id="ed56a6fb">pdf viewer plugin objects</span>
+     <li><span class="dfn-paneled" id="ca96a59c">sticky activation</span>
     </ul>
    <li>
     <a data-link-type="biblio">[IndexedDB-3]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="e5d8d6fbba6c04e60636479a9af05ac2">indexedDB</span>
+     <li><span class="dfn-paneled" id="6ced0379">indexedDB</span>
     </ul>
    <li>
     <a data-link-type="biblio">[PERMISSIONS-POLICY]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="cbc4165961071efad91900c4c7b2fe8b">policy-controlled feature</span>
+     <li><span class="dfn-paneled" id="cc890cc1">policy-controlled feature</span>
     </ul>
    <li>
     <a data-link-type="biblio">[STORAGE-ACCESS]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="19344f9159e0945adf920cdfe29eb2c9">first-party-site context</span>
-     <li><span class="dfn-paneled" id="6b918fd27ff6e66ed1b959dc36f12001">third-party context</span>
+     <li><span class="dfn-paneled" id="4780b3e9">first-party-site context</span>
+     <li><span class="dfn-paneled" id="05d1562e">third-party context</span>
     </ul>
    <li>
     <a data-link-type="biblio">[XHR]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="79675135c82b3000d5f63171d9a4da81">FormData</span>
+     <li><span class="dfn-paneled" id="61cd38cd">FormData</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-design-principles">[DESIGN-PRINCIPLES]
-   <dd>Sangwhan Moon. <a href="https://w3ctag.github.io/design-principles/"><cite>Web Platform Design Principles</cite></a>. URL: <a href="https://w3ctag.github.io/design-principles/">https://w3ctag.github.io/design-principles/</a>
+   <dd>Sangwhan Moon; Lea Verou. <a href="https://w3ctag.github.io/design-principles/"><cite>Web Platform Design Principles</cite></a>. URL: <a href="https://w3ctag.github.io/design-principles/">https://w3ctag.github.io/design-principles/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-indexeddb-3">[IndexedDB-3]
-   <dd>Ali Alabbas; Joshua Bell. <a href="https://w3c.github.io/IndexedDB/"><cite>Indexed Database API 3.0</cite></a>. URL: <a href="https://w3c.github.io/IndexedDB/">https://w3c.github.io/IndexedDB/</a>
+   <dd>Joshua Bell. <a href="https://w3c.github.io/IndexedDB/"><cite>Indexed Database API 3.0</cite></a>. URL: <a href="https://w3c.github.io/IndexedDB/">https://w3c.github.io/IndexedDB/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
    <dt id="biblio-storage-access">[STORAGE-ACCESS]
-   <dd>The Storage Access API URL: <a href="https://privacycg.github.io/storage-access/">https://privacycg.github.io/storage-access/</a>
+   <dd><a href="https://privacycg.github.io/storage-access/"><cite>The Storage Access API</cite></a>. Editor's Draft. URL: <a href="https://privacycg.github.io/storage-access/">https://privacycg.github.io/storage-access/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-adding-permission">[ADDING-PERMISSION]
    <dd>Nick Doty. <a href="https://github.com/w3cping/adding-permissions"><cite>Adding another permission? A guide</cite></a>. URL: <a href="https://github.com/w3cping/adding-permissions">https://github.com/w3cping/adding-permissions</a>
    <dt id="biblio-battery-status">[BATTERY-STATUS]
-   <dd>Anssi Kostiainen; Mounir Lamouri; Raphael Kubo da Costa. <a href="https://w3c.github.io/battery/"><cite>Battery Status API</cite></a>. URL: <a href="https://w3c.github.io/battery/">https://w3c.github.io/battery/</a>
+   <dd>Anssi Kostiainen; Raphael Kubo da Costa. <a href="https://w3c.github.io/battery/"><cite>Battery Status API</cite></a>. URL: <a href="https://w3c.github.io/battery/">https://w3c.github.io/battery/</a>
    <dt id="biblio-comcast">[COMCAST]
    <dd>David Kravets. <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/"><cite>Comcast Wi-Fi serving self-promotional ads via JavaScript injection</cite></a>. URL: <a href="http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/">http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/</a>
    <dt id="biblio-cors">[CORS]
    <dd>Anne van Kesteren. <a href="https://www.w3.org/TR/cors/"><cite>Cross-Origin Resource Sharing</cite></a>. 2 June 2020. REC. URL: <a href="https://www.w3.org/TR/cors/">https://www.w3.org/TR/cors/</a>
    <dt id="biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]
-   <dd>Mike West. <a href="https://w3c.github.io/webappsec-credential-management/"><cite>Credential Management Level 1</cite></a>. URL: <a href="https://w3c.github.io/webappsec-credential-management/">https://w3c.github.io/webappsec-credential-management/</a>
+   <dd>Nina Satragno. <a href="https://w3c.github.io/webappsec-credential-management/"><cite>Credential Management Level 1</cite></a>. URL: <a href="https://w3c.github.io/webappsec-credential-management/">https://w3c.github.io/webappsec-credential-management/</a>
    <dt id="biblio-csp">[CSP]
    <dd>Mike West; Antonio Sartori. <a href="https://w3c.github.io/webappsec-csp/"><cite>Content Security Policy Level 3</cite></a>. URL: <a href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a>
    <dt id="biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]
@@ -1899,153 +1893,825 @@ We hope we haven’t made it (much) worse.</p>
    <dt id="biblio-yubikey-attack">[YUBIKEY-ATTACK]
    <dd>Andy Greenberg. <a href="https://www.wired.com/story/chrome-yubikey-phishing-webusb/"><cite>Chrome Lets Hackers Phish Even 'Unphishable' YubiKey Users</cite></a>. URL: <a href="https://www.wired.com/story/chrome-yubikey-phishing-webusb/">https://www.wired.com/story/chrome-yubikey-phishing-webusb/</a>
   </dl>
-  <aside aria-labelledby="infopaneltitle-for-passive-network-attacker" class="dfn-panel" data-for="passive-network-attacker" id="infopanel-for-passive-network-attacker">
-   <span id="infopaneltitle-for-passive-network-attacker" style="display:none">Info about the 'passive network attacker' definition.</span><b><a href="#passive-network-attacker">#passive-network-attacker</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-passive-network-attacker">4.5. 
-  Secure Contexts </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-active-network-attacker" class="dfn-panel" data-for="active-network-attacker" id="infopanel-for-active-network-attacker">
-   <span id="infopaneltitle-for-active-network-attacker" style="display:none">Info about the 'active network attacker' definition.</span><b><a href="#active-network-attacker">#active-network-attacker</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-active-network-attacker">2.5. 
-  Do the features in your specification introduce state
-  that persists across browsing sessions? </a>
-    <li><a href="#ref-for-active-network-attacker①">4.5. 
-  Secure Contexts </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-same-origin-policy" class="dfn-panel" data-for="same-origin-policy" id="infopanel-for-same-origin-policy">
-   <span id="infopaneltitle-for-same-origin-policy" style="display:none">Info about the 'same-origin policy' definition.</span><b><a href="#same-origin-policy">#same-origin-policy</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-same-origin-policy">2.16. 
-  Do features in your specification enable origins to downgrade default
-  security protections? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-cross-site-scripting-attacks" class="dfn-panel" data-for="cross-site-scripting-attacks" id="infopanel-for-cross-site-scripting-attacks">
-   <span id="infopaneltitle-for-cross-site-scripting-attacks" style="display:none">Info about the 'Cross-site scripting attacks' definition.</span><b><a href="#cross-site-scripting-attacks">#cross-site-scripting-attacks</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-cross-site-scripting-attacks">2.4. 
-  How do the features in your specification deal with sensitive information? </a>
-   </ul>
-  </aside>
-  <aside aria-labelledby="infopaneltitle-for-cross-site-request-forgery-attacks" class="dfn-panel" data-for="cross-site-request-forgery-attacks" id="infopanel-for-cross-site-request-forgery-attacks">
-   <span id="infopaneltitle-for-cross-site-request-forgery-attacks" style="display:none">Info about the 'Cross-site request forgery attacks' definition.</span><b><a href="#cross-site-request-forgery-attacks">#cross-site-request-forgery-attacks</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-cross-site-request-forgery-attacks">2.7. 
-  Does this specification allow an origin to send data to the underlying
-  platform? </a>
-   </ul>
-  </aside>
-<script>/* script-dfn-panel */
+<script>/* Boilerplate: script-dom-helper */
+"use strict";
+function query(sel) { return document.querySelector(sel); }
+
+function queryAll(sel) { return [...document.querySelectorAll(sel)]; }
+
+function iter(obj) {
+	if(!obj) return [];
+	var it = obj[Symbol.iterator];
+	if(it) return it;
+	return Object.entries(obj);
+}
+
+function mk(tagname, attrs, ...children) {
+	const el = document.createElement(tagname);
+	for(const [k,v] of iter(attrs)) {
+		if(k.slice(0,3) == "_on") {
+			const eventName = k.slice(3);
+			el.addEventListener(eventName, v);
+		} else if(k[0] == "_") {
+			// property, not attribute
+			el[k.slice(1)] = v;
+		} else {
+			if(v === false || v == null) {
+        continue;
+      } else if(v === true) {
+        el.setAttribute(k, "");
+        continue;
+      } else {
+  			el.setAttribute(k, v);
+      }
+		}
+	}
+	append(el, children);
+	return el;
+}
+
+/* Create shortcuts for every known HTML element */
+[
+  "a",
+  "abbr",
+  "acronym",
+  "address",
+  "applet",
+  "area",
+  "article",
+  "aside",
+  "audio",
+  "b",
+  "base",
+  "basefont",
+  "bdo",
+  "big",
+  "blockquote",
+  "body",
+  "br",
+  "button",
+  "canvas",
+  "caption",
+  "center",
+  "cite",
+  "code",
+  "col",
+  "colgroup",
+  "datalist",
+  "dd",
+  "del",
+  "details",
+  "dfn",
+  "dialog",
+  "div",
+  "dl",
+  "dt",
+  "em",
+  "embed",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "font",
+  "footer",
+  "form",
+  "frame",
+  "frameset",
+  "head",
+  "header",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "hr",
+  "html",
+  "i",
+  "iframe",
+  "img",
+  "input",
+  "ins",
+  "kbd",
+  "label",
+  "legend",
+  "li",
+  "link",
+  "main",
+  "map",
+  "mark",
+  "meta",
+  "meter",
+  "nav",
+  "nobr",
+  "noscript",
+  "object",
+  "ol",
+  "optgroup",
+  "option",
+  "output",
+  "p",
+  "param",
+  "pre",
+  "progress",
+  "q",
+  "s",
+  "samp",
+  "script",
+  "section",
+  "select",
+  "small",
+  "source",
+  "span",
+  "strike",
+  "strong",
+  "style",
+  "sub",
+  "summary",
+  "sup",
+  "table",
+  "tbody",
+  "td",
+  "template",
+  "textarea",
+  "tfoot",
+  "th",
+  "thead",
+  "time",
+  "title",
+  "tr",
+  "u",
+  "ul",
+  "var",
+  "video",
+  "wbr",
+  "xmp",
+].forEach(tagname=>{
+	mk[tagname] = (...args) => mk(tagname, ...args);
+});
+
+function* nodesFromChildList(children) {
+	for(const child of children.flat(Infinity)) {
+		if(child instanceof Node) {
+			yield child;
+		} else {
+			yield new Text(child);
+		}
+	}
+}
+function append(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		if(el instanceof Node) el.appendChild(child);
+		else el.push(child);
+	}
+	return el;
+}
+
+function insertAfter(el, ...children) {
+	for(const child of nodesFromChildList(children)) {
+		el.parentNode.insertBefore(child, el.nextSibling);
+	}
+	return el;
+}
+
+function clearContents(el) {
+	el.innerHTML = "";
+	return el;
+}
+
+function parseHTML(markup) {
+	if(markup.toLowerCase().trim().indexOf('<!doctype') === 0) {
+		const doc = document.implementation.createHTMLDocument("");
+		doc.documentElement.innerHTML = markup;
+		return doc;
+	} else {
+		const el = mk.template({});
+		el.innerHTML = markup;
+		return el.content;
+	}
+}</script>
+<script>/* Boilerplate: script-dfn-panel */
 "use strict";
 {
-    function queryAll(sel) {
-        return [].slice.call(document.querySelectorAll(sel));
-    }
+let dfnPanelData = {
+"05d1562e": {"dfnID":"05d1562e","dfnText":"third-party context","external":true,"refSections":[{"refs":[{"id":"ref-for-third-party-context"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#third-party-context"},
+"0e0909b7": {"dfnID":"0e0909b7","dfnText":"form-action","external":true,"refSections":[{"refs":[{"id":"ref-for-form-action"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://w3c.github.io/webappsec-csp/#form-action"},
+"0e3ba9f8": {"dfnID":"0e3ba9f8","dfnText":"fully active","external":true,"refSections":[{"refs":[{"id":"ref-for-fully-active"},{"id":"ref-for-fully-active\u2460"},{"id":"ref-for-fully-active\u2461"},{"id":"ref-for-fully-active\u2462"},{"id":"ref-for-fully-active\u2463"},{"id":"ref-for-fully-active\u2464"}],"title":"2.17. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-fully-active\u2465"},{"id":"ref-for-fully-active\u2466"}],"title":"2.18. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active"},
+"3a2db83f": {"dfnID":"3a2db83f","dfnText":"localStorage","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-localstorage"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage"},
+"4780b3e9": {"dfnID":"4780b3e9","dfnText":"first-party-site context","external":true,"refSections":[{"refs":[{"id":"ref-for-first-party-site-context"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#first-party-site-context"},
+"61cd38cd": {"dfnID":"61cd38cd","dfnText":"FormData","external":true,"refSections":[{"refs":[{"id":"ref-for-formdata"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://xhr.spec.whatwg.org/#formdata"},
+"6a1335c3": {"dfnID":"6a1335c3","dfnText":"content decryption module","external":true,"refSections":[{"refs":[{"id":"ref-for-cdm"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://www.w3.org/TR/encrypted-media/#cdm"},
+"6ced0379": {"dfnID":"6ced0379","dfnText":"indexedDB","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-windoworworkerglobalscope-indexeddb"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb"},
+"6e4a4b23": {"dfnID":"6e4a4b23","dfnText":"connect-src","external":true,"refSections":[{"refs":[{"id":"ref-for-connect-src"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://w3c.github.io/webappsec-csp/#connect-src"},
+"87fcd40c": {"dfnID":"87fcd40c","dfnText":"iframe","external":true,"refSections":[{"refs":[{"id":"ref-for-the-iframe-element"},{"id":"ref-for-the-iframe-element\u2460"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
+"active-network-attacker": {"dfnID":"active-network-attacker","dfnText":"active network attacker","external":false,"refSections":[{"refs":[{"id":"ref-for-active-network-attacker"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"},{"refs":[{"id":"ref-for-active-network-attacker\u2460"}],"title":"4.5. \n  Secure Contexts\n"}],"url":"#active-network-attacker"},
+"ca96a59c": {"dfnID":"ca96a59c","dfnText":"sticky activation","external":true,"refSections":[{"refs":[{"id":"ref-for-sticky-activation"}],"title":"2.17. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"}],"url":"https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation"},
+"cc2ecc32": {"dfnID":"cc2ecc32","dfnText":"domain","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-document-domain"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain"},
+"cc890cc1": {"dfnID":"cc890cc1","dfnText":"policy-controlled feature","external":true,"refSections":[{"refs":[{"id":"ref-for-policy-controlled-feature"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature"},
+"cross-site-request-forgery-attacks": {"dfnID":"cross-site-request-forgery-attacks","dfnText":"Cross-site request forgery attacks","external":false,"refSections":[{"refs":[{"id":"ref-for-cross-site-request-forgery-attacks"}],"title":"2.7. \n  Does this specification allow an origin to send data to the underlying\n  platform?\n"}],"url":"#cross-site-request-forgery-attacks"},
+"cross-site-scripting-attacks": {"dfnID":"cross-site-scripting-attacks","dfnText":"Cross-site scripting attacks","external":false,"refSections":[{"refs":[{"id":"ref-for-cross-site-scripting-attacks"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"#cross-site-scripting-attacks"},
+"ed56a6fb": {"dfnID":"ed56a6fb","dfnText":"pdf viewer plugin objects","external":true,"refSections":[{"refs":[{"id":"ref-for-pdf-viewer-plugin-objects"}],"title":"2.6. \n  Do the features in your specification expose information about the\n  underlying platform to origins?\n"}],"url":"https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects"},
+"passive-network-attacker": {"dfnID":"passive-network-attacker","dfnText":"passive network attacker","external":false,"refSections":[{"refs":[{"id":"ref-for-passive-network-attacker"}],"title":"4.5. \n  Secure Contexts\n"}],"url":"#passive-network-attacker"},
+"same-origin-policy": {"dfnID":"same-origin-policy","dfnText":"same-origin policy","external":false,"refSections":[{"refs":[{"id":"ref-for-same-origin-policy"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"#same-origin-policy"},
+};
 
-    // Add popup behavior to all dfns to show the corresponding dfn-panel.
-    var dfns = document.querySelectorAll('.dfn-paneled');
-    for (let dfn of dfns) { insertDfnPopupAction(dfn); }
+document.addEventListener("DOMContentLoaded", ()=>{
+    genAllDfnPanels();
 
     document.body.addEventListener("click", (e) => {
         // If not handled already, just hide all dfn panels.
         hideAllDfnPanels();
     });
+});
 
-    function hideAllDfnPanels() {
-        // Turn off any currently "on" or "activated" panels.
-        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
-    }
+window.addEventListener("resize", () => {
+    // Pin any visible dfn panel
+    queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>positionDfnPanel(el));
+});
 
-    function showDfnPanel(dfnPanel, dfn) {
-        hideAllDfnPanels(); // Only display one at this time.
-        dfn.setAttribute("aria-expanded", "true");
-        dfnPanel.classList.add("on");
-        dfnPanel.style.left = "5px";
-        dfnPanel.style.top = "0px";
-        const panelRect = dfnPanel.getBoundingClientRect();
-        const panelWidth = panelRect.right - panelRect.left;
-        if (panelRect.right > document.body.scrollWidth) {
-            // Panel's overflowing the screen.
-            // Just drop it below the dfn and flip it rightward instead.
-            // This still wont' fix things if the screen is *really* wide,
-            // but fixing that's a lot harder without 'anchor()'.
-            dfnPanel.style.top = "1.5em";
-            dfnPanel.style.left = "auto";
-            dfnPanel.style.right = "0px";
-        }
-    }
-
-    function pinDfnPanel(dfnPanel) {
-        // Switch it to "activated" state, which pins it.
-        dfnPanel.classList.add("activated");
-        dfnPanel.style.left = null;
-        dfnPanel.style.top = null;
-    }
-
-    function hideDfnPanel(dfnPanel, dfn) {
+function genAllDfnPanels() {
+    for(const panelData of Object.values(dfnPanelData)) {
+        const dfnID = panelData.dfnID;
+        const dfn = document.getElementById(dfnID);
         if(!dfn) {
-            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
+            console.log(`Can't find dfn#${dfnID}.`, panelData);
+            continue;
         }
-        dfn.setAttribute("aria-expanded", "false")
-        dfnPanel.classList.remove("on");
-        dfnPanel.classList.remove("activated");
+        dfn.panelData = panelData;
+        insertDfnPopupAction(dfn);
+    }
+}
+
+function genDfnPanel(dfn, { dfnID, url, dfnText, refSections, external }) {
+    const dfnPanel = mk.aside({
+        class: "dfn-panel on",
+        id: `infopanel-for-${dfnID}`,
+        "data-for": dfnID,
+        "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+        },
+        mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+            `Info about the '${dfnText}' ${external?"external":""} reference.`),
+        mk.a({href:url, class:"dfn-link"}, url),
+        refSections.length == 0 ? [] :
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({ href: `#${ref.id}` },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        genLinkingSyntaxes(dfn),
+    );
+
+    dfnPanel.addEventListener('click', (event) => {
+        if (event.target.nodeName == 'A') {
+            scrollToTargetAndHighlight(event);
+            pinDfnPanel(dfnPanel);
+        }
+        event.stopPropagation();
+        refocusOnTarget(event);
+    });
+    dfnPanel.addEventListener('keydown', (event) => {
+        if(event.keyCode == 27) { // Escape key
+            hideDfnPanel({dfnPanel});
+            event.stopPropagation();
+            event.preventDefault();
+        }
+    });
+
+    dfnPanel.dfn = dfn;
+    dfn.dfnPanel = dfnPanel;
+    return dfnPanel;
+}
+
+
+
+function hideAllDfnPanels() {
+    // Delete the currently-active dfn panel.
+    queryAll(".dfn-panel").forEach(dfnPanel=>hideDfnPanel({dfnPanel}));
+}
+
+function showDfnPanel(dfn) {
+    hideAllDfnPanels(); // Only display one at a time.
+
+    dfn.setAttribute("aria-expanded", "true");
+
+    const dfnPanel = genDfnPanel(dfn, dfn.panelData);
+
+    // Give the dfn a unique tabindex, and then
+    // give all the tabbable panel bits successive indexes.
+    let tabIndex = 100;
+    dfn.tabIndex = tabIndex++;
+    const tabbable = dfnPanel.querySelectorAll(":is(a, button)");
+    for (const el of tabbable) {
+        el.tabIndex = tabIndex++;
     }
 
-    function toggleDfnPanel(dfnPanel, dfn) {
-        if(dfnPanel.classList.contains("on")) {
-            hideDfnPanel(dfnPanel, dfn);
-        } else {
-            showDfnPanel(dfnPanel, dfn);
+    append(document.body, dfnPanel);
+    positionDfnPanel(dfnPanel);
+}
+
+function positionDfnPanel(dfnPanel) {
+    const dfn = dfnPanel.dfn;
+    const dfnPos = getBounds(dfn);
+    dfnPanel.style.top = dfnPos.bottom + "px";
+    dfnPanel.style.left = dfnPos.left + "px";
+
+    const panelPos = dfnPanel.getBoundingClientRect();
+    const panelMargin = 8;
+    const maxRight = document.body.parentNode.clientWidth - panelMargin;
+    if (panelPos.right > maxRight) {
+        const overflowAmount = panelPos.right - maxRight;
+        const newLeft = Math.max(panelMargin, dfnPos.left - overflowAmount);
+        dfnPanel.style.left = newLeft + "px";
+    }
+}
+
+function pinDfnPanel(dfnPanel) {
+    // Switch it to "activated" state, which pins it.
+    dfnPanel.classList.add("activated");
+    dfnPanel.style.position = "fixed";
+    dfnPanel.style.left = null;
+    dfnPanel.style.top = null;
+}
+
+function hideDfnPanel({dfn, dfnPanel}) {
+    if(!dfnPanel) dfnPanel = dfn.dfnPanel;
+    if(!dfn) dfn = dfnPanel.dfn;
+    dfn.dfnPanel = undefined;
+    dfnPanel.dfn = undefined;
+    dfn.setAttribute("aria-expanded", "false");
+    dfn.tabIndex = undefined;
+    dfnPanel.remove()
+}
+
+function toggleDfnPanel(dfn) {
+    if(dfn.dfnPanel) {
+        hideDfnPanel(dfn);
+    } else {
+        showDfnPanel(dfn);
+    }
+}
+
+function insertDfnPopupAction(dfn) {
+    dfn.setAttribute('role', 'button');
+    dfn.setAttribute('aria-expanded', 'false')
+    dfn.tabIndex = 0;
+    dfn.classList.add('has-dfn-panel');
+    dfn.addEventListener('click', (event) => {
+        toggleDfnPanel(dfn);
+        event.stopPropagation();
+    });
+    dfn.addEventListener('keypress', (event) => {
+        const kc = event.keyCode;
+        // 32->Space, 13->Enter
+        if(kc == 32 || kc == 13) {
+            toggleDfnPanel(dfn);
+            event.stopPropagation();
+            event.preventDefault();
+        }
+    });
+}
+
+function refocusOnTarget(event) {
+    const target = event.target;
+    setTimeout(() => {
+        // Refocus on the event.target element.
+        // This is needed after browser scrolls to the destination.
+        target.focus();
+    });
+}
+
+// TODO: shared util
+// Returns the root-level absolute position {left and top} of element.
+function getBounds(el, relativeTo=document.body) {
+    const relativeRect = relativeTo.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const top = elRect.top - relativeRect.top;
+    const left = elRect.left - relativeRect.left;
+    return {
+        top,
+        left,
+        bottom: top + elRect.height,
+        right: left + elRect.width,
+    }
+}
+
+function scrollToTargetAndHighlight(event) {
+    let hash = event.target.hash;
+    if (hash) {
+        hash = decodeURIComponent(hash.substring(1));
+        const dest = document.getElementById(hash);
+        if (dest) {
+            dest.classList.add('highlighted');
+            setTimeout(() => dest.classList.remove('highlighted'), 1000);
+        }
+    }
+}
+
+// Functions, divided by link type, that wrap an autolink's
+// contents with the appropriate outer syntax.
+// Alternately, a string naming another type they format
+// the same as.
+function needsFor(type) {
+    switch(type) {
+        case "descriptor":
+        case "value":
+        case "element-attr":
+        case "attr-value":
+        case "element-state":
+        case "method":
+        case "constructor":
+        case "argument":
+        case "attribute":
+        case "const":
+        case "dict-member":
+        case "event":
+        case "enum-value":
+        case "stringifier":
+        case "serializer":
+        case "iterator":
+        case "maplike":
+        case "setlike":
+        case "state":
+        case "mode":
+        case "context":
+        case "facet": return true;
+
+        default: return false;
+    }
+}
+function refusesFor(type) {
+    switch(type) {
+        case "property":
+        case "element":
+        case "interface":
+        case "namespace":
+        case "callback":
+        case "dictionary":
+        case "enum":
+        case "exception":
+        case "typedef":
+        case "http-header":
+        case "permission": return true;
+
+        default: return false;
+    }
+}
+function linkFormatterFromType(type) {
+    switch(type) {
+        case 'scheme':
+        case 'permission':
+        case 'dfn': return (text) => `[=${text}=]`;
+
+        case 'abstract-op': return (text) => `[\$${text}\$]`;
+
+        case 'function':
+        case 'at-rule':
+        case 'selector':
+        case 'value': return (text) => `''${text}''`;
+
+        case 'http-header': return (text) => `[:${text}:]`;
+
+        case 'interface':
+        case 'constructor':
+        case 'method':
+        case 'argument':
+        case 'attribute':
+        case 'callback':
+        case 'dictionary':
+        case 'dict-member':
+        case 'enum':
+        case 'enum-value':
+        case 'exception':
+        case 'const':
+        case 'typedef':
+        case 'stringifier':
+        case 'serializer':
+        case 'iterator':
+        case 'maplike':
+        case 'setlike':
+        case 'extended-attribute':
+        case 'event':
+        case 'idl': return (text) => `{{${text}}}`;
+
+        case 'element-state':
+        case 'element-attr':
+        case 'attr-value':
+        case 'element': return (element) => `<{${element}}>`;
+
+        case 'grammar': return (text) => `${text} (within a <pre class=prod>)`;
+
+        case 'type': return (text)=> `<<${text}>>`;
+
+        case 'descriptor':
+        case 'property': return (text) => `'${text}'`;
+
+        default: return;
+    };
+};
+
+function genLinkingSyntaxes(dfn) {
+    if(dfn.tagName != "DFN") return;
+
+    const type = dfn.getAttribute('data-dfn-type');
+    if(!type) {
+        console.log(`<dfn> doesn't have a data-dfn-type:`, dfn);
+        return [];
+    }
+
+    // Return a function that wraps link text based on the type
+    const linkFormatter = linkFormatterFromType(type);
+    if(!linkFormatter) {
+        console.log(`<dfn> has an unknown data-dfn-type:`, dfn);
+        return [];
+    }
+
+    let ltAlts;
+    if(dfn.hasAttribute('data-lt')) {
+        ltAlts = dfn.getAttribute('data-lt')
+            .split("|")
+            .map(x=>x.trim());
+    } else {
+        ltAlts = [dfn.textContent.trim()];
+    }
+    if(type == "type") {
+        // lt of "<foo>", but "foo" is the interior;
+        // <<foo/bar>> is how you write it with a for,
+        // not <foo/<bar>> or whatever.
+        for(var i = 0; i < ltAlts.length; i++) {
+            const lt = ltAlts[i];
+            const match = /<(.*)>/.exec(lt);
+            if(match) { ltAlts[i] = match[1]; }
         }
     }
 
-    function insertDfnPopupAction(dfn) {
-        // Find dfn panel
-        const dfnPanel = document.querySelector(`.dfn-panel[data-for='${dfn.id}']`);
-        if (dfnPanel) {
-            const panelWrapper = document.createElement('span');
-            panelWrapper.appendChild(dfnPanel);
-            panelWrapper.style.position = "relative";
-            panelWrapper.style.height = "0px";
-            dfn.insertAdjacentElement("afterend", panelWrapper);
-            dfn.setAttribute('role', 'button');
-            dfn.setAttribute('aria-expanded', 'false')
-            dfn.tabIndex = 0;
-            dfn.classList.add('has-dfn-panel');
-            dfn.addEventListener('click', (event) => {
-                showDfnPanel(dfnPanel, dfn);
-                event.stopPropagation();
-            });
-            dfn.addEventListener('keypress', (event) => {
-                const kc = event.keyCode;
-                // 32->Space, 13->Enter
-                if(kc == 32 || kc == 13) {
-                    toggleDfnPanel(dfnPanel, dfn);
-                    event.stopPropagation();
-                    event.preventDefault();
-                }
-            });
+    let forAlts;
+    if(dfn.hasAttribute('data-dfn-for')) {
+        forAlts = dfn.getAttribute('data-dfn-for')
+            .split(",")
+            .map(x=>x.trim());
+    } else {
+        forAlts = [''];
+    }
 
-            dfnPanel.addEventListener('click', (event) => {
-                pinDfnPanel(dfnPanel);
-                event.stopPropagation();
-            });
-
-            dfnPanel.addEventListener('keydown', (event) => {
-                if(event.keyCode == 27) { // Escape key
-                    hideDfnPanel(dfnPanel, dfn);
-                    event.stopPropagation();
-                    event.preventDefault();
-                }
+    let linkingSyntaxes = [];
+    if(!needsFor(type)) {
+        for(const lt of ltAlts) {
+            linkingSyntaxes.push(linkFormatter(lt));
+        }
+    }
+    if(!refusesFor(type)) {
+        for(const f of forAlts) {
+            linkingSyntaxes.push(linkFormatter(`${f}/${ltAlts[0]}`))
+        }
+    }
+    return [
+        mk.b({}, 'Possible linking syntaxes:'),
+        mk.ul({},
+            ...linkingSyntaxes.map(link => {
+                const copyLink = async () =>
+                    await navigator.clipboard.writeText(link);
+                return mk.li({},
+                    mk.div({ class: 'link-item' },
+                        mk.button({
+                            class: 'copy-icon', title: 'Copy',
+                            type: 'button',
+                            _onclick: copyLink,
+                            tabindex: 0,
+                        }, mk.span({ class: 'icon' }) ),
+                        mk.span({}, link)
+                    )
+                );
             })
+        )
+    ];
+}
+}
+</script>
+<script>/* Boilerplate: script-ref-hints */
+"use strict";
+{
+let refsData = {
+"#active-network-attacker": {"export":true,"for_":[],"level":"","normative":true,"shortname":"security-privacy-questionnaire","spec":"security-privacy-questionnaire","status":"local","text":"active network attacker","type":"dfn","url":"#active-network-attacker"},
+"#cross-site-request-forgery-attacks": {"export":true,"for_":[],"level":"","normative":true,"shortname":"security-privacy-questionnaire","spec":"security-privacy-questionnaire","status":"local","text":"csrf","type":"dfn","url":"#cross-site-request-forgery-attacks"},
+"#cross-site-scripting-attacks": {"export":true,"for_":[],"level":"","normative":true,"shortname":"security-privacy-questionnaire","spec":"security-privacy-questionnaire","status":"local","text":"xss","type":"dfn","url":"#cross-site-scripting-attacks"},
+"#passive-network-attacker": {"export":true,"for_":[],"level":"","normative":true,"shortname":"security-privacy-questionnaire","spec":"security-privacy-questionnaire","status":"local","text":"passive network attacker","type":"dfn","url":"#passive-network-attacker"},
+"#same-origin-policy": {"export":true,"for_":[],"level":"","normative":true,"shortname":"security-privacy-questionnaire","spec":"security-privacy-questionnaire","status":"local","text":"same-origin policy","type":"dfn","url":"#same-origin-policy"},
+"https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain": {"export":true,"for_":["Document"],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"domain","type":"attribute","url":"https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain"},
+"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active": {"export":true,"for_":["Document"],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"fully active","type":"dfn","url":"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active"},
+"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element": {"export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"iframe","type":"element","url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
+"https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation": {"export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"sticky activation","type":"dfn","url":"https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation"},
+"https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects": {"export":true,"for_":[],"level":"","normative":true,"shortname":"html","spec":"html","status":"anchor-block","text":"pdf viewer plugin objects","type":"dfn","url":"https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects"},
+"https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage": {"export":true,"for_":["WindowLocalStorage"],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"localStorage","type":"attribute","url":"https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage"},
+"https://privacycg.github.io/storage-access/#first-party-site-context": {"export":true,"for_":[],"level":"","normative":true,"shortname":"storage-access","spec":"storage-access","status":"anchor-block","text":"first-party-site context","type":"dfn","url":"https://privacycg.github.io/storage-access/#first-party-site-context"},
+"https://privacycg.github.io/storage-access/#third-party-context": {"export":true,"for_":[],"level":"","normative":true,"shortname":"storage-access","spec":"storage-access","status":"anchor-block","text":"third-party context","type":"dfn","url":"https://privacycg.github.io/storage-access/#third-party-context"},
+"https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb": {"export":true,"for_":["WindowOrWorkerGlobalScope"],"level":"3","normative":true,"shortname":"indexeddb","spec":"indexeddb-3","status":"current","text":"indexedDB","type":"attribute","url":"https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb"},
+"https://w3c.github.io/webappsec-csp/#connect-src": {"export":true,"for_":[],"level":"3","normative":true,"shortname":"csp","spec":"csp3","status":"current","text":"connect-src","type":"dfn","url":"https://w3c.github.io/webappsec-csp/#connect-src"},
+"https://w3c.github.io/webappsec-csp/#form-action": {"export":true,"for_":[],"level":"3","normative":true,"shortname":"csp","spec":"csp3","status":"current","text":"form-action","type":"dfn","url":"https://w3c.github.io/webappsec-csp/#form-action"},
+"https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature": {"export":true,"for_":[],"level":"1","normative":true,"shortname":"permissions-policy","spec":"permissions-policy-1","status":"current","text":"policy-controlled feature","type":"dfn","url":"https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature"},
+"https://www.w3.org/TR/encrypted-media/#cdm": {"export":true,"for_":[],"level":"","normative":true,"shortname":"encrypted-media","spec":"encrypted-media","status":"anchor-block","text":"content decryption module","type":"dfn","url":"https://www.w3.org/TR/encrypted-media/#cdm"},
+"https://xhr.spec.whatwg.org/#formdata": {"export":true,"for_":[],"level":"1","normative":true,"shortname":"xhr","spec":"xhr","status":"current","text":"FormData","type":"interface","url":"https://xhr.spec.whatwg.org/#formdata"},
+};
 
-        } else {
-            console.log("Couldn't find .dfn-panel[data-for='" + dfn.id + "']");
-        }
+function mkRefHint(link, ref) {
+    const linkText = link.textContent;
+    let dfnTextElements = '';
+    if (ref.text != linkText) {
+        dfnTextElements =
+            mk.li({},
+                mk.b({}, "Term: "),
+                mk.span({}, ref.text)
+            );
     }
+    const forList = ref.for_;
+    let forListElements;
+    if(forList.length == 0) {
+        forListElements = [];
+    } else if(forList.length == 1) {
+        forListElements = mk.li({},
+            mk.b({}, "For: "),
+            mk.span({}, forList[0]),
+        );
+    } else {
+        forListElements = mk.li({},
+            mk.b({}, "For: "),
+            mk.ul({},
+                ...forList.map(forItem =>
+                    mk.li({},
+                        mk.span({}, forItem)
+                    ),
+                ),
+            ),
+        );
+    }
+    const url = ref.url;
+    const safeUrl = encodeURIComponent(url);
+    const hintPanel = mk.aside({
+        class: "ref-hint",
+        id: `ref-hint-for-${safeUrl}`,
+        "data-for": url,
+        "aria-labelled-by": `ref-hint-for-${safeUrl}`,
+    },
+        mk.ul({},
+            dfnTextElements,
+            mk.li({},
+                mk.b({}, "URL: "),
+                mk.a({ href: url, class: "ref" }, url),
+            ),
+            mk.li({},
+                mk.b({}, "Type: "),
+                mk.span({}, `${ref.type}`),
+            ),
+            mk.li({},
+                mk.b({}, "Spec: "),
+                mk.span({}, `${ref.spec ? ref.spec : ''}`),
+            ),
+            forListElements
+        ),
+    );
+    hintPanel.forLink = link;
+    setupRefHintEventListeners(link, hintPanel);
+    return hintPanel;
+}
+
+function hideAllRefHints() {
+    queryAll(".ref-hint").forEach(el=>hideRefHint(el));
+}
+
+function hideRefHint(refHint) {
+    const link = refHint.forLink;
+    link.setAttribute("aria-expanded", "false");
+    if(refHint.teardownEventListeners) {
+        refHint.teardownEventListeners();
+    }
+    refHint.remove();
+}
+
+function showRefHint(link) {
+    if(link.classList.contains("dfn-link")) return;
+    const url = link.getAttribute("href");
+    const ref = refsData[url];
+    if(!ref) return;
+
+    hideAllRefHints(); // Only display one at this time.
+
+    const refHint = mkRefHint(link, ref);
+    append(document.body, refHint);
+    link.setAttribute("aria-expanded", "true");
+    positionRefHint(refHint);
+}
+
+function setupRefHintEventListeners(link, refHint) {
+    if (refHint.teardownEventListeners) return;
+    // Add event handlers to hide the refHint after the user moves away
+    // from both the link and refHint, if not hovering either within one second.
+    let timeout = null;
+    const startHidingRefHint = (event) => {
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => {
+            hideRefHint(refHint);
+        }, 1000);
+    }
+    const resetHidingRefHint = (event) => {
+        if (timeout) clearTimeout(timeout);
+        timeout = null;
+    };
+    link.addEventListener("mouseleave", startHidingRefHint);
+    link.addEventListener("mouseenter", resetHidingRefHint);
+    link.addEventListener("blur", startHidingRefHint);
+    link.addEventListener("focus", resetHidingRefHint);
+    refHint.addEventListener("mouseleave", startHidingRefHint);
+    refHint.addEventListener("mouseenter", resetHidingRefHint);
+    refHint.addEventListener("blur", startHidingRefHint);
+    refHint.addEventListener("focus", resetHidingRefHint);
+
+    refHint.teardownEventListeners = () => {
+        // remove event listeners
+        resetHidingRefHint();
+        link.removeEventListener("mouseleave", startHidingRefHint);
+        link.removeEventListener("mouseenter", resetHidingRefHint);
+        link.removeEventListener("blur", startHidingRefHint);
+        link.removeEventListener("focus", resetHidingRefHint);
+        refHint.removeEventListener("mouseleave", startHidingRefHint);
+        refHint.removeEventListener("mouseenter", resetHidingRefHint);
+        refHint.removeEventListener("blur", startHidingRefHint);
+        refHint.removeEventListener("focus", resetHidingRefHint);
+    };
+}
+
+function positionRefHint(refHint) {
+    const link = refHint.forLink;
+    const linkPos = getBounds(link);
+    refHint.style.top = linkPos.bottom + "px";
+    refHint.style.left = linkPos.left + "px";
+
+    const panelPos = refHint.getBoundingClientRect();
+    const panelMargin = 8;
+    const maxRight = document.body.parentNode.clientWidth - panelMargin;
+    if (panelPos.right > maxRight) {
+        const overflowAmount = panelPos.right - maxRight;
+        const newLeft = Math.max(panelMargin, linkPos.left - overflowAmount);
+        refHint.style.left = newLeft + "px";
+    }
+}
+
+// TODO: shared util
+// Returns the root-level absolute position {left and top} of element.
+function getBounds(el, relativeTo=document.body) {
+    const relativeRect = relativeTo.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const top = elRect.top - relativeRect.top;
+    const left = elRect.left - relativeRect.left;
+    return {
+        top,
+        left,
+        bottom: top + elRect.height,
+        right: left + elRect.width,
+    }
+}
+
+function showRefHintListener(e) {
+    // If the target isn't in a link (or is a link),
+    // just ignore it.
+    let link = e.target.closest("a");
+    if(!link) return;
+
+    // If the target is in a ref-hint panel
+    // (aka a link in the already-open one),
+    // also just ignore it.
+    if(link.closest(".ref-hint")) return;
+
+    // Otherwise, show the panel for the link.
+    showRefHint(link);
+}
+
+function hideAllHintsListener(e) {
+    // If the click is inside a ref-hint panel, ignore it.
+    if(e.target.closest(".ref-hint")) return;
+    // Otherwise, close all the current panels.
+    hideAllRefHints();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("mousedown", showRefHintListener);
+    document.body.addEventListener("focus", showRefHintListener);
+
+    document.body.addEventListener("click", hideAllHintsListener);
+});
+
+window.addEventListener("resize", () => {
+    // Hide any open ref hint.
+    hideAllRefHints();
+});
 }
 </script>
