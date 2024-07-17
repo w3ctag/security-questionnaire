@@ -840,7 +840,7 @@ The [[wai-aria-1.3]] defines additional markup site authors can use to make
 their pages easier to navigate with accessibility devices. The standard
 includes the an [`aria-hidden`](https://w3c.github.io/aria/#aria-hidden)
 attribute, that site authors can use to indicate that certain content
-should be hidden from assistive devices.
+should be hidden from assistive technology.
 
 A malicious site author might
 abuse the `aria-hidden` attribute to learn if a user is using assistive
