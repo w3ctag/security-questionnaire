@@ -823,7 +823,7 @@ assistive devices and technologies face some unique risks when using the Web.
 The use of assistive technologies may cause those Web users to stand
 out among other Web users, increasing the risk of unwanted reidentification
 and privacy harm. Similarly, some Web site operators may try to
-discriminate against Web users who rely on assistive devices.
+discriminate against Web users who rely on assistive technology.
 
 Feature designers and standards authors should therefor be thoughtful and
 careful to limit if, and what, websites can learn about the use off assistive
