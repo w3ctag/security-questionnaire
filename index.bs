@@ -814,7 +814,7 @@ with the only difference being that BFCached documents can become [=Document/ful
   Does your feature allow sites to learn about the users use of assistive technology?
 </h3>
 The Web is designed to work for everyone, and Web standards should be designed
-for people using assistive devices just as much as for users relying
+for people using assistive technology (<abbr title="assistive technology">AT</abbr>) just as much as for users relying
 on mice, keyboards, and touch screens. Accessibility and universal access
 are core to the W3C's mission.
 
