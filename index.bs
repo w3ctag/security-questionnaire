@@ -1142,7 +1142,7 @@ prompt, it may result in divergence implementations by different user agents
 as some user agents choose to implement more privacy-friendly version.
 
 It is possible that the risk of a feature cannot be mitigated because the
-risk is endemic to the feature itself.  For instance, [[GEOLOCATION-API]]
+risk is endemic to the feature itself.  For instance, [[GEOLOCATION]]
 reveals a user’s location intentionally; user agents generally gate access to
 the feature on a permission prompt which the user may choose to accept.  This
 risk is also present and should be accounted for in features that expose
@@ -1363,8 +1363,9 @@ urlPrefix: https://html.spec.whatwg.org/multipage/; spec: HTML
 </pre>
 
 <pre class="link-defaults">
-spec:html; type:element; text:script
+spec:html; type:attribute; text:localStorage
 spec:html; type:element; text:link
+spec:html; type:element; text:script
 spec:indexeddb-3; type:attribute; text:indexedDB
 </pre>
 
