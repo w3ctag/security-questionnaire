@@ -819,7 +819,7 @@ on mice, keyboards, and touch screens. Accessibility and universal access
 are core to the W3C's mission.
 
 Standards authors though should keep in mind that Web users that rely on
-assistive devices and technologies face some unique risks when using the Web.
+assistive technology face some unique risks when using the Web.
 The use of assistive technologies may cause those Web users to stand
 out among other Web users, increasing the risk of unwanted reidentification
 and privacy harm. Similarly, some Web site operators may try to
