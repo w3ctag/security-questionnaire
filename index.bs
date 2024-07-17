@@ -811,7 +811,7 @@ as we expect BFCached and detached documents to be treated the same way,
 with the only difference being that BFCached documents can become [=Document/fully active=] again.
 
 <h3 class=question id="accessibility-devices">
-  Does your feature allow sites to learn about the users use of accessibility devices?
+  Does your feature allow sites to learn about the users use of assistive technology?
 </h3>
 The Web is designed to work for everyone, and Web standards should be designed
 for people using assistive devices just as much as for users relying
