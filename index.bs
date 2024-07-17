@@ -827,7 +827,7 @@ discriminate against Web users who rely on assistive technology.
 
 Feature designers and <abbr title=specification>spec</abbr> authors should therefore be thoughtful and
 careful to limit if, and what, websites can learn about the use of assistive
-technologies. Standards authors must minimize both what inflation about
+technologies. <abbr>Spec</abbr> authors must minimize both what information about
 accessibility device use their features reveal, both explicitly
 and implicitly. Examples of <em>explicit</em> information about assistive devices
 include device identifiers, model names. Examples of <em>implicit</em>
