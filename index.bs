@@ -826,6 +826,37 @@ the document will have sticky activation forever,
 even after the user navigated away and back to it again.
 </div>
 
+<h3 id="error-handling">
+  Does your spec define when and how new kinds of errors should be raised?
+</h3>
+
+Error handling,
+and what conditions constitute error states,
+can be the source of unintended information leaks and privacy vulnerabilities.
+Triggering an error,
+what information is included with (or learnable by) the error,
+and which parties in an application can learn about the error can all
+effect (or weaken) user privacy.
+Proposal authors should carefully think
+through each of these dimensions to ensure that user privacy and security are
+not harmed through error handling.
+
+A partial list of how error definitions and error handling can put
+users at risk include:
+
+- If your spec defines an error state based whether certain system resources
+  are available,
+  applications can use that error state as a probe to learn
+  about the availability of those system resources.
+  This can harm user privacy
+  when user agents do not intend for applications to learn about those system
+  resources.
+- Specs often include information with error objects that are intended to help
+  authors identify and debug issues in applications.
+  Spec authors should
+  carefully think through what information such debugging information exposes,
+  and whether (and which) actors on a page are able to access that information.
+
 <h3 class=question id="non-fully-active">
   What happens when a document that uses your feature gets disconnected?
 </h3>
@@ -879,11 +910,6 @@ site author could then possibly infer from the user's behavior which
 content the user was interacting with, and so whether assistive technology
 was being used.
 </p>
-
-
-
-
-
 
 <h3 class=question id="missing-questions">
   What should this questionnaire have asked?
