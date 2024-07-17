@@ -844,7 +844,7 @@ should be hidden from assistive devices.
 
 A malicious site author might
 abuse the `aria-hidden` attribute to learn if a user is using assistive
-technology, possibly by revealing certain page content to assistive devices,
+technology, possibly by revealing certain page content to assistive technology,
 while showing very different page content to other users. A malicious
 site author could then possibly infer from the user's behavior which
 content the user was interacting with, and so whether assistive technology
