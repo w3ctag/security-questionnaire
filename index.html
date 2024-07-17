@@ -5,9 +5,9 @@
   <title>Self-Review Questionnaire: Security and Privacy</title>
   <meta content="ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
-  <meta content="Bikeshed version d765c696b, updated Fri Mar 8 15:58:52 2024 -0800" name="generator">
+  <meta content="Bikeshed version a1dabb26c, updated Mon Jun 17 15:00:44 2024 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="bf95472ea235acca2661650983c26d1b2a8f9ae3" name="revision">
+  <meta content="4947752aecd0c2fd986a95a32fb0b4dc6efb590c" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>/* Boilerplate: style-autolinks */
@@ -569,7 +569,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Self-Review Questionnaire: Security and Privacy</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-05-24">24 May 2024</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-07-17">17 July 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -643,33 +643,36 @@ technologies.</p>
   personally-identifiable information (PII), or information derived from
   either? </span></a>
       <li><a href="#sensitive-data"><span class="secno">2.4</span> <span class="content"> How do the features in your specification deal with sensitive information? </span></a>
-      <li><a href="#persistent-origin-specific-state"><span class="secno">2.5</span> <span class="content"> Do the features in your specification introduce state
+      <li><a href="#hidden-data"><span class="secno">2.5</span> <span class="content"> Does data exposed by your specification carry related but distinct
+  information that may not be obvious to users? </span></a>
+      <li><a href="#persistent-origin-specific-state"><span class="secno">2.6</span> <span class="content"> Do the features in your specification introduce state
   that persists across browsing sessions? </span></a>
-      <li><a href="#underlying-platform-data"><span class="secno">2.6</span> <span class="content"> Do the features in your specification expose information about the
+      <li><a href="#underlying-platform-data"><span class="secno">2.7</span> <span class="content"> Do the features in your specification expose information about the
   underlying platform to origins? </span></a>
-      <li><a href="#send-to-platform"><span class="secno">2.7</span> <span class="content"> Does this specification allow an origin to send data to the underlying
+      <li><a href="#send-to-platform"><span class="secno">2.8</span> <span class="content"> Does this specification allow an origin to send data to the underlying
   platform? </span></a>
-      <li><a href="#sensor-data"><span class="secno">2.8</span> <span class="content"> Do features in this specification enable access to device sensors? </span></a>
-      <li><a href="#string-to-script"><span class="secno">2.9</span> <span class="content"> Do features in this specification enable new script execution/loading
+      <li><a href="#sensor-data"><span class="secno">2.9</span> <span class="content"> Do features in this specification enable access to device sensors? </span></a>
+      <li><a href="#string-to-script"><span class="secno">2.10</span> <span class="content"> Do features in this specification enable new script execution/loading
   mechanisms? </span></a>
-      <li><a href="#remote-device"><span class="secno">2.10</span> <span class="content"> Do features in this specification allow an origin to access other devices? </span></a>
-      <li><a href="#native-ui"><span class="secno">2.11</span> <span class="content"> Do features in this specification allow an origin some measure of control over
+      <li><a href="#remote-device"><span class="secno">2.11</span> <span class="content"> Do features in this specification allow an origin to access other devices? </span></a>
+      <li><a href="#native-ui"><span class="secno">2.12</span> <span class="content"> Do features in this specification allow an origin some measure of control over
   a user agent’s native UI? </span></a>
-      <li><a href="#temporary-id"><span class="secno">2.12</span> <span class="content"> What temporary identifiers do the features in this specification create or
+      <li><a href="#temporary-id"><span class="secno">2.13</span> <span class="content"> What temporary identifiers do the features in this specification create or
   expose to the web? </span></a>
-      <li><a href="#first-third-party"><span class="secno">2.13</span> <span class="content"> How does this specification distinguish between behavior in first-party and
+      <li><a href="#first-third-party"><span class="secno">2.14</span> <span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span></a>
-      <li><a href="#private-browsing"><span class="secno">2.14</span> <span class="content"> How do the features in this specification work in the context of a browser’s
+      <li><a href="#private-browsing"><span class="secno">2.15</span> <span class="content"> How do the features in this specification work in the context of a browser’s
   Private Browsing or Incognito mode? </span></a>
-      <li><a href="#considerations"><span class="secno">2.15</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
+      <li><a href="#considerations"><span class="secno">2.16</span> <span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span></a>
-      <li><a href="#relaxed-sop"><span class="secno">2.16</span> <span class="content"> Do features in your specification enable origins to downgrade default
+      <li><a href="#relaxed-sop"><span class="secno">2.17</span> <span class="content"> Do features in your specification enable origins to downgrade default
   security protections? </span></a>
-      <li><a href="#bfcache"><span class="secno">2.17</span> <span class="content"> What happens when a document that uses your feature is kept alive in BFCache
+      <li><a href="#bfcache"><span class="secno">2.18</span> <span class="content"> What happens when a document that uses your feature is kept alive in BFCache
   (instead of getting destroyed) after navigation, and potentially gets reused
   on future navigations back to the document? </span></a>
-      <li><a href="#non-fully-active"><span class="secno">2.18</span> <span class="content"> What happens when a document that uses your feature gets disconnected? </span></a>
-      <li><a href="#missing-questions"><span class="secno">2.19</span> <span class="content"> What should this questionnaire have asked? </span></a>
+      <li><a href="#non-fully-active"><span class="secno">2.19</span> <span class="content"> What happens when a document that uses your feature gets disconnected? </span></a>
+      <li><a href="#accessibility-devices"><span class="secno">2.20</span> <span class="content"> Does your feature allow sites to learn about the users use of assistive technology? </span></a>
+      <li><a href="#missing-questions"><span class="secno">2.21</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
     <li>
      <a href="#threats"><span class="secno">3</span> <span class="content">Threat Models</span></a>
@@ -725,7 +728,7 @@ as they think through
 the security and privacy implications
 of their work and write the narrative Security Considerations and Privacy
 Considerations sections for inclusion in-line in their specifications,
-as described below in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+as described below in <a href="#considerations">§ 2.16 Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections?</a>.
 It also documents mitigation strategies
 that spec authors can use to address
@@ -760,7 +763,7 @@ privacy and
 security reviews from the <a href="https://www.w3.org/Privacy/IG/">Privacy Interest Group
 (PING)</a> and security reviewers,
 write "Security Considerations" and
-"Privacy Considerations" sections in your document, as described in <a href="#considerations">§ 2.15 Does this specification have both "Security Considerations" and "Privacy
+"Privacy Considerations" sections in your document, as described in <a href="#considerations">§ 2.16 Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections?</a>.  Answering the questions in this
 document will, we hope, inform your writing of those sections. It is not
 appropriate, however, to merely copy this questionnaire into those sections.
@@ -950,7 +953,30 @@ instead of exposing the user’s precise location.</p>
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#do-not-expose-use-of-assistive-tech">Web Platform Design Principles § do-not-expose-use-of-assistive-tech</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.5" id="persistent-origin-specific-state"><span class="secno">2.5. </span><span class="content"> Do the features in your specification introduce state
+   <h3 class="question heading settled" data-level="2.5" id="hidden-data"><span class="secno">2.5. </span><span class="content"> Does data exposed by your specification carry related but distinct
+  information that may not be obvious to users? </span><a class="self-link" href="#hidden-data"></a></h3>
+   <p>Features which enable users
+to share data with origins
+should ensure that such data
+does not carry embedded, possibly hidden, information
+without the user’s awareness, understanding, and consent.</p>
+   <p>Documents
+such as image or video files
+often contain metadata about
+where and when the image, video, or audio was captured
+and
+what kind of device captured or produced the data.
+When uploaded,
+this kind of metadata
+may reveal to origins
+information the user did not intend to reveal,
+such as the user’s present or past location
+and socioeconomic status.</p>
+   <p>User agents should enable users to choose
+whether or not to share such data with sites,
+and the default should be that such data
+is not shared.</p>
+   <h3 class="question heading settled" data-level="2.6" id="persistent-origin-specific-state"><span class="secno">2.6. </span><span class="content"> Do the features in your specification introduce state
   that persists across browsing sessions? </span><a class="self-link" href="#persistent-origin-specific-state"></a></h3>
    <p>The Web platform already includes many mechanisms
 origins can use to
@@ -1006,7 +1032,7 @@ identifiers which a user cannot easily change
 are very valuable from a tracking perspective,
 and protecting such identifiers
 from an <a data-link-type="dfn" href="#active-network-attacker" id="ref-for-active-network-attacker">active network attacker</a> is vital. </p>
-   <h3 class="question heading settled" data-level="2.6" id="underlying-platform-data"><span class="secno">2.6. </span><span class="content"> Do the features in your specification expose information about the
+   <h3 class="question heading settled" data-level="2.7" id="underlying-platform-data"><span class="secno">2.7. </span><span class="content"> Do the features in your specification expose information about the
   underlying platform to origins? </span><a class="self-link" href="#underlying-platform-data"></a></h3>
    <p>(Underlying platform information includes
 user configuration data,
@@ -1064,7 +1090,7 @@ Some user agents have <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=7577
     <li data-md>
      <p><a href="https://w3ctag.github.io/design-principles/#device-enumeration">Use care when exposing APIs for selecting or enumerating devices</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.7" id="send-to-platform"><span class="secno">2.7. </span><span class="content"> Does this specification allow an origin to send data to the underlying
+   <h3 class="question heading settled" data-level="2.8" id="send-to-platform"><span class="secno">2.8. </span><span class="content"> Does this specification allow an origin to send data to the underlying
   platform? </span><a class="self-link" href="#send-to-platform"></a></h3>
    <p>If so, what kind of data can be sent?</p>
    <p>Platforms differ in how they process data passed into them,
@@ -1087,7 +1113,7 @@ directly form the user’s hard disk or from memory.</p>
 such URLs may be vulnerable to <a data-link-type="dfn" href="#cross-site-request-forgery-attacks" id="ref-for-cross-site-request-forgery-attacks">CSRF</a> attacks,
 or be redirected to <code>file:</code>, <code>data:</code>, or <code>blob:</code> URLs.</p>
    </div>
-   <h3 class="question heading settled" data-level="2.8" id="sensor-data"><span class="secno">2.8. </span><span class="content"> Do features in this specification enable access to device sensors? </span><a class="self-link" href="#sensor-data"></a></h3>
+   <h3 class="question heading settled" data-level="2.9" id="sensor-data"><span class="secno">2.9. </span><span class="content"> Do features in this specification enable access to device sensors? </span><a class="self-link" href="#sensor-data"></a></h3>
    <p>If so, what kinds of information from or about the sensors are exposed to origins?</p>
    <p>Information from sensors may serve as a fingerprinting vector across origins.
 Additionally,
@@ -1106,7 +1132,7 @@ This can be mitigated by lowering the gyroscope’s sample rates. </p>
 user had visited given links <a data-link-type="biblio" href="#biblio-olejnik-als" title="Privacy analysis of Ambient Light Sensors">[OLEJNIK-ALS]</a>. </p>
    <p class="example" id="example-af6d78b4"><a class="self-link" href="#example-af6d78b4"></a> Even relatively short lived data, like the battery status, may be able to
 serve as an identifier <a data-link-type="biblio" href="#biblio-olejnik-battery" title="The leaking battery: A privacy analysis of the HTML5 Battery Status API">[OLEJNIK-BATTERY]</a>. </p>
-   <h3 class="question heading settled" data-level="2.9" id="string-to-script"><span class="secno">2.9. </span><span class="content"> Do features in this specification enable new script execution/loading
+   <h3 class="question heading settled" data-level="2.10" id="string-to-script"><span class="secno">2.10. </span><span class="content"> Do features in this specification enable new script execution/loading
   mechanisms? </span><a class="self-link" href="#string-to-script"></a></h3>
    <p>New mechanisms for executing or loading scripts have a risk of enabling novel attack surfaces.
 Generally, if a new feature needs this you should consult with a wider audience,
@@ -1115,7 +1141,7 @@ or the feature is really necessary.</p>
    <p class="example" id="example-3a9ceedc"><a class="self-link" href="#example-3a9ceedc"></a> <a href="https://github.com/whatwg/html/issues/4315">JSON modules</a> are expected to be treated only as data,
 but the initial proposal allowed an adversary to swap it out with code without the user knowing. <a href="https://github.com/tc39/proposal-import-assertions">Import assertions</a> were implemented
 as a mitigation for this vulnerability. </p>
-   <h3 class="question heading settled" data-level="2.10" id="remote-device"><span class="secno">2.10. </span><span class="content"> Do features in this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
+   <h3 class="question heading settled" data-level="2.11" id="remote-device"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin to access other devices? </span><a class="self-link" href="#remote-device"></a></h3>
    <p>If so, what devices do the features in this specification allow an origin to
 access?</p>
    <p>Accessing other devices, both via network connections and via
@@ -1154,7 +1180,7 @@ reading as an example for similar work. </p>
    <p class="example" id="example-38bdd3d3"><a class="self-link" href="#example-38bdd3d3"></a> <a data-link-type="biblio" href="#biblio-webusb" title="WebUSB API">[WEBUSB]</a> addresses these risks through a combination of user mediation /
 prompting, secure origins, and feature policy.
 See <a href="https://wicg.github.io/webusb/#security-and-privacy"><cite>WebUSB API</cite> § 3 Security and Privacy Considerations</a> for more. </p>
-   <h3 class="question heading settled" data-level="2.11" id="native-ui"><span class="secno">2.11. </span><span class="content"> Do features in this specification allow an origin some measure of control over
+   <h3 class="question heading settled" data-level="2.12" id="native-ui"><span class="secno">2.12. </span><span class="content"> Do features in this specification allow an origin some measure of control over
   a user agent’s native UI? </span><a class="self-link" href="#native-ui"></a></h3>
    <p>Features that allow for control over a user agent’s UI (e.g. full screen
 mode) or changes to the underlying system (e.g. installing an ‘app’ on a
@@ -1162,7 +1188,7 @@ smartphone home screen) may surprise users or obscure security / privacy
 controls.  To the extent that your feature does allow for the changing of a
 user agent’s UI, can it effect security / privacy controls?  What analysis
 confirmed this conclusion?</p>
-   <h3 class="question heading settled" data-level="2.12" id="temporary-id"><span class="secno">2.12. </span><span class="content"> What temporary identifiers do the features in this specification create or
+   <h3 class="question heading settled" data-level="2.13" id="temporary-id"><span class="secno">2.13. </span><span class="content"> What temporary identifiers do the features in this specification create or
   expose to the web? </span><a class="self-link" href="#temporary-id"></a></h3>
    <p>If a standard exposes a temporary identifier to the web, the identifier
 should be short lived and should rotate on some regular duration to mitigate
@@ -1177,7 +1203,7 @@ IPv6 addresses.</p>
    <p class="example" id="example-86ed6495"><a class="self-link" href="#example-86ed6495"></a> The index attribute in the Gamepad API <a data-link-type="biblio" href="#biblio-gamepad" title="Gamepad">[GAMEPAD]</a> — an integer that starts
 at zero, increments, and is reset — is a good example of a privacy friendly
 temporary identifier. </p>
-   <h3 class="question heading settled" data-level="2.13" id="first-third-party"><span class="secno">2.13. </span><span class="content"> How does this specification distinguish between behavior in first-party and
+   <h3 class="question heading settled" data-level="2.14" id="first-third-party"><span class="secno">2.14. </span><span class="content"> How does this specification distinguish between behavior in first-party and
   third-party contexts? </span><a class="self-link" href="#first-third-party"></a></h3>
    <p>The behavior of a feature should be considered not just in the context of its
 being used by a first party origin that a user is visiting but also the
@@ -1190,7 +1216,7 @@ conformance, please explain why and what privacy mitigations are in place.
 This is particularly important as user agents may take steps to reduce the
 availability or functionality of certain features to third parties if the
 third parties are found to be abusing the functionality.</p>
-   <h3 class="question heading settled" data-level="2.14" id="private-browsing"><span class="secno">2.14. </span><span class="content"> How do the features in this specification work in the context of a browser’s
+   <h3 class="question heading settled" data-level="2.15" id="private-browsing"><span class="secno">2.15. </span><span class="content"> How do the features in this specification work in the context of a browser’s
   Private Browsing or Incognito mode? </span><a class="self-link" href="#private-browsing"></a></h3>
    <p>Most browsers implement a private browsing or incognito mode,
 though they vary significantly in what functionality they provide and
@@ -1210,7 +1236,7 @@ following a private browsing / incognito mode session ending?</p>
      <p>Using features to fingerprint a browser and correlate private and
 non-private mode sessions for a given user. <a data-link-type="biblio" href="#biblio-olejnik-payments" title="Privacy of Web Request API">[OLEJNIK-PAYMENTS]</a></p>
    </ul>
-   <h3 class="question heading settled" data-level="2.15" id="considerations"><span class="secno">2.15. </span><span class="content"> Does this specification have both "Security Considerations" and "Privacy
+   <h3 class="question heading settled" data-level="2.16" id="considerations"><span class="secno">2.16. </span><span class="content"> Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections? </span><a class="self-link" href="#considerations"></a></h3>
    <p>Specifications should have both "Security Considerations" and "Privacy
 Considerations" sections to help implementers and web developers
@@ -1238,7 +1264,7 @@ privacy impacts, say so in-line, e.g.:</p>
 impact on the fingerprinting surface of the browser.  If you believe
 your specification in an outlier, justifying that claim is in
 order.</p>
-   <h3 class="question heading settled" data-level="2.16" id="relaxed-sop"><span class="secno">2.16. </span><span class="content"> Do features in your specification enable origins to downgrade default
+   <h3 class="question heading settled" data-level="2.17" id="relaxed-sop"><span class="secno">2.17. </span><span class="content"> Do features in your specification enable origins to downgrade default
   security protections? </span><a class="self-link" href="#relaxed-sop"></a></h3>
    <p>Do features in your spec
 enable an origin to opt-out of security settings
@@ -1269,7 +1295,7 @@ which enables sites to disable the API in <code><a data-link-type="element" href
 to display an overlay which informs the user that they have entered fullscreen,
 and to advertise a simple mechanism to exit fullscreen (typically the <code>Esc</code> key).</p>
    </div>
-   <h3 class="question heading settled" data-level="2.17" id="bfcache"><span class="secno">2.17. </span><span class="content"> What happens when a document that uses your feature is kept alive in BFCache
+   <h3 class="question heading settled" data-level="2.18" id="bfcache"><span class="secno">2.18. </span><span class="content"> What happens when a document that uses your feature is kept alive in BFCache
   (instead of getting destroyed) after navigation, and potentially gets reused
   on future navigations back to the document? </span><a class="self-link" href="#bfcache"></a></h3>
    <p>After a user navigates away from a document,
@@ -1300,7 +1326,7 @@ which is tied to a document.
 This means after a user triggers activation once on a document,
 the document will have sticky activation forever,
 even after the user navigated away and back to it again. </div>
-   <h3 class="question heading settled" data-level="2.18" id="non-fully-active"><span class="secno">2.18. </span><span class="content"> What happens when a document that uses your feature gets disconnected? </span><a class="self-link" href="#non-fully-active"></a></h3>
+   <h3 class="question heading settled" data-level="2.19" id="non-fully-active"><span class="secno">2.19. </span><span class="content"> What happens when a document that uses your feature gets disconnected? </span><a class="self-link" href="#non-fully-active"></a></h3>
     If the iframe element containing a document gets disconnected,
 the document will no longer be <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑥">fully active</a>.
 The document will never become fully active again,
@@ -1310,7 +1336,38 @@ and should be treated as such by your feature as well.
 You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
 as we expect BFCached and detached documents to be treated the same way,
 with the only difference being that BFCached documents can become <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑦">fully active</a> again. 
-   <h3 class="question heading settled" data-level="2.19" id="missing-questions"><span class="secno">2.19. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
+   <h3 class="question heading settled" data-level="2.20" id="accessibility-devices"><span class="secno">2.20. </span><span class="content"> Does your feature allow sites to learn about the users use of assistive technology? </span><a class="self-link" href="#accessibility-devices"></a></h3>
+    The Web is designed to work for everyone, and Web standards should be designed
+for people using assistive technology (<abbr title="assistive technology">AT</abbr>) just as much as for users relying
+on mice, keyboards, and touch screens. Accessibility and universal access
+are core to the W3C’s mission. 
+   <p>Specification authors though should keep in mind that Web users that rely on
+assistive technology face some unique risks when using the Web.
+The use of assistive technologies may cause those Web users to stand
+out among other Web users, increasing the risk of unwanted reidentification
+and privacy harm. Similarly, some Web site operators may try to
+discriminate against Web users who rely on assistive technology.</p>
+   <p>Feature designers and <abbr title="specification">spec</abbr> authors should therefore be thoughtful and
+careful to limit if, and what, websites can learn about the use of assistive
+technologies. <abbr>Spec</abbr> authors must minimize both what information about
+assistive technology use their features reveal, both explicitly
+and implicitly. Examples of <em>explicit</em> information about assistive technology
+include device identifiers or model names. Examples of <em>implicit</em> information about the use of assistive technology might include
+user interaction patterns that are unlikely to be generated by a
+mouse, keyboard, or touch screen.</p>
+   <p class="example" id="example-305e438b"><a class="self-link" href="#example-305e438b"></a> The <a data-link-type="biblio" href="#biblio-wai-aria-13" title="Accessible Rich Internet Applications (WAI-ARIA) 1.3">[wai-aria-1.3]</a> defines additional markup authors can use to make
+their pages easier to navigate with assistive technology. The <abbr>spec</abbr> includes the [<code>aria-hidden</code>](https://w3c.github.io/aria/#aria-hidden)
+attribute, that site authors can use to indicate that certain content
+should be hidden from assistive technology. </p>
+   <p>A malicious site author might
+abuse the <code>aria-hidden</code> attribute to learn if a user is using assistive
+technology, possibly by revealing certain page content to assistive technology,
+while showing very different page content to other users. A malicious
+site author could then possibly infer from the user’s behavior which
+content the user was interacting with, and so whether assistive technology
+was being used.</p>
+   <p></p>
+   <h3 class="question heading settled" data-level="2.21" id="missing-questions"><span class="secno">2.21. </span><span class="content"> What should this questionnaire have asked? </span><a class="self-link" href="#missing-questions"></a></h3>
    <p>This questionnaire is not exhaustive.
 After completing a privacy review,
 it may be that
@@ -1528,7 +1585,7 @@ the privacy risk.  If the specification does not allow for the implementer to
 prompt, it may result in divergence implementations by different user agents
 as some user agents choose to implement more privacy-friendly version.</p>
    <p>It is possible that the risk of a feature cannot be mitigated because the
-risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation-api" title="Geolocation API Specification 2nd Edition">[GEOLOCATION-API]</a> reveals a user’s location intentionally; user agents generally gate access to
+risk is endemic to the feature itself.  For instance, <a data-link-type="biblio" href="#biblio-geolocation" title="Geolocation">[GEOLOCATION]</a> reveals a user’s location intentionally; user agents generally gate access to
 the feature on a permission prompt which the user may choose to accept.  This
 risk is also present and should be accounted for in features that expose
 personal data or identifiers.</p>
@@ -1831,7 +1888,7 @@ We hope we haven’t made it (much) worse.</p>
    <dt id="biblio-cors">[CORS]
    <dd>Anne van Kesteren. <a href="https://www.w3.org/TR/cors/"><cite>Cross-Origin Resource Sharing</cite></a>. 2 June 2020. REC. URL: <a href="https://www.w3.org/TR/cors/">https://www.w3.org/TR/cors/</a>
    <dt id="biblio-credential-management-1">[CREDENTIAL-MANAGEMENT-1]
-   <dd>Nina Satragno. <a href="https://w3c.github.io/webappsec-credential-management/"><cite>Credential Management Level 1</cite></a>. URL: <a href="https://w3c.github.io/webappsec-credential-management/">https://w3c.github.io/webappsec-credential-management/</a>
+   <dd>Nina Satragno; Marcos Caceres. <a href="https://w3c.github.io/webappsec-credential-management/"><cite>Credential Management Level 1</cite></a>. URL: <a href="https://w3c.github.io/webappsec-credential-management/">https://w3c.github.io/webappsec-credential-management/</a>
    <dt id="biblio-csp">[CSP]
    <dd>Mike West; Antonio Sartori. <a href="https://w3c.github.io/webappsec-csp/"><cite>Content Security Policy Level 3</cite></a>. URL: <a href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a>
    <dt id="biblio-dap-privacy-reqs">[DAP-PRIVACY-REQS]
@@ -1850,8 +1907,8 @@ We hope we haven’t made it (much) worse.</p>
    <dd>Steve Agoston; Matthew Reynolds. <a href="https://w3c.github.io/gamepad/"><cite>Gamepad</cite></a>. URL: <a href="https://w3c.github.io/gamepad/">https://w3c.github.io/gamepad/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Rick Waldron. <a href="https://w3c.github.io/sensors/"><cite>Generic Sensor API</cite></a>. URL: <a href="https://w3c.github.io/sensors/">https://w3c.github.io/sensors/</a>
-   <dt id="biblio-geolocation-api">[GEOLOCATION-API]
-   <dd>Andrei Popescu. <a href="https://w3c.github.io/geolocation-api/"><cite>Geolocation API Specification 2nd Edition</cite></a>. URL: <a href="https://w3c.github.io/geolocation-api/">https://w3c.github.io/geolocation-api/</a>
+   <dt id="biblio-geolocation">[GEOLOCATION]
+   <dd>Marcos Caceres; Reilly Grant. <a href="https://w3c.github.io/geolocation/"><cite>Geolocation</cite></a>. URL: <a href="https://w3c.github.io/geolocation/">https://w3c.github.io/geolocation/</a>
    <dt id="biblio-gyrospeechrecognition">[GYROSPEECHRECOGNITION]
    <dd>Yan Michalevsky; Dan Boneh; Gabi Nakibly. <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf"><cite>Gyrophone: Recognizing Speech from Gyroscope Signals</cite></a>. URL: <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf</a>
    <dt id="biblio-homakov">[HOMAKOV]
@@ -1880,6 +1937,8 @@ We hope we haven’t made it (much) worse.</p>
    <dd>Paul Stone. <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf"><cite>Pixel Perfect Timing Attacks with HTML5</cite></a>. URL: <a href="http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf">http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf</a>
    <dt id="biblio-verizon">[VERIZON]
    <dd>Mark Bergen; Alex Kantrowitz. <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/"><cite>Verizon looks to target its mobile subscribers with ads</cite></a>. URL: <a href="http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/">http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/</a>
+   <dt id="biblio-wai-aria-13">[WAI-ARIA-1.3]
+   <dd>James Nurthen; Peter Krautzberger. <a href="https://w3c.github.io/aria/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.3</cite></a>. URL: <a href="https://w3c.github.io/aria/">https://w3c.github.io/aria/</a>
    <dt id="biblio-web-bluetooth">[WEB-BLUETOOTH]
    <dd>Jeffrey Yasskin. <a href="https://webbluetoothcg.github.io/web-bluetooth/"><cite>Web Bluetooth</cite></a>. URL: <a href="https://webbluetoothcg.github.io/web-bluetooth/">https://webbluetoothcg.github.io/web-bluetooth/</a>
    <dt id="biblio-webauthn">[WEBAUTHN]
@@ -2093,25 +2152,25 @@ function parseHTML(markup) {
 "use strict";
 {
 let dfnPanelData = {
-"05d1562e": {"dfnID":"05d1562e","dfnText":"third-party context","external":true,"refSections":[{"refs":[{"id":"ref-for-third-party-context"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#third-party-context"},
+"05d1562e": {"dfnID":"05d1562e","dfnText":"third-party context","external":true,"refSections":[{"refs":[{"id":"ref-for-third-party-context"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#third-party-context"},
 "0e0909b7": {"dfnID":"0e0909b7","dfnText":"form-action","external":true,"refSections":[{"refs":[{"id":"ref-for-form-action"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://w3c.github.io/webappsec-csp/#form-action"},
-"0e3ba9f8": {"dfnID":"0e3ba9f8","dfnText":"fully active","external":true,"refSections":[{"refs":[{"id":"ref-for-fully-active"},{"id":"ref-for-fully-active\u2460"},{"id":"ref-for-fully-active\u2461"},{"id":"ref-for-fully-active\u2462"},{"id":"ref-for-fully-active\u2463"},{"id":"ref-for-fully-active\u2464"}],"title":"2.17. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-fully-active\u2465"},{"id":"ref-for-fully-active\u2466"}],"title":"2.18. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active"},
-"3a2db83f": {"dfnID":"3a2db83f","dfnText":"localStorage","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-localstorage"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage"},
-"4780b3e9": {"dfnID":"4780b3e9","dfnText":"first-party-site context","external":true,"refSections":[{"refs":[{"id":"ref-for-first-party-site-context"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#first-party-site-context"},
+"0e3ba9f8": {"dfnID":"0e3ba9f8","dfnText":"fully active","external":true,"refSections":[{"refs":[{"id":"ref-for-fully-active"},{"id":"ref-for-fully-active\u2460"},{"id":"ref-for-fully-active\u2461"},{"id":"ref-for-fully-active\u2462"},{"id":"ref-for-fully-active\u2463"},{"id":"ref-for-fully-active\u2464"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-fully-active\u2465"},{"id":"ref-for-fully-active\u2466"}],"title":"2.19. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active"},
+"3a2db83f": {"dfnID":"3a2db83f","dfnText":"localStorage","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-localstorage"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage"},
+"4780b3e9": {"dfnID":"4780b3e9","dfnText":"first-party-site context","external":true,"refSections":[{"refs":[{"id":"ref-for-first-party-site-context"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#first-party-site-context"},
 "61cd38cd": {"dfnID":"61cd38cd","dfnText":"FormData","external":true,"refSections":[{"refs":[{"id":"ref-for-formdata"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://xhr.spec.whatwg.org/#formdata"},
-"6a1335c3": {"dfnID":"6a1335c3","dfnText":"content decryption module","external":true,"refSections":[{"refs":[{"id":"ref-for-cdm"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://www.w3.org/TR/encrypted-media/#cdm"},
-"6ced0379": {"dfnID":"6ced0379","dfnText":"indexedDB","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-windoworworkerglobalscope-indexeddb"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb"},
+"6a1335c3": {"dfnID":"6a1335c3","dfnText":"content decryption module","external":true,"refSections":[{"refs":[{"id":"ref-for-cdm"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://www.w3.org/TR/encrypted-media/#cdm"},
+"6ced0379": {"dfnID":"6ced0379","dfnText":"indexedDB","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-windoworworkerglobalscope-indexeddb"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb"},
 "6e4a4b23": {"dfnID":"6e4a4b23","dfnText":"connect-src","external":true,"refSections":[{"refs":[{"id":"ref-for-connect-src"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://w3c.github.io/webappsec-csp/#connect-src"},
-"87fcd40c": {"dfnID":"87fcd40c","dfnText":"iframe","external":true,"refSections":[{"refs":[{"id":"ref-for-the-iframe-element"},{"id":"ref-for-the-iframe-element\u2460"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
-"active-network-attacker": {"dfnID":"active-network-attacker","dfnText":"active network attacker","external":false,"refSections":[{"refs":[{"id":"ref-for-active-network-attacker"}],"title":"2.5. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"},{"refs":[{"id":"ref-for-active-network-attacker\u2460"}],"title":"4.5. \n  Secure Contexts\n"}],"url":"#active-network-attacker"},
-"ca96a59c": {"dfnID":"ca96a59c","dfnText":"sticky activation","external":true,"refSections":[{"refs":[{"id":"ref-for-sticky-activation"}],"title":"2.17. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"}],"url":"https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation"},
-"cc2ecc32": {"dfnID":"cc2ecc32","dfnText":"domain","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-document-domain"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain"},
-"cc890cc1": {"dfnID":"cc890cc1","dfnText":"policy-controlled feature","external":true,"refSections":[{"refs":[{"id":"ref-for-policy-controlled-feature"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature"},
-"cross-site-request-forgery-attacks": {"dfnID":"cross-site-request-forgery-attacks","dfnText":"Cross-site request forgery attacks","external":false,"refSections":[{"refs":[{"id":"ref-for-cross-site-request-forgery-attacks"}],"title":"2.7. \n  Does this specification allow an origin to send data to the underlying\n  platform?\n"}],"url":"#cross-site-request-forgery-attacks"},
+"87fcd40c": {"dfnID":"87fcd40c","dfnText":"iframe","external":true,"refSections":[{"refs":[{"id":"ref-for-the-iframe-element"},{"id":"ref-for-the-iframe-element\u2460"}],"title":"2.17. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
+"active-network-attacker": {"dfnID":"active-network-attacker","dfnText":"active network attacker","external":false,"refSections":[{"refs":[{"id":"ref-for-active-network-attacker"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"},{"refs":[{"id":"ref-for-active-network-attacker\u2460"}],"title":"4.5. \n  Secure Contexts\n"}],"url":"#active-network-attacker"},
+"ca96a59c": {"dfnID":"ca96a59c","dfnText":"sticky activation","external":true,"refSections":[{"refs":[{"id":"ref-for-sticky-activation"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"}],"url":"https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation"},
+"cc2ecc32": {"dfnID":"cc2ecc32","dfnText":"domain","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-document-domain"}],"title":"2.17. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain"},
+"cc890cc1": {"dfnID":"cc890cc1","dfnText":"policy-controlled feature","external":true,"refSections":[{"refs":[{"id":"ref-for-policy-controlled-feature"}],"title":"2.17. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature"},
+"cross-site-request-forgery-attacks": {"dfnID":"cross-site-request-forgery-attacks","dfnText":"Cross-site request forgery attacks","external":false,"refSections":[{"refs":[{"id":"ref-for-cross-site-request-forgery-attacks"}],"title":"2.8. \n  Does this specification allow an origin to send data to the underlying\n  platform?\n"}],"url":"#cross-site-request-forgery-attacks"},
 "cross-site-scripting-attacks": {"dfnID":"cross-site-scripting-attacks","dfnText":"Cross-site scripting attacks","external":false,"refSections":[{"refs":[{"id":"ref-for-cross-site-scripting-attacks"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"#cross-site-scripting-attacks"},
-"ed56a6fb": {"dfnID":"ed56a6fb","dfnText":"pdf viewer plugin objects","external":true,"refSections":[{"refs":[{"id":"ref-for-pdf-viewer-plugin-objects"}],"title":"2.6. \n  Do the features in your specification expose information about the\n  underlying platform to origins?\n"}],"url":"https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects"},
+"ed56a6fb": {"dfnID":"ed56a6fb","dfnText":"pdf viewer plugin objects","external":true,"refSections":[{"refs":[{"id":"ref-for-pdf-viewer-plugin-objects"}],"title":"2.7. \n  Do the features in your specification expose information about the\n  underlying platform to origins?\n"}],"url":"https://html.spec.whatwg.org/multipage/system-state.html#pdf-viewer-plugin-objects"},
 "passive-network-attacker": {"dfnID":"passive-network-attacker","dfnText":"passive network attacker","external":false,"refSections":[{"refs":[{"id":"ref-for-passive-network-attacker"}],"title":"4.5. \n  Secure Contexts\n"}],"url":"#passive-network-attacker"},
-"same-origin-policy": {"dfnID":"same-origin-policy","dfnText":"same-origin policy","external":false,"refSections":[{"refs":[{"id":"ref-for-same-origin-policy"}],"title":"2.16. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"#same-origin-policy"},
+"same-origin-policy": {"dfnID":"same-origin-policy","dfnText":"same-origin policy","external":false,"refSections":[{"refs":[{"id":"ref-for-same-origin-policy"}],"title":"2.17. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"#same-origin-policy"},
 };
 
 document.addEventListener("DOMContentLoaded", ()=>{
