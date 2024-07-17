@@ -313,6 +313,35 @@ See also
 
 * [[DESIGN-PRINCIPLES#do-not-expose-use-of-assistive-tech]]
 
+<h3 class=question id=hidden-data>
+  Does data exposed by your specification carry related but distinct
+  information that may not be obvious to users?
+</h3>
+
+Features which enable users
+to share data with origins
+should ensure that such data
+does not carry embedded, possibly hidden, information
+without the user's awareness, understanding, and consent.
+
+Documents
+such as image or video files
+often contain metadata about
+where and when the image, video, or audio was captured
+and
+what kind of device captured or produced the data.
+When uploaded,
+this kind of metadata
+may reveal to origins
+information the user did not intend to reveal,
+such as the user's present or past location
+and socioeconomic status.
+
+User agents should enable users to choose
+whether or not to share such data with sites,
+and the default should be that such data
+is not shared.
+
 <h3 class=question id="persistent-origin-specific-state">
   Do the features in your specification introduce state
   that persists across browsing sessions?
