@@ -818,7 +818,7 @@ for people using assistive technology (<abbr title="assistive technology">AT</ab
 on mice, keyboards, and touch screens. Accessibility and universal access
 are core to the W3C's mission.
 
-Standards authors though should keep in mind that Web users that rely on
+Specification authors though should keep in mind that Web users that rely on
 assistive technology face some unique risks when using the Web.
 The use of assistive technologies may cause those Web users to stand
 out among other Web users, increasing the risk of unwanted reidentification
