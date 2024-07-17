@@ -826,7 +826,7 @@ and privacy harm. Similarly, some Web site operators may try to
 discriminate against Web users who rely on assistive technology.
 
 Feature designers and <abbr title=specification>spec</abbr> authors should therefore be thoughtful and
-careful to limit if, and what, websites can learn about the use off assistive
+careful to limit if, and what, websites can learn about the use of assistive
 technologies. Standards authors must minimize both what inflation about
 accessibility device use their features reveal, both explicitly
 and implicitly. Examples of <em>explicit</em> information about assistive devices
