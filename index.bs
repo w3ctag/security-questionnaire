@@ -701,6 +701,9 @@ There has been research into both:
 * Using features to fingerprint a browser and correlate private and
     non-private mode sessions for a given user. [[OLEJNIK-PAYMENTS]]
 
+Spec authors should avoid, as much as possible, making the presence of
+private browsing mode detectable to sites. [[DESIGN-PRINCIPLES#do-not-expose-use-of-private-browsing-mode]]
+
 <h3 class=question id="considerations">
   Does this specification have both "Security Considerations" and "Privacy
   Considerations" sections?
