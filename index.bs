@@ -380,7 +380,7 @@ cannot be misused to track users across domains
 without their control.
 However, just giving users the ability
 to delete origin-set state is usually
-not sufficient. since users rarely
+not sufficient since users rarely
 manually clear browser state.
 Spec authors should consider ways
 to make new features more privacy-preserving without full storage clearing,
