@@ -848,17 +848,17 @@ A partial list of how error definitions and error handling can put
 users at risk include:
 
 - If your spec defines an error state based whether certain system resources
-  are available,
-  applications can use that error state as a probe to learn
-  about the availability of those system resources.
-  This can harm user privacy
-  when user agents do not intend for applications to learn about those system
-  resources.
+    are available,
+    applications can use that error state as a probe to learn
+    about the availability of those system resources.
+    This can harm user privacy
+    when user agents do not intend for applications to learn about those system
+    resources.
 - Specs often include information with error objects that are intended to help
-  authors identify and debug issues in applications.
-  Spec authors should
-  carefully think through what information such debugging information exposes,
-  and whether (and which) actors on a page are able to access that information.
+    authors identify and debug issues in applications.
+    Spec authors should
+    carefully think through what information such debugging information exposes,
+    and whether (and which) actors on a page are able to access that information.
 
 <h3 class=question id="non-fully-active">
   What happens when a document that uses your feature gets disconnected?
