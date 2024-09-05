@@ -632,7 +632,7 @@ Features that allow for control over a user agent’s UI (e.g. full screen
 mode) or changes to the underlying system (e.g. installing an ‘app’ on a
 smartphone home screen) may surprise users or obscure security / privacy
 controls.  To the extent that your feature does allow for the changing of a
-user agent’s UI, can it effect security / privacy controls?  What analysis
+user agent’s UI, can it affect security / privacy controls?  What analysis
 confirmed this conclusion?
 
 <h3 class=question id="temporary-id">
@@ -853,7 +853,7 @@ can be the source of unintended information leaks and privacy vulnerabilities.
 Triggering an error,
 what information is included with (or learnable by) the error,
 and which parties in an application can learn about the error can all
-effect (or weaken) user privacy.
+affect (or weaken) user privacy.
 Proposal authors should carefully think
 through each of these dimensions to ensure that user privacy and security are
 not harmed through error handling.
