@@ -43,5 +43,5 @@ For your convenience, a copy of the questionnaire's questions is included here i
      on future navigations back to the document?
 19.  What happens when a document that uses your feature gets disconnected?
 20.  Does your spec define when and how new kinds of errors should be raised?
-21.  Does your feature allow sites to learn about the users use of assistive technology?
+21.  Does your feature allow sites to learn about the user's use of assistive technology?
 22.  What should this questionnaire have asked?
