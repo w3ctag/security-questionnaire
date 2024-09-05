@@ -16,6 +16,7 @@ Group: tag
 Markup Shorthands: css no, markdown yes
 Local Boilerplate: status yes
 Local Boilerplate: copyright yes
+Boilerplate: conformance no
 Abstract: This document contains a set of questions to be used when
     evaluating the security and privacy implications of web platform
     technologies.
