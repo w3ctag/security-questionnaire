@@ -612,7 +612,7 @@ involve the user with a permission request of some kind.
 
 <p class=example>
 Likewise, the Web Bluetooth [[WEB-BLUETOOTH]] has an extensive discussion of
-such issues in [[WEB-BLUETOOTH#security-and-privacy]], which is worth
+such issues in [[WEB-BLUETOOTH#privacy]], which is worth
 reading as an example for similar work.
 </p>
 
