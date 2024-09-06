@@ -7,7 +7,7 @@
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <meta content="Bikeshed version 6270e4735, updated Tue Aug 6 12:12:30 2024 -0700" name="generator">
   <link href="https://www.w3.org/TR/security-privacy-questionnaire/" rel="canonical">
-  <meta content="2d28f2138541a106658be1de79b15cdecd4e772f" name="revision">
+  <meta content="7ae3bb8d69c7d15acb15f05de2795aae976b884b" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>/* Boilerplate: style-autolinks */
@@ -670,8 +670,8 @@ technologies.</p>
       <li><a href="#bfcache"><span class="secno">2.18</span> <span class="content"> What happens when a document that uses your feature is kept alive in BFCache
   (instead of getting destroyed) after navigation, and potentially gets reused
   on future navigations back to the document? </span></a>
-      <li><a href="#error-handling"><span class="secno">2.19</span> <span class="content"> Does your spec define when and how new kinds of errors should be raised? </span></a>
-      <li><a href="#non-fully-active"><span class="secno">2.20</span> <span class="content"> What happens when a document that uses your feature gets disconnected? </span></a>
+      <li><a href="#non-fully-active"><span class="secno">2.19</span> <span class="content"> What happens when a document that uses your feature gets disconnected? </span></a>
+      <li><a href="#error-handling"><span class="secno">2.20</span> <span class="content"> Does your spec define when and how new kinds of errors should be raised? </span></a>
       <li><a href="#accessibility-devices"><span class="secno">2.21</span> <span class="content"> Does your feature allow sites to learn about the users use of assistive technology? </span></a>
       <li><a href="#missing-questions"><span class="secno">2.22</span> <span class="content"> What should this questionnaire have asked? </span></a>
      </ol>
@@ -1329,7 +1329,17 @@ which is tied to a document.
 This means after a user triggers activation once on a document,
 the document will have sticky activation forever,
 even after the user navigated away and back to it again. </div>
-   <h3 class="heading settled" data-level="2.19" id="error-handling"><span class="secno">2.19. </span><span class="content"> Does your spec define when and how new kinds of errors should be raised? </span><a class="self-link" href="#error-handling"></a></h3>
+   <h3 class="question heading settled" data-level="2.19" id="non-fully-active"><span class="secno">2.19. </span><span class="content"> What happens when a document that uses your feature gets disconnected? </span><a class="self-link" href="#non-fully-active"></a></h3>
+    If the iframe element containing a document <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-disconnected" id="ref-for-becomes-disconnected①">becomes disconnected</a>,
+the document will no longer be <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑥">fully active</a>.
+The document will never become fully active again,
+because if the iframe element <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-connected" id="ref-for-becomes-connected">becomes connected</a> again, it will load a new document.
+The document is gone from the user’s perspective,
+and should be treated as such by your feature as well.
+You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
+as we expect BFCached and detached documents to be treated the same way,
+with the only difference being that BFCached documents can become <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑦">fully active</a> again. 
+   <h3 class="heading settled" data-level="2.20" id="error-handling"><span class="secno">2.20. </span><span class="content"> Does your spec define when and how new kinds of errors should be raised? </span><a class="self-link" href="#error-handling"></a></h3>
    <p>Error handling,
 and what conditions constitute error states,
 can be the source of unintended information leaks and privacy vulnerabilities.
@@ -1358,16 +1368,6 @@ Spec authors should
 carefully think through what information such debugging information exposes,
 and whether (and which) actors on a page are able to access that information.</p>
    </ul>
-   <h3 class="question heading settled" data-level="2.20" id="non-fully-active"><span class="secno">2.20. </span><span class="content"> What happens when a document that uses your feature gets disconnected? </span><a class="self-link" href="#non-fully-active"></a></h3>
-    If the iframe element containing a document <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-disconnected" id="ref-for-becomes-disconnected①">becomes disconnected</a>,
-the document will no longer be <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑥">fully active</a>.
-The document will never become fully active again,
-because if the iframe element <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-connected" id="ref-for-becomes-connected">becomes connected</a> again, it will load a new document.
-The document is gone from the user’s perspective,
-and should be treated as such by your feature as well.
-You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
-as we expect BFCached and detached documents to be treated the same way,
-with the only difference being that BFCached documents can become <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active" id="ref-for-fully-active⑦">fully active</a> again. 
    <h3 class="question heading settled" data-level="2.21" id="accessibility-devices"><span class="secno">2.21. </span><span class="content"> Does your feature allow sites to learn about the users use of assistive technology? </span><a class="self-link" href="#accessibility-devices"></a></h3>
     The Web is designed to work for everyone, and Web standards should be designed
 for people using assistive technology (<abbr title="assistive technology">AT</abbr>) just as much as for users relying
@@ -2188,8 +2188,8 @@ function parseHTML(markup) {
 let dfnPanelData = {
 "05d1562e": {"dfnID":"05d1562e","dfnText":"third-party context","external":true,"refSections":[{"refs":[{"id":"ref-for-third-party-context"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#third-party-context"},
 "0e0909b7": {"dfnID":"0e0909b7","dfnText":"form-action","external":true,"refSections":[{"refs":[{"id":"ref-for-form-action"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://w3c.github.io/webappsec-csp/#form-action"},
-"0e3ba9f8": {"dfnID":"0e3ba9f8","dfnText":"fully active","external":true,"refSections":[{"refs":[{"id":"ref-for-fully-active"},{"id":"ref-for-fully-active\u2460"},{"id":"ref-for-fully-active\u2461"},{"id":"ref-for-fully-active\u2462"},{"id":"ref-for-fully-active\u2463"},{"id":"ref-for-fully-active\u2464"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-fully-active\u2465"},{"id":"ref-for-fully-active\u2466"}],"title":"2.20. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active"},
-"253a9daa": {"dfnID":"253a9daa","dfnText":"becomes connected","external":true,"refSections":[{"refs":[{"id":"ref-for-becomes-connected"}],"title":"2.20. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-connected"},
+"0e3ba9f8": {"dfnID":"0e3ba9f8","dfnText":"fully active","external":true,"refSections":[{"refs":[{"id":"ref-for-fully-active"},{"id":"ref-for-fully-active\u2460"},{"id":"ref-for-fully-active\u2461"},{"id":"ref-for-fully-active\u2462"},{"id":"ref-for-fully-active\u2463"},{"id":"ref-for-fully-active\u2464"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-fully-active\u2465"},{"id":"ref-for-fully-active\u2466"}],"title":"2.19. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#fully-active"},
+"253a9daa": {"dfnID":"253a9daa","dfnText":"becomes connected","external":true,"refSections":[{"refs":[{"id":"ref-for-becomes-connected"}],"title":"2.19. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-connected"},
 "3a2db83f": {"dfnID":"3a2db83f","dfnText":"localStorage","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-localstorage"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://html.spec.whatwg.org/multipage/webstorage.html#dom-localstorage"},
 "4780b3e9": {"dfnID":"4780b3e9","dfnText":"first-party-site context","external":true,"refSections":[{"refs":[{"id":"ref-for-first-party-site-context"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://privacycg.github.io/storage-access/#first-party-site-context"},
 "61cd38cd": {"dfnID":"61cd38cd","dfnText":"FormData","external":true,"refSections":[{"refs":[{"id":"ref-for-formdata"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://xhr.spec.whatwg.org/#formdata"},
@@ -2197,7 +2197,7 @@ let dfnPanelData = {
 "6ced0379": {"dfnID":"6ced0379","dfnText":"indexedDB","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-windoworworkerglobalscope-indexeddb"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"}],"url":"https://w3c.github.io/IndexedDB/#dom-windoworworkerglobalscope-indexeddb"},
 "6e4a4b23": {"dfnID":"6e4a4b23","dfnText":"connect-src","external":true,"refSections":[{"refs":[{"id":"ref-for-connect-src"}],"title":"2.4. \n  How do the features in your specification deal with sensitive information?\n"}],"url":"https://w3c.github.io/webappsec-csp/#connect-src"},
 "87fcd40c": {"dfnID":"87fcd40c","dfnText":"iframe","external":true,"refSections":[{"refs":[{"id":"ref-for-the-iframe-element"},{"id":"ref-for-the-iframe-element\u2460"}],"title":"2.17. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
-"a08a3717": {"dfnID":"a08a3717","dfnText":"become disconnected","external":true,"refSections":[{"refs":[{"id":"ref-for-becomes-disconnected"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-becomes-disconnected\u2460"}],"title":"2.20. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-disconnected"},
+"a08a3717": {"dfnID":"a08a3717","dfnText":"become disconnected","external":true,"refSections":[{"refs":[{"id":"ref-for-becomes-disconnected"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"},{"refs":[{"id":"ref-for-becomes-disconnected\u2460"}],"title":"2.19. \n  What happens when a document that uses your feature gets disconnected?\n"}],"url":"https://html.spec.whatwg.org/multipage/infrastructure.html#becomes-disconnected"},
 "active-network-attacker": {"dfnID":"active-network-attacker","dfnText":"active network attacker","external":false,"refSections":[{"refs":[{"id":"ref-for-active-network-attacker"}],"title":"2.6. \n  Do the features in your specification introduce state\n  that persists across browsing sessions?\n"},{"refs":[{"id":"ref-for-active-network-attacker\u2460"}],"title":"4.5. \n  Secure Contexts\n"}],"url":"#active-network-attacker"},
 "ca96a59c": {"dfnID":"ca96a59c","dfnText":"sticky activation","external":true,"refSections":[{"refs":[{"id":"ref-for-sticky-activation"}],"title":"2.18. \n  What happens when a document that uses your feature is kept alive in BFCache\n  (instead of getting destroyed) after navigation, and potentially gets reused\n  on future navigations back to the document?\n"}],"url":"https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation"},
 "cc2ecc32": {"dfnID":"cc2ecc32","dfnText":"domain","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-document-domain"}],"title":"2.17. \n  Do features in your specification enable origins to downgrade default\n  security protections?\n"}],"url":"https://html.spec.whatwg.org/multipage/browsers.html#dom-document-domain"},
