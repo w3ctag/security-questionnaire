@@ -20,5 +20,5 @@ jobs:
           W3C_WG_DECISION_URL: "https://github.com/w3ctag/security-questionnaire/pull/171"
           W3C_NOTIFICATIONS_CC: "${{ secrets.CC }}"
           W3C_BUILD_OVERRIDE: |
-            specStatus: Note
+            specStatus: IG-NOTE
             shortname: security-privacy-questionnaire
