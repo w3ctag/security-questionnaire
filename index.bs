@@ -829,6 +829,19 @@ the document will have sticky activation forever,
 even after the user navigated away and back to it again.
 </div>
 
+<h3 class=question id="non-fully-active">
+  What happens when a document that uses your feature gets disconnected?
+</h3>
+If the iframe element containing a document [=becomes disconnected=],
+the document will no longer be [=Document/fully active=].
+The document will never become fully active again,
+because if the iframe element [=becomes connected=] again, it will load a new document.
+The document is gone from the user's perspective,
+and should be treated as such by your feature as well.
+You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
+as we expect BFCached and detached documents to be treated the same way,
+with the only difference being that BFCached documents can become [=Document/fully active=] again.
+
 <h3 id="error-handling">
   Does your spec define when and how new kinds of errors should be raised?
 </h3>
@@ -859,19 +872,6 @@ users at risk include:
     Spec authors should
     carefully think through what information such debugging information exposes,
     and whether (and which) actors on a page are able to access that information.
-
-<h3 class=question id="non-fully-active">
-  What happens when a document that uses your feature gets disconnected?
-</h3>
-If the iframe element containing a document [=becomes disconnected=],
-the document will no longer be [=Document/fully active=].
-The document will never become fully active again,
-because if the iframe element [=becomes connected=] again, it will load a new document.
-The document is gone from the user's perspective,
-and should be treated as such by your feature as well.
-You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
-as we expect BFCached and detached documents to be treated the same way,
-with the only difference being that BFCached documents can become [=Document/fully active=] again.
 
 <h3 class=question id="accessibility-devices">
   Does your feature allow sites to learn about the users use of assistive technology?
