@@ -843,7 +843,7 @@ You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
 as we expect BFCached and detached documents to be treated the same way,
 with the only difference being that BFCached documents can become [=Document/fully active=] again.
 
-<h3 id="error-handling">
+<h3 class=question id="error-handling">
   Does your spec define when and how new kinds of errors should be raised?
 </h3>
 
