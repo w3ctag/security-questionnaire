@@ -15,10 +15,10 @@ class MarkdownGenerator:
                 line = line.lstrip()
                 if self.first_line_in_question:
                     self.qnum += 1
-                    self.prefix = "> %02d. " % self.qnum
+                    self.prefix = "%02d. " % self.qnum
                     self.first_line_in_question = False
                 print(self.prefix, line, end='', file=outfile)
-                self.prefix = ">     "
+                self.prefix = "    "
             else:
                 self.in_question = False
         elif line.startswith("<h3 class=question id="):
@@ -28,9 +28,11 @@ class MarkdownGenerator:
     def generate_markdown(self, infile=sys.stdin, outfile=sys.stdout):
         print("""# [Self-Review Questionnaire: Security and Privacy](https://w3ctag.github.io/security-questionnaire/)
 
-This questionnaire has [moved](https://w3ctag.github.io/security-questionnaire/).
+The full questionnaire is at https://w3ctag.github.io/security-questionnaire/.
 
-For your convenience, a copy of the questionnaire's questions is quoted here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+For your convenience, a copy of the questionnaire's questions is included here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+
+---
 """, file=outfile)
         [self.process_line(line, outfile) for line in infile]
 
