@@ -1,5 +1,5 @@
 # Configuration options https://w3c.github.io/spec-prod/
-name: Node CI
+name: Publish the ED and Note
 
 on:
   push:
