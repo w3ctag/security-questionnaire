@@ -1433,8 +1433,8 @@ spec:indexeddb-3; type:attribute; text:indexedDB
       "authors": [ "Egor Homakov" ]
   },
   "OLEJNIK-ALS": {
-    "href": "https://blog.lukaszolejnik.com/privacy-of-ambient-light-sensors/",
-    "title": "Privacy analysis of Ambient Light Sensors",
+    "href": "https://blog.lukaszolejnik.com/stealing-sensitive-browser-data-with-the-w3c-ambient-light-sensor-api/",
+    "title": "Stealing sensitive browser data with the W3C Ambient Light Sensor API",
     "publisher": "Lukasz Olejnik",
     "authors": [ "Lukasz Olejnik" ]
   },
