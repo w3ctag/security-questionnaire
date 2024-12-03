@@ -1,0 +1,27 @@
+# Configuration options https://w3c.github.io/spec-prod/
+name: Publish the ED and Note
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+jobs:
+  validate-and-publish:
+    name: Validate and Publish
+    runs-on: ubuntu-latest # only linux supported at present
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: w3c/spec-prod@v2
+        with:
+          TOOLCHAIN: bikeshed
+          GH_PAGES_BRANCH: gh-pages
+          W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
+          W3C_WG_DECISION_URL: "https://github.com/w3ctag/security-questionnaire/pull/171"
+          W3C_NOTIFICATIONS_CC: "${{ secrets.CC }}"
+          W3C_BUILD_OVERRIDE: |
+            status: NOTE
+            shortname: security-privacy-questionnaire
