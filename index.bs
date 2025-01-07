@@ -1361,7 +1361,7 @@ Thomas Steiner,
 <!-- Yves Lafon, -->
 Wendy Seltzer,
 and
-the many current and former participants in PING, the Security Interest Gropu, and the TAG
+the many current and former participants in PING, the Security Interest Group, and the TAG
 for their contributions to this document.
 
 Special thanks to
