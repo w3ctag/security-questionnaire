@@ -67,19 +67,20 @@ particularly as a design changes over time.
 <h3 id=resources>Additional resources</h3>
 
 The Mitigating Browser Fingerprinting in Web Specifications
-[[FINGERPRINTING-GUIDANCE]] document published by PING goes into
+[[FINGERPRINTING-GUIDANCE]] document published by the Privacy WG goes into
 further depth about browser fingerprinting and should be considered in
 parallel with this document.
 
 The IETF's RFC about privacy considerations, [[RFC6973]], is a
 wonderful resource, particularly section 7.
 
-<h3 id=reviews>TAG, PING, the Security Interest Group, and this questionnaire</h3>
+<h3 id=reviews>TAG, Privacy WG, Security IG, and this questionnaire</h3>
 
 Before requesting
 privacy and
-security reviews from the [Privacy Interest Group
-(PING)](https://www.w3.org/Privacy/IG/) and the [Security Interest Group](https://www.w3.org/groups/ig/security/),
+security reviews from
+the [Privacy Working Group](https://www.w3.org/groups/wg/privacy/) and
+the [Security Interest Group](https://www.w3.org/groups/ig/security/),
 write "Security Considerations" and
 "Privacy Considerations" sections in your document, as described in
 [[#considerations]].  Answering the questions in this
@@ -1362,7 +1363,8 @@ Thomas Steiner,
 <!-- Yves Lafon, -->
 Wendy Seltzer,
 and
-the many current and former participants in PING, the Security Interest Group, and the TAG
+the many current and former participants in PING, the Privacy Working Group,
+the Security Interest Group, and the TAG
 for their contributions to this document.
 
 Special thanks to
@@ -1404,10 +1406,10 @@ spec:indexeddb-3; type:attribute; text:indexedDB
 <pre class="biblio">
 {
   "ADDING-PERMISSION": {
-    "href": "https://github.com/w3cping/adding-permissions",
+    "href": "https://github.com/w3c/adding-permissions",
     "title": "Adding another permission? A guide",
     "authors": [ "Nick Doty" ],
-    "publisher": "W3C Privacy Interest Group"
+    "publisher": "W3C Privacy Working Group"
   },
   "COMCAST": {
       "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
