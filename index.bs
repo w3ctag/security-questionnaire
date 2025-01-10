@@ -6,13 +6,13 @@ ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
 Repository: w3ctag/security-questionnaire
 Level: None
-Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
 Editor: Peter Snyder, w3cid 109401, Brave Software https://brave.com, pes@brave.com
 Former Editor: Jason Novak, Apple Inc., https://apple.com
 Former Editor: Lukasz Olejnik, Independent researcher, https://lukaszolejnik.com
 Former Editor: Mike West, Google Inc., mkwst@google.com
+Former Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
 Former Editor: Yan Zhu, Yahoo Inc., yan@brave.com
-Group: tag
+Group: privacywg
 Markup Shorthands: css no, markdown yes
 Local Boilerplate: status yes
 Local Boilerplate: copyright yes
@@ -1327,9 +1327,6 @@ practices before the site prompted for location.
 
 <h2 id="acknowledgements" class="no-num">Acknowledgements</h2>
 
-<!-- Current TAG participants who would otherwise be ackked are
-     commented out. Please uncomment them when their term on the TAG
-     ends! -->
 Many thanks to
 Alice Boxhall,
 Alex Russell,
@@ -1337,15 +1334,15 @@ Anne van Kesteren,
 Chris Cunningham,
 Coralie Mercier,
 Corentin Wallez,
-<!-- Daniel Appelquist, -->
+Daniel Appelquist,
 David Baron,
 Domenic Denicola,
 Dominic Battre,
-<!-- Hadley Beeman, -->
+Hadley Beeman,
 Jeffrey Yasskin,
 Jeremy Roman,
 Jonathan Kingston,
-<!-- Kenneth Rohde Christiansen, -->
+Kenneth Rohde Christiansen,
 Marcos Caceres,
 Marijn Kruisselbrink,
 Mark Nottingham,
@@ -1355,12 +1352,12 @@ Mike Perry,
 Nick Doty,
 Robert Linder,
 Piotr Bialecki,
-<!-- Rossen Atanassov, -->
+Rossen Atanassov,
 Samuel Weiler,
-<!-- Sangwhan Moon, -->
+Sangwhan Moon,
 Tantek Çelik,
 Thomas Steiner,
-<!-- Yves Lafon, -->
+Yves Lafon,
 Wendy Seltzer,
 and
 the many current and former participants in PING, the Privacy Working Group,
