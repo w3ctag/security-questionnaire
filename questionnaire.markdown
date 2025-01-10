@@ -1,8 +1,8 @@
-# [Self-Review Questionnaire: Security and Privacy](https://w3ctag.github.io/security-questionnaire/)
+# [Self-Review Questionnaire: Security and Privacy](https://w3c.github.io/security-questionnaire/)
 
-The full questionnaire is at https://w3ctag.github.io/security-questionnaire/.
+The full questionnaire is at https://w3c.github.io/security-questionnaire/.
 
-For your convenience, a copy of the questionnaire's questions is included here in Markdown, so you can easily include your answers in an [explainer](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md).
+For your convenience, a copy of the questionnaire's questions is included here in Markdown, so you can easily include your answers in an [explainer](https://tag.w3.org/explainers/).
 
 ---
 

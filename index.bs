@@ -2,9 +2,9 @@
 Title: Self-Review Questionnaire: Security and Privacy
 Status: ED
 TR: https://www.w3.org/TR/security-privacy-questionnaire/
-ED: https://w3ctag.github.io/security-questionnaire/
+ED: https://w3c.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
-Repository: w3ctag/security-questionnaire
+Repository: w3c/security-questionnaire
 Level: None
 Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
 Editor: Peter Snyder, w3cid 109401, Brave Software https://brave.com, pes@brave.com
@@ -44,7 +44,7 @@ security and privacy concerns they encounter as they work on their spec.
 This document is itself a work in progress,
 and there may be security or privacy concerns
 which this document does not (yet) cover.
-Please [let us know](https://github.com/w3ctag/security-questionnaire/issues/new)
+Please [let us know](https://github.com/w3c/security-questionnaire/issues/new)
 if you identify a security or privacy concern
 this questionnaire should ask about.
 
@@ -96,7 +96,7 @@ from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
 please provide the TAG with answers
 to the questions in this document.
 [This Markdown
-template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown)
+template](https://raw.githubusercontent.com/w3c/security-questionnaire/main/questionnaire.markdown)
 may be useful when doing so.
 
 
@@ -931,7 +931,7 @@ please convey those privacy concerns,
 and indicate if you can think of improved or new questions
 that would have covered this aspect.
 
-Please consider [filing an issue](https://github.com/w3ctag/security-questionnaire/issues/new)
+Please consider [filing an issue](https://github.com/w3c/security-questionnaire/issues/new)
 to let us know what the questionnaire should have asked.
 
 <h2 id="threats">Threat Models</h2>
