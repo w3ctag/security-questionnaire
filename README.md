@@ -1,4 +1,4 @@
-This repository contains the [Editor's Draft](https://w3ctag.github.io/security-questionnaire/) of the [Self-Review Questionnaire: Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/) document, which spec authors can use to identify and work through possible security and privacy concerns related to their spec.
+This repository contains the [Editor's Draft](https://w3c.github.io/security-questionnaire/) of the [Self-Review Questionnaire: Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/) document, which spec authors can use to identify and work through possible security and privacy concerns related to their spec.
 
 The questionnaire is a joint product of three groups: the [TAG](https://tag.w3.org/), [PING](https://www.w3.org/Privacy/IG/), and the [Security Interest Group](https://www.w3.org/groups/ig/security/).
 
@@ -14,6 +14,3 @@ writing of those sections, it is not appropriate to merely copy this
 questionnaire into those sections.
 
 [Further instructions on requesting security and privacy reviews can be found in the Guide.](https://w3c.github.io/documentreview/#how_to_get_horizontal_review)
-
-
-
