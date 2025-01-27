@@ -1,5 +1,5 @@
 {
-    "group": ["other/tag", "wg/privacy"],
-    "contacts": ["tjwhalen", "ylafon"],
+    "group": ["other/tag", "wg/privacy", "ig/security"],
+    "contacts": ["tjwhalen", "ylafon", "simoneonofri"],
     "repo-type": "note"
 }
