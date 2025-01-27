@@ -4,7 +4,7 @@ Status: ED
 TR: https://www.w3.org/TR/security-privacy-questionnaire/
 ED: https://w3ctag.github.io/security-questionnaire/
 Shortname: security-privacy-questionnaire
-Repository: w3ctag/security-questionnaire
+Repository: w3c/security-questionnaire
 Level: None
 Editor: Theresa O’Connor, w3cid 40614, Apple Inc. https://apple.com, hober@apple.com
 Editor: Peter Snyder, w3cid 109401, Brave Software https://brave.com, pes@brave.com
@@ -44,7 +44,7 @@ security and privacy concerns they encounter as they work on their spec.
 This document is itself a work in progress,
 and there may be security or privacy concerns
 which this document does not (yet) cover.
-Please [let us know](https://github.com/w3ctag/security-questionnaire/issues/new)
+Please [let us know](https://github.com/w3c/security-questionnaire/issues/new)
 if you identify a security or privacy concern
 this questionnaire should ask about.
 
@@ -88,7 +88,7 @@ document will, we hope, inform your writing of those sections. It is not
 appropriate, however, to merely copy this questionnaire into those sections.
 Instructions for requesting security and privacy reviews can be
 found in the document
-<cite>[How to do Wide Review](https://www.w3.org/Guide/documentreview/#how_to_get_horizontal_review)</cite>.
+<cite>[How to do Wide Review](https://www.w3.org/guide/documentreview/#how_to_get_horizontal_review)</cite>.
 
 When requesting
 a [review](https://github.com/w3ctag/design-reviews)
@@ -96,7 +96,7 @@ from the [Technical Architecture Group (TAG)](https://www.w3.org/2001/tag/),
 please provide the TAG with answers
 to the questions in this document.
 [This Markdown
-template](https://raw.githubusercontent.com/w3ctag/security-questionnaire/main/questionnaire.markdown)
+template](https://raw.githubusercontent.com/w3c/security-questionnaire/main/questionnaire.markdown)
 may be useful when doing so.
 
 
@@ -810,7 +810,7 @@ consider listening to changes to the [=Document/fully active=] state
 and doing cleanup as necessary.
 
 For more detailed guidance on how to handle BFCached documents,
-see [[DESIGN-PRINCIPLES#non-fully-active]] and the [Supporting BFCached Documents](https://w3ctag.github.io/bfcache-guide/) guide.
+see [[DESIGN-PRINCIPLES#support-non-fully-active]] and the [Supporting BFCached Documents](https://w3ctag.github.io/bfcache-guide/) guide.
 
 Note: It is possible for a document to become non-[=Document/fully active=] for other reasons not related to BFcaching,
 such as when the iframe holding the document [=becomes disconnected=].
@@ -840,7 +840,7 @@ The document will never become fully active again,
 because if the iframe element [=becomes connected=] again, it will load a new document.
 The document is gone from the user's perspective,
 and should be treated as such by your feature as well.
-You may follow the guidelines for <a href="bfcache">BFCache</a> mentioned above,
+You may follow the guidelines for <a href="#bfcache">BFCache</a> mentioned above,
 as we expect BFCached and detached documents to be treated the same way,
 with the only difference being that BFCached documents can become [=Document/fully active=] again.
 
@@ -931,7 +931,7 @@ please convey those privacy concerns,
 and indicate if you can think of improved or new questions
 that would have covered this aspect.
 
-Please consider [filing an issue](https://github.com/w3ctag/security-questionnaire/issues/new)
+Please consider [filing an issue](https://github.com/w3c/security-questionnaire/issues/new)
 to let us know what the questionnaire should have asked.
 
 <h2 id="threats">Threat Models</h2>
@@ -1149,7 +1149,7 @@ are:
 
 * [[BATTERY-STATUS]] <q>The user agent should not expose high precision readouts</q>
 * [[GENERIC-SENSOR]] <q>Limit maximum sampling frequency</q>,
-    <q>Reduce accuracy</q></em>
+    <q>Reduce accuracy</q>
 
 <h3 id="privacy-friendly-defaults">
   Default Privacy Settings
@@ -1386,7 +1386,7 @@ We hope we haven't made it (much) worse.
 
 <pre class="anchors">
 urlPrefix: https://www.w3.org/TR/encrypted-media/; spec: ENCRYPTED-MEDIA
-    text: content decryption module; url: #cdm; type: dfn
+    text: content decryption module; url: #dfn-cdm; type: dfn
 urlPrefix: https://privacycg.github.io/storage-access/; spec: STORAGE-ACCESS
     text: first-party-site context; url: #first-party-site-context; type: dfn
     text: third-party context; url: #third-party-context; type: dfn
@@ -1412,7 +1412,7 @@ spec:indexeddb-3; type:attribute; text:indexedDB
     "publisher": "W3C Privacy Working Group"
   },
   "COMCAST": {
-      "href": "http://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
+      "href": "https://arstechnica.com/tech-policy/2014/09/why-comcasts-javascript-ad-injections-threaten-security-net-neutrality/",
       "title": "Comcast Wi-Fi serving self-promotional ads via JavaScript injection",
       "publisher": "Ars Technica",
       "authors": [ "David Kravets" ]
@@ -1459,13 +1459,13 @@ spec:indexeddb-3; type:attribute; text:indexedDB
     "publisher": "David Rivera"
   },
   "TIMING": {
-      "href": "http://www.contextis.com/documents/2/Browser_Timing_Attacks.pdf",
+      "href": "https://media.blackhat.com/us-13/US-13-Stone-Pixel-Perfect-Timing-Attacks-with-HTML5-WP.pdf",
       "title": "Pixel Perfect Timing Attacks with HTML5",
       "authors": [ "Paul Stone" ],
       "publisher": "Context Information Security"
   },
   "VERIZON": {
-      "href": "http://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356/",
+      "href": "https://adage.com/article/digital/verizon-target-mobile-subscribers-ads/293356",
       "title": "Verizon looks to target its mobile subscribers with ads",
       "publisher": "Advertising Age",
       "authors": [ "Mark Bergen", "Alex Kantrowitz" ]
